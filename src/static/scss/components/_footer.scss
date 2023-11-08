@@ -1,0 +1,79 @@
+.app-footer {
+    > .app-container {
+        min-height: $footer_height;
+        @extend %jx-padding-top, %jx-padding-bottom;
+    }
+
+    .head {
+        @extend %jx-col-3, %jx-col-b11-6, %jx-col-b8-7, %jx-col-b7-6, %jx-col-b4-12;
+        @extend %jx-order-1, %jx-order-b11-3, %jx-order-b8-2, %jx-order-b4-3;
+    }
+
+    .body {
+        @extend %jx-grid-6, %jx-grid-b11-9, %jx-grid-b8-12;
+        @extend %jx-order-2, %jx-order-b11-1, %jx-order-b4-1;
+
+        .about,
+        .contacts,
+        .social {
+            @extend %jx-col-2, %jx-col-b11-3, %jx-col-b8-4, %jx-col-b7-6, %jx-col-b5-12;
+        }
+
+        .social {
+            .nav {
+                flex-direction: row;
+                flex-wrap:      wrap;
+
+                > :not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .foot {
+        @extend %jx-col-3, %jx-col-b8-5, %jx-col-b7-6, %jx-col-b4-12;
+        @extend %jx-order-3, %jx-order-b11-2, %jx-order-b8-3, %jx-order-b4-2;
+        align-items: start;
+
+        .btn {
+            font-size:        .9rem;
+            font-weight:      600;
+            background-color: $color_primary_font;
+            color:            $color_primary;
+            display:          flex;
+            flex-wrap:        nowrap;
+            justify-content:  center;
+            align-items:      center;
+            width:            100%;
+            min-height:       3rem;
+            padding:          0;
+            border:           1px solid white;
+            border-radius:    .4rem;
+            transition:       all .5ms ease-in-out;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, .3);
+                color:            $color_primary_font;
+                border-color:     $color_primary_font;
+            }
+
+            &:active {
+                background-color: transparent;
+                color:            $color_primary_font;
+            }
+        }
+    }
+
+    .title {
+    }
+
+    .list {
+        @extend %jx-list;
+    }
+
+    .bar {
+        @extend %jx-bar;
+        @extend %jx-gap-quart;
+    }
+}
