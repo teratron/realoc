@@ -3,6 +3,7 @@
   "description": "Realoc - real estate app.",
   "version": "0.0.1",
   "private": true,
+  "main": "src/index.tsx",
   "module": "src/index.tsx",
   "type": "module",
   "keywords": [

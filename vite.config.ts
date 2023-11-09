@@ -1,12 +1,9 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import path from 'path'
-import autoprefixer from 'autoprefixer'
-import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    root: path.resolve(__dirname, 'src'),
+    /*root: 'src', //path.resolve(__dirname, 'src'),
     base: pkg.homepage,
     appType: 'mpa',
     css: {
@@ -16,7 +13,13 @@ export default defineConfig({
             ]
         }
     },
-    publicDir: '../public',
+    publicDir: '../public',*/
+    plugins: [react()],
+    /*resolve: {
+        alias: {
+            '@': './src',
+        }
+    },
     build: {
         rollupOptions: {
             input: {
@@ -34,11 +37,5 @@ export default defineConfig({
         minify: true,
         cssMinify: true,
         cssCodeSplit: false,
-    },
-    plugins: [react()],
-    resolve: {
-        alias: {
-            '@': './src',
-        }
-    },
+    },*/
 })
