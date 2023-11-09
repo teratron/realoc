@@ -6,7 +6,8 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'plugin:@typescript-eslint/recommended'
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react-hooks/recommended'
     ],
     ignorePatterns: [
         'dist',
@@ -22,7 +23,8 @@ module.exports = {
         project: ["./tsconfig.json"]
     },
     plugins: [
-        '@typescript-eslint'
+        '@typescript-eslint',
+        'react-refresh'
     ],
     rules: {
         '@typescript-eslint/strict-boolean-expressions': [
@@ -30,6 +32,12 @@ module.exports = {
             {
                 allowString: false,
                 allowNumber: false
+            }
+        ],
+        'react-refresh/only-export-components': [
+            'warn',
+            {
+                allowConstantExport: true
             }
         ]
     }

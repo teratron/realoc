@@ -1,8 +1,10 @@
 import {defineConfig} from 'vite'
+import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 import autoprefixer from 'autoprefixer'
 import pkg from './package.json'
 
+// https://vitejs.dev/config/
 export default defineConfig({
     root: path.resolve(__dirname, 'src'),
     base: pkg.homepage,
@@ -33,7 +35,7 @@ export default defineConfig({
         cssMinify: true,
         cssCodeSplit: false,
     },
-    plugins: [],
+    plugins: [react()],
     resolve: {
         alias: {
             '@': './src',

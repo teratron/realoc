@@ -1,0 +1,120 @@
+// Application
+#app {
+  @extend %jx-display-grid;
+  grid-template-rows:    auto 1fr;
+  grid-template-columns: 100%;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+  min-height: 100vh;
+  z-index: $zindex_app;
+
+  @extend %jx-sticker !optional;
+}
+
+.app-container {
+  @extend %jx-container;
+  @extend %jx-grid-12;
+}
+
+@mixin aa() {
+  &,
+  &:focus,
+  &:active,
+  &:hover {
+    color: $color_primary_font;
+  }
+}
+
+.app-header,
+.app-footer {
+  background-color: $primary;
+  color: $color_primary_font;
+
+  a {
+    @include aa();
+
+    //@extend %text-decoration-none;
+    text-decoration: none;
+  }
+
+  .head .title {
+    @extend h2;
+    white-space: nowrap;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &, > a {
+      line-height: 1;
+    }
+
+    > a {
+      display: block;
+    }
+  }
+}
+
+// Typography
+h1 {
+  font-size: 48px;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 1;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 1;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 1;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 1;
+}
+
+// Fonts
+@font-face {
+  font-family: "Futura";
+  src: url("#{$fonts}futura.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "FuturaLight";
+  src: url("#{$fonts}futura_light_bt.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "FuturaMedium";
+  src: url("#{$fonts}futura_medium_bt.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "FuturaMediumCondensed";
+  src: url("#{$fonts}futura_medium_condensed_bt.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+// Components
+@import "components/header";
+@import "components/footer";
+@import "components/main";
+@import "components/jumbotron";

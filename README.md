@@ -1,3 +1,3 @@
-![alt text](src/static/media/logo_realoc.png)
+![alt text](src/assets/media/logo_realoc.png)
 
 # Realoc

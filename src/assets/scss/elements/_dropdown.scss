@@ -1,0 +1,58 @@
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  white-space: nowrap;
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: none; // none by default, but block on "open" of the menu
+  min-width: 100px; //var(--#{$prefix}dropdown-min-width);
+  padding: 20px; //var(--#{$prefix}dropdown-padding-y) var(--#{$prefix}dropdown-padding-x);
+  margin: 0; // Override default margin of ul
+
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  list-style: none;
+
+  background-clip: padding-box;
+
+  &[data-bs-popper] {
+    top: 100%;
+    left: 0;
+    margin-top: 100%; //var(--#{$prefix}dropdown-spacer);
+  }
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%; // For `<button>`s
+  clear: both;
+  text-align: inherit; // For `<button>`s
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+  background-color: transparent; // For `<button>`s
+  border: 0; // For `<button>`s
+
+
+  &:hover,
+  &:focus {
+    //text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+
+  &.active,
+  &:active {
+    text-decoration: none;
+  }
+
+  &.disabled,
+  &:disabled {
+    pointer-events: none;
+    background-color: transparent;
+  }
+}
+
+.dropdown-menu.show {
+  display: block;
+}
