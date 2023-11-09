@@ -1,7 +1,7 @@
 // Configuration
-@import "themes/default";
-@import "variables";
-@import "app";
+//@import "themes/default";
+//@import "variables";
+//@import "app";
 
 // Elements
 //@import "elements/dropdown";
@@ -19,3 +19,17 @@
 // Layout & components
 //@import "bootstrap/scss/dropdown";
 
+[data-theme="dark"] {
+  --bg-color1: #121416;
+  --font-color: #f4f4f4;
+}
+
+[data-theme="light"] {
+  --bg-color1: #f4f4f4;
+  --font-color: #121416;
+}
+
+.body-app {
+  background-color: var(--bg-color1);
+  color: var(--font-color);
+}

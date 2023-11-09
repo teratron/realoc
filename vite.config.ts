@@ -1,28 +1,31 @@
 import {defineConfig} from 'vite'
+import path from 'path'
+import autoprefixer from 'autoprefixer'
 import pkg from './package.json'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    root: 'src',
+    root: path.resolve(__dirname, 'src'),
     base: pkg.homepage,
     appType: 'mpa',
     css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `$injectedColor: orange;`,
-            },
-        },
+        postcss: {
+            plugins: [
+                autoprefixer({}),
+            ]
+        }
     },
+    publicDir: '../public',
     build: {
         rollupOptions: {
-            //input: 'src/index.ts',
+            input: {
+                index: 'src/index.html',
+            },
             output: {
-                entryFileNames: 'js/[name].[hash].js',
-                assetFileNames: '[ext]/[name].[hash][extname]',
-                chunkFileNames: '[name]--[hash].js',
+                entryFileNames: 'assets/[name].[hash].js',
+                assetFileNames: 'assets/[name].[hash][extname]',
+                chunkFileNames: 'assets/[name]-[hash][extname]',
             }
         },
-        //assetsDir: 'static',
         outDir: '../dist',
         emptyOutDir: true,
         sourcemap: false,
@@ -30,6 +33,10 @@ export default defineConfig({
         cssMinify: true,
         cssCodeSplit: false,
     },
-    publicDir: '../public',
     plugins: [],
+    resolve: {
+        alias: {
+            '@': './src',
+        }
+    },
 })

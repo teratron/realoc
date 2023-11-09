@@ -1,8 +1,8 @@
-//import './static/scss/index.scss'
+import './static/scss/index.scss'
 import './static/css/index.css'
 import typescriptLogo from './static/media/logo_realoc.png'
 import viteLogo from '../public/favicon.ico'
-import { setupCounter } from './static/ts/counter.ts'
+import {setupCounter} from './static/ts/counter.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
