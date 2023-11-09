@@ -1,59 +1,35 @@
 {
   "name": "realoc",
-  "description": "Realoc - real estate app.",
-  "version": "0.0.1",
-  "private": true,
-  "main": "src/index.tsx",
-  "module": "src/index.tsx",
-  "type": "module",
+  "description": "Realoc - real estate bot app",
   "keywords": [
     "real",
     "estate"
   ],
+  "version": "0.0.1",
+  "private": true,
   "homepage": "https://teratron.github.io/realoc",
   "scripts": {
-    "dev": "vite",
-    "preview": "vite preview",
-    "build": "tsc && vite build",
-    "build-deploy:gh": "npm run build && gh-pages -d dist",
-    "lint": "eslint . --ext js,ts,jsx,tsx --report-unused-disable-directives --max-warnings 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build-deploy:gh": "npm run build && gh-pages -d build"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.18.0"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "@typescript-eslint/parser": "^6.10.0",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.53.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.4",
-    "gh-pages": "^6.0.0",
-    "postcss": "^8.4.31",
-    "sass": "^1.69.5",
-    "vite": "^4.4.5"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14",
+    "gh-pages": "^6",
+    "sass": "^1"
   },
   "peerDependencies": {
-    "typescript": "^5.0.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typescript": "^5"
   }
 }
