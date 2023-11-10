@@ -1,17 +1,25 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import * as path from 'path'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
+import webpack from 'webpack'
+//import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-const path = require('path')
+//const CopyWebpackPlugin = require('copy-webpack-plugin')
+//const HtmlWebpackPlugin = require('html-webpack-plugin')
+//const path = require('path')
+//const root = path.resolve(__dirname, './')
+const root: string = './'
 
-const root = path.resolve(__dirname, '../')
 export const paths = {
+    //root: './',
     root: root,
+    //root: path.resolve(__dirname, './'),
     src: path.resolve(root, 'src'),
     build: path.resolve(root, 'build'),
     public: path.resolve(root, 'public')
 }
 
-module.exports = props => {
+//module.exports = props => {
+export const common = (props: { styleLoader: string; isBuildDev: boolean }): webpack.Configuration => {
     return {
         entry: {
             main: paths.src + '/index.js'
@@ -19,30 +27,12 @@ module.exports = props => {
         module: {
             rules: [
                 {
-                    test: /\.m?js$/,
+                    test: /\.m?ts$/i,
                     exclude: /(node_modules)/,
                     use: {
-                        loader: "swc-loader"
-                    }
-                },
-                {
-                    test: /\.m?js$/i,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: 'babel-loader',
+                        loader: "swc-loader",
                         options: {
-                            presets: [
-                                [
-                                    '@babel/preset-env',
-                                    {
-                                        targets: 'defaults'
-                                    }
-                                ]
-                            ],
-                            plugins: [
-                                '@babel/plugin-proposal-class-properties',
-                                '@babel/plugin-proposal-object-rest-spread'
-                            ]
+                            parseMap: true
                         }
                     }
                 },
@@ -120,7 +110,7 @@ module.exports = props => {
                     }
                 ]
             }),
-            ...require('fs')
+            /*...require('fs')
                 .readdirSync(paths.src + '/templates/pages')
                 .filter(fileName => fileName.endsWith('.js'))
                 .map(page => new HtmlWebpackPlugin({
@@ -128,12 +118,13 @@ module.exports = props => {
                     filename: page.replace(/\.js/gi, '.html'),
                     inject: 'body',
                     minify: !props.isBuildDev
-                }))
+                }))*/
         ],
         resolve: {
             modules: [paths.src, 'node_modules'],
             extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.sass', '.scss'],
             alias: {
+                '~': paths.src,
                 '@': paths.src + '/static/js',
             }
         }
