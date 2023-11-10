@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Main from '../components/Main'
+import Header from '../containers/Header'
+import Footer from '../containers/Footer'
+import Main from '../containers/Main'
 
 function Home() {
     return (
         <React.Fragment>
-            <Header/>
+            <Header title={"Home"}/>
             <Main/>
             <Footer/>
         </React.Fragment>

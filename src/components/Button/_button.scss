@@ -1,0 +1,109 @@
+@mixin btn-color($color) {
+    &.-#{$color} {
+        $color: --color-#{$color};
+
+        background-color: var(#{$color});
+        border-color: var(#{$color});
+        color: var(#{$color}-font);
+
+        &:hover:not(:disabled) {
+            background-color: var(#{$color}-light);
+            border-color: var(#{$color}-light);
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(#{$color}-dark);
+            border-color: var(#{$color}-dark);
+        }
+
+        &.-blanked,
+        &.-bordered {
+            color: var(#{$color});
+
+            &:hover:not(:disabled) {
+                color: var(#{$color}-light);
+            }
+
+            &:active:not(:disabled) {
+                color: var(#{$color}-dark);
+            }
+        }
+    }
+}
+
+.btn {
+    --btn-border-width: 2px;
+    --btn-border-radius: .2em;
+    --btn-padding: calc(2rem - var(--btn-border-width));
+
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 6rem;
+    min-height: 6rem;
+    padding: var(--btn-padding);
+    margin-bottom: 0;
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border: var(--btn-border-width) solid transparent;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: none;
+    transition: color .18s ease-in-out, background-color .18s ease-in-out, border-color .18s ease-in-out, box-shadow .18s ease-in-out;
+
+    &.-rounded {
+        border-radius: var(--btn-border-radius) !important;
+    }
+
+    &.-blanked,
+    &.-bordered {
+        background-color: transparent !important;
+    }
+
+    &.-blanked {
+        border-color: transparent !important;
+    }
+
+    &.-shadowed:not(:active):not(:disabled) {
+        box-shadow: 0 .2rem .2rem 0 rgba(0, 0, 0, .2);
+    }
+
+    &:hover {
+        &.-shadowed:not(:active):not(:disabled) {
+            box-shadow: 0 .4rem .6rem 0 rgba(0, 0, 0, .2);
+        }
+    }
+
+    &:focus {
+        outline: none;
+
+        &:not(:active):not(:disabled):not(.-blanked) {
+            box-shadow: 0 0 0 5px rgba(0, 0, 0, .1);
+        }
+    }
+
+    &:disabled {
+        cursor: default;
+        opacity: .7;
+    }
+
+    /* Colors */
+    @each $color in (primary, secondary, accent, success, warning, error) {
+        @include btn-color($color);
+    }
+
+    & {
+        //@extend #{"&.-primary"};
+    }
+}

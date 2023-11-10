@@ -1,10 +1,7 @@
-//@import '../../static/scss/mixins/bar';
-
 .app-header {
     background-color: var(--color-primary);
     color: var(--color-primary-font);
     z-index: var(--zindex-header);
-    //@include bar(var(--app-header-height), 0, var(--app-layout-padding));
 
     .logo {
         height: 3.4em;
@@ -16,9 +13,5 @@
         font-size: 4rem;
         font-weight: 500;
         margin: 0;
-    }
-
-    .login {
-        text-transform: none;
     }
 }

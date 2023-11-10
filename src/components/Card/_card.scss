@@ -1,0 +1,21 @@
+.card {
+  --card-padding: 4rem;
+  --card-border-width: 1px;
+  --card-border-radius: .5rem;
+
+  background-color: white;
+  border: var(--card-border-width) solid var(--color-light);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  box-shadow: 0 .2rem .4rem 0 rgba(0, 0, 0, .3);
+
+  > :only-child,
+  > :not(:only-child):first-child {
+    margin-top: 0;
+  }
+
+  > :only-child,
+  > :not(:only-child):last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,22 +1,10 @@
-//import { useState } from 'react'
-//import reactLogo from '../assets/media/logo_realoc.png'
-//import viteLogo from '../assets/media/plug_room_01.jpg'
 import React from 'react'
 import {Link, Route, Routes, useLocation} from 'react-router-dom'
+import Home from '../../pages/Home.tsx'
+import About from '../../pages/About.tsx'
+import Spinner from '../../components/Spinner'
+import './_app.scss'
 
-import Home from '../pages/Home.tsx'
-//import Catalog from './pages/Catalog'
-//import Map from './pages/Map'
-//import Blog from './pages/Blog'
-import About from '../pages/About.tsx'
-import Spinner from '../components/Spinner'
-import '../assets/css/App.css'
-
-//const Home = React.lazy(() => import('./pages/Home'));
-//const About = React.lazy(() => import('./pages/About'));
-
-//const About = () => <div>You are on the about page</div>
-//const Home = () => <div>You are home</div>
 const NoMatch = () => <div>No match</div>
 
 const LocationDisplay = () => {
@@ -24,41 +12,41 @@ const LocationDisplay = () => {
     return <div data-testid="location-display">{location.pathname}</div>
 }
 
-function App() {
+function Index() {
     return (
-    <React.Suspense fallback={<Spinner/>}>
-        <div className="app">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/about" element={<About/>}/>
-                <Route path="*" element={<NoMatch/>}/>
-            </Routes>
-            <LocationDisplay/>
-        </div>
-    </React.Suspense>
-        /*<div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>*/
+        <React.Suspense fallback={<Spinner/>}>
+            <div id="app">
+                <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/about" element={<About/>}/>
+                    <Route path="*" element={<NoMatch/>}/>
+                </Routes>
+                <LocationDisplay/>
+            </div>
+        </React.Suspense>
     )
 }
 
-export default App
+export default Index
 
+/*<div className="Index">
+  <header className="Index-header">
+    <img src={logo} className="Index-logo" alt="logo" />
+    <p>
+      Edit <code>src/Index.js</code> and save to reload.
+    </p>
+    <a
+      className="Index-link"
+      href="https://reactjs.org"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn React
+    </a>
+  </header>
+</div>*/
 /*
 const About = () => <div>You are on the about page</div>
 const Home = () => <div>You are home</div>
@@ -69,7 +57,7 @@ const LocationDisplay = () => {
   return <div data-testid="location-display">{location.pathname}</div>
 }
 
-function App() {
+function Index() {
   return (
       <React.Component>
         <div>
@@ -86,7 +74,7 @@ function App() {
   )
 }
 
-export default App
+export default Index
 
 
 import {Route, Routes} from 'react-router-dom';
@@ -103,7 +91,7 @@ import './static/scss/app.scss';
 //const Home = React.lazy(() => import('./pages/Home'));
 //const About = React.lazy(() => import('./pages/About'));
 
-function App() {
+function Index() {
     return (
         <React.Suspense fallback={<Spinner/>}>
             <div className="app">
@@ -119,10 +107,9 @@ function App() {
     );
 }
 
-export default App;
-* */
-
-/*function App() {
+export default Index;
+*/
+/*function Index() {
   const [count, setCount] = useState(0)
 
   return (
@@ -141,7 +128,7 @@ export default App;
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/index.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">

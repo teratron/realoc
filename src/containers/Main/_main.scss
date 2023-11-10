@@ -1,0 +1,37 @@
+.app-main {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 360px auto;
+  z-index: var(--zindex-main);
+
+  //min-height: $main_height;
+  height: 1fr;
+
+  > .app-container {
+    align-content: start;
+    height: 100%;
+    //@extend %padding-top;
+    //@extend %padding-bottom;
+    //padding-top:    $grid_gap;
+    //padding-bottom: $unit * 6;
+
+    //@include setPropsAdaptive((
+    //        padding-top: $grid_gap,
+    //        padding-bottom: $unit * 6
+    //));
+
+    > .sidebar {
+      //@extend %jx-col-3;
+    }
+
+    > .content {
+      //@extend %jx-grid-9;
+    }
+
+    //@media only screen and (max-width: GetBreakpoint($grid_column)) {
+    //  //padding-top:    $layout_rate * $grid_gap;
+    //  //padding-bottom: $layout_rate * $unit * 6;
+    //
+    //}
+  }
+}

@@ -1,11 +1,3 @@
-//@use "jettix/scss/functions" as func;
-
-// Locator
-$locator: "%";
-
-// Prefix
-$prefix: "jx-";
-
 // Path
 $fonts: "../fonts/";
 $media: "../media/";
@@ -45,5 +37,5 @@ $zindex_header: 600;
 
 :root {
   // Theme
-  @include app-theme;
+  //@include app-theme;
 }

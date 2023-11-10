@@ -1,6 +1,6 @@
 // Configuration
-//@import "themes/default";
-//@import "variables";
+@import "themes/default";
+@import "variables";
 //@import "app";
 
 // Elements
@@ -12,6 +12,7 @@
 
 // Bootstrap
 //@import "~bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 
 // Configuration
 //@import "bootstrap/scss/mixins";
@@ -32,4 +33,33 @@
 .body-app {
   background-color: var(--bg-color);
   color: var(--font-color);
+}
+
+// Fonts
+@font-face {
+  font-family: "Futura";
+  src: url("#{$fonts}futura.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "FuturaLight";
+  src: url("#{$fonts}futura_light_bt.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "FuturaMedium";
+  src: url("#{$fonts}futura_medium_bt.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "FuturaMediumCondensed";
+  src: url("#{$fonts}futura_medium_condensed_bt.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
 }
