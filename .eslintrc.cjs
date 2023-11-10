@@ -12,6 +12,8 @@ module.exports = {
     ignorePatterns: [
         'dist',
         '.eslintrc.cjs',
+        '*.config.ts',
+        'src/**/*.test.ts'
     ],
     parser: '@typescript-eslint/parser',
     plugins: [
