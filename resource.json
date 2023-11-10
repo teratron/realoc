@@ -16,7 +16,7 @@
     "src": "assets/fonts/futura_medium_condensed_bt.ttf"
   },
   "index.css": {
-    "file": "assets/css/index.39b33a1c.css",
+    "file": "assets/css/index.a578960a.css",
     "src": "index.css"
   },
   "index.html": {
@@ -27,9 +27,9 @@
       "assets/fonts/futura_medium_condensed_bt.2ae5f53e.ttf"
     ],
     "css": [
-      "assets/css/index.39b33a1c.css"
+      "assets/css/index.a578960a.css"
     ],
-    "file": "assets/js/main.45875509.js",
+    "file": "assets/js/main.a08a72be.js",
     "isEntry": true,
     "src": "index.html"
   }
