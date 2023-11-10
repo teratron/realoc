@@ -1,0 +1,36 @@
+{
+  "assets/fonts/futura.ttf": {
+    "file": "assets/fonts/futura.168eed26.ttf",
+    "src": "assets/fonts/futura.ttf"
+  },
+  "assets/fonts/futura_light_bt.ttf": {
+    "file": "assets/fonts/futura_light_bt.3a6bbc1a.ttf",
+    "src": "assets/fonts/futura_light_bt.ttf"
+  },
+  "assets/fonts/futura_medium_bt.ttf": {
+    "file": "assets/fonts/futura_medium_bt.d068c3d5.ttf",
+    "src": "assets/fonts/futura_medium_bt.ttf"
+  },
+  "assets/fonts/futura_medium_condensed_bt.ttf": {
+    "file": "assets/fonts/futura_medium_condensed_bt.2ae5f53e.ttf",
+    "src": "assets/fonts/futura_medium_condensed_bt.ttf"
+  },
+  "index.css": {
+    "file": "assets/css/index.8823bdf3.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "assets": [
+      "assets/fonts/futura.168eed26.ttf",
+      "assets/fonts/futura_light_bt.3a6bbc1a.ttf",
+      "assets/fonts/futura_medium_bt.d068c3d5.ttf",
+      "assets/fonts/futura_medium_condensed_bt.2ae5f53e.ttf"
+    ],
+    "css": [
+      "assets/css/index.8823bdf3.css"
+    ],
+    "file": "assets/js/index.5dd0b92a.js",
+    "isEntry": true,
+    "src": "index.html"
+  }
+}
