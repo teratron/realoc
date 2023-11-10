@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {BrowserRouter as Router} from 'react-router-dom'
-import Index from './containers/App'
+import App from './containers/App'
 import './assets/scss/index.scss'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('app')!).render(
     <React.StrictMode>
-        <Router>
-            <Index/>
+        <Router basename="/realoc">
+            <App/>
         </Router>
     </React.StrictMode>
 )

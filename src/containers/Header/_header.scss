@@ -1,17 +1,29 @@
 .app-header {
-    background-color: var(--color-primary);
-    color: var(--color-primary-font);
-    z-index: var(--zindex-header);
+  background-color: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 
-    .logo {
-        height: 3.4em;
-        margin-right: 2rem;
-        pointer-events: none;
-    }
+  &, > .app-container {
+    height: 64px;
+  }
 
-    .title {
-        font-size: 4rem;
-        font-weight: 500;
-        margin: 0;
-    }
+  > .app-container {
+    display: grid;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    //height: 3.4em;
+    //margin-right: 2rem;
+    pointer-events: none;
+  }
+
+  .title {
+    font-size: 4rem;
+    font-weight: 500;
+    margin: 0;
+  }
 }

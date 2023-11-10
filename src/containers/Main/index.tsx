@@ -1,12 +1,12 @@
-//import Sidebar from '../Sidebar'
-//import Content from '../Content'
+import Container, {ContainerProps} from '../Container'
 import './_main.scss'
 
-function Main() {
+function Main(props: ContainerProps) {
     return (
         <main className="app-main">
-            {/*<Sidebar/>*/}
-            {/*<Content/>*/}
+            <Container>
+                {props.children}
+            </Container>
         </main>
     )
 }

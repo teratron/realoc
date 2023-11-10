@@ -1,7 +1,7 @@
 .app-main {
-  background-color: white;
+  background-color: #f9f9f9;
   display: grid;
-  grid-template-columns: 360px auto;
+  grid-template-columns: auto;
   z-index: var(--zindex-main);
 
   //min-height: $main_height;

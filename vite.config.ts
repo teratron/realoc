@@ -1,12 +1,12 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
-//import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
-    base: './', // pkg.homepage,
+    //base: './',
+    base: 'https://teratron.github.io/realoc',
     publicDir: '../public',
     appType: 'mpa',
     plugins: [
@@ -23,15 +23,42 @@ export default defineConfig({
         outDir: '../dist',
         emptyOutDir: true,
         manifest: 'resource.json',
-        sourcemap: true,
         rollupOptions: {
+            input: {
+                main: 'src/index.html',
+            },
             output: {
-                entryFileNames: 'assets/[name].[hash].js',
-                assetFileNames: 'assets/[name].[hash][extname]',
-                chunkFileNames: 'assets/[name]-[hash][extname]',
+                entryFileNames: 'assets/js/[name].[hash].js',
+                chunkFileNames: 'assets/js/[name]-[hash].js',
+                assetFileNames: assetInfo => {
+                    let info: string[]
+                    if (typeof assetInfo.name === 'string') {
+                        // @ts-ignore // TODO:
+                        info = assetInfo.name.split('.')
+                    }
+                    // @ts-ignore // TODO:
+                    let extType: string = info[info.length - 1]
+                    // @ts-ignore // TODO:
+                    if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(extType)) {
+                        extType = 'media/'
+                        // @ts-ignore // TODO:
+                    } else if (/(sa|sc|c)ss/i.test(extType)) {
+                        extType = 'css/'
+                        // @ts-ignore // TODO:
+                    } else if (/woff(2)?|eot|ttf|otf/i.test(extType)) {
+                        extType = 'fonts/'
+                    } else extType = ''
+
+                    return `assets/${extType}[name].[hash][extname]`
+                }
             }
         }
     }
+    /*resolve: {
+        alias: {
+            '@': './src',
+        }
+    },*/
 })
 
 /*

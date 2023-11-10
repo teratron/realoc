@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import './_button.scss'
 
 function Button() {
@@ -7,4 +7,5 @@ function Button() {
     )
 }
 
-export default React.memo(Button)
+//export default React.memo(Button)
+export default Button
