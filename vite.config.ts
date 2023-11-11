@@ -30,7 +30,7 @@ export default defineConfig({
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',
                 chunkFileNames: 'assets/js/[name]-[hash].js',
-                assetFileNames: (assetInfo) => {
+                assetFileNames: assetInfo => {
                     // @ts-ignore
                     let info = assetInfo.name?.split('.')
                     // @ts-ignore
