@@ -1,5 +1,6 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
+import '@popperjs/core'
 import Home from '../../pages/Home.tsx'
 import About from '../../pages/About.tsx'
 import Add from '../../pages/Add.tsx'

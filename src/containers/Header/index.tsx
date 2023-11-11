@@ -4,16 +4,21 @@ import logo from '../../assets/media/logo_realoc.png'
 import './_header.scss'
 
 interface HeaderProps {
-    title: string
+    title?: string
 }
 
 function Header(props: HeaderProps) {
+    console.log(props)
     return (
         <header className="app-header">
             <Container>
-                <Link to="/">
-                    <img src={logo} className="logo" alt={props.title}/>
-                </Link>
+                <div className="head">head</div>
+                <div className="body">
+                    <Link to="/">
+                        <img src={logo} className="logo" alt={props.title}/>
+                    </Link>
+                </div>
+                <div className="foot">foot</div>
             </Container>
         </header>
     )

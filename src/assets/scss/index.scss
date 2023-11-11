@@ -1,36 +1,12 @@
-body {
-  padding: 0;
-  margin: 0;
-}
-
 // Configuration
 @import "themes/default";
 @import "variables";
 
-// Elements
+// Bootstrap icons
+//@import "bootstrap-icons/font/bootstrap-icons";
 
-// Icons
-
-// Framework
-
-// Configuration
-
-// Layout & components
-
-[data-theme="dark"] {
-  --bg-color: #121416;
-  --font-color: #f4f4f4;
-}
-
-[data-theme="light"] {
-  --bg-color: #f4f4f4;
-  --font-color: #121416;
-}
-
-.body-app {
-  background-color: var(--bg-color);
-  color: var(--font-color);
-}
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
 
 // Fonts
 @font-face {

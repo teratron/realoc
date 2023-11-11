@@ -5,8 +5,8 @@ import autoprefixer from 'autoprefixer'
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
-    base: './',
-    //base: 'https://teratron.github.io/realoc',
+    //base: './',
+    base: 'https://teratron.github.io/realoc',
     publicDir: '../public',
     appType: 'mpa',
     plugins: [
@@ -30,18 +30,18 @@ export default defineConfig({
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',
                 chunkFileNames: 'assets/js/[name]-[hash].js',
-                assetFileNames: assetInfo => {
-                    // @ts-ignore // TODO:
+                assetFileNames: (assetInfo) => {
+                    // @ts-ignore
                     let info = assetInfo.name?.split('.')
-                    // @ts-ignore // TODO:
+                    // @ts-ignore
                     let ext = info[info.length - 1]
-                    // @ts-ignore // TODO:
+                    // @ts-ignore
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
                         ext = 'media/'
-                        // @ts-ignore // TODO:
+                        // @ts-ignore
                     } else if (/(sa|sc|c)ss/i.test(ext)) {
                         ext = 'css/'
-                        // @ts-ignore // TODO:
+                        // @ts-ignore
                     } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
                         ext = 'fonts/'
                     } else ext = ''

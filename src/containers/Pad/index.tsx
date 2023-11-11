@@ -1,11 +1,8 @@
-import {CSSProperties} from 'react'
 import Children from '../../utils/Children'
 import AttrCommon from '../../utils/Attribute'
 import './_pad.scss'
 
 interface CardProps extends Children, AttrCommon {
-    className?: string
-    style?: CSSProperties
 }
 
 function Pad(props: CardProps) {

@@ -1,3 +1,7 @@
+@import "src/assets/scss/mixins/bar";
+
+$height: 64px;
+
 .app-header {
   background-color: white;
   position: sticky;
@@ -5,19 +9,13 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 
   &, > .app-container {
-    height: 64px;
   }
 
   > .app-container {
-    display: grid;
-    grid-auto-flow: row;
-    align-items: center;
-    justify-content: center;
+    @include bar($height);
   }
 
   .logo {
-    //height: 3.4em;
-    //margin-right: 2rem;
     pointer-events: none;
   }
 
