@@ -32,9 +32,8 @@ export default defineConfig({
                 chunkFileNames: 'assets/js/[name]-[hash].js',
                 assetFileNames: assetInfo => {
                     // @ts-ignore
-                    let info = assetInfo.name?.split('.')
-                    // @ts-ignore
-                    let ext = info[info.length - 1]
+                    const info = assetInfo.name?.split('.')
+                    let ext: string = info[info.length - 1]
                     // @ts-ignore
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
                         ext = 'media/'
