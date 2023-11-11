@@ -15,21 +15,26 @@
     "file": "assets/fonts/futura_medium_condensed_bt.2ae5f53e.ttf",
     "src": "assets/fonts/futura_medium_condensed_bt.ttf"
   },
+  "assets/media/plug_room_01.jpg": {
+    "file": "assets/media/plug_room_01.c7d28567.jpg",
+    "src": "assets/media/plug_room_01.jpg"
+  },
   "index.css": {
-    "file": "assets/css/index.a578960a.css",
+    "file": "assets/css/index.2c127aaf.css",
     "src": "index.css"
   },
   "index.html": {
     "assets": [
+      "assets/media/plug_room_01.c7d28567.jpg",
       "assets/fonts/futura.168eed26.ttf",
       "assets/fonts/futura_light_bt.3a6bbc1a.ttf",
       "assets/fonts/futura_medium_bt.d068c3d5.ttf",
       "assets/fonts/futura_medium_condensed_bt.2ae5f53e.ttf"
     ],
     "css": [
-      "assets/css/index.a578960a.css"
+      "assets/css/index.2c127aaf.css"
     ],
-    "file": "assets/js/main.a08a72be.js",
+    "file": "assets/js/main.247f0229.js",
     "isEntry": true,
     "src": "index.html"
   }
