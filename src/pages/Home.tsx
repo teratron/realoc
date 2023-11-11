@@ -3,7 +3,7 @@ import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import Main from '../containers/Main'
 import Pad from '../containers/Pad'
-
+import Button from '../components/Button'
 
 function Home() {
     return (
@@ -18,6 +18,9 @@ function Home() {
                     <span> | </span>
                     <Link to="/add">Add</Link>
                 </div>
+
+                <Button className="outlined raised icon">Button</Button>
+
                 <Pad className="pad-1">
                     <div>Pad 1</div>
                 </Pad>

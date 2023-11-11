@@ -31,25 +31,21 @@ export default defineConfig({
                 entryFileNames: 'assets/js/[name].[hash].js',
                 chunkFileNames: 'assets/js/[name]-[hash].js',
                 assetFileNames: assetInfo => {
-                    let info: string[]
-                    if (typeof assetInfo.name === 'string') {
-                        // @ts-ignore // TODO:
-                        info = assetInfo.name.split('.')
-                    }
                     // @ts-ignore // TODO:
-                    let extType: string = info[info.length - 1]
+                    let info = assetInfo.name?.split('.')
                     // @ts-ignore // TODO:
-                    if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(extType)) {
-                        extType = 'media/'
+                    let ext = info[info.length - 1]
+                    // @ts-ignore // TODO:
+                    if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
+                        ext = 'media/'
                         // @ts-ignore // TODO:
-                    } else if (/(sa|sc|c)ss/i.test(extType)) {
-                        extType = 'css/'
+                    } else if (/(sa|sc|c)ss/i.test(ext)) {
+                        ext = 'css/'
                         // @ts-ignore // TODO:
-                    } else if (/woff(2)?|eot|ttf|otf/i.test(extType)) {
-                        extType = 'fonts/'
-                    } else extType = ''
-
-                    return `assets/${extType}[name].[hash][extname]`
+                    } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
+                        ext = 'fonts/'
+                    } else ext = ''
+                    return `assets/${ext}[name].[hash][extname]`
                 }
             }
         }
