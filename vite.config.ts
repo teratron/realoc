@@ -5,8 +5,8 @@ import autoprefixer from 'autoprefixer'
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
-    //base: './',
-    base: 'https://teratron.github.io/realoc',
+    base: './',
+    //base: 'https://teratron.github.io/realoc',
     publicDir: '../public',
     appType: 'mpa',
     plugins: [
