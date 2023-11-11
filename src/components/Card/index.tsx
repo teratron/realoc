@@ -8,8 +8,8 @@ interface CardProps extends Children {
 }
 
 function Card(props: CardProps) {
-    let className = props.className ? 'app-card ' + props.className : 'app-card'
-    let style = props.style ? props.style : undefined
+    const className = props.className ? 'app-card ' + props.className : 'app-card'
+    const style = props.style ? props.style : undefined
 
     return (
         <div className={className} style={style}>
