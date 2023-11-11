@@ -2,7 +2,7 @@ import {Link, useLocation} from 'react-router-dom'
 import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import Main from '../containers/Main'
-import Card from '../containers/Card'
+import Pad from '../containers/Pad'
 
 function Home() {
     return (
@@ -17,15 +17,15 @@ function Home() {
                     <span> | </span>
                     <Link to="/add">Add</Link>
                 </div>
-                <Card className="card-1">
-                    <div>Card 1</div>
-                </Card>
-                <Card className="card-2">
-                    <div>Card 2</div>
-                </Card>
-                <Card className="card-3">
-                    <div>Card 3</div>
-                </Card>
+                <Pad className="pad-1">
+                    <div>Pad 1</div>
+                </Pad>
+                <Pad className="pad-2">
+                    <div>Pad 2</div>
+                </Pad>
+                <Pad className="pad-3">
+                    <div>Pad 3</div>
+                </Pad>
             </Main>
             <Footer/>
         </>
