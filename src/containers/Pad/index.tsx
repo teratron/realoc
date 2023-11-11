@@ -1,8 +1,8 @@
 import {CSSProperties} from 'react'
-import {ContainerProps} from '../Container'
-import './_card.scss'
+import Children from '../../utils/Children'
+import './_pad.scss'
 
-interface CardProps extends ContainerProps {
+interface CardProps extends Children {
     className?: string
     style?: CSSProperties
 }

@@ -1,12 +1,13 @@
 import {Link, useLocation} from 'react-router-dom'
-import Header from '../containers/Header'
+//import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import Main from '../containers/Main'
+import BarTop from '../components/BarTop'
 
 function About() {
     return (
         <>
-            <Header title={"-Add-"}/>
+            <BarTop/>
             <Main>
                 <div style={{textAlign: "center"}}>{useLocation().pathname}</div>
                 <div style={{textAlign: "center"}}>

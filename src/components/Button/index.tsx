@@ -1,9 +1,16 @@
-//import React from 'react'
 import './_button.scss'
+import Children from '../../utils/Children'
 
-function Button() {
+interface ButtonProps extends Children {
+    title: string
+}
+
+function Button(props: ButtonProps) {
     return (
-        <button></button>
+        <button className="mdc-button mdc-button--raised">
+            <span className="mdc-button__label">Contained Button</span>
+            {props.children}
+        </button>
     )
 }
 

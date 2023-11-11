@@ -1,11 +1,7 @@
-import React from 'react'
+import Children from '../../utils/Children'
 import './_container.scss'
 
-export interface ContainerProps {
-    children?: React.ReactNode
-}
-
-function Container(props: ContainerProps) {
+function Container(props: Children) {
     return <section className="app-container">{props.children}</section>
 }
 
