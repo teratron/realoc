@@ -1,6 +1,7 @@
 import {useState} from 'react'
-import {Link} from 'react-router-dom'
-import {Button, Container, Offcanvas} from 'react-bootstrap'
+import {Link, useLocation} from 'react-router-dom'
+import {Button, Container, Offcanvas, Stack} from 'react-bootstrap'
+//import Drawer from '../../components/Drawer'
 import logo from '../../assets/media/logo_realoc.png'
 import './_header.scss'
 
@@ -16,11 +17,14 @@ function Header(props: HeaderProps) {
     const Drawer = () => (
         <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                <Offcanvas.Title>{useLocation().pathname}</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements you
-                have chosen. Like, text, images, lists, etc.
+                <Stack gap={3}>
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/add">Add</Link>
+                </Stack>
             </Offcanvas.Body>
         </Offcanvas>
     )

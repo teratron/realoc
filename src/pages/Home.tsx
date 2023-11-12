@@ -23,17 +23,7 @@ function Home() {
     return (
         <>
             <Header title={title}/>
-
             <Main>
-                {/*<div style={{textAlign: "center"}}>{useLocation().pathname}</div>
-                <div style={{textAlign: "center"}}>
-                    <Link to="/">Home</Link>
-                    <span> | </span>
-                    <Link to="/about">About</Link>
-                    <span> | </span>
-                    <Link to="/add">Add</Link>
-                </div>*/}
-
                 <h2>Cauta imobiliare</h2>
 
                 <Form className="form">
@@ -421,7 +411,6 @@ function Home() {
                     </Navbar>
                 </Form>
             </Main>
-
             {/*<Footer/>*/}
         </>
     )
