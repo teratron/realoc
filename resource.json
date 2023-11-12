@@ -4,7 +4,7 @@
     "src": "assets/media/plug_room_01.jpg"
   },
   "index.css": {
-    "file": "assets/css/index.47e5fb3d.css",
+    "file": "assets/css/index.3db969cc.css",
     "src": "index.css"
   },
   "index.html": {
@@ -12,9 +12,9 @@
       "assets/media/plug_room_01.c7d28567.jpg"
     ],
     "css": [
-      "assets/css/index.47e5fb3d.css"
+      "assets/css/index.3db969cc.css"
     ],
-    "file": "assets/js/main.ab1904fc.js",
+    "file": "assets/js/main.375cbbf0.js",
     "isEntry": true,
     "src": "index.html"
   }
