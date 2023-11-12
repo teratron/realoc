@@ -1,40 +1,20 @@
 {
-  "assets/fonts/futura.ttf": {
-    "file": "assets/fonts/futura.168eed26.ttf",
-    "src": "assets/fonts/futura.ttf"
-  },
-  "assets/fonts/futura_light_bt.ttf": {
-    "file": "assets/fonts/futura_light_bt.3a6bbc1a.ttf",
-    "src": "assets/fonts/futura_light_bt.ttf"
-  },
-  "assets/fonts/futura_medium_bt.ttf": {
-    "file": "assets/fonts/futura_medium_bt.d068c3d5.ttf",
-    "src": "assets/fonts/futura_medium_bt.ttf"
-  },
-  "assets/fonts/futura_medium_condensed_bt.ttf": {
-    "file": "assets/fonts/futura_medium_condensed_bt.2ae5f53e.ttf",
-    "src": "assets/fonts/futura_medium_condensed_bt.ttf"
-  },
   "assets/media/plug_room_01.jpg": {
     "file": "assets/media/plug_room_01.c7d28567.jpg",
     "src": "assets/media/plug_room_01.jpg"
   },
   "index.css": {
-    "file": "assets/css/index.2c127aaf.css",
+    "file": "assets/css/index.1ef275f0.css",
     "src": "index.css"
   },
   "index.html": {
     "assets": [
-      "assets/media/plug_room_01.c7d28567.jpg",
-      "assets/fonts/futura.168eed26.ttf",
-      "assets/fonts/futura_light_bt.3a6bbc1a.ttf",
-      "assets/fonts/futura_medium_bt.d068c3d5.ttf",
-      "assets/fonts/futura_medium_condensed_bt.2ae5f53e.ttf"
+      "assets/media/plug_room_01.c7d28567.jpg"
     ],
     "css": [
-      "assets/css/index.2c127aaf.css"
+      "assets/css/index.1ef275f0.css"
     ],
-    "file": "assets/js/main.247f0229.js",
+    "file": "assets/js/main.319cf3f2.js",
     "isEntry": true,
     "src": "index.html"
   }
