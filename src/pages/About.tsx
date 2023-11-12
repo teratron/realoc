@@ -2,18 +2,13 @@ import {Link, useLocation} from 'react-router-dom'
 import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import Main from '../containers/Main'
-import {Button, Card, Carousel, Offcanvas} from 'react-bootstrap'
+import {Button, Card, Carousel} from 'react-bootstrap'
 import images from '../assets/media/plug_room_01.jpg'
 import Pad from '../components/Pad'
-import {useState} from 'react'
 
 export const title: string = 'About'
 
 function About() {
-    const [show, setShow] = useState(false)
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
-
     return (
         <>
             <Header title={"-About-"}/>
@@ -55,19 +50,7 @@ function About() {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-                <Button variant="primary" onClick={handleShow}>
-                    Drawer
-                </Button>
 
-                <Offcanvas show={show} onHide={handleClose}>
-                    <Offcanvas.Header closeButton>
-                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                        Some text as placeholder. In real life you can have the elements you
-                        have chosen. Like, text, images, lists, etc.
-                    </Offcanvas.Body>
-                </Offcanvas>
                 <div style={{textAlign: "center"}}>{useLocation().pathname}</div>
                 <div style={{textAlign: "center"}}>
                     <Link to="/">Home</Link>

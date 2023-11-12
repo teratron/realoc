@@ -1,5 +1,6 @@
+import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Container} from 'react-bootstrap'
+import {Button, Container, Offcanvas} from 'react-bootstrap'
 import logo from '../../assets/media/logo_realoc.png'
 import './_header.scss'
 
@@ -8,18 +9,43 @@ interface HeaderProps {
 }
 
 function Header(props: HeaderProps) {
+    const [show, setShow] = useState(false)
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
+
+    const Drawer = () => (
+        <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas.Header closeButton>
+                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+                Some text as placeholder. In real life you can have the elements you
+                have chosen. Like, text, images, lists, etc.
+            </Offcanvas.Body>
+        </Offcanvas>
+    )
+
     return (
-        <header className="app-header">
-            <Container>
-                <div className="head">head</div>
-                <div className="body">
-                    <Link to="/">
-                        <img src={logo} className="logo" alt={props.title}/>
-                    </Link>
-                </div>
-                <div className="foot">foot</div>
-            </Container>
-        </header>
+        <>
+            <header className="app-header">
+                <Container>
+                    <div className="head">
+                        <Button variant="light" onClick={handleShow}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </Button>
+                    </div>
+                    <div className="body">
+                        <Link to="/">
+                            <img src={logo} className="logo" alt={props.title}/>
+                        </Link>
+                    </div>
+                    <div className="foot">Resetare</div>
+                </Container>
+            </header>
+            <Drawer/>
+        </>
     )
 }
 
