@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import Container from '../Container'
+import {Container} from 'react-bootstrap'
 import logo from '../../assets/media/logo_realoc.png'
 import './_header.scss'
 
@@ -8,7 +8,6 @@ interface HeaderProps {
 }
 
 function Header(props: HeaderProps) {
-    console.log(props)
     return (
         <header className="app-header">
             <Container>

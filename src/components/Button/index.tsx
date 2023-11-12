@@ -1,6 +1,6 @@
 import './_button.scss'
 import Children from '../../utils/Children'
-import {AttrClass} from '../../utils/Attribute.tsx'
+import {AttrClass} from '../../utils/Attribute'
 
 interface ButtonProps extends Children, AttrClass {
 }

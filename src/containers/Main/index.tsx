@@ -1,4 +1,4 @@
-import Container from '../Container'
+import {Container} from 'react-bootstrap'
 import Children from '../../utils/Children'
 import './_main.scss'
 

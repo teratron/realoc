@@ -1,22 +1,16 @@
-// import Container from '../Container'
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
+import Children from '../../utils/Children'
 import './_footer.scss'
 
-function Footer() {
+interface FooterProps extends Children {
+    title?: string
+}
+
+function Footer(props: FooterProps) {
     return (
         <footer className="app-footer">
             <Container>
-                <Row className="justify-content-md-center">
-                    <Col xs lg="2">
-                        1 of 3
-                    </Col>
-                    <Col md="auto">
-                        Variable width content
-                    </Col>
-                    <Col xs lg="2">
-                        3 of 3
-                    </Col>
-                </Row>
+                {props.children}
             </Container>
         </footer>
     )

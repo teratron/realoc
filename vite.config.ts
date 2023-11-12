@@ -19,6 +19,11 @@ export default defineConfig({
             ]
         }
     },
+    /*server: {
+        host: 'localhost',
+        port: 5173,
+        origin: 'http://localhost:5173/realoc',
+    },*/
     build: {
         outDir: '../dist',
         emptyOutDir: true,

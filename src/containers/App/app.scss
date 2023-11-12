@@ -1,0 +1,33 @@
+// Bootstrap icons
+//@import "bootstrap-icons/font/bootstrap-icons";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Configuration
+@import "../../assets/scss/themes/default/light";
+@import "../../assets/scss/themes/default/dark";
+@import "../../assets/scss/variables";
+
+// Reset
+body {
+  min-height:  100vh;
+  overflow-x:  hidden;
+  z-index:     1;
+}
+
+// Application
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-auto-rows: auto;
+  align-content: space-between;
+  align-items: start;
+  justify-items: stretch;
+  height: 100vh;
+
+  .container {
+  }
+}
+
+@import "../../assets/scss/card";

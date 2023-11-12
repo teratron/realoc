@@ -1,5 +1,5 @@
-import Children from '../../utils/Children'
-import AttrCommon from '../../utils/Attribute'
+import Children from '../../utils/Children.tsx'
+import AttrCommon from '../../utils/Attribute.tsx'
 import './_pad.scss'
 
 interface PadProps extends Children, AttrCommon {

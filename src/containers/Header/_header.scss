@@ -3,15 +3,12 @@
 $height: 64px;
 
 .app-header {
-  background-color: white;
+  background-color: var(--app-header-bg-color);
   position: sticky;
   top: 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 
-  &, > .app-container {
-  }
-
-  > .app-container {
+  > .container {
     @include bar($height);
   }
 
