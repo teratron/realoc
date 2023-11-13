@@ -1,6 +1,9 @@
 // Bootstrap
 @import "src/assets/scss/bootstrap";
 
+// Commons
+@import "src/assets/scss/commons";
+
 // Application
 #app {
   display: grid;
@@ -11,10 +14,3 @@
   justify-items: stretch;
   height: 100vh;
 }
-
-// Themes
-@import "src/assets/scss/themes/default/light";
-@import "src/assets/scss/themes/default/dark";
-
-// Commons
-@import "src/assets/scss/commons";

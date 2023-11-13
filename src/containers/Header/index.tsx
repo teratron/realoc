@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import {Button, Container, Offcanvas, Stack} from 'react-bootstrap'
 //import Drawer from '../../components/Drawer'
-import logo from '../../assets/media/logo_realoc.png'
+import logo from '../../assets/media/logo.svg' // 96x24
 import './_header.scss'
 
 interface HeaderProps {
