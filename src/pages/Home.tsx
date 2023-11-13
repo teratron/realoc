@@ -11,6 +11,8 @@ import {
     ToggleButtonGroup
 } from 'react-bootstrap'
 import Header from '../containers/Header'
+import TransactionType from '../components/Form/TransactionType.tsx'
+import PropertyType from '../components/Form/PropertyType.tsx'
 //import Footer from '../containers/Footer'
 import Main from '../containers/Main'
 import {useState} from 'react'
@@ -29,42 +31,8 @@ function Home() {
                 <Form className="form">
                     {/* #1 */}
                     <Card>
-                        <Form.Group className="mb-3" controlId="formGroup-1-1">
-                            <Form.Label>Tip tranzactie</Form.Label>
-                            <div>
-                                <ToggleButtonGroup type="radio" name="options-1" defaultValue={1}>
-                                    <ToggleButton variant="outline-primary" id="tbg-radio-1-1" value={1}>
-                                        De vanzare
-                                    </ToggleButton>
-                                    <ToggleButton variant="outline-primary" id="tbg-radio-1-2" value={2}>
-                                        De inchiriat
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                            </div>
-                            {/*<div>
-                                <Form.Check
-                                    inline
-                                    label="De vanzare"
-                                    name="group-1-1"
-                                    type="radio"
-                                    id="inline-radio-1-1-1"/>
-                                <Form.Check
-                                    inline
-                                    label="De inchiriat"
-                                    name="group-1-1"
-                                    type="radio"
-                                    id="inline-radio-1-1-2"/>
-                            </div>*/}
-                        </Form.Group>
-                        <Form.Group controlId="formGroup-1-2">
-                            <Form.Label>Tip de proprietate</Form.Label>
-                            <Form.Select aria-label="">
-                                <option>Apartament</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </Form.Select>
-                        </Form.Group>
+                        <TransactionType title="Tip tranzactie" className="mb-3" id="formGroup-1-1" />
+                        <PropertyType title="Tip de proprietate" id="formGroup-1-2" />
                     </Card>
 
                     {/* #2 */}

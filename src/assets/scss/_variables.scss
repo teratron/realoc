@@ -110,8 +110,8 @@ $grid-breakpoints: (
         xxl: 1400px
 );
 
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+///@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+///@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 // Grid containers
 
@@ -123,14 +123,14 @@ $container-max-widths: (
         xxl: 1320px
 );
 
-@include _assert-ascending($container-max-widths, "$container-max-widths");
+///@include _assert-ascending($container-max-widths, "$container-max-widths");
 
 // Grid columns
 
 $grid-columns:                                12;
 $grid-gutter-width:                           1.5rem;
 $grid-row-columns:                            6;
-$container-padding-x: $grid-gutter-width;
+$container-padding-x:                         $grid-gutter-width;
 
 // Components
 
@@ -151,7 +151,6 @@ $border-radius-lg:                            .5rem;
 $border-radius-xl:                            1rem;
 $border-radius-xxl:                           2rem;
 $border-radius-pill:                          50rem;
-$border-radius-2xl:                           $border-radius-xxl; // Deprecated in v5.3.0
 $box-shadow:                                  0 .5rem 1rem rgba($black, .15);
 $box-shadow-sm:                               0 .125rem .25rem rgba($black, .075);
 $box-shadow-lg:                               0 1rem 3rem rgba($black, .175);
@@ -162,20 +161,10 @@ $focus-ring-width:                            .25rem;
 $focus-ring-opacity:                          .25;
 $focus-ring-color:                            rgba($primary, $focus-ring-opacity);
 $focus-ring-blur:                             0;
-$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
+$focus-ring-box-shadow:                       0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
 $caret-width:                                 .3em;
 $caret-vertical-align:                        $caret-width * .85;
 $caret-spacing:                               $caret-width * .85;
-$transition-base:                             all .2s ease-in-out;
-$transition-fade:                             opacity .15s linear;
-$transition-collapse:                         height .35s ease;
-$transition-collapse-width:                   width .35s ease;
-$aspect-ratios: (
-        "1x1": 100%,
-        "4x3": calc(3 / 4 * 100%),
-        "16x9": calc(9 / 16 * 100%),
-        "21x9": calc(9 / 21 * 100%)
-);
 
 // Typography
 
@@ -206,14 +195,6 @@ $h3-font-size:                                $font-size-base * 1.75;
 $h4-font-size:                                $font-size-base * 1.5;
 $h5-font-size:                                $font-size-base * 1.25;
 $h6-font-size:                                $font-size-base;
-$font-sizes: (
-        1: $h1-font-size,
-        2: $h2-font-size,
-        3: $h3-font-size,
-        4: $h4-font-size,
-        5: $h5-font-size,
-        6: $h6-font-size
-);
 $headings-margin-bottom:                      $spacer * .5;
 $headings-font-family:                        null;
 $headings-font-style:                         null;
@@ -228,24 +209,21 @@ $display-font-sizes: (
         5: 3rem,
         6: 2.5rem
 );
-$display-font-family: null;
+$display-font-family:                        null;
 $display-font-style:                          null;
-$display-font-weight: 300;
-$display-line-height: $headings-line-height;
+$display-font-weight:                         300;
+$display-line-height:                         $headings-line-height;
 $lead-font-size:                              $font-size-base * 1.25;
 $lead-font-weight:                            300;
 $small-font-size:                             .875em;
 $sub-sup-font-size:                           .75em;
-$text-muted:                                  var(--#{$prefix}secondary-color); // Deprecated in 5.3.0
 $initialism-font-size:                        $small-font-size;
 $blockquote-margin-y:                         $spacer;
 $blockquote-font-size:                        $font-size-base * 1.25;
 $blockquote-footer-color:                     $gray-600;
-$blockquote-footer-font-size: $small-font-size;
+$blockquote-footer-font-size:                 $small-font-size;
 $hr-margin-y:                                 $spacer;
 $hr-color:                                    inherit;
-$hr-bg-color:                                 null; // Deprecated in v5.2.0
-$hr-height:                                   null; // Deprecated in v5.2.0
 $hr-border-color:                             null; // Allows for inherited colors
 $hr-border-width:                             var(--#{$prefix}border-width);
 $hr-opacity:                                  .25;
@@ -660,7 +638,6 @@ $dropdown-item-padding-x:                     $spacer;
 $dropdown-header-color:                       $gray-600;
 $dropdown-header-padding-x:                   $dropdown-item-padding-x;
 $dropdown-header-padding-y:                   $dropdown-padding-y;
-$dropdown-header-padding:                     $dropdown-header-padding-y $dropdown-header-padding-x; // Deprecated in v5.2.0
 $dropdown-dark-color:                         $gray-300;
 $dropdown-dark-bg:                            $gray-800;
 $dropdown-dark-border-color:                  $dropdown-border-color;
@@ -775,7 +752,6 @@ $tooltip-padding-x:                           $spacer * .5;
 $tooltip-margin:                              null; // TODO: remove this in v6
 $tooltip-arrow-width:                         .8rem;
 $tooltip-arrow-height:                        .4rem;
-$tooltip-arrow-color:                         null; // Deprecated in Bootstrap 5.2.0 for CSS variables
 $form-feedback-tooltip-padding-y:             $tooltip-padding-y;
 $form-feedback-tooltip-padding-x:             $tooltip-padding-x;
 $form-feedback-tooltip-font-size:             $tooltip-font-size;
@@ -803,10 +779,6 @@ $popover-body-padding-y:                      $spacer;
 $popover-body-padding-x:                      $spacer;
 $popover-arrow-width:                         1rem;
 $popover-arrow-height:                        .5rem;
-
-// Deprecated in Bootstrap 5.2.0 for CSS variables
-$popover-arrow-color:                         $popover-bg;
-$popover-arrow-outer-color:                   var(--#{$prefix}border-color-translucent);
 
 // Toasts
 
@@ -877,9 +849,6 @@ $alert-border-radius:                         var(--#{$prefix}border-radius);
 $alert-link-font-weight:                      $font-weight-bold;
 $alert-border-width:                          var(--#{$prefix}border-width);
 $alert-dismissible-padding-r:                 $alert-padding-x * 3; // 3x covers width of x plus default padding on either side
-$alert-bg-scale:                              -80%; // Deprecated in v5.2.0, to be removed in v6
-$alert-border-scale:                          -70%; // Deprecated in v5.2.0, to be removed in v6
-$alert-color-scale:                           40%; // Deprecated in v5.2.0, to be removed in v6
 
 // Progress bars
 
@@ -902,8 +871,6 @@ $list-group-border-width:                     var(--#{$prefix}border-width);
 $list-group-border-radius:                    var(--#{$prefix}border-radius);
 $list-group-item-padding-y:                   $spacer * .5;
 $list-group-item-padding-x:                   $spacer;
-$list-group-item-bg-scale:                    -80%; // Deprecated in v5.3.0
-$list-group-item-color-scale:                 40%; // Deprecated in v5.3.0
 $list-group-hover-bg:                         var(--#{$prefix}tertiary-bg);
 $list-group-active-color:                     $component-active-color;
 $list-group-active-bg:                        $component-active-bg;
@@ -1022,5 +989,4 @@ $kbd-padding-x:                               .375rem;
 $kbd-font-size:                               $code-font-size;
 $kbd-color:                                   var(--#{$prefix}body-bg);
 $kbd-bg:                                      var(--#{$prefix}body-color);
-$nested-kbd-font-weight:                      null; // Deprecated in v5.2.0, removing in v6
 $pre-color:                                   null;

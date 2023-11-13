@@ -9,4 +9,6 @@ export interface AttrStyle {
 }
 
 export default interface AttrCommon extends AttrClass, AttrStyle {
+    id?: string
+    title?: string
 }
