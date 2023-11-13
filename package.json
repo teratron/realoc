@@ -14,11 +14,11 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && vite build",
     "deploy:gh": "gh-pages -d dist",
-    "build-deploy:gh": "npm run build && npm run deploy:gh",
-    "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-deploy:gh": "npm run build && npm run deploy:gh"
   },
   "devDependencies": {
     "@popperjs/core": "^2.11.8",

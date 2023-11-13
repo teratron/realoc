@@ -1,3 +1,5 @@
+@use "sass:selector";
+
 // Bootstrap icons
 //@import "bootstrap-icons/font/bootstrap-icons";
 
@@ -5,14 +7,16 @@
 @import "bootstrap/scss/bootstrap";
 
 // Configuration
-@import "../../assets/scss/variables";
 @import "../../assets/scss/themes/default/light";
 @import "../../assets/scss/themes/default/dark";
+@import "../../assets/scss/variables";
 
-
+// Font
+@import "https://fonts.googleapis.com/css2?family=Inter&display=swap";
 
 // Reset
 body {
+  font-family: Inter, sans-serif;
   min-height:  100vh;
   overflow-x:  hidden;
   z-index:     1;
@@ -27,6 +31,16 @@ body {
   align-items: start;
   justify-items: stretch;
   height: 100vh;
+}
+
+// Container
+@mixin container($child) {
+  @at-root #{selector.unify(&, $child)} {
+    .container > & {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
 }
 
 // Card
@@ -47,11 +61,13 @@ body {
   > :not(:only-child):last-child {
     margin-bottom: 0;
   }
+
+  @include container(&)
 }
 
 // Form
 .form {
-  padding-bottom: 96px;
+  padding-bottom: 80px;
 
   .btn-group {
     width: 100%;
@@ -73,6 +89,8 @@ body {
     border-radius: 6px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
   }
+
+  @include container(&)
 }
 
 form > .navbar {
@@ -103,5 +121,7 @@ form > .navbar {
   --bs-btn-border-radius: var(--bs-border-radius-lg);
 }
 
-// Components
-
+// Heading
+h1, h2, h3, h4, h5, h6 {
+  @include container(&)
+}

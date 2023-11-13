@@ -5,16 +5,21 @@
 
   > .container {
     height: 100%;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 40px;
+    padding: 40px 0 16px;
   }
 
   h2 {
     font-size: calc(1.05rem + 0.9vw);
     font-weight: 700;
-    margin-left: 16px;
-    margin-right: 16px;
+    letter-spacing: -0.01em;
+    padding-left: 16px;
+    padding-right: 16px;
     margin-bottom: 16px;
   }
+  //font-family: Inter;
+  //font-size: 22px;
+  //font-weight: 700;
+  //line-height: 27px;
+  //letter-spacing: -0.01em;
+  //text-align: left;
 }

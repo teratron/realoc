@@ -393,7 +393,7 @@ function Home() {
                                     label="2027+"
                                     name="group-5-6"
                                     type="checkbox"
-                                    id="inline-check-5-6-5"/>
+                                    id="inline-check-5-6-6"/>
                             </div>
                         </Form.Group>
                     </Card>
