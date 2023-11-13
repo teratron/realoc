@@ -1,12 +1,14 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
+import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
     //base: './',
-    base: 'https://teratron.github.io/realoc',
+    //base: 'https://teratron.github.io/realoc',
+    base: pkg.homepage,
     publicDir: '../public',
     appType: 'mpa',
     plugins: [
