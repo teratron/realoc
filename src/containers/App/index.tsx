@@ -5,7 +5,7 @@ import './app.scss'
 
 // Pages
 import Home from '../../pages/Home'
-import AddRequest from '../../pages/AddSale'
+import AddRequest from '../../pages/AddRequest'
 import AddSale from '../../pages/AddSale'
 import Property from '../../pages/Property'
 import About from '../../pages/About'

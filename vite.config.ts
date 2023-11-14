@@ -57,7 +57,9 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@': './src',
+            entries: {
+                '@': './src',
+            }
         }
     }
 })
