@@ -59,12 +59,12 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0));
 
 $spacer: 1rem;
 $spacers: (
-        0: 0,
-        1: $spacer * .25,
-        2: $spacer * .5,
-        3: $spacer,
-        4: $spacer * 1.5,
-        5: $spacer * 3,
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
 );
 
 // Body
@@ -102,12 +102,12 @@ $paragraph-margin-bottom:                     1rem;
 // Grid breakpoints
 
 $grid-breakpoints: (
-        xs: 0,
-        sm: 576px,
-        md: 768px,
-        lg: 992px,
-        xl: 1200px,
-        xxl: 1400px
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
 );
 
 ///@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -116,11 +116,11 @@ $grid-breakpoints: (
 // Grid containers
 
 $container-max-widths: (
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xl: 1140px,
-        xxl: 1320px
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
 );
 
 ///@include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -136,11 +136,11 @@ $container-padding-x:                         $grid-gutter-width;
 
 $border-width:                                1px;
 $border-widths: (
-        1: 1px,
-        2: 2px,
-        3: 3px,
-        4: 4px,
-        5: 5px
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
 );
 $border-style:                                solid;
 $border-color:                                $gray-300;
@@ -202,12 +202,12 @@ $headings-font-weight:                        500;
 $headings-line-height:                        1.2;
 $headings-color:                              inherit;
 $display-font-sizes: (
-        1: 5rem,
-        2: 4.5rem,
-        3: 4rem,
-        4: 3.5rem,
-        5: 3rem,
-        6: 2.5rem
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem
 );
 $display-font-family:                 null;
 $display-font-style:                          null;
@@ -266,14 +266,14 @@ $table-group-separator-color:         currentcolor;
 $table-caption-color:                         var(--#{$prefix}secondary-color);
 $table-bg-scale:                              -80%;
 $table-variants: (
-        "primary": shift-color($primary, $table-bg-scale),
-        "secondary": shift-color($secondary, $table-bg-scale),
-        "success": shift-color($success, $table-bg-scale),
-        "info": shift-color($info, $table-bg-scale),
-        "warning": shift-color($warning, $table-bg-scale),
-        "danger": shift-color($danger, $table-bg-scale),
-        "light": $light,
-        "dark": $dark,
+  "primary": shift-color($primary, $table-bg-scale),
+  "secondary": shift-color($secondary, $table-bg-scale),
+  "success": shift-color($success, $table-bg-scale),
+  "info": shift-color($info, $table-bg-scale),
+  "warning": shift-color($warning, $table-bg-scale),
+  "danger": shift-color($danger, $table-bg-scale),
+  "light": $light,
+  "dark": $dark,
 );
 
 // Buttons + Forms
@@ -513,22 +513,22 @@ $form-valid-border-color:                     $form-feedback-valid-color;
 $form-invalid-color:                          $form-feedback-invalid-color;
 $form-invalid-border-color:                   $form-feedback-invalid-color;
 $form-validation-states: (
-        "valid": (
-                "color": var(--#{$prefix}form-valid-color),
-                "icon": $form-feedback-icon-valid,
-                "tooltip-color": #fff,
-                "tooltip-bg-color": var(--#{$prefix}success),
-                "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity),
-                "border-color": var(--#{$prefix}form-valid-border-color),
-        ),
-        "invalid": (
-                "color": var(--#{$prefix}form-invalid-color),
-                "icon": $form-feedback-icon-invalid,
-                "tooltip-color": #fff,
-                "tooltip-bg-color": var(--#{$prefix}danger),
-                "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity),
-                "border-color": var(--#{$prefix}form-invalid-border-color),
-        )
+  "valid": (
+    "color": var(--#{$prefix}form-valid-color),
+    "icon": $form-feedback-icon-valid,
+    "tooltip-color": #fff,
+    "tooltip-bg-color": var(--#{$prefix}success),
+    "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity),
+    "border-color": var(--#{$prefix}form-valid-border-color),
+  ),
+  "invalid": (
+    "color": var(--#{$prefix}form-invalid-color),
+    "icon": $form-feedback-icon-invalid,
+    "tooltip-color": #fff,
+    "tooltip-bg-color": var(--#{$prefix}danger),
+    "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity),
+    "border-color": var(--#{$prefix}form-invalid-border-color),
+  )
 );
 
 // Z-index master list
@@ -544,11 +544,11 @@ $zindex-popover:                              1070;
 $zindex-tooltip:                              1080;
 $zindex-toast:                                1090;
 $zindex-levels: (
-        n1: -1,
-        0: 0,
-        1: 1,
-        2: 2,
-        3: 3
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3
 );
 
 // Navs
@@ -940,14 +940,14 @@ $carousel-dark-control-icon-filter:           invert(1) grayscale(100);
 
 // Spinners
 
-$spinner-width:                               2rem;
-$spinner-height:                              $spinner-width;
-$spinner-vertical-align:                      -.125em;
-$spinner-border-width:                        .25em;
-$spinner-animation-speed:             .75s;
-$spinner-width-sm:                            1rem;
-$spinner-height-sm:                           $spinner-width-sm;
-$spinner-border-width-sm:             .2em;
+$spinner-width: 2rem;
+$spinner-height: $spinner-width;
+$spinner-vertical-align: -.125em;
+$spinner-border-width: .25em;
+$spinner-animation-speed: .75s;
+$spinner-width-sm: 1rem;
+$spinner-height-sm: $spinner-width-sm;
+$spinner-border-width-sm: .2em;
 
 // Close
 
