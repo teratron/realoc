@@ -1,20 +1,30 @@
 {
+  "assets/media/icon_select_map.svg": {
+    "file": "assets/media/icon_select_map.1d8b43be.svg",
+    "src": "assets/media/icon_select_map.svg"
+  },
+  "assets/media/logo.svg": {
+    "file": "assets/media/logo.1c82f0c3.svg",
+    "src": "assets/media/logo.svg"
+  },
   "assets/media/plug_room_01.jpg": {
     "file": "assets/media/plug_room_01.c7d28567.jpg",
     "src": "assets/media/plug_room_01.jpg"
   },
   "index.css": {
-    "file": "assets/css/index.3db969cc.css",
+    "file": "assets/css/index.4b8dcfa1.css",
     "src": "index.css"
   },
   "index.html": {
     "assets": [
+      "assets/media/logo.1c82f0c3.svg",
+      "assets/media/icon_select_map.1d8b43be.svg",
       "assets/media/plug_room_01.c7d28567.jpg"
     ],
     "css": [
-      "assets/css/index.3db969cc.css"
+      "assets/css/index.4b8dcfa1.css"
     ],
-    "file": "assets/js/main.375cbbf0.js",
+    "file": "assets/js/main.7bdf7915.js",
     "isEntry": true,
     "src": "index.html"
   }
