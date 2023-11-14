@@ -741,22 +741,22 @@ $accordion-button-active-icon:                url("data:image/svg+xml,<svg xmlns
 
 // Tooltips
 
-$tooltip-font-size:                           $font-size-sm;
-$tooltip-max-width:                           200px;
-$tooltip-color:                               var(--#{$prefix}body-bg);
-$tooltip-bg:                                  var(--#{$prefix}emphasis-color);
-$tooltip-border-radius:                       var(--#{$prefix}border-radius);
-$tooltip-opacity:                             .9;
-$tooltip-padding-y:                           $spacer * .25;
-$tooltip-padding-x:                           $spacer * .5;
-$tooltip-margin:                              null;
-$tooltip-arrow-width:                         .8rem;
-$tooltip-arrow-height:                        .4rem;
-$form-feedback-tooltip-padding-y:             $tooltip-padding-y;
-$form-feedback-tooltip-padding-x:             $tooltip-padding-x;
-$form-feedback-tooltip-font-size:             $tooltip-font-size;
-$form-feedback-tooltip-line-height:           null;
-$form-feedback-tooltip-opacity:               $tooltip-opacity;
+$tooltip-font-size:                 $font-size-sm;
+$tooltip-max-width:                 200px;
+$tooltip-color:                     var(--#{$prefix}body-bg);
+$tooltip-bg:                        var(--#{$prefix}emphasis-color);
+$tooltip-border-radius:             var(--#{$prefix}border-radius);
+$tooltip-opacity:                   .9;
+$tooltip-padding-y:                 $spacer * .25;
+$tooltip-padding-x:                 $spacer * .5;
+$tooltip-margin:                    null;
+$tooltip-arrow-width:               .8rem;
+$tooltip-arrow-height:              .4rem;
+$form-feedback-tooltip-padding-y:   $tooltip-padding-y;
+$form-feedback-tooltip-padding-x:   $tooltip-padding-x;
+$form-feedback-tooltip-font-size:   $tooltip-font-size;
+$form-feedback-tooltip-line-height: null;
+$form-feedback-tooltip-opacity:     $tooltip-opacity;
 $form-feedback-tooltip-border-radius: $tooltip-border-radius;
 
 // Popovers

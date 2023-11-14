@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import {Button, Container, Offcanvas, Stack} from 'react-bootstrap'
+import {ListLink} from '../../components/ListLink'
 //import Drawer from '../../components/Drawer'
 import logo from '../../assets/media/logo.svg' // 96x24
 import './_header.scss'
@@ -21,10 +22,7 @@ function Header(props: HeaderProps) {
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Stack gap={3}>
-                    <Link to="/">Home</Link>
-                    <Link to="/add-request">Add Request</Link>
-                    <Link to="/add-sale">Add Sale</Link>
-                    <Link to="/about">About</Link>
+                    <ListLink/>
                 </Stack>
             </Offcanvas.Body>
         </Offcanvas>
