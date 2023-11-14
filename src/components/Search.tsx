@@ -13,7 +13,13 @@ import {
 } from 'react-bootstrap'
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 
+
+/*interface ButtonProps {
+    title?: string
+}*/
+
 export function SearchButton() {
+//export function SearchButton(props: ButtonProps) {
     const [count, setCount] = useState(254)
 
     return (

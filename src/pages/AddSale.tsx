@@ -17,7 +17,7 @@ function AddSale() {
         <>
             <Header/>
             <Main>
-                <h2>Caută imobiliare</h2>
+                <h2>Adaugă imobiliare</h2>
                 <Form className="form">
                     <SearchTransaction/>
                     <SearchHousing/>

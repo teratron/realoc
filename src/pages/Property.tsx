@@ -1,52 +1,66 @@
 import Header from '../containers/Header'
 import Main from '../containers/Main'
-import {Carousel} from 'react-bootstrap'
+import {Button, Card, Carousel, Container, Navbar} from 'react-bootstrap'
 import images from '../assets/media/plug_room_01.jpg'
+import List from '../components/List'
 
 export const title: string = 'Property'
 
 function Property() {
+    const slides = [
+        images,
+        images,
+        images
+    ]
+
     return (
         <>
             <Header title={title}/>
             <Main>
-                <Carousel data-bs-theme="dark">
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={images}
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h5>First slide label</h5>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={images}
-                            alt="Second slide"
-                        />
-                        <Carousel.Caption>
-                            <h5>Second slide label</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={images}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h5>Third slide label</h5>
-                            <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                <Carousel className="mb-3" data-bs-theme="dark">
+                    {slides.map((value, index) => (
+                        <Carousel.Item key={`slide-${index}`}>
+                            <img
+                                className="d-block w-100"
+                                src={value}
+                                alt={`${index + 1} slide`}/>
+                            <Carousel.Caption>
+                                {index + 1}
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    ))}
                 </Carousel>
+
+                <Card></Card>
+
+                <Card></Card>
+
+                <Card></Card>
+
+                <Card></Card>
+
+                <Card></Card>
+
+                <Card>
+                    <Card.Title>Detalii comerciale</Card.Title>
+                    <List>
+                        <div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </List>
+                </Card>
+
+                <Navbar fixed="bottom">
+                    <Container>
+                        <Button
+                            type="button"
+                            variant="primary"
+                            size="lg">
+                            Împărtășiți obiectul
+                        </Button>
+                    </Container>
+                </Navbar>
             </Main>
         </>
     )

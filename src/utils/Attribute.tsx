@@ -8,7 +8,6 @@ export interface AttrStyle {
     style?: CSSProperties
 }
 
-export default interface AttrCommon extends AttrClass, AttrStyle {
-    id?: string
+export default interface Attribute extends AttrClass, AttrStyle {
     title?: string
 }

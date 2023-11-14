@@ -1,0 +1,54 @@
+$width: 100%;
+$height: auto;
+$padding: 0;
+$gap: 0;
+$gap-row: 0;
+$gap-column: 0;
+
+.list {
+  display: grid;
+  align-items: center;
+  grid-template-columns: $width;
+  grid-auto-flow: row;
+  grid-auto-rows: min-content;
+  grid-row-gap: $gap-row;
+
+  > * {
+    display: grid;
+    align-items: center;
+    padding-left: $padding;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: $height;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    grid-column-gap: $gap-column;
+  }
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: $height;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  grid-gap: $gap;
+  align-items: center;
+
+  > * {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  > :first-child {
+    justify-self: start;
+    padding-left: $padding;
+  }
+
+  // TODO: > :nth-child(2) {}
+
+  > :last-child:not(:first-child) {
+    justify-self: end;
+    padding-right: $padding;
+  }
+}

@@ -36,6 +36,7 @@ body {
     margin-top: 0;
   }
 
+  &:last-of-type,
   > :only-child,
   > :not(:only-child):last-child {
     margin-bottom: 0;
@@ -69,6 +70,10 @@ body {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
   }
 
+  > :last-child {
+    margin-bottom: 0;
+  }
+
   @include container(&)
 }
 
@@ -93,12 +98,12 @@ form > .navbar {
 }
 
 // Button
-.btn-lg, .btn-group-lg > .btn {
+/*.btn-lg, .btn-group-lg > .btn {
   --bs-btn-padding-y: 0.7rem;
   --bs-btn-padding-x: 1rem;
   --bs-btn-font-size: 1.0rem;
   --bs-btn-border-radius: var(--bs-border-radius-lg);
-}
+}*/
 
 // Heading
 h1, h2, h3, h4, h5, h6 {
