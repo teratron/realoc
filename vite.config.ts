@@ -6,8 +6,6 @@ import pkg from './package.json'
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
-    //base: './',
-    //base: 'https://teratron.github.io/realoc',
     base: pkg.homepage,
     publicDir: '../public',
     appType: 'mpa',
@@ -55,12 +53,12 @@ export default defineConfig({
                 }
             }
         }
-    }
-    /*resolve: {
+    },
+    resolve: {
         alias: {
             '@': './src',
         }
-    },*/
+    }
 })
 
 /*

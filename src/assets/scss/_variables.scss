@@ -40,8 +40,6 @@ $green:                                       #198754;
 $teal:                                        #20c997;
 $cyan:                                        #20bbf7; // *
 
-$min-contrast-ratio:                          4.5;
-
 $primary:                                     $blue;
 $secondary:                                   $cyan; // *
 $success:                                     $green;
@@ -50,6 +48,8 @@ $warning:                                     $yellow;
 $danger:                                      $red;
 $light:                                       $gray-100;
 $dark:                                        $gray-900;
+
+$min-contrast-ratio:                          4.5;
 
 // Gradient
 
@@ -170,7 +170,7 @@ $caret-spacing:                               $caret-width * .85;
 
 @import "https://fonts.googleapis.com/css2?family=Inter&display=swap";
 
-$font-family-sans-serif: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif:              Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-monospace:                       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:                            var(--#{$prefix}font-sans-serif);
 $font-family-code:                            var(--#{$prefix}font-monospace);
@@ -209,7 +209,7 @@ $display-font-sizes: (
         5: 3rem,
         6: 2.5rem
 );
-$display-font-family:                        null;
+$display-font-family:                 null;
 $display-font-style:                          null;
 $display-font-weight:                         300;
 $display-line-height:                         $headings-line-height;
@@ -261,8 +261,8 @@ $table-border-factor:                         .2;
 $table-border-width:                          var(--#{$prefix}border-width);
 $table-border-color:                          var(--#{$prefix}border-color);
 $table-striped-order:                         odd;
-$table-striped-columns-order: even;
-$table-group-separator-color: currentcolor;
+$table-striped-columns-order:         even;
+$table-group-separator-color:         currentcolor;
 $table-caption-color:                         var(--#{$prefix}secondary-color);
 $table-bg-scale:                              -80%;
 $table-variants: (
@@ -284,7 +284,7 @@ $input-btn-font-family:                       null;
 $input-btn-font-size:                         $font-size-base;
 $input-btn-line-height:                       $line-height-base;
 $input-btn-focus-width:                       $focus-ring-width;
-$input-btn-focus-color-opacity: $focus-ring-opacity;
+$input-btn-focus-color-opacity:       $focus-ring-opacity;
 $input-btn-focus-color:                       $focus-ring-color;
 $input-btn-focus-blur:                        $focus-ring-blur;
 $input-btn-focus-box-shadow:                  $focus-ring-box-shadow;
@@ -423,7 +423,7 @@ $form-switch-focus-color:                     $input-focus-border-color;
 $form-switch-focus-bg-image:                  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
 $form-switch-checked-color:                   $component-active-color;
 $form-switch-checked-bg-image:                url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
-$form-switch-checked-bg-position: right center;
+$form-switch-checked-bg-position:     right center;
 $input-group-addon-padding-y:                 $input-padding-y;
 $input-group-addon-padding-x:                 $input-padding-x;
 $input-group-addon-font-weight:               $input-font-weight;
@@ -441,7 +441,7 @@ $form-select-color:                           $input-color;
 $form-select-bg:                              $input-bg;
 $form-select-disabled-color:                  null;
 $form-select-disabled-bg:                     $input-disabled-bg;
-$form-select-disabled-border-color: $input-disabled-border-color;
+$form-select-disabled-border-color:   $input-disabled-border-color;
 $form-select-bg-position:                     right $form-select-padding-x center;
 $form-select-bg-size:                         16px 12px; // In pixels because image dimensions
 $form-select-indicator-color:                 $gray-800;
@@ -648,7 +648,7 @@ $dropdown-dark-link-hover-color:              $white;
 $dropdown-dark-link-hover-bg:                 rgba($white, .15);
 $dropdown-dark-link-active-color:             $dropdown-link-active-color;
 $dropdown-dark-link-active-bg:                $dropdown-link-active-bg;
-$dropdown-dark-link-disabled-color: $gray-500;
+$dropdown-dark-link-disabled-color:   $gray-500;
 $dropdown-dark-header-color:                  $gray-500;
 
 // Pagination
@@ -749,7 +749,7 @@ $tooltip-border-radius:                       var(--#{$prefix}border-radius);
 $tooltip-opacity:                             .9;
 $tooltip-padding-y:                           $spacer * .25;
 $tooltip-padding-x:                           $spacer * .5;
-$tooltip-margin:                              null; // TODO: remove this in v6
+$tooltip-margin:                              null;
 $tooltip-arrow-width:                         .8rem;
 $tooltip-arrow-height:                        .4rem;
 $form-feedback-tooltip-padding-y:             $tooltip-padding-y;
@@ -919,7 +919,7 @@ $carousel-control-hover-opacity:              .9;
 $carousel-control-transition:                 opacity .15s ease;
 $carousel-indicator-width:                    30px;
 $carousel-indicator-height:                   3px;
-$carousel-indicator-hit-area-height: 10px;
+$carousel-indicator-hit-area-height:  10px;
 $carousel-indicator-spacer:                   3px;
 $carousel-indicator-opacity:                  .5;
 $carousel-indicator-active-bg:                $white;
@@ -944,10 +944,10 @@ $spinner-width:                               2rem;
 $spinner-height:                              $spinner-width;
 $spinner-vertical-align:                      -.125em;
 $spinner-border-width:                        .25em;
-$spinner-animation-speed: .75s;
+$spinner-animation-speed:             .75s;
 $spinner-width-sm:                            1rem;
 $spinner-height-sm:                           $spinner-width-sm;
-$spinner-border-width-sm: .2em;
+$spinner-border-width-sm:             .2em;
 
 // Close
 
@@ -961,7 +961,7 @@ $btn-close-focus-shadow:                      $focus-ring-box-shadow;
 $btn-close-opacity:                           .5;
 $btn-close-hover-opacity:                     .75;
 $btn-close-focus-opacity:                     1;
-$btn-close-disabled-opacity: .25;
+$btn-close-disabled-opacity:          .25;
 $btn-close-white-filter:                      invert(1) grayscale(100%) brightness(200%);
 
 // Offcanvas

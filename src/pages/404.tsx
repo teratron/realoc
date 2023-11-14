@@ -10,6 +10,7 @@ function NotFound() {
             <Header/>
             <Main>
                 <h1>{title}</h1>
+                <p>Page not found.</p>
             </Main>
             <Footer/>
         </>

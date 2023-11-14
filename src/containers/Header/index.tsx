@@ -22,8 +22,9 @@ function Header(props: HeaderProps) {
             <Offcanvas.Body>
                 <Stack gap={3}>
                     <Link to="/">Home</Link>
+                    <Link to="/add-request">Add Request</Link>
+                    <Link to="/add-sale">Add Sale</Link>
                     <Link to="/about">About</Link>
-                    <Link to="/add">Add</Link>
                 </Stack>
             </Offcanvas.Body>
         </Offcanvas>

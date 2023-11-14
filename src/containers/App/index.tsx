@@ -6,7 +6,8 @@ import './app.scss'
 // Pages
 import Home from '../../pages/Home'
 import About from '../../pages/About'
-import Add from '../../pages/Add'
+import AddRequest from '../../pages/AddSale'
+import AddSale from '../../pages/AddSale'
 import NotFound from '../../pages/404'
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
         <React.Suspense fallback={<Spinner/>}>
             <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/add-request" element={<AddRequest/>}/>
+                <Route path="/add-sale" element={<AddSale/>}/>
                 <Route path="/about" element={<About/>}/>
-                <Route path="/add" element={<Add/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
         </React.Suspense>
