@@ -1,5 +1,5 @@
-import Attribute from '../../utils/Attribute.tsx'
-import Children from '../../utils/Children.tsx'
+import Attribute from '../../utils/Attribute'
+import Children from '../../utils/Children'
 import './_list.scss'
 
 interface ListProps extends Attribute, Children {
