@@ -38,6 +38,7 @@ export default defineConfig({
                 assetFileNames: assetInfo => {
                     // @ts-ignore
                     const info = assetInfo.name?.split('.')
+                    // @ts-ignore
                     let ext: string = info[info.length - 1]
                     // @ts-ignore
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
