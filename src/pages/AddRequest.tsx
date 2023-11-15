@@ -15,7 +15,7 @@ export const title: string = 'Add Request'
 function AddRequest() {
     return (
         <>
-            <Header title={title}/>
+            <Header title={title} isResetButton/>
             <Main>
                 <h2>Caută imobiliare</h2>
                 <Form className="form">

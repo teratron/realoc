@@ -15,7 +15,7 @@ export const title: string = 'Add Sale'
 function AddSale() {
     return (
         <>
-            <Header/>
+            <Header title={title}/>
             <Main>
                 <h2>Adaugă imobiliare</h2>
                 <Form className="form">
