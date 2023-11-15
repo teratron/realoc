@@ -38,22 +38,21 @@ export function FormButton() {
     )
 }
 
-interface FormBlockProps {
-    isAddSale?: boolean
-    isAddRequest?: boolean
+function getPathName() {
+    const location = useLocation
+    return location().pathname.substring(1)
 }
 
-const Star = (props: FormBlockProps) => {
-    return props.isAddSale ? <Image src={iconStar}/> : null
-}
+const isSale = () => getPathName() === 'add-sale'
+//const isRequest = () => getPathName() === 'add-request'
 
-const getRout = () => {
-    return <>{useLocation().pathname}</>
+const Star = () => {
+    return isSale() ? <Image src={iconStar}/> : null
 }
 
 export function BlockTransaction() {
     return (
-        <Card>{getRout()}
+        <Card>{getPathName()}
             <Form.Group className="mb-3" controlId="formGroup-1-1">
                 <Form.Label>Tip tranzacție</Form.Label>
                 <div>
@@ -81,7 +80,7 @@ export function BlockTransaction() {
     )
 }
 
-export function BlockHousing(props: FormBlockProps) {
+export function BlockHousing() {
     return (
         <Card>
             <Form.Group className="mb-3" controlId="formGroup-2-1">
@@ -99,23 +98,23 @@ export function BlockHousing(props: FormBlockProps) {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formGroup-2-2">
-                <Form.Label>Număr de camere<Star isAddSale/></Form.Label>
+                <Form.Label>Număr de camere<Star/></Form.Label>
                 <div>
                     {['1', '1.5', '2', '2.5', '3', '4.5', '4+'].map((value) => (
                         <Form.Check key={`num-room-${value}`}
                                     inline
                                     label={value}
                                     name="group-2-2"
-                                    type={props.isAddSale ? "radio" : "checkbox"}
+                                    type={isSale() ? "radio" : "checkbox"}
                                     id={`num-room-${value}`}/>
                     ))}
                 </div>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formGroup-2-3">
-                <Form.Label>Preț vânzare<Star isAddSale/></Form.Label>
+                <Form.Label>Preț vânzare<Star/></Form.Label>
                 {
-                    props.isAddSale
+                    isSale()
                         ? <Form.Control type="text" placeholder="Indicați preț"/>
                         : (
                             <Row>
@@ -145,7 +144,7 @@ export function BlockHousing(props: FormBlockProps) {
                     id="inline-radio-2-4-2"/>
             </Form.Group>
 
-            {props.isAddSale ?
+            {isSale() ?
                 <Form.Group className="mb-3" controlId="formGroup-2-6">
                     <Form.Label>Credit ipotecar</Form.Label>
                     <div>
@@ -165,9 +164,9 @@ export function BlockHousing(props: FormBlockProps) {
                 </Form.Group> : null}
 
             <Form.Group controlId="formGroup-2-5">
-                <Form.Label>Suprafață totală<Star isAddSale/></Form.Label>
+                <Form.Label>Suprafață totală<Star/></Form.Label>
                 {
-                    props.isAddSale
+                    isSale()
                         ? <Form.Control type="text" placeholder="Indicați suprafață"/>
                         : (
                             <Row>
