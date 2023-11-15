@@ -86,7 +86,7 @@ function Property() {
                             </Col>
                             <Col>
                                 <Link to="/add-request">
-                                    <img src={iconMap} alt=""/> {/* TODO: change icon */}
+                                    <img src={iconMap} alt=""/>
                                 </Link>
                             </Col>
                         </Row>

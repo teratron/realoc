@@ -13,13 +13,12 @@ import {
 } from 'react-bootstrap'
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 
-
-/*interface ButtonProps {
+/*interface FormButtonProps {
     title?: string
 }*/
+//export function FormButton(props: FormButtonProps) {
 
-export function SearchButton() {
-//export function SearchButton(props: ButtonProps) {
+export function FormButton() {
     const [count, setCount] = useState(254)
 
     return (
@@ -37,7 +36,12 @@ export function SearchButton() {
     )
 }
 
-export function SearchTransaction() {
+interface FormBlockProps {
+    isAddSale?: boolean
+    isAddRequest?: boolean
+}
+
+export function BlockTransaction() {
     return (
         <Card>
             <Form.Group className="mb-3" controlId="formGroup-1-1">
@@ -66,7 +70,7 @@ export function SearchTransaction() {
     )
 }
 
-export function SearchHousing() {
+export function BlockHousing() {
     return (
         <Card>
             <Form.Group className="mb-3" controlId="formGroup-2-1">
@@ -169,7 +173,7 @@ export function SearchHousing() {
     )
 }
 
-export function SearchLocation() {
+export function BlockLocation() {
     const selectMap = {
         label: 'Zona pe hartă',
         placeholder: 'Selectați zona pe hartă'
@@ -199,7 +203,7 @@ export function SearchLocation() {
     )
 }
 
-export function SearchApartment() {
+export function BlockApartment() {
     return (
         <Card>
             <Form.Group className="mb-3" controlId="formGroup-4-1">
@@ -264,7 +268,7 @@ export function SearchApartment() {
     )
 }
 
-export function SearchLevel() {
+export function BlockLevel() {
     return (
         <Card>
             <Form.Group className="mb-3" controlId="formGroup-5-1">
