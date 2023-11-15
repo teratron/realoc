@@ -11,6 +11,10 @@
     "file": "assets/media/icon_check_green_circle.d8ef49c6.svg",
     "src": "assets/media/icon_check_green_circle.svg"
   },
+  "assets/media/icon_chevron_left.svg": {
+    "file": "assets/media/icon_chevron_left.c3d1f311.svg",
+    "src": "assets/media/icon_chevron_left.svg"
+  },
   "assets/media/icon_copy.svg": {
     "file": "assets/media/icon_copy.30b95d2f.svg",
     "src": "assets/media/icon_copy.svg"
@@ -35,6 +39,10 @@
     "file": "assets/media/icon_stair.14119808.svg",
     "src": "assets/media/icon_stair.svg"
   },
+  "assets/media/icon_sulafat.svg": {
+    "file": "assets/media/icon_sulafat.2bc1685b.svg",
+    "src": "assets/media/icon_sulafat.svg"
+  },
   "assets/media/logo.svg": {
     "file": "assets/media/logo.1c82f0c3.svg",
     "src": "assets/media/logo.svg"
@@ -50,7 +58,9 @@
   "index.html": {
     "assets": [
       "assets/media/logo.1c82f0c3.svg",
+      "assets/media/icon_chevron_left.c3d1f311.svg",
       "assets/media/icon_select_map.1d8b43be.svg",
+      "assets/media/icon_sulafat.2bc1685b.svg",
       "assets/media/plug_room_01.c7d28567.jpg",
       "assets/media/icon_check_green_circle.d8ef49c6.svg",
       "assets/media/icon_map.dd5fb8f2.png",
@@ -64,7 +74,7 @@
     "css": [
       "assets/css/index.7c789693.css"
     ],
-    "file": "assets/js/main.626a7ed3.js",
+    "file": "assets/js/main.3b4db258.js",
     "isEntry": true,
     "src": "index.html"
   }
