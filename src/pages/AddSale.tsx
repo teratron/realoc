@@ -20,7 +20,7 @@ function AddSale() {
                 <h2>Adaugă imobiliare</h2>
                 <Form className="form">
                     <BlockTransaction/>
-                    <BlockHousing/>
+                    <BlockHousing isAddSale/>
                     <BlockLocation/>
                     <BlockApartment/>
                     <BlockLevel/>

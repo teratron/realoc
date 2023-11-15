@@ -1,10 +1,11 @@
 import {useState} from 'react'
+import {useLocation} from 'react-router-dom'
 import {
     Button,
     Card,
     Col,
     Container,
-    Form,
+    Form, Image,
     InputGroup,
     Navbar,
     Row,
@@ -12,6 +13,7 @@ import {
     ToggleButtonGroup
 } from 'react-bootstrap'
 import iconSelectMap from '../assets/media/icon_select_map.svg'
+import iconStar from '../assets/media/icon_sulafat.svg'
 
 /*interface FormButtonProps {
     title?: string
@@ -41,9 +43,17 @@ interface FormBlockProps {
     isAddRequest?: boolean
 }
 
+const Star = (props: FormBlockProps) => {
+    return props.isAddSale ? <Image src={iconStar}/> : null
+}
+
+const getRout = () => {
+    return <>{useLocation().pathname}</>
+}
+
 export function BlockTransaction() {
     return (
-        <Card>
+        <Card>{getRout()}
             <Form.Group className="mb-3" controlId="formGroup-1-1">
                 <Form.Label>Tip tranzacție</Form.Label>
                 <div>
@@ -57,6 +67,7 @@ export function BlockTransaction() {
                     </ToggleButtonGroup>
                 </div>
             </Form.Group>
+
             <Form.Group controlId="formGroup-1-2">
                 <Form.Label>Tip de proprietate</Form.Label>
                 <Form.Select aria-label="">
@@ -70,7 +81,7 @@ export function BlockTransaction() {
     )
 }
 
-export function BlockHousing() {
+export function BlockHousing(props: FormBlockProps) {
     return (
         <Card>
             <Form.Group className="mb-3" controlId="formGroup-2-1">
@@ -86,64 +97,39 @@ export function BlockHousing() {
                     </ToggleButtonGroup>
                 </div>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroup-2-2">
-                <Form.Label>Număr de camere</Form.Label>
+                <Form.Label>Număr de camere<Star isAddSale/></Form.Label>
                 <div>
-                    <Form.Check
-                        inline
-                        label="1"
-                        name="group-2-2"
-                        type="checkbox"
-                        id="inline-check-2-2-1"/>
-                    <Form.Check
-                        inline
-                        label="1.5"
-                        name="group-2-2"
-                        type="checkbox"
-                        id="inline-check-2-2-2"/>
-                    <Form.Check
-                        inline
-                        label="2"
-                        name="group-2-2"
-                        type="checkbox"
-                        id="inline-check-2-2-3"/>
-                    <Form.Check
-                        inline
-                        label="2.5"
-                        name="group-2-2"
-                        type="checkbox"
-                        id="inline-check-2-2-4"/>
-                    <Form.Check
-                        inline
-                        label="3"
-                        name="group-2-2"
-                        type="checkbox"
-                        id="inline-check-2-2-5"/>
-                    <Form.Check
-                        inline
-                        label="3.5"
-                        name="group-2-2"
-                        type="checkbox"
-                        id="inline-check-2-2-6"/>
-                    <Form.Check
-                        inline
-                        label="4+"
-                        name="group-2-2"
-                        type="checkbox"
-                        id="inline-check-2-2-7"/>
+                    {['1', '1.5', '2', '2.5', '3', '4.5', '4+'].map((value) => (
+                        <Form.Check key={`num-room-${value}`}
+                                    inline
+                                    label={value}
+                                    name="group-2-2"
+                                    type={props.isAddSale ? "radio" : "checkbox"}
+                                    id={`num-room-${value}`}/>
+                    ))}
                 </div>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroup-2-3">
-                <Form.Label>Preț vânzare</Form.Label>
-                <Row>
-                    <Col>
-                        <Form.Control placeholder="De la"/>
-                    </Col>
-                    <Col>
-                        <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
-                    </Col>
-                </Row>
+                <Form.Label>Preț vânzare<Star isAddSale/></Form.Label>
+                {
+                    props.isAddSale
+                        ? <Form.Control type="text" placeholder="Indicați preț"/>
+                        : (
+                            <Row>
+                                <Col>
+                                    <Form.Control placeholder="De la"/>
+                                </Col>
+                                <Col>
+                                    <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
+                                </Col>
+                            </Row>
+                        )
+                }
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroup-2-4">
                 <Form.Check
                     inline
@@ -158,16 +144,42 @@ export function BlockHousing() {
                     type="radio"
                     id="inline-radio-2-4-2"/>
             </Form.Group>
+
+            {props.isAddSale ?
+                <Form.Group className="mb-3" controlId="formGroup-2-6">
+                    <Form.Label>Credit ipotecar</Form.Label>
+                    <div>
+                        <Form.Check
+                            inline
+                            label="Disponibil"
+                            name="group-2-6"
+                            type="radio"
+                            id="inline-radio-2-6-1"/>
+                        <Form.Check
+                            inline
+                            label="Indisponibil"
+                            name="group-2-6"
+                            type="radio"
+                            id="inline-radio-2-6-2"/>
+                    </div>
+                </Form.Group> : null}
+
             <Form.Group controlId="formGroup-2-5">
-                <Form.Label> Suprafață totală</Form.Label>
-                <Row>
-                    <Col>
-                        <Form.Control placeholder="De la"/>
-                    </Col>
-                    <Col>
-                        <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
-                    </Col>
-                </Row>
+                <Form.Label>Suprafață totală<Star isAddSale/></Form.Label>
+                {
+                    props.isAddSale
+                        ? <Form.Control type="text" placeholder="Indicați suprafață"/>
+                        : (
+                            <Row>
+                                <Col>
+                                    <Form.Control placeholder="De la"/>
+                                </Col>
+                                <Col>
+                                    <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
+                                </Col>
+                            </Row>
+                        )
+                }
             </Form.Group>
         </Card>
     )
