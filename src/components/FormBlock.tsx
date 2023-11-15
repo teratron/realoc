@@ -15,11 +15,6 @@ import {
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 import iconStar from '../assets/media/icon_sulafat.svg'
 
-/*interface FormButtonProps {
-    title?: string
-}*/
-//export function FormButton(props: FormButtonProps) {
-
 export function FormButton() {
     const [count, setCount] = useState(254)
 
@@ -40,7 +35,8 @@ export function FormButton() {
 
 function getPathName() {
     const location = useLocation
-    return location().pathname.substring(1)
+    const path = location().pathname.split('/')
+    return path[path.length - 1]
 }
 
 const isSale = () => getPathName() === 'add-sale'
@@ -185,11 +181,6 @@ export function BlockHousing() {
 }
 
 export function BlockLocation() {
-    const selectMap = {
-        label: 'Zona pe hartă',
-        placeholder: 'Selectați zona pe hartă'
-    }
-
     return (
         <Card>
             <Form.Group className="mb-3" controlId="formGroup-3-1">
@@ -201,12 +192,13 @@ export function BlockLocation() {
                     <option value="3">Three</option>
                 </Form.Select>
             </Form.Group>
+
             <Form.Group controlId="formGroup-3-2">
-                <Form.Label>{selectMap.label}</Form.Label>
+                <Form.Label>Zona pe hartă</Form.Label>
                 <InputGroup>
-                    <Form.Control placeholder={selectMap.placeholder} aria-label=""/>
+                    <Form.Control placeholder="Selectați zona pe hartă" aria-label=""/>
                     <InputGroup.Text>
-                        <img src={iconSelectMap} alt={selectMap.placeholder}/>
+                        <img src={iconSelectMap} alt=""/>
                     </InputGroup.Text>
                 </InputGroup>
             </Form.Group>
@@ -252,6 +244,7 @@ export function BlockApartment() {
                         id="inline-check-4-1-5"/>
                 </div>
             </Form.Group>
+
             <Form.Group controlId="formGroup-4-2">
                 <Form.Label>Mobilier</Form.Label>
                 <div>
@@ -301,6 +294,7 @@ export function BlockLevel() {
                     </Col>
                 </Row>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroup-5-2">
                 <Form.Check
                     inline
@@ -321,6 +315,7 @@ export function BlockLevel() {
                     type="checkbox"
                     id="inline-check-5-2-3"/>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroup-5-3">
                 <Form.Label>Număr de nivele în casă</Form.Label>
                 <Row>
@@ -340,6 +335,7 @@ export function BlockLevel() {
                     </Col>
                 </Row>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroup-5-4">
                 <Form.Label>Dezvoltator</Form.Label>
                 <Form.Select aria-label="">
@@ -348,6 +344,7 @@ export function BlockLevel() {
                     <option value="2">Two</option>
                 </Form.Select>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroup-5-5">
                 <Form.Label>Parcare</Form.Label>
                 <div>
@@ -371,6 +368,7 @@ export function BlockLevel() {
                         id="inline-check-5-5-3"/>
                 </div>
             </Form.Group>
+
             <Form.Group controlId="formGroup-5-6">
                 <Form.Label>Predare în expluatare</Form.Label>
                 <div>
