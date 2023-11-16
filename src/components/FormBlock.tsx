@@ -18,8 +18,8 @@ import {
 // Media
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 import iconStar from '../assets/media/icon_sulafat.svg'
-import iconInvalid from "../assets/media/icon_invalid_red_circle.svg";
-import iconNote from "../assets/media/icon_note_grey_circle.svg";
+import iconInvalid from '../assets/media/icon_invalid_red_circle.svg'
+import iconNote from '../assets/media/icon_note_grey_circle.svg'
 
 export function FormButton() {
     const [count, setCount] = useState(254)
@@ -47,7 +47,6 @@ function getPathName() {
 
 const isSale = () => getPathName() === 'add-sale'
 const isRequest = () => getPathName() === 'add-request'
-console.log(isSale, isRequest)
 
 const Star = () => {
     return isSale() ? <Image src={iconStar}/> : null
@@ -134,16 +133,15 @@ export function BlockHousing() {
                 {
                     isSale()
                         ? <Form.Control type="text" placeholder="Indicați preț"/>
-                        : (
-                            <Row>
-                                <Col>
-                                    <Form.Control placeholder="De la"/>
-                                </Col>
-                                <Col>
-                                    <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
-                                </Col>
-                            </Row>
-                        )
+                        : <Row>
+                            <Col>
+                                <Form.Control placeholder="De la"/>
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
+                            </Col>
+                        </Row>
+
                 }
             </Form.Group>
 
@@ -162,40 +160,40 @@ export function BlockHousing() {
                     id="inline-radio-2-4-2"/>
             </Form.Group>
 
-            {isSale() ?
-                <Form.Group controlId="formGroup-2-6">
-                    <Form.Label>Credit ipotecar</Form.Label>
-                    <div>
-                        <Form.Check
-                            inline
-                            label="Disponibil"
-                            name="group-2-6"
-                            type="radio"
-                            id="inline-radio-2-6-1"/>
-                        <Form.Check
-                            inline
-                            label="Indisponibil"
-                            name="group-2-6"
-                            type="radio"
-                            id="inline-radio-2-6-2"/>
-                    </div>
-                </Form.Group> : null}
+            {
+                isSale() ?
+                    <Form.Group controlId="formGroup-2-6">
+                        <Form.Label>Credit ipotecar</Form.Label>
+                        <div>
+                            <Form.Check
+                                inline
+                                label="Disponibil"
+                                name="group-2-6"
+                                type="radio"
+                                id="inline-radio-2-6-1"/>
+                            <Form.Check
+                                inline
+                                label="Indisponibil"
+                                name="group-2-6"
+                                type="radio"
+                                id="inline-radio-2-6-2"/>
+                        </div>
+                    </Form.Group> : null
+            }
 
             <Form.Group controlId="formGroup-2-5">
                 <Form.Label>Suprafață totală<Star/><Mandatory hasError/></Form.Label>
                 {
                     isSale()
                         ? <Form.Control type="text" placeholder="Indicați suprafață"/>
-                        : (
-                            <Row>
-                                <Col>
-                                    <Form.Control placeholder="De la"/>
-                                </Col>
-                                <Col>
-                                    <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
-                                </Col>
-                            </Row>
-                        )
+                        : <Row>
+                            <Col>
+                                <Form.Control placeholder="De la"/>
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Până la"/> {/* TODO: add symbol*/}
+                            </Col>
+                        </Row>
                 }
             </Form.Group>
         </Card>
@@ -298,140 +296,144 @@ export function BlockLevel() {
     return (
         <Card>
             <Form.Group controlId="formGroup-5-1">
-                <Form.Label>Nivel</Form.Label>
-                <Row>
-                    <Col>
-                        <Form.Select>
-                            <option>De la</option>
+                <Form.Label>Nivel<Star/><Mandatory/></Form.Label>
+                {
+                    isSale()
+                        ? <Form.Select>
+                            <option>Selectați nivel</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                         </Form.Select>
-                    </Col>
-                    <Col>
-                        <Form.Select>
-                            <option>Până la</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                        </Form.Select>
-                    </Col>
-                </Row>
+                        : <Row>
+                            <Col>
+                                <Form.Select>
+                                    <option>De la</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </Form.Select>
+                            </Col>
+                            <Col>
+                                <Form.Select>
+                                    <option>Până la</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </Form.Select>
+                            </Col>
+                        </Row>
+                }
             </Form.Group>
 
-            <Form.Group controlId="formGroup-5-2">
-                <Form.Check
-                    inline
-                    label="Nu la parterul"
-                    name="group-5-2"
-                    type="checkbox"
-                    id="inline-check-5-2-1"/>
-                <Form.Check
-                    inline
-                    label="Nu la ultimul"
-                    name="group-5-2"
-                    type="checkbox"
-                    id="inline-check-5-2-2"/>
-                <Form.Check
-                    inline
-                    label="La ultimul"
-                    name="group-5-2"
-                    type="checkbox"
-                    id="inline-check-5-2-3"/>
-            </Form.Group>
+            {
+                isRequest() ?
+                    <Form.Group controlId="formGroup-5-2">
+                        {
+                            ['Nu la parterul', 'Nu la ultimul', 'La ultimul'].map((value) => (
+                                <Form.Check key={`option-${value}`}
+                                            inline
+                                            label={value}
+                                            name="group-5-5"
+                                            type="checkbox"
+                                            id={`option-${value}`}/>
+                            ))
+                        }
+                    </Form.Group> : null
+            }
 
             <Form.Group controlId="formGroup-5-3">
-                <Form.Label>Număr de nivele în casă</Form.Label>
-                <Row>
-                    <Col>
-                        <Form.Select>
-                            <option>De la</option>
+                <Form.Label>Număr de nivele în casă<Star/><Mandatory hasError/></Form.Label>
+                {
+                    isSale()
+                        ? <Form.Select>
+                            <option>Selectați număr de nivele</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                         </Form.Select>
-                    </Col>
-                    <Col>
-                        <Form.Select>
-                            <option>Până la</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                        </Form.Select>
-                    </Col>
-                </Row>
+                        : <Row>
+                            <Col>
+                                <Form.Select>
+                                    <option>De la</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </Form.Select>
+                            </Col>
+                            <Col>
+                                <Form.Select>
+                                    <option>Până la</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </Form.Select>
+                            </Col>
+                        </Row>
+                }
+            </Form.Group>
+
+            <Form.Group controlId="formGroup-5-5">
+                <Form.Label>Ascensor</Form.Label>
+                <div>
+                    {
+                        ['Este', 'Absent'].map((value) => (
+                            <Form.Check key={`ascensor-${value}`}
+                                        inline
+                                        label={value}
+                                        name="group-5-5"
+                                        type={isSale() ? "radio" : "checkbox"}
+                                        id={`ascensor-${value}`}/>
+                        ))
+                    }
+                </div>
+            </Form.Group>
+
+            <Form.Group controlId="formGroup-5-5">
+                <Form.Label>Parcare</Form.Label>
+                <div>
+                    {
+                        ['Subterană', 'În curtea', 'Garaj'].map((value) => (
+                            <Form.Check key={`parking-${value}`}
+                                        inline
+                                        label={value}
+                                        name="group-5-5"
+                                        type="checkbox"
+                                        id={`parking-${value}`}/>
+                        ))
+                    }
+                </div>
             </Form.Group>
 
             <Form.Group controlId="formGroup-5-4">
                 <Form.Label>Dezvoltator</Form.Label>
-                <Form.Select aria-label="">
+                <Form.Select>
                     <option>Selectați dezvoltator</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                 </Form.Select>
             </Form.Group>
 
-            <Form.Group controlId="formGroup-5-5">
-                <Form.Label>Parcare</Form.Label>
-                <div>
-                    <Form.Check
-                        inline
-                        label="Subterană"
-                        name="group-5-5"
-                        type="checkbox"
-                        id="inline-check-5-5-1"/>
-                    <Form.Check
-                        inline
-                        label="În curtea"
-                        name="group-5-5"
-                        type="checkbox"
-                        id="inline-check-5-5-2"/>
-                    <Form.Check
-                        inline
-                        label="Garaj"
-                        name="group-5-5"
-                        type="checkbox"
-                        id="inline-check-5-5-3"/>
-                </div>
-            </Form.Group>
-
             <Form.Group controlId="formGroup-5-6">
                 <Form.Label>Predare în expluatare</Form.Label>
                 <div>
-                    <Form.Check
-                        inline
-                        label="Dat în expluatare"
-                        name="group-5-6"
-                        type="checkbox"
-                        id="inline-check-5-6-1"/>
-                    <Form.Check
-                        inline
-                        label="2023"
-                        name="group-5-6"
-                        type="checkbox"
-                        id="inline-check-5-6-2"/>
-                    <Form.Check
-                        inline
-                        label="2024"
-                        name="group-5-6"
-                        type="checkbox"
-                        id="inline-check-5-6-3"/>
-                    <Form.Check
-                        inline
-                        label="2025"
-                        name="group-5-6"
-                        type="checkbox"
-                        id="inline-check-5-6-4"/>
-                    <Form.Check
-                        inline
-                        label="2026"
-                        name="group-5-6"
-                        type="checkbox"
-                        id="inline-check-5-6-5"/>
-                    <Form.Check
-                        inline
-                        label="2027+"
-                        name="group-5-6"
-                        type="checkbox"
-                        id="inline-check-5-6-6"/>
+                    {
+                        ['Dat în expluatare', '2023', '2024', '2025', '2026', '2027+'].map((value) => (
+                            <Form.Check key={`date-${value}`}
+                                        inline
+                                        label={value}
+                                        name="group-5-6"
+                                        type={isSale() ? "radio" : "checkbox"}
+                                        id={`date-${value}`}/>
+                        ))
+                    }
                 </div>
             </Form.Group>
+
+            {
+                isSale() ?
+                    <Form.Group controlId="formGroup-5-7">
+                        <Form.Label>Descriere<span className="foot">0/2000</span></Form.Label>
+                        <Form.Control
+                            as="textarea"
+                            placeholder="Spuneți-ne despre proprietatea dumneavoastră. O descriere bine completată ajută la vânzarea mai rapidă a proprietății."
+                            rows={3}/>
+                    </Form.Group> : null
+            }
         </Card>
     )
 }
