@@ -24,10 +24,7 @@ import iconStar from '../assets/media/icon_sulafat.svg'
 import iconInvalid from '../assets/media/icon_invalid_red_circle.svg'
 import iconNote from '../assets/media/icon_note_grey_circle.svg'
 import iconSearch from '../assets/media/icon_search.svg'
-
 //import iconLocation from '../assets/media/icon_location_house.svg'
-
-
 
 function getPathName() {
     const location = useLocation
