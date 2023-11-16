@@ -23,9 +23,21 @@
     "file": "assets/media/icon_door.72f8e603.svg",
     "src": "assets/media/icon_door.svg"
   },
+  "assets/media/icon_invalid_red_circle.svg": {
+    "file": "assets/media/icon_invalid_red_circle.bddbf30c.svg",
+    "src": "assets/media/icon_invalid_red_circle.svg"
+  },
   "assets/media/icon_map.png": {
     "file": "assets/media/icon_map.dd5fb8f2.png",
     "src": "assets/media/icon_map.png"
+  },
+  "assets/media/icon_note_grey_circle.svg": {
+    "file": "assets/media/icon_note_grey_circle.e9c05c93.svg",
+    "src": "assets/media/icon_note_grey_circle.svg"
+  },
+  "assets/media/icon_search.svg": {
+    "file": "assets/media/icon_search.21eb00f9.svg",
+    "src": "assets/media/icon_search.svg"
   },
   "assets/media/icon_select_map.svg": {
     "file": "assets/media/icon_select_map.1d8b43be.svg",
@@ -51,18 +63,26 @@
     "file": "assets/media/plug_room_01.c7d28567.jpg",
     "src": "assets/media/plug_room_01.jpg"
   },
+  "assets/media/thumb_map.png": {
+    "file": "assets/media/thumb_map.1bf34148.png",
+    "src": "assets/media/thumb_map.png"
+  },
   "index.css": {
-    "file": "assets/css/index.7c789693.css",
+    "file": "assets/css/index.0b3ff1ec.css",
     "src": "index.css"
   },
   "index.html": {
     "assets": [
       "assets/media/logo.1c82f0c3.svg",
       "assets/media/icon_chevron_left.c3d1f311.svg",
+      "assets/media/plug_room_01.c7d28567.jpg",
+      "assets/media/thumb_map.1bf34148.png",
+      "assets/media/icon_check_green_circle.d8ef49c6.svg",
       "assets/media/icon_select_map.1d8b43be.svg",
       "assets/media/icon_sulafat.2bc1685b.svg",
-      "assets/media/plug_room_01.c7d28567.jpg",
-      "assets/media/icon_check_green_circle.d8ef49c6.svg",
+      "assets/media/icon_invalid_red_circle.bddbf30c.svg",
+      "assets/media/icon_note_grey_circle.e9c05c93.svg",
+      "assets/media/icon_search.21eb00f9.svg",
       "assets/media/icon_map.dd5fb8f2.png",
       "assets/media/icon_copy.30b95d2f.svg",
       "assets/media/icon_building.d8b2da12.svg",
@@ -72,9 +92,9 @@
       "assets/media/icon_selected.2f5ea29b.svg"
     ],
     "css": [
-      "assets/css/index.7c789693.css"
+      "assets/css/index.0b3ff1ec.css"
     ],
-    "file": "assets/js/main.3b4db258.js",
+    "file": "assets/js/main.347c22ea.js",
     "isEntry": true,
     "src": "index.html"
   }
