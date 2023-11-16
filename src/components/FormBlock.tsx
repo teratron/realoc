@@ -1,19 +1,25 @@
 import {useState} from 'react'
 import {useLocation} from 'react-router-dom'
 import {
+    Alert,
     Button,
     Card,
     Col,
     Container,
-    Form, Image,
+    Form,
+    Image,
     InputGroup,
     Navbar,
     Row,
     ToggleButton,
     ToggleButtonGroup
 } from 'react-bootstrap'
+
+// Media
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 import iconStar from '../assets/media/icon_sulafat.svg'
+import iconInvalid from "../assets/media/icon_invalid_red_circle.svg";
+import iconNote from "../assets/media/icon_note_grey_circle.svg";
 
 export function FormButton() {
     const [count, setCount] = useState(254)
@@ -40,16 +46,32 @@ function getPathName() {
 }
 
 const isSale = () => getPathName() === 'add-sale'
-//const isRequest = () => getPathName() === 'add-request'
+const isRequest = () => getPathName() === 'add-request'
+console.log(isSale, isRequest)
 
 const Star = () => {
     return isSale() ? <Image src={iconStar}/> : null
 }
 
+interface MandatoryProps {
+    hasError?: boolean
+}
+
+const Mandatory = ({hasError = false}: MandatoryProps) => {
+    return (
+        hasError
+            ?
+            isSale()
+                ? <span className="mandatory">Mandatory <Image src={iconInvalid}/></span>
+                : null
+            : null
+    )
+}
+
 export function BlockTransaction() {
     return (
-        <Card>{getPathName()}
-            <Form.Group className="mb-3" controlId="formGroup-1-1">
+        <Card>
+            <Form.Group controlId="formGroup-1-1">
                 <Form.Label>Tip tranzacție</Form.Label>
                 <div>
                     <ToggleButtonGroup type="radio" name="options-1" defaultValue={1}>
@@ -79,7 +101,7 @@ export function BlockTransaction() {
 export function BlockHousing() {
     return (
         <Card>
-            <Form.Group className="mb-3" controlId="formGroup-2-1">
+            <Form.Group controlId="formGroup-2-1">
                 <Form.Label>Fond locativ</Form.Label>
                 <div>
                     <ToggleButtonGroup type="radio" name="options-2" defaultValue={1}>
@@ -93,8 +115,8 @@ export function BlockHousing() {
                 </div>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGroup-2-2">
-                <Form.Label>Număr de camere<Star/></Form.Label>
+            <Form.Group controlId="formGroup-2-2">
+                <Form.Label>Număr de camere<Star/><Mandatory hasError/></Form.Label>
                 <div>
                     {['1', '1.5', '2', '2.5', '3', '4.5', '4+'].map((value) => (
                         <Form.Check key={`num-room-${value}`}
@@ -107,8 +129,8 @@ export function BlockHousing() {
                 </div>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGroup-2-3">
-                <Form.Label>Preț vânzare<Star/></Form.Label>
+            <Form.Group controlId="formGroup-2-3">
+                <Form.Label>Preț vânzare<Star/><Mandatory/></Form.Label>
                 {
                     isSale()
                         ? <Form.Control type="text" placeholder="Indicați preț"/>
@@ -125,7 +147,7 @@ export function BlockHousing() {
                 }
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGroup-2-4">
+            <Form.Group controlId="formGroup-2-4">
                 <Form.Check
                     inline
                     label="Preț total"
@@ -141,7 +163,7 @@ export function BlockHousing() {
             </Form.Group>
 
             {isSale() ?
-                <Form.Group className="mb-3" controlId="formGroup-2-6">
+                <Form.Group controlId="formGroup-2-6">
                     <Form.Label>Credit ipotecar</Form.Label>
                     <div>
                         <Form.Check
@@ -160,7 +182,7 @@ export function BlockHousing() {
                 </Form.Group> : null}
 
             <Form.Group controlId="formGroup-2-5">
-                <Form.Label>Suprafață totală<Star/></Form.Label>
+                <Form.Label>Suprafață totală<Star/><Mandatory hasError/></Form.Label>
                 {
                     isSale()
                         ? <Form.Control type="text" placeholder="Indicați suprafață"/>
@@ -183,7 +205,7 @@ export function BlockHousing() {
 export function BlockLocation() {
     return (
         <Card>
-            <Form.Group className="mb-3" controlId="formGroup-3-1">
+            <Form.Group controlId="formGroup-3-1">
                 <Form.Label>Raion/oraș</Form.Label>
                 <Form.Select aria-label="">
                     <option>Selectați o locație</option>
@@ -209,7 +231,7 @@ export function BlockLocation() {
 export function BlockApartment() {
     return (
         <Card>
-            <Form.Group className="mb-3" controlId="formGroup-4-1">
+            <Form.Group controlId="formGroup-4-1">
                 <Form.Label>Starea apartamentului</Form.Label>
                 <div>
                     <Form.Check
@@ -275,7 +297,7 @@ export function BlockApartment() {
 export function BlockLevel() {
     return (
         <Card>
-            <Form.Group className="mb-3" controlId="formGroup-5-1">
+            <Form.Group controlId="formGroup-5-1">
                 <Form.Label>Nivel</Form.Label>
                 <Row>
                     <Col>
@@ -295,7 +317,7 @@ export function BlockLevel() {
                 </Row>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGroup-5-2">
+            <Form.Group controlId="formGroup-5-2">
                 <Form.Check
                     inline
                     label="Nu la parterul"
@@ -316,7 +338,7 @@ export function BlockLevel() {
                     id="inline-check-5-2-3"/>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGroup-5-3">
+            <Form.Group controlId="formGroup-5-3">
                 <Form.Label>Număr de nivele în casă</Form.Label>
                 <Row>
                     <Col>
@@ -336,7 +358,7 @@ export function BlockLevel() {
                 </Row>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGroup-5-4">
+            <Form.Group controlId="formGroup-5-4">
                 <Form.Label>Dezvoltator</Form.Label>
                 <Form.Select aria-label="">
                     <option>Selectați dezvoltator</option>
@@ -345,7 +367,7 @@ export function BlockLevel() {
                 </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGroup-5-5">
+            <Form.Group controlId="formGroup-5-5">
                 <Form.Label>Parcare</Form.Label>
                 <div>
                     <Form.Check
@@ -414,3 +436,29 @@ export function BlockLevel() {
     )
 }
 
+export function BlockFee() {
+    return (
+        <Card>
+            <Form.Group controlId="formGroup-7-1">
+                <Form.Label>Comision de tranzacție</Form.Label>
+                <div>
+                    {['0.5%', '1.5%', '1.5%', '2%', '2.5%', '3%', 'Alt'].map((value) => (
+                        <Form.Check key={`fee-${value}`}
+                                    inline
+                                    label={value}
+                                    name="group-7-1"
+                                    type="radio"
+                                    id={`fee-${value}`}/>
+                    ))}
+                </div>
+            </Form.Group>
+
+            <Alert variant="light">
+                <Image src={iconNote}/>
+                <div>Acest comision se referă la procentajul din suma totală a tranzacției pe care sunteți dispus să îl
+                    împărțiți cu afiliatul.
+                </div>
+            </Alert>
+        </Card>
+    )
+}

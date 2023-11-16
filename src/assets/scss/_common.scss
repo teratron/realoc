@@ -24,12 +24,12 @@ body {
 
 // Card
 .card {
-  background-color: white;
+  margin-bottom: 8px;
+  padding: 16px;
   border: 1px solid #e3e3e3;
   border-radius: 8px;
+  background-color: white;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
-  padding: 16px;
-  margin-bottom: 8px;
 
   > :only-child,
   > :not(:only-child):first-child {
@@ -42,6 +42,18 @@ body {
     margin-bottom: 0;
   }
 
+    > div:not(:last-of-type) {
+        @extend .mb-3;
+    }
+
+    > .alert {
+        @extend .d-flex .align-items-baseline;
+
+        > img {
+            @extend .me-2;
+        }
+    }
+
   @include container(&)
 }
 
@@ -49,15 +61,19 @@ body {
 .form {
   padding-bottom: 80px;
 
+    > .card {
+    }
+
   .btn-group {
     width: 100%;
   }
 
   &-label,
   &-check > label {
-    color: #344054;
     font-size: 0.9rem;
     font-weight: 500;
+      width: 100%;
+      color: #344054;
   }
 
   &-control,
@@ -70,6 +86,33 @@ body {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
   }
 
+    > .navbar {
+        background-color: white;
+        box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
+
+        &, > .container {
+            min-height:     80px;
+            padding-top:    0;
+            padding-bottom: 0;
+        }
+
+        > .container {
+            display:               grid;
+            align-content:         center;
+            align-items:           center;
+            justify-content:       center;
+            grid-template-columns: 1fr;
+            justify-items:         stretch;
+        }
+    }
+
+    .mandatory {
+        float: right;
+        color: var(--bs-danger);
+
+        @extend .ms-2;
+    }
+
   > :last-child {
     margin-bottom: 0;
   }
@@ -77,25 +120,6 @@ body {
   @include container(&)
 }
 
-.form > .navbar {
-  background-color: white;
-  box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.1);
-
-  &, > .container {
-    min-height: 80px;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  > .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    justify-items: stretch;
-    align-content: center;
-    align-items: center;
-  }
-}
 
 // Heading
 h1, h2, h3, h4, h5, h6 {

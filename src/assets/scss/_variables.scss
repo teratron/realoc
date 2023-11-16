@@ -29,16 +29,16 @@ $color-mode-type: data; // `data` or `media-query`
 
 // Color
 
-$blue: #2f56ff; // *
+$blue:                   #2f56ff; // *
 $indigo: #6610f2;
 $purple: #6f42c1;
-$pink: #d63384;
-$red: #dc3545;
+$pink:                   #d63384;
+$red:                    #e22626; // *
 $orange: #fd7e14;
 $yellow: #ffc107;
-$green: #198754;
-$teal: #20c997;
-$cyan: #20bbf7; // *
+$green:                  #198754;
+$teal:                   #20c997;
+$cyan:                   #20bbf7; // *
 
 $primary: $blue;
 $secondary: $cyan; // *
@@ -59,32 +59,32 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0));
 
 $spacer: 1rem;
 $spacers: (
-  0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+                             0: 0,
+                             1: $spacer * .25,
+                             2: $spacer * .5,
+                             3: $spacer,
+                             4: $spacer * 1.5,
+                             5: $spacer * 3,
 );
 
 // Body
 
-$body-text-align: null;
-$body-color: $gray-900;
-$body-bg: $white;
-$body-secondary-color: rgba($body-color, .75);
-$body-secondary-bg: $gray-200;
-$body-tertiary-color: rgba($body-color, .5);
-$body-tertiary-bg: $gray-100;
-$body-emphasis-color: $black;
+$body-text-align:        null;
+$body-color:             $gray-900;
+$body-bg:                $white;
+$body-secondary-color:   rgba($body-color, .75);
+$body-secondary-bg:      $gray-200;
+$body-tertiary-color:    rgba($body-color, .5);
+$body-tertiary-bg:       $gray-100;
+$body-emphasis-color:    $black;
 
 // Links
 
-$link-color: $primary;
-$link-decoration: underline;
-$link-shade-percentage: 20%;
-$link-hover-color: shift-color($link-color, $link-shade-percentage);
-$link-hover-decoration: null;
+$link-color:             $primary;
+$link-decoration:        underline;
+$link-shade-percentage:  20%;
+$link-hover-color:       shift-color($link-color, $link-shade-percentage);
+$link-hover-decoration:  null;
 $stretched-link-pseudo-element: after;
 $stretched-link-z-index: 1;
 
@@ -102,13 +102,13 @@ $paragraph-margin-bottom: 1rem;
 // Grid breakpoints
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
-);
+                             xs: 0,
+                             sm: 576px,
+                             md: 768px,
+                             lg: 992px,
+                             xl: 1200px,
+                             xxl: 1400px
+                         );
 
 ///@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 ///@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
@@ -116,12 +116,12 @@ $grid-breakpoints: (
 // Grid containers
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-  xxl: 1320px
-);
+                             sm: 540px,
+                             md: 720px,
+                             lg: 960px,
+                             xl: 1140px,
+                             xxl: 1320px
+                         );
 
 ///@include _assert-ascending($container-max-widths, "$container-max-widths");
 
@@ -136,12 +136,12 @@ $container-padding-x: $grid-gutter-width;
 
 $border-width: 1px;
 $border-widths: (
-  1: 1px,
-  2: 2px,
-  3: 3px,
-  4: 4px,
-  5: 5px
-);
+                             1: 1px,
+                             2: 2px,
+                             3: 3px,
+                             4: 4px,
+                             5: 5px
+                         );
 $border-style: solid;
 $border-color: $gray-300;
 $border-color-translucent: rgba($black, .175);
@@ -202,13 +202,13 @@ $headings-font-weight: 500;
 $headings-line-height: 1.2;
 $headings-color: inherit;
 $display-font-sizes: (
-  1: 5rem,
-  2: 4.5rem,
-  3: 4rem,
-  4: 3.5rem,
-  5: 3rem,
-  6: 2.5rem
-);
+                             1: 5rem,
+                             2: 4.5rem,
+                             3: 4rem,
+                             4: 3.5rem,
+                             5: 3rem,
+                             6: 2.5rem
+                         );
 $display-font-family: null;
 $display-font-style: null;
 $display-font-weight: 300;
@@ -332,11 +332,13 @@ $form-text-font-size: $small-font-size;
 $form-text-font-style: null;
 $form-text-font-weight: null;
 $form-text-color: var(--#{$prefix}secondary-color);
+
 $form-label-margin-bottom: .5rem;
 $form-label-font-size: null;
 $form-label-font-style: null;
 $form-label-font-weight: null;
 $form-label-color: null;
+
 $input-padding-y: $input-btn-padding-y;
 $input-padding-x: $input-btn-padding-x;
 $input-font-family: $input-btn-font-family;
@@ -375,7 +377,9 @@ $input-height: add($input-line-height * 1em, add($input-padding-y * 2, $input-he
 $input-height-sm: add($input-line-height * 1em, add($input-padding-y-sm * 2, $input-height-border, false));
 $input-height-lg: add($input-line-height * 1em, add($input-padding-y-lg * 2, $input-height-border, false));
 $input-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
 $form-color-width: 3rem;
+
 $form-check-input-width: 1em;
 $form-check-min-height: $font-size-base * $line-height-base;
 $form-check-padding-start: $form-check-input-width + .5em;
@@ -403,6 +407,7 @@ $form-check-input-disabled-opacity: .5;
 $form-check-label-disabled-opacity: $form-check-input-disabled-opacity;
 $form-check-btn-check-disabled-opacity: $btn-disabled-opacity;
 $form-check-inline-margin-end: 1rem;
+
 $form-switch-color: rgba($black, .25);
 $form-switch-width: 2em;
 $form-switch-padding-start: $form-switch-width + .5em;
@@ -414,12 +419,14 @@ $form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.o
 $form-switch-checked-color: $component-active-color;
 $form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
 $form-switch-checked-bg-position: right center;
+
 $input-group-addon-padding-y: $input-padding-y;
 $input-group-addon-padding-x: $input-padding-x;
 $input-group-addon-font-weight: $input-font-weight;
 $input-group-addon-color: $input-color;
 $input-group-addon-bg: var(--#{$prefix}tertiary-bg);
 $input-group-addon-border-color: $input-border-color;
+
 $form-select-padding-y: $input-padding-y;
 $form-select-padding-x: $input-padding-x;
 $form-select-font-family: $input-font-family;
@@ -455,6 +462,7 @@ $form-select-padding-x-lg: $input-padding-x-lg;
 $form-select-font-size-lg: $input-font-size-lg;
 $form-select-border-radius-lg: $input-border-radius-lg;
 $form-select-transition: $input-transition;
+
 $form-range-track-width: 100%;
 $form-range-track-height: .5rem;
 $form-range-track-cursor: pointer;
@@ -472,9 +480,11 @@ $form-range-thumb-focus-box-shadow-width: $input-focus-width; // For focus box s
 $form-range-thumb-active-bg: tint-color($component-active-bg, 70%);
 $form-range-thumb-disabled-bg: var(--#{$prefix}secondary-color);
 $form-range-thumb-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
 $form-file-button-color: $input-color;
 $form-file-button-bg: var(--#{$prefix}tertiary-bg);
 $form-file-button-hover-bg: var(--#{$prefix}secondary-bg);
+
 $form-floating-height: add(3.5rem, $input-height-border);
 $form-floating-line-height: 1.25;
 $form-floating-padding-x: $input-padding-x;
@@ -503,23 +513,23 @@ $form-valid-border-color: $form-feedback-valid-color;
 $form-invalid-color: $form-feedback-invalid-color;
 $form-invalid-border-color: $form-feedback-invalid-color;
 $form-validation-states: (
-  "valid": (
-    "color": var(--#{$prefix}form-valid-color),
-    "icon": $form-feedback-icon-valid,
-    "tooltip-color": #fff,
-    "tooltip-bg-color": var(--#{$prefix}success),
-    "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity),
-    "border-color": var(--#{$prefix}form-valid-border-color),
-  ),
-  "invalid": (
-    "color": var(--#{$prefix}form-invalid-color),
-    "icon": $form-feedback-icon-invalid,
-    "tooltip-color": #fff,
-    "tooltip-bg-color": var(--#{$prefix}danger),
-    "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity),
-    "border-color": var(--#{$prefix}form-invalid-border-color),
-  )
-);
+                             "valid": (
+                                 "color": var(--#{$prefix}form-valid-color),
+                                 "icon": $form-feedback-icon-valid,
+                                 "tooltip-color": #ffffff,
+                                 "tooltip-bg-color": var(--#{$prefix}success),
+                                 "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity),
+                                 "border-color": var(--#{$prefix}form-valid-border-color),
+                             ),
+                             "invalid": (
+                                 "color": var(--#{$prefix}form-invalid-color),
+                                 "icon": $form-feedback-icon-invalid,
+                                 "tooltip-color": #ffffff,
+                                 "tooltip-bg-color": var(--#{$prefix}danger),
+                                 "focus-box-shadow": 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity),
+                                 "border-color": var(--#{$prefix}form-invalid-border-color),
+                             )
+                         );
 
 // Z-index master list
 
@@ -533,13 +543,13 @@ $zindex-modal: 1055;
 $zindex-popover: 1070;
 $zindex-tooltip: 1080;
 $zindex-toast: 1090;
-$zindex-levels: (
-  n1: -1,
-  0: 0,
-  1: 1,
-  2: 2,
-  3: 3
-);
+$zindex-levels:          (
+                             n1: -1,
+                             0: 0,
+                             1: 1,
+                             2: 2,
+                             3: 3
+                         );
 
 // Navs
 

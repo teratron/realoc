@@ -5,7 +5,8 @@ import {
     BlockLocation,
     BlockApartment,
     BlockTransaction,
-    FormButton
+    FormButton,
+    BlockFee
 } from '../components/FormBlock'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
@@ -25,6 +26,8 @@ function AddSale() {
                     <BlockApartment/>
                     <BlockLevel/>
                     <FormButton/>
+
+                    <BlockFee/>
                 </Form>
             </Main>
         </>

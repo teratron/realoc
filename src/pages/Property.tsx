@@ -1,8 +1,18 @@
 import {Link} from 'react-router-dom'
-import {Badge, Button, Card, Carousel, Col, Container, Navbar, Row} from 'react-bootstrap'
+import {
+    Badge,
+    Button,
+    Card,
+    Carousel,
+    Col, Container,
+    Navbar,
+    Row,
+    Image
+} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
 
+// Media
 import imageHousing from '../assets/media/plug_room_01.jpg'
 import iconCheck from '../assets/media/icon_check_green_circle.svg'
 import iconMap from '../assets/media/icon_map.png'
@@ -29,7 +39,7 @@ function Property() {
                 <Carousel className="mb-3" data-bs-theme="dark">
                     {slides.map((value, index) => (
                         <Carousel.Item key={`slide-${index}`}>
-                            <img
+                            <Image
                                 className="d-block w-100"
                                 src={value}
                                 alt={`${index + 1} slide`}/>
@@ -46,29 +56,29 @@ function Property() {
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
                             <Badge bg="secondary">
-                                <img src={iconSelected} alt=""/>
+                                <Image src={iconSelected} alt=""/>
                                 Credit ipotecar
                             </Badge>
                         </div>
                         <div>75 000 € <small>1 086 €/m²</small></div>
                         <Row>
                             <Col>
-                                <Row><img src={iconBuilding} width={16} height={16} alt=""/></Row>
+                                <Row><Image src={iconBuilding} width={16} height={16} alt=""/></Row>
                                 <Row>Fond locativ</Row>
                                 <Row>Constr. noi</Row>
                             </Col>
                             <Col>
-                                <Row><img src={iconDoor} height={20} alt=""/></Row>
+                                <Row><Image src={iconDoor} height={20} alt=""/></Row>
                                 <Row>Apartament</Row>
                                 <Row>2 camere</Row>
                             </Col>
                             <Col>
-                                <Row><img src={iconArea} height={16} alt=""/></Row>
+                                <Row><Image src={iconArea} height={16} alt=""/></Row>
                                 <Row>Suprafață</Row>
                                 <Row>69 m²</Row>
                             </Col>
                             <Col>
-                                <Row><img src={iconStair} height={16} alt=""/></Row>
+                                <Row><Image src={iconStair} height={16} alt=""/></Row>
                                 <Row>Nivel</Row>
                                 <Row>3 din 9</Row>
                             </Col>
@@ -81,12 +91,12 @@ function Property() {
                             <Col>
                                 <Card.Text>
                                     Chișinău mun., Chișinău, Botanica,
-                                    bd. Dacia 11/1 <img src={iconCopy} alt=""/>
+                                    bd. Dacia 11/1 <Image src={iconCopy} alt=""/>
                                 </Card.Text>
                             </Col>
                             <Col>
                                 <Link to="/add-request">
-                                    <img src={iconMap} alt=""/>
+                                    <Image src={iconMap} alt=""/>
                                 </Link>
                             </Col>
                         </Row>
@@ -149,7 +159,7 @@ function Property() {
                         </Row>
                         <Row>
                             <Col>Ascensor</Col>
-                            <Col><img src={iconCheck} alt=""/></Col>
+                            <Col><Image src={iconCheck} alt=""/></Col>
                         </Row>
                         <Row>
                             <Col>Parcare</Col>
