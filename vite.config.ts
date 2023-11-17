@@ -8,7 +8,7 @@ export default defineConfig({
     root: './src',
     base: pkg.homepage,
     publicDir: '../public',
-    appType: 'mpa',
+    appType: 'spa',
     plugins: [
         react()
     ],
@@ -20,25 +20,23 @@ export default defineConfig({
         }
     },
     server: {
-        open: './index.html',
+        //host: 'localhost',
+        //port: 3000,
+        //origin: 'http://localhost:5173/realoc',
+        open: 'index.html',
         warmup: {
             clientFiles: [
-                './src/**/*.tsx'
+                'src/**/*.tsx'
             ]
         }
     },
-    /*server: {
-        host: 'localhost',
-        port: 3000,
-        origin: 'http://localhost:5173/realoc',
-    },*/
     build: {
         outDir: '../dist',
         emptyOutDir: true,
         manifest: 'resource.json',
         rollupOptions: {
             input: {
-                main: './src/index.html',
+                main: 'src/index.html'
             },
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',
