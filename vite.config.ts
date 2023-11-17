@@ -19,9 +19,17 @@ export default defineConfig({
             ]
         }
     },
+    server: {
+        open: './index.html',
+        warmup: {
+            clientFiles: [
+                './src/**/*.tsx'
+            ]
+        }
+    },
     /*server: {
         host: 'localhost',
-        port: 5173,
+        port: 3000,
         origin: 'http://localhost:5173/realoc',
     },*/
     build: {
@@ -30,7 +38,7 @@ export default defineConfig({
         manifest: 'resource.json',
         rollupOptions: {
             input: {
-                main: 'src/index.html',
+                main: './src/index.html',
             },
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',
@@ -43,10 +51,10 @@ export default defineConfig({
                     // @ts-ignore
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
                         ext = 'media/'
-                        // @ts-ignore
+                    // @ts-ignore
                     } else if (/(sa|sc|c)ss/i.test(ext)) {
                         ext = 'css/'
-                        // @ts-ignore
+                    // @ts-ignore
                     } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
                         ext = 'fonts/'
                     } else ext = ''
@@ -57,7 +65,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@': './src',
+            '@': './src'
         }
     }
 })
