@@ -1,100 +1,31 @@
 {
-  "assets/media/icon_area.svg": {
-    "file": "assets/media/icon_area.faec7037.svg",
-    "src": "assets/media/icon_area.svg"
-  },
-  "assets/media/icon_building.svg": {
-    "file": "assets/media/icon_building.d8b2da12.svg",
-    "src": "assets/media/icon_building.svg"
-  },
-  "assets/media/icon_check_green_circle.svg": {
-    "file": "assets/media/icon_check_green_circle.d8ef49c6.svg",
-    "src": "assets/media/icon_check_green_circle.svg"
-  },
-  "assets/media/icon_chevron_left.svg": {
-    "file": "assets/media/icon_chevron_left.c3d1f311.svg",
-    "src": "assets/media/icon_chevron_left.svg"
-  },
-  "assets/media/icon_copy.svg": {
-    "file": "assets/media/icon_copy.30b95d2f.svg",
-    "src": "assets/media/icon_copy.svg"
-  },
-  "assets/media/icon_door.svg": {
-    "file": "assets/media/icon_door.72f8e603.svg",
-    "src": "assets/media/icon_door.svg"
-  },
-  "assets/media/icon_invalid_red_circle.svg": {
-    "file": "assets/media/icon_invalid_red_circle.bddbf30c.svg",
-    "src": "assets/media/icon_invalid_red_circle.svg"
-  },
   "assets/media/icon_map.png": {
-    "file": "assets/media/icon_map.dd5fb8f2.png",
+    "file": "assets/media/icon_map.npKUssM9.png",
     "src": "assets/media/icon_map.png"
   },
-  "assets/media/icon_note_grey_circle.svg": {
-    "file": "assets/media/icon_note_grey_circle.e9c05c93.svg",
-    "src": "assets/media/icon_note_grey_circle.svg"
-  },
-  "assets/media/icon_search.svg": {
-    "file": "assets/media/icon_search.21eb00f9.svg",
-    "src": "assets/media/icon_search.svg"
-  },
-  "assets/media/icon_select_map.svg": {
-    "file": "assets/media/icon_select_map.1d8b43be.svg",
-    "src": "assets/media/icon_select_map.svg"
-  },
-  "assets/media/icon_selected.svg": {
-    "file": "assets/media/icon_selected.2f5ea29b.svg",
-    "src": "assets/media/icon_selected.svg"
-  },
-  "assets/media/icon_stair.svg": {
-    "file": "assets/media/icon_stair.14119808.svg",
-    "src": "assets/media/icon_stair.svg"
-  },
-  "assets/media/icon_sulafat.svg": {
-    "file": "assets/media/icon_sulafat.2bc1685b.svg",
-    "src": "assets/media/icon_sulafat.svg"
-  },
   "assets/media/logo.svg": {
-    "file": "assets/media/logo.1c82f0c3.svg",
+    "file": "assets/media/logo.bSboOiFK.svg",
     "src": "assets/media/logo.svg"
   },
   "assets/media/plug_room_01.jpg": {
-    "file": "assets/media/plug_room_01.c7d28567.jpg",
+    "file": "assets/media/plug_room_01.4ueihB4T.jpg",
     "src": "assets/media/plug_room_01.jpg"
   },
   "assets/media/thumb_map.png": {
-    "file": "assets/media/thumb_map.1bf34148.png",
+    "file": "assets/media/thumb_map.ynC7vwsb.png",
     "src": "assets/media/thumb_map.png"
-  },
-  "index.css": {
-    "file": "assets/css/index.0b3ff1ec.css",
-    "src": "index.css"
   },
   "index.html": {
     "assets": [
-      "assets/media/logo.1c82f0c3.svg",
-      "assets/media/icon_chevron_left.c3d1f311.svg",
-      "assets/media/plug_room_01.c7d28567.jpg",
-      "assets/media/thumb_map.1bf34148.png",
-      "assets/media/icon_check_green_circle.d8ef49c6.svg",
-      "assets/media/icon_select_map.1d8b43be.svg",
-      "assets/media/icon_sulafat.2bc1685b.svg",
-      "assets/media/icon_invalid_red_circle.bddbf30c.svg",
-      "assets/media/icon_note_grey_circle.e9c05c93.svg",
-      "assets/media/icon_search.21eb00f9.svg",
-      "assets/media/icon_map.dd5fb8f2.png",
-      "assets/media/icon_copy.30b95d2f.svg",
-      "assets/media/icon_building.d8b2da12.svg",
-      "assets/media/icon_door.72f8e603.svg",
-      "assets/media/icon_area.faec7037.svg",
-      "assets/media/icon_stair.14119808.svg",
-      "assets/media/icon_selected.2f5ea29b.svg"
+      "assets/media/logo.bSboOiFK.svg",
+      "assets/media/plug_room_01.4ueihB4T.jpg",
+      "assets/media/thumb_map.ynC7vwsb.png",
+      "assets/media/icon_map.npKUssM9.png"
     ],
     "css": [
-      "assets/css/index.0b3ff1ec.css"
+      "assets/css/main.dQZI1nPa.css"
     ],
-    "file": "assets/js/main.347c22ea.js",
+    "file": "assets/js/main.zO1shoVx.js",
     "isEntry": true,
     "src": "index.html"
   }
