@@ -1,12 +1,12 @@
 import {Form} from 'react-bootstrap'
 import {
-    BlockHousing,
-    BlockLevel,
-    BlockLocation,
-    BlockApartment,
-    BlockTransaction,
+    HousingBlock,
+    LevelBlock,
+    LocationBlock,
+    ApartmentBlock,
+    TransactionBlock,
     FormButton
-} from '../components/FormBlock'
+} from '../components/FormBlocks'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
 
@@ -19,11 +19,11 @@ function AddRequest() {
             <Main>
                 <h2>Caută imobiliare</h2>
                 <Form className="form">
-                    <BlockTransaction/>
-                    <BlockHousing/>
-                    <BlockLocation/>
-                    <BlockApartment/>
-                    <BlockLevel/>
+                    <TransactionBlock/>
+                    <HousingBlock/>
+                    <LocationBlock/>
+                    <ApartmentBlock/>
+                    <LevelBlock/>
                     <FormButton/>
                 </Form>
             </Main>

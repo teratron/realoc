@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, {useState} from 'react'
 import { useLocation } from 'react-router-dom'
 import {
     Alert,
@@ -24,6 +24,7 @@ import iconStar from '../assets/media/icon_sulafat.svg'
 import iconInvalid from '../assets/media/icon_invalid_red_circle.svg'
 import iconNote from '../assets/media/icon_note_grey_circle.svg'
 import iconSearch from '../assets/media/icon_search.svg'
+import {FormikErrors, FormikTouched} from "formik";
 //import iconLocation from '../assets/media/icon_location_house.svg'
 
 function getPathName() {
@@ -93,7 +94,14 @@ function Star() {
     )
 }
 
-export function BlockTransaction() {
+interface BlockProps {
+    values?: object
+    touched?: FormikTouched<object>
+    errors?: FormikErrors<object>
+    handleChange?: React.ChangeEventHandler<HTMLInputElement>
+}
+
+export function TransactionBlock() {
     return (
         <Card>
             <Form.Group controlId="formGroup-1-1">
@@ -122,7 +130,7 @@ export function BlockTransaction() {
     )
 }
 
-export function BlockHousing() {
+export function HousingBlock(props: BlockProps) {
     return (
         <Card>
             <Form.Group controlId="formGroup-2-1">
@@ -138,19 +146,23 @@ export function BlockHousing() {
                     </ToggleButtonGroup>
                 </div>
             </Form.Group>
-
-            <Form.Group controlId="formGroup-2-2">
+            <Form.Group controlId="number_of_rooms-0">
                 <Form.Label>Număr de camere<Star /><Mandatory hasError /></Form.Label>
                 <div>
                     {['1', '1.5', '2', '2.5', '3', '4.5', '4+'].map((value, index) => (
                         <Form.Check
-                            key={`num-room-${index}`}
+                            key={`number_of_rooms-${index}`}
                             inline
-                            required
+                            /*required*/
                             label={value}
-                            name="group-2-2"
+                            value={value}
+                            name="number_of_rooms"
                             type={isAddSalePage() ? "radio" : "checkbox"}
-                            id={`num-room-${index}`} />
+                            onChange={props.handleChange}
+                            /*isInvalid={!props.errors}
+                            feedback={!props.errors}
+                            feedbackType="invalid"*/
+                            id={`${isAddSalePage() ? "radio" : "checkbox"}-number_of_rooms-${index}`}/>
                     ))}
                 </div>
             </Form.Group>
@@ -161,7 +173,13 @@ export function BlockHousing() {
                     isAddSalePage()
                         /* Add Sale Page */
                         ? <InputGroup>
-                            <Form.Control type="text" placeholder="Indicați preț" />
+                            <Form.Control
+                                type="text"
+                                placeholder="Indicați preț"
+                                name="sale_price"
+                                /*value={0}*/
+                                onChange={props.handleChange}
+                                /*isInvalid={!!props.errors.sale_price}*//>
                             <InputGroup.Text>€</InputGroup.Text>
                         </InputGroup>
 
@@ -177,7 +195,6 @@ export function BlockHousing() {
                                 </InputGroup>
                             </Col>
                         </Row>
-
                 }
             </Form.Group>
 
@@ -249,7 +266,7 @@ export function BlockHousing() {
     )
 }
 
-export function BlockLocation() {
+export function LocationBlock() {
     return (
         <Card>
             {
@@ -304,7 +321,7 @@ export function BlockLocation() {
     )
 }
 
-export function BlockPhoto() {
+export function PhotoBlock() {
     const hasError = false
     const countPhoto = 5
 
@@ -336,7 +353,7 @@ export function BlockPhoto() {
     )
 }
 
-export function BlockApartment() {
+export function ApartmentBlock() {
     return (
         <Card>
             <Form.Group controlId="formGroup-4-1">
@@ -378,7 +395,7 @@ export function BlockApartment() {
     )
 }
 
-export function BlockLevel() {
+export function LevelBlock() {
     return (
         <Card>
             <Form.Group controlId="formGroup-5-1">
@@ -536,7 +553,7 @@ export function BlockLevel() {
     )
 }
 
-export function BlockFee() {
+export function FeeBlock() {
     return (
         <Card>
             <Form.Group controlId="formGroup-7-1">

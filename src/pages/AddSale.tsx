@@ -1,14 +1,14 @@
 import { Form } from 'react-bootstrap'
 import {
-    BlockHousing,
-    BlockLevel,
-    BlockLocation,
-    BlockApartment,
-    BlockTransaction,
+    HousingBlock,
+    LevelBlock,
+    LocationBlock,
+    ApartmentBlock,
+    TransactionBlock,
     FormButton,
-    BlockFee,
-    BlockPhoto
-} from '../components/FormBlock'
+    FeeBlock,
+    PhotoBlock
+} from '../components/FormBlocks'
 import { Formik } from 'formik'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
@@ -23,21 +23,28 @@ function AddSale() {
                 <h2>Adaugă imobiliare</h2>
                 <Formik
                     initialValues={{
-                        picked: '',
+                        number_of_rooms: 0,
+                        sale_price: 0.0
                     }}
-                    onSubmit={async (values) => {
+                    onSubmit = {async (values) => {
                         await new Promise((r) => setTimeout(r, 500))
                         alert(JSON.stringify(values, null, 2))
                     }}>
-                    {({ values }) => (
-                        <Form className="form">
-                            <BlockTransaction />
-                            <BlockHousing />
-                            <BlockLocation />
-                            <BlockPhoto />
-                            <BlockApartment />
-                            <BlockLevel />
-                            <BlockFee />
+                    {({
+                          handleSubmit,
+                          handleChange,
+                          values,
+                          touched,
+                          errors
+                    }) => (
+                        <Form className="form" noValidate onSubmit={handleSubmit}>
+                            <TransactionBlock/>
+                            <HousingBlock handleChange={handleChange} values={values} touched={touched} errors={errors}/>
+                            <LocationBlock/>
+                            <PhotoBlock/>
+                            <ApartmentBlock/>
+                            <LevelBlock/>
+                            <FeeBlock/>
                             <FormButton />
                         </Form>
                     )}
