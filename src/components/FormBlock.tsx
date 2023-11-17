@@ -1,5 +1,5 @@
-import {useState} from 'react'
-import {useLocation} from 'react-router-dom'
+import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import {
     Alert,
     Button,
@@ -45,7 +45,7 @@ export function FormButton() {
                     isAddSalePage()
                         /* Add Sale Page */
                         ? <Button
-                            /*type="submit"*/
+                            type="submit"
                             variant="primary"
                             size="lg">
                             Adaugă anunțe
@@ -53,7 +53,7 @@ export function FormButton() {
 
                         /* Add Request Page */
                         : <Button
-                            /*type="submit"*/
+                            type="submit"
                             variant="primary"
                             size="lg"
                             onClick={() => setCount((count) => count + 1)}>
@@ -69,12 +69,12 @@ interface MandatoryProps {
     hasError?: boolean
 }
 
-function Mandatory({hasError = false}: MandatoryProps) {
+function Mandatory({ hasError = false }: MandatoryProps) {
     return (
         hasError
             ? isAddSalePage()
                 /* Add Sale Page */
-                ? <span className="mandatory">Obligatoriu <Image src={iconInvalid}/></span>
+                ? <span className="mandatory">Obligatoriu <Image src={iconInvalid} /></span>
 
                 /* Add Request Page */
                 : null
@@ -86,7 +86,7 @@ function Star() {
     return (
         isAddSalePage()
             /* Add Sale Page */
-            ? <Image src={iconStar}/>
+            ? <Image src={iconStar} />
 
             /* Add Request Page */
             : null
@@ -130,7 +130,7 @@ export function BlockHousing() {
                 <div>
                     <ToggleButtonGroup type="radio" name="options-2" defaultValue={1}>
                         <ToggleButton variant="outline-primary" id="tbg-radio-2-1" value={1}>
-                            Construcţii noi
+                            Construcții noi
                         </ToggleButton>
                         <ToggleButton variant="outline-primary" id="tbg-radio-2-2" value={2}>
                             Secundare
@@ -140,38 +140,39 @@ export function BlockHousing() {
             </Form.Group>
 
             <Form.Group controlId="formGroup-2-2">
-                <Form.Label>Număr de camere<Star/><Mandatory hasError/></Form.Label>
+                <Form.Label>Număr de camere<Star /><Mandatory hasError /></Form.Label>
                 <div>
                     {['1', '1.5', '2', '2.5', '3', '4.5', '4+'].map((value, index) => (
                         <Form.Check
                             key={`num-room-${index}`}
                             inline
+                            required
                             label={value}
                             name="group-2-2"
                             type={isAddSalePage() ? "radio" : "checkbox"}
-                            id={`num-room-${index}`}/>
+                            id={`num-room-${index}`} />
                     ))}
                 </div>
             </Form.Group>
 
             <Form.Group controlId="formGroup-2-3">
-                <Form.Label>Preț vânzare<Star/><Mandatory/></Form.Label>
+                <Form.Label>Preț vânzare<Star /><Mandatory /></Form.Label>
                 {
                     isAddSalePage()
                         /* Add Sale Page */
                         ? <InputGroup>
-                            <Form.Control type="text" placeholder="Indicați preț"/>
+                            <Form.Control type="text" placeholder="Indicați preț" />
                             <InputGroup.Text>€</InputGroup.Text>
                         </InputGroup>
 
                         /* Add Request Page */
                         : <Row>
                             <Col>
-                                <Form.Control type="text" placeholder="De la"/>
+                                <Form.Control type="text" placeholder="De la" />
                             </Col>
                             <Col>
                                 <InputGroup>
-                                    <Form.Control type="text" placeholder="Până la"/>
+                                    <Form.Control type="text" placeholder="Până la" />
                                     <InputGroup.Text>€</InputGroup.Text>
                                 </InputGroup>
                             </Col>
@@ -186,13 +187,13 @@ export function BlockHousing() {
                     label="Preț total"
                     name="group-2-4"
                     type="radio"
-                    id="inline-radio-2-4-1"/>
+                    id="inline-radio-2-4-1" />
                 <Form.Check
                     inline
                     label="Preț m²"
                     name="group-2-4"
                     type="radio"
-                    id="inline-radio-2-4-2"/>
+                    id="inline-radio-2-4-2" />
             </Form.Group>
 
             {
@@ -206,13 +207,13 @@ export function BlockHousing() {
                                 label="Disponibil"
                                 name="group-2-6"
                                 type="radio"
-                                id="inline-radio-2-6-1"/>
+                                id="inline-radio-2-6-1" />
                             <Form.Check
                                 inline
                                 label="Indisponibil"
                                 name="group-2-6"
                                 type="radio"
-                                id="inline-radio-2-6-2"/>
+                                id="inline-radio-2-6-2" />
                         </div>
                     </Form.Group>
 
@@ -221,23 +222,23 @@ export function BlockHousing() {
             }
 
             <Form.Group controlId="formGroup-2-5">
-                <Form.Label>Suprafață totală<Star/><Mandatory hasError/></Form.Label>
+                <Form.Label>Suprafață totală<Star /><Mandatory hasError /></Form.Label>
                 {
                     isAddSalePage()
                         /* Add Sale Page */
                         ? <InputGroup>
-                            <Form.Control type="text" placeholder="Indicați suprafață"/>
+                            <Form.Control type="text" placeholder="Indicați suprafață" />
                             <InputGroup.Text>m²</InputGroup.Text>
                         </InputGroup>
 
                         /* Add Request Page */
                         : <Row>
                             <Col>
-                                <Form.Control type="text" placeholder="De la"/>
+                                <Form.Control type="text" placeholder="De la" />
                             </Col>
                             <Col>
                                 <InputGroup>
-                                    <Form.Control type="text" placeholder="Până la"/>
+                                    <Form.Control type="text" placeholder="Până la" />
                                     <InputGroup.Text>m²</InputGroup.Text>
                                 </InputGroup>
                             </Col>
@@ -256,23 +257,23 @@ export function BlockLocation() {
                     /* Add Sale Page */
                     ? <>
                         <Form.Group controlId="formGroup-3-1">
-                            <Form.Label>Locație<Star/><Mandatory/></Form.Label>
+                            <Form.Label>Locație<Star /><Mandatory /></Form.Label>
                             <InputGroup>
                                 <InputGroup.Text>
-                                    <Image src={iconSearch}/>
+                                    <Image src={iconSearch} />
                                 </InputGroup.Text>
                                 <Form.Control
                                     type="text"
                                     value="Chișinău, Botanica, Dacia 11/1"
-                                    placeholder="Orașul, strada, numărul casei"/>
+                                    placeholder="Orașul, strada, numărul casei" />
                                 <InputGroup.Text>
-                                    <Image src={iconCheck}/>
+                                    <Image src={iconCheck} />
                                 </InputGroup.Text>
                             </InputGroup>
                         </Form.Group>
 
                         <Form.Group controlId="formGroup-3-2">
-                            <Image className="border" src={thumbMap} rounded fluid/>
+                            <Image className="border" src={thumbMap} rounded fluid />
                             {/*TODO: <Image src={iconLocation}/>*/}
                         </Form.Group>
                     </>
@@ -291,9 +292,9 @@ export function BlockLocation() {
                         <Form.Group controlId="formGroup-3-2">
                             <Form.Label>Zona pe hartă</Form.Label>
                             <InputGroup>
-                                <Form.Control type="text" placeholder="Selectați zona pe hartă"/>
+                                <Form.Control type="text" placeholder="Selectați zona pe hartă" />
                                 <InputGroup.Text>
-                                    <Image src={iconSelectMap}/>
+                                    <Image src={iconSelectMap} />
                                 </InputGroup.Text>
                             </InputGroup>
                         </Form.Group>
@@ -310,25 +311,25 @@ export function BlockPhoto() {
     return (
         <Card>
             <Form.Group controlId="formGroup-7-1">
-                <Form.Label>Fotografie<Star/>
+                <Form.Label>Fotografie<Star />
                     {
                         hasError
-                            ? <Mandatory hasError={hasError}/>
+                            ? <Mandatory hasError={hasError} />
                             : <span className="foot">{countPhoto}/10</span>
                     }
                 </Form.Label>
                 <Row className="row-cols-3 mb-1">
-                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
+                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
+                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
+                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
+                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
+                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
                 </Row>
-                <Form.Control type="file" multiple/>
+                <Form.Control type="file" multiple />
             </Form.Group>
 
             <Alert variant="light">
-                <Image src={iconNote}/>
+                <Image src={iconNote} />
                 <div>Primele 3 fotografii vor fi folosite pentru coperta anunțului.</div>
             </Alert>
         </Card>
@@ -354,7 +355,7 @@ export function BlockApartment() {
                             label={value}
                             name="group-4-1"
                             type={isAddSalePage() ? "radio" : "checkbox"}
-                            id={`status-${index}`}/>
+                            id={`status-${index}`} />
                     ))}
                 </div>
             </Form.Group>
@@ -369,7 +370,7 @@ export function BlockApartment() {
                             label={value}
                             name="group-4-2"
                             type={isAddSalePage() ? "radio" : "checkbox"}
-                            id={`furniture-${index}`}/>
+                            id={`furniture-${index}`} />
                     ))}
                 </div>
             </Form.Group>
@@ -381,7 +382,7 @@ export function BlockLevel() {
     return (
         <Card>
             <Form.Group controlId="formGroup-5-1">
-                <Form.Label>Nivel<Star/><Mandatory/></Form.Label>
+                <Form.Label>Nivel<Star /><Mandatory /></Form.Label>
                 {
                     isAddSalePage()
                         /* Add Sale Page */
@@ -423,7 +424,7 @@ export function BlockLevel() {
                                     label={value}
                                     name="group-5-5"
                                     type="checkbox"
-                                    id={`option-${index}`}/>
+                                    id={`option-${index}`} />
                             ))
                         }
                     </Form.Group>
@@ -433,7 +434,7 @@ export function BlockLevel() {
             }
 
             <Form.Group controlId="formGroup-5-3">
-                <Form.Label>Număr de nivele în casă<Star/><Mandatory hasError/></Form.Label>
+                <Form.Label>Număr de nivele în casă<Star /><Mandatory hasError /></Form.Label>
                 {
                     isAddSalePage()
                         /* Add Sale Page */
@@ -473,7 +474,7 @@ export function BlockLevel() {
                             label={value}
                             name="group-5-5"
                             type={isAddSalePage() ? "radio" : "checkbox"}
-                            id={`ascensor-${index}`}/>
+                            id={`ascensor-${index}`} />
                     ))}
                 </div>
             </Form.Group>
@@ -488,7 +489,7 @@ export function BlockLevel() {
                             label={value}
                             name="group-5-5"
                             type="checkbox"
-                            id={`parking-${index}`}/>
+                            id={`parking-${index}`} />
                     ))}
                 </div>
             </Form.Group>
@@ -503,16 +504,16 @@ export function BlockLevel() {
             </Form.Group>
 
             <Form.Group controlId="formGroup-5-6">
-                <Form.Label>Predare în expluatare</Form.Label>
+                <Form.Label>Predare în exploatare</Form.Label>
                 <div>
-                    {['Dat în expluatare', '2023', '2024', '2025', '2026', '2027+'].map((value) => (
+                    {['Dat în exploatare', '2023', '2024', '2025', '2026', '2027+'].map((value, index) => (
                         <Form.Check
-                            key={`date-${value}`}
+                            key={`date-${index}`}
                             inline
                             label={value}
                             name="group-5-6"
                             type={isAddSalePage() ? "radio" : "checkbox"}
-                            id={`date-${value}`}/>
+                            id={`date-${index}`} />
                     ))}
                 </div>
             </Form.Group>
@@ -525,7 +526,7 @@ export function BlockLevel() {
                         <Form.Control
                             as="textarea"
                             placeholder="Spuneți-ne despre proprietatea dumneavoastră. O descriere bine completată ajută la vânzarea mai rapidă a proprietății."
-                            rows={4}/>
+                            rows={4} />
                     </Form.Group>
 
                     /* Add Request Page */
@@ -548,15 +549,15 @@ export function BlockFee() {
                             label={value}
                             name="group-7-1"
                             type="radio"
-                            id={`fee-${index}`}/>
+                            id={`fee-${index}`} />
                     ))}
                 </div>
             </Form.Group>
 
             <Alert variant="light">
-                <Image src={iconNote}/>
+                <Image src={iconNote} />
                 <div>Acest comision se referă la procentajul din suma totală a tranzacției pe care sunteți dispus să îl
-                    împărțiți cu afiliatul.
+                    împărțiți cu afiliat.
                 </div>
             </Alert>
         </Card>

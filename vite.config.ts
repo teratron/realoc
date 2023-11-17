@@ -1,4 +1,4 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
 import pkg from './package.json'
@@ -57,9 +57,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            entries: {
-                '@': './src',
-            }
+            '@': './src',
         }
     }
 })
