@@ -96,8 +96,16 @@ body {
 
     &-list {
         > .row {
+            @extend .mx-0;
             > .col {
-                @extend .px-0;
+                &:first-child {
+                    @extend .ps-0, .col-7;
+                }
+
+                &:last-child {
+                    @extend .pe-0, .col-5;
+                }
+
             }
         }
     }

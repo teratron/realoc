@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
-import pkg from './package.json'
+//import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
-    base: pkg.homepage,
+    //base: pkg.homepage,
+    base: './',
     publicDir: '../public',
-    appType: 'spa',
+    //appType: 'spa',
     plugins: [
         react()
     ],
@@ -20,10 +21,7 @@ export default defineConfig({
         }
     },
     server: {
-        //host: 'localhost',
-        //port: 3000,
-        //origin: 'http://localhost:5173/realoc',
-        open: 'index.html',
+        //open: 'index.html',
         warmup: {
             clientFiles: [
                 'src/**/*.tsx'
@@ -59,11 +57,6 @@ export default defineConfig({
                     return `assets/${ext}[name].[hash][extname]`
                 }
             }
-        }
-    },
-    resolve: {
-        alias: {
-            '@': './src'
         }
     }
 })

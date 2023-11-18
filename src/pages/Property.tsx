@@ -31,6 +31,7 @@ function Property() {
         imageHousing,
         imageHousing
     ]
+    const numSlides = slides.length
 
     return (
         <>
@@ -42,13 +43,15 @@ function Property() {
                             <Image
                                 className="d-block w-100"
                                 src={value}/>
-                            <Carousel.Caption>{index + 1}/10</Carousel.Caption>
+                            <Carousel.Caption>
+                                {index + 1}/{numSlides}
+                            </Carousel.Caption>
                         </Carousel.Item>
                     ))}
                 </Carousel>
 
                 <div className="form">
-                    <Card className="form-list">
+                    <Card>
                         <div>
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
@@ -82,7 +85,7 @@ function Property() {
                         </Row>
                     </Card>
 
-                    <Card>
+                    <Card className="form-list">
                         <Card.Title>Locație</Card.Title>
                         <Row>
                             <Col>
@@ -100,7 +103,7 @@ function Property() {
                         <Link to="/add-request">Deschideți harta</Link>
                     </Card>
 
-                    <Card>
+                    <Card className="form-list">
                         <Card.Title>Descriere</Card.Title>
                         <Card.Text>
                             Vă oferim spre vânzare apartament cu 2 camere în bloc NOU, sect. Botanica.
@@ -108,7 +111,7 @@ function Property() {
                         </Card.Text>
                     </Card>
 
-                    <Card>
+                    <Card className="form-list">
                         <Card.Title>Despre apartament</Card.Title>
                         <Row>
                             <Col>Tip de proprietate</Col>
@@ -140,7 +143,7 @@ function Property() {
                         </Row>
                     </Card>
 
-                    <Card>
+                    <Card className="form-list">
                         <Card.Title>Despre casa</Card.Title>
                         <Row>
                             <Col>Număr de nivele</Col>
@@ -164,7 +167,7 @@ function Property() {
                         </Row>
                     </Card>
 
-                    <Card>
+                    <Card className="form-list">
                         <Card.Title>Detalii comerciale</Card.Title>
                         <Row>
                             <Col>Credit ipotecar</Col>
