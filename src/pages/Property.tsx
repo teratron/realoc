@@ -51,7 +51,7 @@ function Property() {
                 </Carousel>
 
                 <div className="form">
-                    <Card>
+                    <Card className="form-list">
                         <div>
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
