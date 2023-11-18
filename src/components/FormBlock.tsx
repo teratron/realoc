@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import {useState} from 'react'
+import {useLocation} from 'react-router-dom'
 import {
     Alert,
     Button,
@@ -14,7 +14,7 @@ import {
     ToggleButton,
     ToggleButtonGroup
 } from 'react-bootstrap'
-import { Formik } from 'formik'
+import {Formik} from 'formik'
 import * as yup from 'yup'
 import * as conf from '../config.ts'
 
@@ -27,6 +27,7 @@ import iconStar from '../assets/media/icon_sulafat.svg'
 import iconInvalid from '../assets/media/icon_invalid_red_circle.svg'
 import iconNote from '../assets/media/icon_note_grey_circle.svg'
 import iconSearch from '../assets/media/icon_search.svg'
+
 //import iconLocation from '../assets/media/icon_location_house.svg'
 
 function getPathName() {
@@ -42,12 +43,12 @@ interface MandatoryProps {
     hasError?: boolean
 }
 
-function Mandatory({ hasError = false }: MandatoryProps) {
+function Mandatory({hasError = false}: MandatoryProps) {
     return (
         hasError
             ? isAddSalePage()
                 /*** Add Sale Page ***/
-                ? <span className="mandatory">Obligatoriu <Image src={iconInvalid} /></span>
+                ? <span className="mandatory">Obligatoriu <Image src={iconInvalid}/></span>
 
                 /*** Add Request Page ***/
                 : null
@@ -59,7 +60,7 @@ function Star() {
     return (
         isAddSalePage()
             /*** Add Sale Page ***/
-            ? <Image src={iconStar} />
+            ? <Image src={iconStar}/>
 
             /*** Add Request Page ***/
             : null
@@ -182,7 +183,7 @@ function FormAdd() {
                         </Form.Group>
 
                         <Form.Group controlId="number-rooms-1">
-                            <Form.Label>Număr de camere<Star /><Mandatory hasError /></Form.Label>
+                            <Form.Label>Număr de camere<Star/><Mandatory hasError/></Form.Label>
                             <div>
                                 {[
                                     '1', '1.5', '2', '2.5', '3', '4.5', '4+'
@@ -205,7 +206,7 @@ function FormAdd() {
                         </Form.Group>
 
                         <Form.Group controlId="sale-price">
-                            <Form.Label>Preț vânzare<Star /><Mandatory /></Form.Label>
+                            <Form.Label>Preț vânzare<Star/><Mandatory/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <InputGroup>
@@ -247,7 +248,7 @@ function FormAdd() {
                                     label={value}
                                     value={value}
                                     name="priceType"
-                                    inline />
+                                    inline/>
                             ))}
                         </Form.Group>
 
@@ -267,7 +268,7 @@ function FormAdd() {
                                             label={value}
                                             value={value}
                                             name="mortgage"
-                                            inline />
+                                            inline/>
                                     ))}
                                 </div>
                             </Form.Group>
@@ -277,7 +278,7 @@ function FormAdd() {
                         }
 
                         <Form.Group controlId="area">
-                            <Form.Label>Suprafață totală<Star /><Mandatory hasError /></Form.Label>
+                            <Form.Label>Suprafață totală<Star/><Mandatory hasError/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <InputGroup>
@@ -294,7 +295,7 @@ function FormAdd() {
                                 /*** Add Request Page ***/
                                 : <Row>
                                     <Col>
-                                        <Form.Control name="area" type="text" placeholder="De la" />
+                                        <Form.Control name="area" type="text" placeholder="De la"/>
                                     </Col>
                                     <Col>
                                         <InputGroup>
@@ -315,10 +316,10 @@ function FormAdd() {
                             /*** Add Sale Page ***/
                             ? <>
                                 <Form.Group controlId="location">
-                                    <Form.Label>Locație<Star /><Mandatory /></Form.Label>
+                                    <Form.Label>Locație<Star/><Mandatory/></Form.Label>
                                     <InputGroup>
                                         <InputGroup.Text>
-                                            <Image src={iconSearch} />
+                                            <Image src={iconSearch}/>
                                         </InputGroup.Text>
                                         <Form.Control
                                             name="location"
@@ -328,13 +329,13 @@ function FormAdd() {
                                             onChange={handleChange}
                                             isInvalid={touched.location && !!errors.location}/>
                                         <InputGroup.Text>
-                                            <Image src={iconCheck} />
+                                            <Image src={iconCheck}/>
                                         </InputGroup.Text>
                                     </InputGroup>
                                 </Form.Group>
 
                                 <Form.Group>
-                                    <Image className="border" src={thumbMap} rounded fluid />
+                                    <Image className="border" src={thumbMap} rounded fluid/>
                                     {/*TODO: <Image src={iconLocation}/>*/}
                                 </Form.Group>
                             </>
@@ -353,9 +354,9 @@ function FormAdd() {
                                 <Form.Group controlId="map">
                                     <Form.Label>Zona pe hartă</Form.Label>
                                     <InputGroup>
-                                        <Form.Control name="map" type="text" placeholder="Selectați zona pe hartă" />
+                                        <Form.Control name="map" type="text" placeholder="Selectați zona pe hartă"/>
                                         <InputGroup.Text>
-                                            <Image src={iconSelectMap} />
+                                            <Image src={iconSelectMap}/>
                                         </InputGroup.Text>
                                     </InputGroup>
                                 </Form.Group>
@@ -369,18 +370,18 @@ function FormAdd() {
                     {isAddSalePage()
                         ? <Card>
                             <Form.Group controlId="photos">
-                                <Form.Label>Fotografie<Star />
+                                <Form.Label>Fotografie<Star/>
                                     {hasError
-                                        ? <Mandatory hasError={hasError} />
+                                        ? <Mandatory hasError={hasError}/>
                                         : <span className="foot">{countPhoto}/{conf.MAX_PHOTOS}</span>
                                     }
                                 </Form.Label>
                                 <Row className="row-cols-3 mb-1">
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
+                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
+                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
+                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
+                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
+                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
                                 </Row>
                                 <Form.Control
                                     type="file"
@@ -391,7 +392,7 @@ function FormAdd() {
                             </Form.Group>
 
                             <Alert variant="light">
-                                <Image src={iconNote} />
+                                <Image src={iconNote}/>
                                 <div>Primele 3 fotografii vor fi folosite pentru coperta anunțului.</div>
                             </Alert>
                         </Card>
@@ -418,7 +419,7 @@ function FormAdd() {
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="apartmentStatus"
-                                        inline />
+                                        inline/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -437,7 +438,7 @@ function FormAdd() {
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="furniture"
-                                        inline />
+                                        inline/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -448,7 +449,7 @@ function FormAdd() {
                      *******************************************************/}
                     <Card>
                         <Form.Group controlId="levels">
-                            <Form.Label>Nivel<Star /><Mandatory /></Form.Label>
+                            <Form.Label>Nivel<Star/><Mandatory/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <Form.Select
@@ -494,7 +495,7 @@ function FormAdd() {
                                         type="checkbox"
                                         label={value}
                                         name="optionLevels"
-                                        inline />
+                                        inline/>
                                 ))}
                             </Form.Group>
 
@@ -503,7 +504,7 @@ function FormAdd() {
                         }
 
                         <Form.Group controlId="number-levels">
-                            <Form.Label>Număr de nivele în casă<Star /><Mandatory hasError /></Form.Label>
+                            <Form.Label>Număr de nivele în casă<Star/><Mandatory hasError/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <Form.Select
@@ -548,7 +549,7 @@ function FormAdd() {
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="ascensor"
-                                        inline />
+                                        inline/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -567,7 +568,7 @@ function FormAdd() {
                                         type="checkbox"
                                         label={value}
                                         name="parking"
-                                        inline />
+                                        inline/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -593,7 +594,7 @@ function FormAdd() {
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="exploitation"
-                                        inline />
+                                        inline/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -608,7 +609,7 @@ function FormAdd() {
                                 <Form.Control
                                     as="textarea"
                                     placeholder="Spuneți-ne despre proprietatea dumneavoastră. O descriere bine completată ajută la vânzarea mai rapidă a proprietății."
-                                    rows={4} />
+                                    rows={4}/>
                             </Form.Group>
 
                             /*** Add Request Page ***/
@@ -633,13 +634,13 @@ function FormAdd() {
                                             label={value}
                                             name="transaction-fee"
                                             type="radio"
-                                            inline />
+                                            inline/>
                                     ))}
                                 </div>
                             </Form.Group>
 
                             <Alert variant="light">
-                                <Image src={iconNote} />
+                                <Image src={iconNote}/>
                                 <div>
                                     Acest comision se referă la procentajul din suma totală
                                     a tranzacției pe care sunteți dispus să îl împărțiți cu afiliat.
@@ -649,7 +650,7 @@ function FormAdd() {
                         : null
                     }
 
-                    <FormButton />
+                    <FormButton/>
                 </Form>
             )}
         </Formik>

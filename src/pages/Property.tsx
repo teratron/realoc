@@ -1,15 +1,5 @@
 import {Link} from 'react-router-dom'
-import {
-    Badge,
-    Button,
-    Card,
-    Carousel,
-    Col,
-    Container,
-    Navbar,
-    Row,
-    Image
-} from 'react-bootstrap'
+import {Badge, Button, Card, Carousel, Col, Container, Image, Navbar, Row} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
 

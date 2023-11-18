@@ -1,4 +1,4 @@
-import {/*Nav, Navbar, */Offcanvas} from 'react-bootstrap'
+import {Offcanvas} from 'react-bootstrap'
 import {useState} from 'react'
 import './_drawer.scss'
 
@@ -7,21 +7,21 @@ function Drawer() {
     const handleClose = () => setShow(false)
     //const handleShow = () => setShow(true)
 
-        /*<Navbar.Offcanvas
-    id="offcanvasNavbar"
-    aria-labelledby="offcanvasNavbarLabel"
-    placement="end">
-        <Offcanvas.Header closeButton>
-    <Offcanvas.Title id="offcanvasNavbarLabel">
-        Offcanvas
-        </Offcanvas.Title>
+    /*<Navbar.Offcanvas
+id="offcanvasNavbar"
+aria-labelledby="offcanvasNavbarLabel"
+placement="end">
+    <Offcanvas.Header closeButton>
+<Offcanvas.Title id="offcanvasNavbarLabel">
+    Offcanvas
+    </Offcanvas.Title>
 </Offcanvas.Header>
-    <Offcanvas.Body>
-        <Nav className="justify-content-end flex-grow-1 pe-3">
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-        </Nav>
-    </Offcanvas.Body>
+<Offcanvas.Body>
+    <Nav className="justify-content-end flex-grow-1 pe-3">
+        <Nav.Link href="#action1">Home</Nav.Link>
+        <Nav.Link href="#action2">Link</Nav.Link>
+    </Nav>
+</Offcanvas.Body>
 </Navbar.Offcanvas>*/
 
 

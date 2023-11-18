@@ -2,71 +2,71 @@
 
 // Container
 @mixin container($child) {
-  @at-root #{selector.unify(&, $child)} {
-    .container > & {
-      margin-left: 8px;
-      margin-right: 8px;
+    @at-root #{selector.unify(&, $child)} {
+        .container > & {
+            margin-left:  8px;
+            margin-right: 8px;
+        }
     }
-  }
 }
 
 // Bar
 @mixin bar($height: auto, $gap: 0, $padding: 0) {
-  grid-auto-flow: column;
-  grid-auto-columns: min-content;
-  grid-auto-rows: minmax($gap, auto);
-  grid-template-columns: auto 1fr;
-  grid-template-rows: $height;
-  grid-gap: $gap;
-  justify-content: space-between;
-  justify-items: stretch;
-  align-content: center;
+    grid-auto-flow:        column;
+    grid-auto-columns:     min-content;
+    grid-auto-rows:        minmax($gap, auto);
+    grid-template-columns: auto 1fr;
+    grid-template-rows: $height;
+    grid-gap:              $gap;
+    justify-content:       space-between;
+    justify-items:         stretch;
+    align-content:         center;
 
-  &, > * {
-    display: grid;
-    align-items: center;
-    height: $height;
-  }
+    &, > * {
+        display:     grid;
+        align-items: center;
+        height:      $height;
+    }
 
-  > .head {
-    justify-content: start;
-    justify-items: start;
-    justify-self: start;
-    padding-left: $padding;
-  }
+    > .head {
+        justify-content: start;
+        justify-items:   start;
+        justify-self:    start;
+        padding-left:    $padding;
+    }
 
-  > .body {
-    justify-content: center;
-    justify-items: center;
-    justify-self: stretch;
-  }
+    > .body {
+        justify-content: center;
+        justify-items:   center;
+        justify-self:    stretch;
+    }
 
-  > .foot {
-    justify-content: end;
-    justify-items: end;
-    justify-self: end;
-    padding-right: $padding;
-  }
+    > .foot {
+        justify-content: end;
+        justify-items:   end;
+        justify-self:    end;
+        padding-right:   $padding;
+    }
 }
 
 // List
 @mixin list($width: 100%, $height: auto, $gap-row: 0, $gap-column: 0, $padding: 0) {
-  grid-auto-flow: row;
-  grid-auto-rows: min-content;
-  grid-template-columns: $width;
-  grid-row-gap: $gap-row;
+    grid-auto-flow:        row;
+    grid-auto-rows:        min-content;
+    grid-template-columns: $width;
+    grid-row-gap:          $gap-row;
 
-  &, > * {
-    display: grid;
-    align-items: center;
-  }
+    &, > * {
+        display:     grid;
+        align-items: center;
+    }
 
-  > * {
-    grid-template-columns: max-content 1fr;
-    grid-template-rows: $height;
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    grid-column-gap: $gap-column;
-    padding-left: $padding;
-  }
+    > * {
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: $height;
+        grid-auto-flow:        column;
+        grid-auto-columns:     max-content;
+        grid-column-gap:       $gap-column;
+        padding-left:          $padding;
+    }
 }
