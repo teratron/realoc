@@ -41,44 +41,41 @@ function Property() {
                         <Carousel.Item key={`slide-${index}`}>
                             <Image
                                 className="d-block w-100"
-                                src={value}
-                                alt={`${index + 1} slide`}/>
-                            <Carousel.Caption>
-                                {index + 1}
-                            </Carousel.Caption>
+                                src={value}/>
+                            <Carousel.Caption>{index + 1}/10</Carousel.Caption>
                         </Carousel.Item>
                     ))}
                 </Carousel>
 
                 <div className="form">
-                    <Card>
+                    <Card className="form-list">
                         <div>
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
                             <Badge bg="secondary">
-                                <Image src={iconSelected} alt=""/>
+                                <Image src={iconSelected}/>
                                 Credit ipotecar
                             </Badge>
                         </div>
                         <div>75 000 € <small>1 086 €/m²</small></div>
                         <Row>
                             <Col>
-                                <Row><Image src={iconBuilding} width={16} height={16} alt=""/></Row>
+                                <Row><Image src={iconBuilding} width={16} height={16}/></Row>
                                 <Row>Fond locativ</Row>
                                 <Row>Constr. noi</Row>
                             </Col>
                             <Col>
-                                <Row><Image src={iconDoor} height={20} alt=""/></Row>
+                                <Row><Image src={iconDoor} height={20}/></Row>
                                 <Row>Apartament</Row>
                                 <Row>2 camere</Row>
                             </Col>
                             <Col>
-                                <Row><Image src={iconArea} height={16} alt=""/></Row>
+                                <Row><Image src={iconArea} height={16}/></Row>
                                 <Row>Suprafață</Row>
                                 <Row>69 m²</Row>
                             </Col>
                             <Col>
-                                <Row><Image src={iconStair} height={16} alt=""/></Row>
+                                <Row><Image src={iconStair} height={16}/></Row>
                                 <Row>Nivel</Row>
                                 <Row>3 din 9</Row>
                             </Col>
@@ -91,12 +88,12 @@ function Property() {
                             <Col>
                                 <Card.Text>
                                     Chișinău mun., Chișinău, Botanica,
-                                    bd. Dacia 11/1 <Image src={iconCopy} alt=""/>
+                                    bd. Dacia 11/1 <Image src={iconCopy}/>
                                 </Card.Text>
                             </Col>
                             <Col>
                                 <Link to="/add-request">
-                                    <Image src={iconMap} alt=""/>
+                                    <Image src={iconMap}/>
                                 </Link>
                             </Col>
                         </Row>
@@ -119,7 +116,7 @@ function Property() {
                         </Row>
                         <Row>
                             <Col>Fond locativ</Col>
-                            <Col>Construcţii noi</Col>
+                            <Col>Construcții noi</Col>
                         </Row>
                         <Row>
                             <Col>Număr de camere</Col>
@@ -154,12 +151,12 @@ function Property() {
                             <Col>Exfactor</Col>
                         </Row>
                         <Row>
-                            <Col>Predare în expluatare</Col>
+                            <Col>Predare în exploatare</Col>
                             <Col>2024</Col>
                         </Row>
                         <Row>
                             <Col>Ascensor</Col>
-                            <Col><Image src={iconCheck} alt=""/></Col>
+                            <Col><Image src={iconCheck}/></Col>
                         </Row>
                         <Row>
                             <Col>Parcare</Col>

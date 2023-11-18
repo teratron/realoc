@@ -2,18 +2,18 @@
 @import "src/assets/scss/mixins";
 
 :root,
-[data-theme=light] {
-    color-scheme:          light;
+[data-theme="light"] {
+    color-scheme: light;
     --app-header-bg-color: white;
     --app-footer-bg-color: white;
-    --app-main-bg-color:   var(--bs-body-bg);
+    --app-main-bg-color: var(--bs-body-bg);
 }
 
-[data-theme=dark] {
-    color-scheme:          dark;
+[data-theme="dark"] {
+    color-scheme: dark;
     --app-header-bg-color: var(--bs-primary-rgb);
     --app-footer-bg-color: var(--bs-primary-rgb);
-    --app-main-bg-color:   var(--bs-body-bg);
+    --app-main-bg-color: var(--bs-body-bg);
 }
 
 // Reset
@@ -24,8 +24,8 @@ body {
 
 // Card
 .card {
-    padding:       16px;
-    box-shadow:    0 1px 3px 0 rgba(0, 0, 0, .15);
+    padding: 16px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 
     > :only-child,
     > :not(:only-child):first-child {
@@ -50,7 +50,7 @@ body {
         }
     }
 
-    @include container(&)
+    @include container(&);
 }
 
 // Form
@@ -58,7 +58,7 @@ body {
     padding-bottom: 80px;
 
     > .card {
-        @extend .mb-2
+        @extend .mb-2;
     }
 
     .btn-group {
@@ -67,10 +67,10 @@ body {
 
     &-label,
     &-check-label {
-        font-size:   0.9rem;
+        font-size: 0.9rem;
         font-weight: 500;
-        width:       100%;
-        color:       #344054;
+        width: 100%;
+        color: #344054;
 
         .foot,
         > .mandatory {
@@ -86,31 +86,40 @@ body {
 
     &-control,
     &-select {
-        font-size:        0.9rem;
-        color:            var(--bs-body-color);
-        border:           1px solid #d0d5dd;
-        border-radius:    6px;
+        font-size: 0.9rem;
+        color: var(--bs-body-color);
+        border: 1px solid #d0d5dd;
+        border-radius: 6px;
         background-color: white;
-        box-shadow:       0 1px 2px 0 rgba(0, 0, 0, .1);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &-list {
+        > .row {
+            > .col {
+                @extend .px-0;
+            }
+        }
     }
 
     > .navbar {
         background-color: white;
-        box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.1);
 
-        &, > .container {
-            min-height:     80px;
-            padding-top:    0;
+        &,
+        > .container {
+            min-height: 80px;
+            padding-top: 0;
             padding-bottom: 0;
         }
 
         > .container {
-            display:               grid;
-            align-content:         center;
-            align-items:           center;
-            justify-content:       center;
+            display: grid;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
             grid-template-columns: 1fr;
-            justify-items:         stretch;
+            justify-items: stretch;
         }
     }
 
@@ -118,7 +127,7 @@ body {
         margin-bottom: 0;
     }
 
-    @include container(&)
+    @include container(&);
 }
 
 // Mandatory
@@ -127,6 +136,11 @@ body {
 }
 
 // Heading
-h1, h2, h3, h4, h5, h6 {
-    @include container(&)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include container(&);
 }

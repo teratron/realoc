@@ -170,6 +170,7 @@ function FormAdd() {
                                 </ToggleButtonGroup>
                             </div>
                         </Form.Group>
+                        
                         <Form.Group controlId="number_of_rooms-0">
                             <Form.Label>Număr de camere<Star/><Mandatory hasError/></Form.Label>
                             <div>
