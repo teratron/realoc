@@ -93,13 +93,13 @@ export function FormButton() {
 function FormAdd() {
     const schema = yup.object().shape(
         {
-            number_rooms: yup.string().required(),
-            sale_price: yup.string().required(),
+            numberRooms: yup.string().required(),
+            salePrice: yup.string().required(),
             area: yup.string().required(),
             location: yup.string().required(),
             photos: yup.string().required(),
             levels: yup.string().required(),
-            number_levels: yup.string().required()
+            numberLevels: yup.string().required()
             //terms: yup.bool().required().oneOf([true], 'Terms must be accepted')
         })
 
@@ -112,13 +112,13 @@ function FormAdd() {
         <Formik
             validationSchema={schema}
             initialValues={{
-                number_rooms: false,
-                sale_price: '',
+                numberRooms: false,
+                salePrice: '',
                 area: '',
                 location: '',
-                photos: '',
-                levels: '',
-                number_levels: ''
+                photos: false,
+                levels: false,
+                numberLevels: false
             }}
             onSubmit={async (values) => {
                 await new Promise((r) => setTimeout(r, 500))
@@ -133,29 +133,29 @@ function FormAdd() {
                     errors
                 }
             ) => (
-                <Form className="form" noValidate onSubmit={handleSubmit}>
+                <Form className="form" onSubmit={handleSubmit} noValidate>
 
                     {/******************************************************
                      * Transaction Block
                      *******************************************************/}
                     <Card>
-                        <Form.Group controlId="transaction_type_1">
+                        <Form.Group controlId="transaction-type-1">
                             <Form.Label>Tip tranzacție</Form.Label>
                             <div>
-                                <ToggleButtonGroup type="radio" name="transaction_type" defaultValue={1}>
-                                    <ToggleButton variant="outline-primary" id="transaction_type_1" value={1}>
+                                <ToggleButtonGroup type="radio" name="transactionType" defaultValue={1}>
+                                    <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
                                         De vânzare
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-primary" id="transaction_type_2" value={2}>
+                                    <ToggleButton variant="outline-primary" id="transaction-type-2" value={2}>
                                         De închiriat
                                     </ToggleButton>
                                 </ToggleButtonGroup>
                             </div>
                         </Form.Group>
 
-                        <Form.Group controlId="property_type">
+                        <Form.Group controlId="property-type">
                             <Form.Label>Tip de proprietate</Form.Label>
-                            <Form.Select name="property_type">
+                            <Form.Select name="propertyType">
                                 <option>Apartament</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -167,50 +167,44 @@ function FormAdd() {
                      * Housing Block
                      *******************************************************/}
                     <Card>
-                        <Form.Group controlId="housing_stock_1">
+                        <Form.Group controlId="housing-stock-1">
                             <Form.Label>Fond locativ</Form.Label>
                             <div>
-                                <ToggleButtonGroup type="radio" name="housing_stock" defaultValue={1}>
-                                    <ToggleButton variant="outline-primary" id="housing_stock_1" value={1}>
+                                <ToggleButtonGroup type="radio" name="housingStock" defaultValue={1}>
+                                    <ToggleButton variant="outline-primary" id="housing-stock-1" value={1}>
                                         Construcții noi
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-primary" id="housing_stock_2" value={2}>
+                                    <ToggleButton variant="outline-primary" id="housing-stock-2" value={2}>
                                         Secundare
                                     </ToggleButton>
                                 </ToggleButtonGroup>
                             </div>
                         </Form.Group>
 
-                        <Form.Group controlId="number_rooms_1">
+                        <Form.Group controlId="number-rooms-1">
                             <Form.Label>Număr de camere<Star /><Mandatory hasError /></Form.Label>
                             <div>
                                 {[
-                                    '1',
-                                    '1.5',
-                                    '2',
-                                    '2.5',
-                                    '3',
-                                    '4.5',
-                                    '4+'
+                                    '1', '1.5', '2', '2.5', '3', '4.5', '4+'
                                 ].map((value, index) => (
                                     <Form.Check
-                                        key={`number_rooms_${index}`}
-                                        //id={`${isAddSalePage() ? 'radio' : 'checkbox'}_number_rooms_${index + 1}`}
-                                        id={`number_rooms_${index + 1}`}
+                                        key={`number-rooms-${index}`}
+                                        //id={`${isAddSalePage() ? 'radio' : 'checkbox'}-number-rooms-${index + 1}`}
+                                        id={`number-rooms-${index + 1}`}
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         value={value}
-                                        name="number_rooms"
+                                        name="numberRooms"
                                         inline
                                         onChange={handleChange}
-                                        isInvalid={!!errors.number_rooms}
-                                        /*feedback={errors.number_rooms}
+                                        isInvalid={!!errors.numberRooms}
+                                        /*feedback={errors.numberRooms}
                                         feedbackType="invalid"*//>
                                 ))}
                             </div>
                         </Form.Group>
 
-                        <Form.Group controlId="sale_price">
+                        <Form.Group controlId="sale-price">
                             <Form.Label>Preț vânzare<Star /><Mandatory /></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
@@ -218,21 +212,22 @@ function FormAdd() {
                                     <Form.Control
                                         type="text"
                                         placeholder="Indicați preț"
-                                        name="sale_price"
-                                        value={values.sale_price}
+                                        name="salePrice"
+                                        value={values.salePrice}
                                         onChange={handleChange}
-                                        isInvalid={touched.sale_price && !!errors.sale_price} />
+                                        isInvalid={touched.salePrice && !!errors.salePrice}/>
                                     <InputGroup.Text>€</InputGroup.Text>
                                 </InputGroup>
 
                                 /*** Add Request Page ***/
                                 : <Row>
                                     <Col>
-                                        <Form.Control id="sale_price" type="text" name="sale_price" placeholder="De la" />
+                                        <Form.Control id="sale-price" type="text" name="salePrice" placeholder="De la"/>
                                     </Col>
                                     <Col>
                                         <InputGroup>
-                                            <Form.Control id="sale_price_to" type="text" name="sale_price" placeholder="Până la" />
+                                            <Form.Control id="sale-price-to" type="text" name="salePrice"
+                                                          placeholder="Până la"/>
                                             <InputGroup.Text>€</InputGroup.Text>
                                         </InputGroup>
                                     </Col>
@@ -246,19 +241,19 @@ function FormAdd() {
                                 'Preț m²'
                             ].map((value, index) => (
                                 <Form.Check
-                                    key={`price_type_${index}`}
-                                    id={`price_type_${index + 1}`}
+                                    key={`price-type-${index}`}
+                                    id={`price-type-${index + 1}`}
                                     type="radio"
                                     label={value}
                                     value={value}
-                                    name="price_type"
+                                    name="priceType"
                                     inline />
                             ))}
                         </Form.Group>
 
                         {isAddSalePage()
                             /*** Add Sale Page ***/
-                            ? <Form.Group controlId="mortgage_1">
+                            ? <Form.Group controlId="mortgage-1">
                                 <Form.Label>Credit ipotecar</Form.Label>
                                 <div>
                                     {[
@@ -266,8 +261,8 @@ function FormAdd() {
                                         'Indisponibil'
                                     ].map((value, index) => (
                                         <Form.Check
-                                            key={`mortgage_${index}`}
-                                            id={`mortgage_${index + 1}`}
+                                            key={`mortgage-${index}`}
+                                            id={`mortgage-${index + 1}`}
                                             type="radio"
                                             label={value}
                                             value={value}
@@ -286,7 +281,13 @@ function FormAdd() {
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <InputGroup>
-                                    <Form.Control name="area" type="text" placeholder="Indicați suprafață" />
+                                    <Form.Control
+                                        name="area"
+                                        type="text"
+                                        placeholder="Indicați suprafață"
+                                        value={values.area}
+                                        onChange={handleChange}
+                                        isInvalid={touched.area && !!errors.area}/>
                                     <InputGroup.Text>m²</InputGroup.Text>
                                 </InputGroup>
 
@@ -297,7 +298,7 @@ function FormAdd() {
                                     </Col>
                                     <Col>
                                         <InputGroup>
-                                            <Form.Control id="area_to" name="area" type="text" placeholder="Până la" />
+                                            <Form.Control id="area-to" name="area" type="text" placeholder="Până la"/>
                                             <InputGroup.Text>m²</InputGroup.Text>
                                         </InputGroup>
                                     </Col>
@@ -322,8 +323,10 @@ function FormAdd() {
                                         <Form.Control
                                             name="location"
                                             type="text"
-                                            value="Chișinău, Botanica, Dacia 11/1"
-                                            placeholder="Orașul, strada, numărul casei" />
+                                            value={values.location}
+                                            placeholder="Orașul, strada, numărul casei"
+                                            onChange={handleChange}
+                                            isInvalid={touched.location && !!errors.location}/>
                                         <InputGroup.Text>
                                             <Image src={iconCheck} />
                                         </InputGroup.Text>
@@ -379,7 +382,12 @@ function FormAdd() {
                                     <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
                                     <Col className="mb-2"><Image src={imageHousing} rounded fluid /></Col>
                                 </Row>
-                                <Form.Control type="file" name="photos" multiple />
+                                <Form.Control
+                                    type="file"
+                                    name="photos"
+                                    multiple
+                                    onChange={handleChange}
+                                    isInvalid={touched.photos && !!errors.photos}/>
                             </Form.Group>
 
                             <Alert variant="light">
@@ -394,7 +402,7 @@ function FormAdd() {
                      * Apartment Block
                      *******************************************************/}
                     <Card>
-                        <Form.Group controlId="apartment_status_1">
+                        <Form.Group controlId="apartment-status-1">
                             <Form.Label>Starea apartamentului</Form.Label>
                             <div>
                                 {[
@@ -405,17 +413,17 @@ function FormAdd() {
                                     'Design individual'
                                 ].map((value, index) => (
                                     <Form.Check
-                                        key={`apartment_status_${index}`}
-                                        id={`apartment_status_${index + 1}`}
+                                        key={`apartment-status-${index}`}
+                                        id={`apartment-status-${index + 1}`}
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
-                                        name="apartment_status"
+                                        name="apartmentStatus"
                                         inline />
                                 ))}
                             </div>
                         </Form.Group>
 
-                        <Form.Group controlId="furniture_1">
+                        <Form.Group controlId="furniture-1">
                             <Form.Label>Mobilier</Form.Label>
                             <div>
                                 {[
@@ -424,8 +432,8 @@ function FormAdd() {
                                     'Mobilat'
                                 ].map((value, index) => (
                                     <Form.Check
-                                        key={`furniture_${index}`}
-                                        id={`furniture_${index + 1}`}
+                                        key={`furniture-${index}`}
+                                        id={`furniture-${index + 1}`}
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="furniture"
@@ -443,7 +451,10 @@ function FormAdd() {
                             <Form.Label>Nivel<Star /><Mandatory /></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
-                                ? <Form.Select name="levels">
+                                ? <Form.Select
+                                    name="levels"
+                                    onChange={handleChange}
+                                    isInvalid={touched.levels && !!errors.levels}>
                                     <option>Selectați nivel</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -459,7 +470,7 @@ function FormAdd() {
                                         </Form.Select>
                                     </Col>
                                     <Col>
-                                        <Form.Select id="levels_to" name="levels">
+                                        <Form.Select id="levels-to" name="levels">
                                             <option>Până la</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -478,11 +489,11 @@ function FormAdd() {
                                     'La ultimul'
                                 ].map((value, index) => (
                                     <Form.Check
-                                        key={`option_levels_${index}`}
-                                        id={`option_levels_${index + 1}`}
+                                        key={`option-levels-${index}`}
+                                        id={`option-levels-${index + 1}`}
                                         type="checkbox"
                                         label={value}
-                                        name="option_levels"
+                                        name="optionLevels"
                                         inline />
                                 ))}
                             </Form.Group>
@@ -491,11 +502,14 @@ function FormAdd() {
                             : null
                         }
 
-                        <Form.Group controlId="number_levels">
+                        <Form.Group controlId="number-levels">
                             <Form.Label>Număr de nivele în casă<Star /><Mandatory hasError /></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
-                                ? <Form.Select name="number_levels">
+                                ? <Form.Select
+                                    name="numberLevels"
+                                    onChange={handleChange}
+                                    isInvalid={touched.numberLevels && !!errors.numberLevels}>
                                     <option>Selectați număr de nivele</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -511,7 +525,7 @@ function FormAdd() {
                                         </Form.Select>
                                     </Col>
                                     <Col>
-                                        <Form.Select id="number_levels_to">
+                                        <Form.Select id="number-levels-to">
                                             <option>Până la</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -521,7 +535,7 @@ function FormAdd() {
                             }
                         </Form.Group>
 
-                        <Form.Group controlId="ascensor_1">
+                        <Form.Group controlId="ascensor-1">
                             <Form.Label>Ascensor</Form.Label>
                             <div>
                                 {[
@@ -529,8 +543,8 @@ function FormAdd() {
                                     'Absent'
                                 ].map((value, index) => (
                                     <Form.Check
-                                        key={`ascensor_${index}`}
-                                        id={`ascensor_${index + 1}`}
+                                        key={`ascensor-${index}`}
+                                        id={`ascensor-${index + 1}`}
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="ascensor"
@@ -539,7 +553,7 @@ function FormAdd() {
                             </div>
                         </Form.Group>
 
-                        <Form.Group controlId="parking_1">
+                        <Form.Group controlId="parking-1">
                             <Form.Label>Parcare</Form.Label>
                             <div>
                                 {[
@@ -548,8 +562,8 @@ function FormAdd() {
                                     'Garaj'
                                 ].map((value, index) => (
                                     <Form.Check
-                                        key={`parking_${index}`}
-                                        id={`parking_${index + 1}`}
+                                        key={`parking-${index}`}
+                                        id={`parking-${index + 1}`}
                                         type="checkbox"
                                         label={value}
                                         name="parking"
@@ -567,20 +581,15 @@ function FormAdd() {
                             </Form.Select>
                         </Form.Group>
 
-                        <Form.Group controlId="exploitation_1">
+                        <Form.Group controlId="exploitation-1">
                             <Form.Label>Predare în exploatare</Form.Label>
                             <div>
                                 {[
-                                    'Dat în exploatare',
-                                    '2023',
-                                    '2024',
-                                    '2025',
-                                    '2026',
-                                    '2027+'
+                                    'Dat în exploatare', '2023', '2024', '2025', '2026', '2027+'
                                 ].map((value, index) => (
                                     <Form.Check
-                                        key={`exploitation_${index}`}
-                                        id={`exploitation_${index + 1}`}
+                                        key={`exploitation-${index}`}
+                                        id={`exploitation-${index + 1}`}
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="exploitation"
@@ -612,23 +621,17 @@ function FormAdd() {
                      *******************************************************/}
                     {isAddSalePage()
                         ? <Card>
-                            <Form.Group controlId="transaction_fee_1">
+                            <Form.Group controlId="transaction-fee-1">
                                 <Form.Label>Comision de tranzacție</Form.Label>
                                 <div>
                                     {[
-                                        '0.5%',
-                                        '1.5%',
-                                        '1.5%',
-                                        '2%',
-                                        '2.5%',
-                                        '3%',
-                                        'Alt'
+                                        '0.5%', '1.5%', '1.5%', '2%', '2.5%', '3%', 'Alt'
                                     ].map((value, index) => (
                                         <Form.Check
-                                            key={`transaction_fee_${index}`}
-                                            id={`transaction_fee_${index + 1}`}
+                                            key={`transaction-fee-${index}`}
+                                            id={`transaction-fee-${index + 1}`}
                                             label={value}
-                                            name="transaction_fee"
+                                            name="transaction-fee"
                                             type="radio"
                                             inline />
                                     ))}

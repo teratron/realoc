@@ -4,7 +4,8 @@ import {
     Button,
     Card,
     Carousel,
-    Col, Container,
+    Col,
+    Container,
     Navbar,
     Row,
     Image
@@ -25,7 +26,7 @@ import iconSelected from '../assets/media/icon_selected.svg'
 
 export const title: string = 'Property'
 
-function Property() {
+function CarouselPhoto() {
     const slides = [
         imageHousing,
         imageHousing,
@@ -34,21 +35,27 @@ function Property() {
     const numSlides = slides.length
 
     return (
+        <Carousel data-bs-theme="dark">
+            {slides.map((value, index) => (
+                <Carousel.Item key={`slide-${index}`}>
+                    <Image
+                        className="d-block w-100"
+                        src={value}/>
+                    <Carousel.Caption>
+                        {index + 1}/{numSlides}
+                    </Carousel.Caption>
+                </Carousel.Item>
+            ))}
+        </Carousel>
+    )
+}
+
+function Property() {
+    return (
         <>
             <Header title={title}/>
             <Main>
-                <Carousel className="mb-3" data-bs-theme="dark">
-                    {slides.map((value, index) => (
-                        <Carousel.Item key={`slide-${index}`}>
-                            <Image
-                                className="d-block w-100"
-                                src={value}/>
-                            <Carousel.Caption>
-                                {index + 1}/{numSlides}
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
+                <CarouselPhoto/>
 
                 <div className="form">
                     <Card className="form-list">
