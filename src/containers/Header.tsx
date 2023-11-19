@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Link, useLocation} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Button, Container, Offcanvas, Stack} from 'react-bootstrap'
 import Navigation from '../components/Navigation'
 
@@ -21,7 +21,6 @@ function Header({title, isResetButton = false}: HeaderProps) {
     const Drawer = () => (
         <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>{useLocation().pathname}</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Stack gap={2}>

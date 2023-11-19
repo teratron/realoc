@@ -10,7 +10,7 @@ function AddSale() {
             <Header title={title}/>
             <Main>
                 <h2>Adaugă imobiliare</h2>
-                <FormAdd/>
+                <FormAdd isAddSalePage/>
             </Main>
         </>
     )

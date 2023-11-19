@@ -217,16 +217,26 @@ body {
         width:       100%;
         color:       #344054;
 
-        .foot, > .feedback {
+        > .foot, > .feedback {
             @extend .float-end, .ms-2;
         }
 
-        .feedback {
+        > .feedback {
             color: var(--bs-danger);
+
+            @extend .d-none;
+
+            &.show {
+                @extend .d-block;
+
+                + .foot {
+                    @extend .d-none;
+                }
+            }
         }
 
-        .foot {
-            @extend .text-body-tertiary;
+        > .foot {
+            @extend .d-block, .text-body-tertiary;
         }
 
         @extend .clearfix;
@@ -303,4 +313,10 @@ body {
 //**********************************************
 h1, h2, h3, h4, h5, h6 {
     @include container(&);
+}
+
+.map-thumb {
+    > img {
+        @extend .border;
+    }
 }

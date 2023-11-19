@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import {useLocation} from 'react-router-dom'
 import {
     Alert,
     Button,
@@ -28,47 +27,17 @@ import iconSearch from '../assets/media/icon_search.svg'
 
 //import iconLocation from '../assets/media/icon_location_house.svg'
 
-function getPathName() {
-    const location = useLocation
-    const path = location().pathname.split('/')
-    return path[path.length - 1]
-}
-
-const isAddSalePage = () => getPathName() === 'add-sale'
-const isAddRequestPage = () => getPathName() === 'add-request'
-
-interface FeedbackProps {
-    dataName: string
-    isInvalid?: boolean
-}
-
-function Feedback({dataName = '', isInvalid = false}: FeedbackProps) {
-    return (
-        isInvalid
-            ? isAddSalePage()
-                /*** Add Sale Page ***/
+function FormAdd({isAddSalePage = false}) {
+    const Star = () => isAddSalePage ? <Image src={iconStar}/> : null
+    const Feedback = ({dataName = ''}) => {
+        return (
+            isAddSalePage
                 ? <span className="feedback" data-name={dataName}>Obligatoriu <Image src={iconInvalid}/></span>
-
-                /*** Add Request Page ***/
                 : null
-            : null
-    )
-}
-
-function Star() {
-    return (
-        isAddSalePage()
-            /*** Add Sale Page ***/
-            ? <Image src={iconStar}/>
-
-            /*** Add Request Page ***/
-            : null
-    )
-}
-
-function FormAdd() {
+        )
+    }
     const [count, setCount] = useState(254)
-    const isInvalid = false
+
 
     return (
         // React Bootstrap + Formik example:
@@ -83,12 +52,14 @@ function FormAdd() {
                 levels: '',
                 numberLevels: ''
             }}
-            onSubmit={/*async*/ (values) => {
-                //await new Promise((r) => setTimeout(r, 500))
-                //alert(JSON.stringify(values, null, 2))
+            onSubmit={async (values) => {
+                await new Promise((r) => setTimeout(r, 100))
+                alert(JSON.stringify(values, null, 2))
 
-                if (values.salePrice === '') {
-                    console.log(document.querySelector('[data-name="numberRooms"]'))
+                for (const [key, value] of Object.entries(values)) {
+                    if (value === '') {
+                        document.querySelector(`[data-name=${key}]`)!.classList.add('show')
+                    }
                 }
             }}>
             {(
@@ -149,7 +120,7 @@ function FormAdd() {
                         </Form.Group>
 
                         <Form.Group controlId="number-rooms-1">
-                            <Form.Label>Număr de camere<Star/><Feedback dataName="numberRooms" isInvalid/></Form.Label>
+                            <Form.Label>Număr de camere<Star/><Feedback dataName="numberRooms"/></Form.Label>
                             <div>
                                 {[
                                     '1', '1.5', '2', '2.5', '3', '4.5', '4+'
@@ -157,20 +128,20 @@ function FormAdd() {
                                     <Form.Check
                                         key={`number-rooms-${index}`}
                                         id={`number-rooms-${index + 1}`}
-                                        type={isAddSalePage() ? 'radio' : 'checkbox'}
+                                        type={isAddSalePage ? 'radio' : 'checkbox'}
                                         label={value}
                                         value={value}
                                         name="numberRooms"
                                         inline
                                         onChange={handleChange}
-                                        isInvalid={!!errors.numberRooms}/>
+                                        isInvalid={touched.numberRooms && !!errors.numberRooms}/>
                                 ))}
                             </div>
                         </Form.Group>
 
                         <Form.Group controlId="sale-price">
                             <Form.Label>Preț vânzare<Star/><Feedback dataName="salePrice"/></Form.Label>
-                            {isAddSalePage()
+                            {isAddSalePage
                                 /*** Add Sale Page ***/
                                 ? <InputGroup>
                                     <Form.Control
@@ -218,7 +189,7 @@ function FormAdd() {
                             ))}
                         </Form.Group>
 
-                        {isAddSalePage()
+                        {isAddSalePage
                             /*** Add Sale Page ***/
                             ? <Form.Group controlId="mortgage-1">
                                 <Form.Label>Credit ipotecar</Form.Label>
@@ -244,8 +215,8 @@ function FormAdd() {
                         }
 
                         <Form.Group controlId="area">
-                            <Form.Label>Suprafață totală<Star/><Feedback dataName="area" isInvalid/></Form.Label>
-                            {isAddSalePage()
+                            <Form.Label>Suprafață totală<Star/><Feedback dataName="area"/></Form.Label>
+                            {isAddSalePage
                                 /*** Add Sale Page ***/
                                 ? <InputGroup>
                                     <Form.Control
@@ -278,7 +249,7 @@ function FormAdd() {
                      * Location Block
                      *******************************************************/}
                     <Card>
-                        {isAddSalePage()
+                        {isAddSalePage
                             /*** Add Sale Page ***/
                             ? <>
                                 <Form.Group controlId="location">
@@ -300,8 +271,8 @@ function FormAdd() {
                                     </InputGroup>
                                 </Form.Group>
 
-                                <Form.Group>
-                                    <Image className="border" src={thumbMap} rounded fluid/>
+                                <Form.Group className="map-thumb">
+                                    <Image src={thumbMap} rounded fluid alt=""/>
                                     {/*TODO: <Image src={iconLocation}/>*/}
                                 </Form.Group>
                             </>
@@ -333,14 +304,12 @@ function FormAdd() {
                     {/******************************************************
                      * Photo Block
                      *******************************************************/}
-                    {isAddSalePage()
+                    {isAddSalePage
                         ? <Card>
                             <Form.Group controlId="photos">
                                 <Form.Label>Fotografie<Star/>
-                                    {isInvalid
-                                        ? <Feedback dataName="photos" isInvalid={isInvalid}/>
-                                        : <span className="foot">5/{conf.MAX_PHOTOS}</span>
-                                    }
+                                    <Feedback dataName="photos"/>
+                                    <span className="foot">5/{conf.MAX_PHOTOS}</span>
                                 </Form.Label>
                                 <Row className="row-cols-3 mb-1">
                                     <Col className="mb-2">
@@ -397,7 +366,7 @@ function FormAdd() {
                                     <Form.Check
                                         key={`apartment-status-${index}`}
                                         id={`apartment-status-${index + 1}`}
-                                        type={isAddSalePage() ? 'radio' : 'checkbox'}
+                                        type={isAddSalePage ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="apartmentStatus"
                                         inline/>
@@ -416,7 +385,7 @@ function FormAdd() {
                                     <Form.Check
                                         key={`furniture-${index}`}
                                         id={`furniture-${index + 1}`}
-                                        type={isAddSalePage() ? 'radio' : 'checkbox'}
+                                        type={isAddSalePage ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="furniture"
                                         inline/>
@@ -431,7 +400,7 @@ function FormAdd() {
                     <Card>
                         <Form.Group controlId="levels">
                             <Form.Label>Nivel<Star/><Feedback dataName="levels"/></Form.Label>
-                            {isAddSalePage()
+                            {isAddSalePage
                                 /*** Add Sale Page ***/
                                 ? <Form.Select
                                     name="levels"
@@ -462,7 +431,7 @@ function FormAdd() {
                             }
                         </Form.Group>
 
-                        {isAddRequestPage()
+                        {!isAddSalePage
                             /*** Add Request Page ***/
                             ? <Form.Group>
                                 {[
@@ -485,9 +454,10 @@ function FormAdd() {
                         }
 
                         <Form.Group controlId="number-levels">
-                            <Form.Label>Număr de nivele în casă<Star/><Feedback dataName="numberLevels"
-                                                                                isInvalid/></Form.Label>
-                            {isAddSalePage()
+                            <Form.Label>Număr de nivele în casă<Star/>
+                                <Feedback dataName="numberLevels"/>
+                            </Form.Label>
+                            {isAddSalePage
                                 /*** Add Sale Page ***/
                                 ? <Form.Select
                                     name="numberLevels"
@@ -528,7 +498,7 @@ function FormAdd() {
                                     <Form.Check
                                         key={`ascensor-${index}`}
                                         id={`ascensor-${index + 1}`}
-                                        type={isAddSalePage() ? 'radio' : 'checkbox'}
+                                        type={isAddSalePage ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="ascensor"
                                         inline/>
@@ -573,7 +543,7 @@ function FormAdd() {
                                     <Form.Check
                                         key={`exploitation-${index}`}
                                         id={`exploitation-${index + 1}`}
-                                        type={isAddSalePage() ? 'radio' : 'checkbox'}
+                                        type={isAddSalePage ? 'radio' : 'checkbox'}
                                         label={value}
                                         name="exploitation"
                                         inline/>
@@ -581,7 +551,7 @@ function FormAdd() {
                             </div>
                         </Form.Group>
 
-                        {isAddSalePage()
+                        {isAddSalePage
                             /*** Add Sale Page ***/
                             ? <Form.Group controlId="description">
                                 <Form.Label>
@@ -602,7 +572,7 @@ function FormAdd() {
                     {/******************************************************
                      * Fee Block
                      *******************************************************/}
-                    {isAddSalePage()
+                    {isAddSalePage
                         ? <Card>
                             <Form.Group controlId="transaction-fee-1">
                                 <Form.Label>Comision de tranzacție</Form.Label>
@@ -632,13 +602,16 @@ function FormAdd() {
                         : null
                     }
 
+                    {/******************************************************
+                     * Button Block
+                     *******************************************************/}
                     <Navbar>
                         <Container>
                             <Button
                                 type="submit"
                                 variant="primary"
                                 onClick={() => setCount((count) => count + 1)}>
-                                {isAddSalePage()
+                                {isAddSalePage
                                     /*** Add Sale Page ***/
                                     ? `Adaugă anunțe`
 
