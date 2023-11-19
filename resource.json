@@ -4,28 +4,18 @@
     "src": "assets/media/icon_map.png"
   },
   "assets/media/logo.svg": {
-    "file": "assets/media/logo.bSboOiFK.svg",
+    "file": "assets/media/logo.F9eUXiYu.svg",
     "src": "assets/media/logo.svg"
-  },
-  "assets/media/plug_room_01.jpg": {
-    "file": "assets/media/plug_room_01.4ueihB4T.jpg",
-    "src": "assets/media/plug_room_01.jpg"
-  },
-  "assets/media/thumb_map.png": {
-    "file": "assets/media/thumb_map.ynC7vwsb.png",
-    "src": "assets/media/thumb_map.png"
   },
   "index.html": {
     "assets": [
-      "assets/media/logo.bSboOiFK.svg",
-      "assets/media/plug_room_01.4ueihB4T.jpg",
-      "assets/media/thumb_map.ynC7vwsb.png",
+      "assets/media/logo.F9eUXiYu.svg",
       "assets/media/icon_map.npKUssM9.png"
     ],
     "css": [
-      "assets/css/main.ejDkMdK7.css"
+      "assets/css/main.RVnx75ci.css"
     ],
-    "file": "assets/js/main.IbYLKOqp.js",
+    "file": "assets/js/main.ajNHZI-U.js",
     "isEntry": true,
     "src": "index.html"
   }
