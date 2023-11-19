@@ -20,8 +20,7 @@ function Header({title, isResetButton = false}: HeaderProps) {
 
     const Drawer = () => (
         <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-            </Offcanvas.Header>
+            <Offcanvas.Header closeButton/>
             <Offcanvas.Body>
                 <Stack gap={2}>
                     <Navigation/>

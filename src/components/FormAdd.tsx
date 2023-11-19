@@ -17,15 +17,13 @@ import {Formik} from 'formik'
 import * as conf from '../config.ts'
 
 // Media
-import thumbMap from '../assets/media/thumb_map.png'
 import iconCheck from '../assets/media/icon_check_green_circle.svg'
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 import iconStar from '../assets/media/icon_sulafat.svg'
 import iconInvalid from '../assets/media/icon_invalid_red_circle.svg'
 import iconNote from '../assets/media/icon_note_grey_circle.svg'
 import iconSearch from '../assets/media/icon_search.svg'
-
-//import iconLocation from '../assets/media/icon_location_house.svg'
+import iconLocation from '../assets/media/icon_location_house.svg'
 
 function FormAdd({isAddSalePage = false}) {
     const Star = () => isAddSalePage ? <Image src={iconStar}/> : null
@@ -272,8 +270,8 @@ function FormAdd({isAddSalePage = false}) {
                                 </Form.Group>
 
                                 <Form.Group className="map-thumb">
-                                    <Image src={thumbMap} rounded fluid alt=""/>
-                                    {/*TODO: <Image src={iconLocation}/>*/}
+                                    <img className="backdrop" src="../assets/media/thumb_map.png" alt=""/>
+                                    <Image className="overlay" src={iconLocation}/>
                                 </Form.Group>
                             </>
 
@@ -311,26 +309,21 @@ function FormAdd({isAddSalePage = false}) {
                                     <Feedback dataName="photos"/>
                                     <span className="foot">5/{conf.MAX_PHOTOS}</span>
                                 </Form.Label>
-                                <Row className="row-cols-3 mb-1">
-                                    <Col className="mb-2">
-                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
-                                             alt=""/>
+                                <Row className="gallery-thumb">
+                                    <Col>
+                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
                                     </Col>
-                                    <Col className="mb-2">
-                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
-                                             alt=""/>
+                                    <Col>
+                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
                                     </Col>
-                                    <Col className="mb-2">
-                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
-                                             alt=""/>
+                                    <Col>
+                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
                                     </Col>
-                                    <Col className="mb-2">
-                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
-                                             alt=""/>
+                                    <Col>
+                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
                                     </Col>
-                                    <Col className="mb-2">
-                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
-                                             alt=""/>
+                                    <Col>
+                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
                                     </Col>
                                 </Row>
                                 <Form.Control

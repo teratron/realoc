@@ -54,11 +54,37 @@ body {
     z-index: $zindex-sticky;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
-
     @extend .position-sticky, .top-0;
+    @extend .navbar, .py-0;
+
+    &, > .container {
+        height: $header-height;
+    }
 
     > .container {
-        @include bar($header-height);
+        @extend .px-0;
+
+        > * {
+            align-items:    center;
+            flex-direction: row;
+            flex-wrap:      nowrap;
+            @extend .d-flex;
+        }
+
+        > .head {
+            justify-content: flex-start;
+            @extend .col-3, .ps-2;
+        }
+
+        > .body {
+            justify-content: center;
+            @extend .col-6;
+        }
+
+        > .foot {
+            justify-content: flex-end;
+            @extend .col-3, .pe-2;
+        }
     }
 
     .logo {
@@ -122,7 +148,6 @@ body {
 //**********************************************
 .app-content {
     padding-bottom: $footer-height;
-
     @include container(&);
 
     > .card {
@@ -132,7 +157,6 @@ body {
     > .navbar {
         background-color: white;
         box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
-
         @extend .fixed-bottom;
 
         &, > .container {
@@ -223,7 +247,6 @@ body {
 
         > .feedback {
             color: var(--bs-danger);
-
             @extend .d-none;
 
             &.show {
@@ -315,8 +338,38 @@ h1, h2, h3, h4, h5, h6 {
     @include container(&);
 }
 
-.map-thumb {
-    > img {
-        @extend .border;
+//**********************************************
+// Location
+//**********************************************
+.map {
+    &-thumb {
+        @extend .position-relative;
+
+        > .backdrop {
+            @extend .border, .rounded, .img-fluid;
+        }
+
+        > .overlay {
+            top:   calc(50% - 18px);
+            right: calc(50% - 15px);
+            @extend .position-absolute;
+        }
+    }
+}
+
+//**********************************************
+// Gallery
+//**********************************************
+.gallery {
+    &-thumb {
+        @extend .row-cols-3, .mb-1;
+
+        > .col {
+            @extend .mb-2;
+
+            > img {
+                @extend .rounded, .img-fluid;
+            }
+        }
     }
 }
