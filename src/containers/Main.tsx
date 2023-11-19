@@ -1,10 +1,9 @@
 import {Container} from 'react-bootstrap'
-import Children from '../../utils/Children'
-import './_main.scss'
+import {Children} from '../utils/Attributes'
 
 function Main(props: Children) {
     return (
-        <main className="app-main">
+        <main id="app-main">
             <Container>
                 {props.children}
             </Container>

@@ -1,6 +1,5 @@
 import {Container} from 'react-bootstrap'
-import Children from '../../utils/Children'
-import './_footer.scss'
+import {Children} from '../utils/Attributes'
 
 interface FooterProps extends Children {
     title?: string
@@ -8,7 +7,7 @@ interface FooterProps extends Children {
 
 function Footer(props: FooterProps) {
     return (
-        <footer className="app-footer">
+        <footer id="app-footer">
             <Container>
                 {props.children}
             </Container>

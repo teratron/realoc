@@ -1,10 +1,12 @@
 import {useState} from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import {Button, Container, Offcanvas, Stack} from 'react-bootstrap'
-import Navigation from '../../components/Navigation'
-import logo from '../../assets/media/logo.svg' // 96x24
-import iconChevronLeft from '../../assets/media/icon_chevron_left.svg'
-import './_header.scss'
+import Navigation from '../components/Navigation'
+
+// Media
+import logo from '../assets/media/logo.svg' // 96x24
+import iconChevronLeft from '../assets/media/icon_chevron_left.svg'
+
 
 interface HeaderProps {
     title?: string
@@ -31,7 +33,7 @@ function Header({title, isResetButton = false}: HeaderProps) {
 
     return (
         <>
-            <header className="app-header">
+            <header id="app-header">
                 <Container>
                     <div className="head">
                         <Button variant="light" onClick={handleShow}>

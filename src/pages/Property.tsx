@@ -55,15 +55,15 @@ function Property() {
             <Main>
                 <Gallery/>
 
-                <Modal data-theme="dark" show={show} onHide={handleClose} fullscreen centered>
+                <Modal data-bs-theme="dark" show={show} onHide={handleClose} fullscreen centered>
                     <Modal.Header closeButton/>
                     <Modal.Body>
                         <Gallery/>
                     </Modal.Body>
                 </Modal>
 
-                <div className="form">
-                    <Card className="form-list">
+                <div className="app-content">
+                    <Card>
                         <div>
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
@@ -73,7 +73,7 @@ function Property() {
                             </Badge>
                         </div>
                         <div>75 000 € <small>1 086 €/m²</small></div>
-                        <Row>
+                        <Row className="app-list">
                             <Col>
                                 <Row><Image src={iconBuilding} width={16} height={16}/></Row>
                                 <Row>Fond locativ</Row>
@@ -97,9 +97,9 @@ function Property() {
                         </Row>
                     </Card>
 
-                    <Card className="form-list">
+                    <Card>
                         <Card.Title>Locație</Card.Title>
-                        <Row>
+                        <Row className="app-list">
                             <Col>
                                 <Card.Text>
                                     Chișinău mun., Chișinău, Botanica,
@@ -115,7 +115,7 @@ function Property() {
                         <Link to="/add-request">Deschideți harta</Link>
                     </Card>
 
-                    <Card className="form-list">
+                    <Card>
                         <Card.Title>Descriere</Card.Title>
                         <Card.Text>
                             Vă oferim spre vânzare apartament cu 2 camere în bloc NOU, sect. Botanica.
@@ -123,7 +123,7 @@ function Property() {
                         </Card.Text>
                     </Card>
 
-                    <Card className="form-list">
+                    <Card className="app-list">
                         <Card.Title>Despre apartament</Card.Title>
                         <Row>
                             <Col>Tip de proprietate</Col>
@@ -155,7 +155,7 @@ function Property() {
                         </Row>
                     </Card>
 
-                    <Card className="form-list">
+                    <Card className="app-list">
                         <Card.Title>Despre casa</Card.Title>
                         <Row>
                             <Col>Număr de nivele</Col>
@@ -179,9 +179,9 @@ function Property() {
                         </Row>
                     </Card>
 
-                    <Card className="form-list">
+                    <Card>
                         <Card.Title>Detalii comerciale</Card.Title>
-                        <Row>
+                        <Row className="app-list">
                             <Col>Credit ipotecar</Col>
                             <Col>Disponibil</Col>
                         </Row>

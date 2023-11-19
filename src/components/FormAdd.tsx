@@ -132,7 +132,7 @@ function FormAdd() {
                     errors
                 }
             ) => (
-                <Form className="form" onSubmit={handleSubmit} noValidate>
+                <Form className="app-content" onSubmit={handleSubmit} noValidate>
 
                     {/******************************************************
                      * Transaction Block
