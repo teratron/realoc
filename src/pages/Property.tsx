@@ -16,12 +16,6 @@ import iconSelected from '../assets/media/icon_selected.svg'
 
 export const title: string = 'Property'
 
-/*function Move() {
-    const fragment = document.createDocumentFragment();
-    fragment.appendChild(document.getElementById('source')!);
-    document.getElementById('destination')!.appendChild(fragment);
-}*/
-
 function Property() {
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
@@ -36,13 +30,11 @@ function Property() {
         const numSlides = slides.length
 
         return (
-            <Carousel data-bs-theme="dark">
+            <Carousel>
                 {slides.map((value, index) => (
                     <Carousel.Item key={`slide-${index}`}>
-                        <img src={value} onClick={handleShow} className="d-block w-100" alt=""/>
-                        <Carousel.Caption>
-                            {index + 1}/{numSlides}
-                        </Carousel.Caption>
+                        <img src={value} onClick={handleShow} alt=""/>
+                        <Carousel.Caption>{index + 1}/{numSlides}</Carousel.Caption>
                     </Carousel.Item>
                 ))}
             </Carousel>
@@ -55,7 +47,7 @@ function Property() {
             <Main>
                 <Gallery/>
 
-                <Modal data-bs-theme="dark" show={show} onHide={handleClose} fullscreen centered>
+                <Modal show={show} onHide={handleClose} fullscreen centered>
                     <Modal.Header closeButton/>
                     <Modal.Body>
                         <Gallery/>
@@ -63,36 +55,33 @@ function Property() {
                 </Modal>
 
                 <div className="app-content">
-                    <Card>
-                        <div>
+                    <Card className="property-summary">
+                        <Card.Text>
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
-                            <Badge bg="secondary">
-                                <Image src={iconSelected}/>
-                                Credit ipotecar
-                            </Badge>
-                        </div>
-                        <div>75 000 € <small>1 086 €/m²</small></div>
+                            <Badge bg="secondary"><Image src={iconSelected}/> Credit ipotecar</Badge>
+                        </Card.Text>
+                        <Card.Title>75 000 € <small>1 086 €/m²</small></Card.Title>
                         <Row className="app-list">
                             <Col>
-                                <Row><Image src={iconBuilding} width={16} height={16}/></Row>
-                                <Row>Fond locativ</Row>
-                                <Row>Constr. noi</Row>
+                                <div><Image src={iconBuilding} width={16} height={16}/></div>
+                                <Card.Text>Fond locativ</Card.Text>
+                                <Card.Subtitle>Constr. noi</Card.Subtitle>
                             </Col>
                             <Col>
-                                <Row><Image src={iconDoor} height={20}/></Row>
-                                <Row>Apartament</Row>
-                                <Row>2 camere</Row>
+                                <div><Image src={iconDoor} height={20}/></div>
+                                <Card.Text>Apartament</Card.Text>
+                                <Card.Subtitle>2 camere</Card.Subtitle>
                             </Col>
                             <Col>
-                                <Row><Image src={iconArea} height={16}/></Row>
-                                <Row>Suprafață</Row>
-                                <Row>69 m²</Row>
+                                <div><Image src={iconArea} height={16}/></div>
+                                <Card.Text>Suprafață</Card.Text>
+                                <Card.Subtitle>69 m²</Card.Subtitle>
                             </Col>
                             <Col>
-                                <Row><Image src={iconStair} height={16}/></Row>
-                                <Row>Nivel</Row>
-                                <Row>3 din 9</Row>
+                                <div><Image src={iconStair} height={16}/></div>
+                                <Card.Text>Nivel</Card.Text>
+                                <Card.Subtitle>3 din 9</Card.Subtitle>
                             </Col>
                         </Row>
                     </Card>
@@ -100,19 +89,19 @@ function Property() {
                     <Card>
                         <Card.Title>Locație</Card.Title>
                         <Row className="app-list">
-                            <Col>
+                            <Col className="body">
                                 <Card.Text>
                                     Chișinău mun., Chișinău, Botanica,
                                     bd. Dacia 11/1 <Image src={iconCopy}/>
                                 </Card.Text>
                             </Col>
-                            <Col>
-                                <Link to="/add-request">
+                            <Col className="foot">
+                                <Link to="/#">
                                     <Image src={iconMap}/>
                                 </Link>
                             </Col>
                         </Row>
-                        <Link to="/add-request">Deschideți harta</Link>
+                        <Link to="/#">Deschideți harta</Link>
                     </Card>
 
                     <Card>
@@ -189,7 +178,7 @@ function Property() {
 
                     <Navbar>
                         <Container>
-                            <Button type="button" variant="secondary">Împărtășiți obiectul</Button>
+                            <Button type="button">Împărtășiți obiectul</Button>
                         </Container>
                     </Navbar>
                 </div>

@@ -51,11 +51,11 @@ body {
 // App Header
 //**********************************************
 #app-header {
-    z-index:          1020;
+    z-index: $zindex-sticky;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
 
-    @extend .sticky;
+    @extend .position-sticky, .top-0;
 
     > .container {
         @include bar($header-height);
@@ -169,12 +169,12 @@ body {
 
         > .col {
             // 1 from 2 columns
-            &:first-child:nth-last-child(2) {
+            &:first-child:nth-last-child(2):not(.body) {
                 @extend .ps-0, .col-7;
             }
 
             // 2 from 2 columns
-            &:last-child:nth-child(2) {
+            &:last-child:nth-child(2):not(.foot) {
                 @extend .pe-0, .col-5;
             }
 
@@ -186,18 +186,29 @@ body {
                 @extend .px-0, .col-3;
             }
         }
+
+        > .head {
+            @extend .ps-0, .col-auto;
+        }
+
+        > .body {
+            @extend .px-0, .col;
+        }
+
+        > .foot {
+            @extend .pe-0, .col-auto;
+        }
     }
 }
 
 //**********************************************
 // Form
 //**********************************************
-
-$footer-height: 5rem; // 80px
-
 .form {
+    @extend .app-content;
+
     .btn-group {
-        width: 100%;
+        @extend .d-flex;
     }
 
     &-label, &-check-label {
@@ -206,8 +217,12 @@ $footer-height: 5rem; // 80px
         width:       100%;
         color:       #344054;
 
-        .foot, > .mandatory {
+        .foot, > .feedback {
             @extend .float-end, .ms-2;
+        }
+
+        .feedback {
+            color: var(--bs-danger);
         }
 
         .foot {
@@ -236,13 +251,13 @@ $footer-height: 5rem; // 80px
 
     > :only-child,
     > :not(:only-child):first-child {
-        margin-top: 0;
+        @extend .mt-0;
     }
 
     &:last-of-type,
     > :only-child,
     > :not(:only-child):last-child {
-        margin-bottom: 0;
+        @extend .mb-0;
     }
 
     > div:not(:last-of-type) {
@@ -262,19 +277,25 @@ $footer-height: 5rem; // 80px
 // Carousel
 //**********************************************
 .carousel {
-    @extend .mb-3;
-    @include container(&);
+    #app-main > .container > & {
+        @extend .mb-4;
 
-    .app-main > .container > & > &-inner {
-        border-radius: 0 0 .5rem .5rem;
+    }
+
+    &-item {
+        > img {
+            @extend .d-block, .w-100;
+        }
     }
 }
 
 //**********************************************
-// Mandatory
+// Modal
 //**********************************************
-.mandatory {
-    color: var(--bs-danger);
+.modal {
+    &-body {
+        @extend .p-0;
+    }
 }
 
 //**********************************************

@@ -15,7 +15,6 @@ import {
     ToggleButtonGroup
 } from 'react-bootstrap'
 import {Formik} from 'formik'
-import * as yup from 'yup'
 import * as conf from '../config.ts'
 
 // Media
@@ -38,16 +37,17 @@ function getPathName() {
 const isAddSalePage = () => getPathName() === 'add-sale'
 const isAddRequestPage = () => getPathName() === 'add-request'
 
-interface MandatoryProps {
-    hasError?: boolean
+interface FeedbackProps {
+    dataName: string
+    isInvalid?: boolean
 }
 
-function Mandatory({hasError = false}: MandatoryProps) {
+function Feedback({dataName = '', isInvalid = false}: FeedbackProps) {
     return (
-        hasError
+        isInvalid
             ? isAddSalePage()
                 /*** Add Sale Page ***/
-                ? <span className="mandatory">Obligatoriu <Image src={iconInvalid}/></span>
+                ? <span className="feedback" data-name={dataName}>Obligatoriu <Image src={iconInvalid}/></span>
 
                 /*** Add Request Page ***/
                 : null
@@ -66,62 +66,30 @@ function Star() {
     )
 }
 
-export function FormButton() {
-    const [count, setCount] = useState(254)
-
-    return (
-        <Navbar fixed="bottom">
-            <Container>
-                <Button
-                    type="submit"
-                    variant="primary"
-                    onClick={() => setCount((count) => count + 1)}>
-                    {isAddSalePage()
-                        /*** Add Sale Page ***/
-                        ? `Adaugă anunțe`
-
-                        /*** Add Request Page ***/
-                        : `Afișați ${count} de anunțuri`
-                    }
-                </Button>
-            </Container>
-        </Navbar>
-    )
-}
-
 function FormAdd() {
-    const schema = yup.object().shape(
-        {
-            numberRooms: yup.string().required(),
-            salePrice: yup.string().required(),
-            area: yup.string().required(),
-            location: yup.string().required(),
-            photos: yup.string().required(),
-            levels: yup.string().required(),
-            numberLevels: yup.string().required()
-            //terms: yup.bool().required().oneOf([true], 'Terms must be accepted')
-        })
-
-    const hasError = false
-    const countPhoto = 5
+    const [count, setCount] = useState(254)
+    const isInvalid = false
 
     return (
         // React Bootstrap + Formik example:
         // https://react-bootstrap.github.io/docs/forms/validation/#form-libraries-and-server-rendered-styles
         <Formik
-            validationSchema={schema}
             initialValues={{
-                numberRooms: false,
+                numberRooms: '',
                 salePrice: '',
                 area: '',
                 location: '',
-                photos: false,
-                levels: false,
-                numberLevels: false
+                photos: '',
+                levels: '',
+                numberLevels: ''
             }}
-            onSubmit={async (values) => {
-                await new Promise((r) => setTimeout(r, 500))
-                alert(JSON.stringify(values, null, 2))
+            onSubmit={/*async*/ (values) => {
+                //await new Promise((r) => setTimeout(r, 500))
+                //alert(JSON.stringify(values, null, 2))
+
+                if (values.salePrice === '') {
+                    console.log(document.querySelector('[data-name="numberRooms"]'))
+                }
             }}>
             {(
                 {
@@ -132,7 +100,7 @@ function FormAdd() {
                     errors
                 }
             ) => (
-                <Form className="app-content" onSubmit={handleSubmit} noValidate>
+                <Form className="form" onSubmit={handleSubmit} noValidate>
 
                     {/******************************************************
                      * Transaction Block
@@ -181,14 +149,13 @@ function FormAdd() {
                         </Form.Group>
 
                         <Form.Group controlId="number-rooms-1">
-                            <Form.Label>Număr de camere<Star/><Mandatory hasError/></Form.Label>
+                            <Form.Label>Număr de camere<Star/><Feedback dataName="numberRooms" isInvalid/></Form.Label>
                             <div>
                                 {[
                                     '1', '1.5', '2', '2.5', '3', '4.5', '4+'
                                 ].map((value, index) => (
                                     <Form.Check
                                         key={`number-rooms-${index}`}
-                                        //id={`${isAddSalePage() ? 'radio' : 'checkbox'}-number-rooms-${index + 1}`}
                                         id={`number-rooms-${index + 1}`}
                                         type={isAddSalePage() ? 'radio' : 'checkbox'}
                                         label={value}
@@ -196,15 +163,13 @@ function FormAdd() {
                                         name="numberRooms"
                                         inline
                                         onChange={handleChange}
-                                        isInvalid={!!errors.numberRooms}
-                                        /*feedback={errors.numberRooms}
-                                        feedbackType="invalid"*//>
+                                        isInvalid={!!errors.numberRooms}/>
                                 ))}
                             </div>
                         </Form.Group>
 
                         <Form.Group controlId="sale-price">
-                            <Form.Label>Preț vânzare<Star/><Mandatory/></Form.Label>
+                            <Form.Label>Preț vânzare<Star/><Feedback dataName="salePrice"/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <InputGroup>
@@ -225,8 +190,11 @@ function FormAdd() {
                                     </Col>
                                     <Col>
                                         <InputGroup>
-                                            <Form.Control id="sale-price-to" type="text" name="salePrice"
-                                                          placeholder="Până la"/>
+                                            <Form.Control
+                                                id="sale-price-to"
+                                                type="text"
+                                                name="salePrice"
+                                                placeholder="Până la"/>
                                             <InputGroup.Text>€</InputGroup.Text>
                                         </InputGroup>
                                     </Col>
@@ -276,7 +244,7 @@ function FormAdd() {
                         }
 
                         <Form.Group controlId="area">
-                            <Form.Label>Suprafață totală<Star/><Mandatory hasError/></Form.Label>
+                            <Form.Label>Suprafață totală<Star/><Feedback dataName="area" isInvalid/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <InputGroup>
@@ -314,7 +282,7 @@ function FormAdd() {
                             /*** Add Sale Page ***/
                             ? <>
                                 <Form.Group controlId="location">
-                                    <Form.Label>Locație<Star/><Mandatory/></Form.Label>
+                                    <Form.Label>Locație<Star/><Feedback dataName="location"/></Form.Label>
                                     <InputGroup>
                                         <InputGroup.Text>
                                             <Image src={iconSearch}/>
@@ -369,9 +337,9 @@ function FormAdd() {
                         ? <Card>
                             <Form.Group controlId="photos">
                                 <Form.Label>Fotografie<Star/>
-                                    {hasError
-                                        ? <Mandatory hasError={hasError}/>
-                                        : <span className="foot">{countPhoto}/{conf.MAX_PHOTOS}</span>
+                                    {isInvalid
+                                        ? <Feedback dataName="photos" isInvalid={isInvalid}/>
+                                        : <span className="foot">5/{conf.MAX_PHOTOS}</span>
                                     }
                                 </Form.Label>
                                 <Row className="row-cols-3 mb-1">
@@ -462,7 +430,7 @@ function FormAdd() {
                      *******************************************************/}
                     <Card>
                         <Form.Group controlId="levels">
-                            <Form.Label>Nivel<Star/><Mandatory/></Form.Label>
+                            <Form.Label>Nivel<Star/><Feedback dataName="levels"/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <Form.Select
@@ -517,7 +485,8 @@ function FormAdd() {
                         }
 
                         <Form.Group controlId="number-levels">
-                            <Form.Label>Număr de nivele în casă<Star/><Mandatory hasError/></Form.Label>
+                            <Form.Label>Număr de nivele în casă<Star/><Feedback dataName="numberLevels"
+                                                                                isInvalid/></Form.Label>
                             {isAddSalePage()
                                 /*** Add Sale Page ***/
                                 ? <Form.Select
@@ -663,7 +632,22 @@ function FormAdd() {
                         : null
                     }
 
-                    <FormButton/>
+                    <Navbar>
+                        <Container>
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                onClick={() => setCount((count) => count + 1)}>
+                                {isAddSalePage()
+                                    /*** Add Sale Page ***/
+                                    ? `Adaugă anunțe`
+
+                                    /*** Add Request Page ***/
+                                    : `Afișați ${count} de anunțuri`
+                                }
+                            </Button>
+                        </Container>
+                    </Navbar>
                 </Form>
             )}
         </Formik>
