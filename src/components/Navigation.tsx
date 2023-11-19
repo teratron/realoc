@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 
-function ListLink() {
+function Navigation() {
     return (
         <>
             <Link to="/">Home</Link>
@@ -12,4 +12,4 @@ function ListLink() {
     )
 }
 
-export default ListLink
+export default Navigation

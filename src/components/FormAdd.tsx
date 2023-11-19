@@ -19,7 +19,6 @@ import * as yup from 'yup'
 import * as conf from '../config.ts'
 
 // Media
-import imageHousing from '../assets/media/plug_room_01.jpg'
 import thumbMap from '../assets/media/thumb_map.png'
 import iconCheck from '../assets/media/icon_check_green_circle.svg'
 import iconSelectMap from '../assets/media/icon_select_map.svg'
@@ -76,7 +75,6 @@ export function FormButton() {
                 <Button
                     type="submit"
                     variant="primary"
-                    size="lg"
                     onClick={() => setCount((count) => count + 1)}>
                     {isAddSalePage()
                         /*** Add Sale Page ***/
@@ -377,11 +375,26 @@ function FormAdd() {
                                     }
                                 </Form.Label>
                                 <Row className="row-cols-3 mb-1">
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
-                                    <Col className="mb-2"><Image src={imageHousing} rounded fluid/></Col>
+                                    <Col className="mb-2">
+                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
+                                             alt=""/>
+                                    </Col>
+                                    <Col className="mb-2">
+                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
+                                             alt=""/>
+                                    </Col>
+                                    <Col className="mb-2">
+                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
+                                             alt=""/>
+                                    </Col>
+                                    <Col className="mb-2">
+                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
+                                             alt=""/>
+                                    </Col>
+                                    <Col className="mb-2">
+                                        <img src="../assets/media/plug_room_01.jpg" className="img-fluid rounded"
+                                             alt=""/>
+                                    </Col>
                                 </Row>
                                 <Form.Control
                                     type="file"
@@ -632,7 +645,7 @@ function FormAdd() {
                                             key={`transaction-fee-${index}`}
                                             id={`transaction-fee-${index + 1}`}
                                             label={value}
-                                            name="transaction-fee"
+                                            name="transactionFee"
                                             type="radio"
                                             inline/>
                                     ))}

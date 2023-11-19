@@ -1,8 +1,7 @@
 import {useState} from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import {Button, Container, Offcanvas, Stack} from 'react-bootstrap'
-import ListLink from '../../components/ListLink'
-//import Drawer from '../../components/Drawer'
+import Navigation from '../../components/Navigation'
 import logo from '../../assets/media/logo.svg' // 96x24
 import iconChevronLeft from '../../assets/media/icon_chevron_left.svg'
 import './_header.scss'
@@ -24,7 +23,7 @@ function Header({title, isResetButton = false}: HeaderProps) {
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Stack gap={2}>
-                    <ListLink/>
+                    <Navigation/>
                 </Stack>
             </Offcanvas.Body>
         </Offcanvas>

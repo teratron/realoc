@@ -1,10 +1,10 @@
+import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Badge, Button, Card, Carousel, Col, Container, Image, Navbar, Row} from 'react-bootstrap'
+import {Badge, Button, Card, Carousel, Col, Container, Image, Modal, Navbar, Row} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
 
 // Media
-import imageHousing from '../assets/media/plug_room_01.jpg'
 import iconCheck from '../assets/media/icon_check_green_circle.svg'
 import iconMap from '../assets/media/icon_map.png'
 import iconCopy from '../assets/media/icon_copy.svg'
@@ -16,36 +16,51 @@ import iconSelected from '../assets/media/icon_selected.svg'
 
 export const title: string = 'Property'
 
-function CarouselPhoto() {
-    const slides = [
-        imageHousing,
-        imageHousing,
-        imageHousing
-    ]
-    const numSlides = slides.length
-
-    return (
-        <Carousel data-bs-theme="dark">
-            {slides.map((value, index) => (
-                <Carousel.Item key={`slide-${index}`}>
-                    <Image
-                        className="d-block w-100"
-                        src={value}/>
-                    <Carousel.Caption>
-                        {index + 1}/{numSlides}
-                    </Carousel.Caption>
-                </Carousel.Item>
-            ))}
-        </Carousel>
-    )
-}
+/*function Move() {
+    const fragment = document.createDocumentFragment();
+    fragment.appendChild(document.getElementById('source')!);
+    document.getElementById('destination')!.appendChild(fragment);
+}*/
 
 function Property() {
+    const [show, setShow] = useState(false)
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
+
+    function Gallery() {
+        const slides = [
+            '../assets/media/plug_room_01.jpg',
+            '../assets/media/plug_room_01.jpg',
+            '../assets/media/plug_room_01.jpg'
+        ]
+        const numSlides = slides.length
+
+        return (
+            <Carousel data-bs-theme="dark">
+                {slides.map((value, index) => (
+                    <Carousel.Item key={`slide-${index}`}>
+                        <img src={value} onClick={handleShow} className="d-block w-100" alt=""/>
+                        <Carousel.Caption>
+                            {index + 1}/{numSlides}
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
+        )
+    }
+
     return (
         <>
             <Header title={title}/>
             <Main>
-                <CarouselPhoto/>
+                <Gallery/>
+
+                <Modal data-theme="dark" show={show} onHide={handleClose} fullscreen centered>
+                    <Modal.Header closeButton/>
+                    <Modal.Body>
+                        <Gallery/>
+                    </Modal.Body>
+                </Modal>
 
                 <div className="form">
                     <Card className="form-list">
@@ -172,14 +187,9 @@ function Property() {
                         </Row>
                     </Card>
 
-                    <Navbar fixed="bottom">
+                    <Navbar>
                         <Container>
-                            <Button
-                                type="button"
-                                variant="primary"
-                                size="lg">
-                                Împărtășiți obiectul
-                            </Button>
+                            <Button type="button" variant="secondary">Împărtășiți obiectul</Button>
                         </Container>
                     </Navbar>
                 </div>

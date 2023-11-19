@@ -1,5 +1,4 @@
-// Mixins
-@import "src/assets/scss/mixins";
+// 1rem = 16px, rate = 0.0625
 
 :root,
 [data-theme="light"] {
@@ -16,16 +15,27 @@
     --app-main-bg-color:   var(--bs-body-bg);
 }
 
+//**********************************************
+// Mixins
+//**********************************************
+@import "src/assets/scss/mixins";
+
+//**********************************************
 // Reset
+//**********************************************
 body {
     overflow-x: hidden;
     min-height: 100vh;
 }
 
+//**********************************************
 // Card
+//**********************************************
 .card {
     padding:    16px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+
+    @include container(&);
 
     > :only-child,
     > :not(:only-child):first-child {
@@ -49,13 +59,18 @@ body {
             @extend .me-2;
         }
     }
-
-    @include container(&);
 }
 
+//**********************************************
 // Form
+//**********************************************
+
+$footer-height: 5rem; // 80px
+
 .form {
-    padding-bottom: 80px;
+    padding-bottom: 5rem;
+
+    @include container(&);
 
     > .card {
         @extend .mb-2;
@@ -65,15 +80,13 @@ body {
         width: 100%;
     }
 
-    &-label,
-    &-check-label {
+    &-label, &-check-label {
         font-size:   0.9rem;
         font-weight: 500;
         width:       100%;
         color:       #344054;
 
-        .foot,
-        > .mandatory {
+        .foot, > .mandatory {
             @extend .float-end, .ms-2;
         }
 
@@ -84,8 +97,7 @@ body {
         @extend .clearfix;
     }
 
-    &-control,
-    &-select {
+    &-control, &-select {
         font-size:        0.9rem;
         color:            var(--bs-body-color);
         border:           1px solid #d0d5dd;
@@ -121,9 +133,10 @@ body {
         background-color: white;
         box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
 
-        &,
-        > .container {
-            min-height:     80px;
+        @extend .fixed-bottom;
+
+        &, > .container {
+            min-height: 5rem;
             padding-top:    0;
             padding-bottom: 0;
         }
@@ -136,37 +149,39 @@ body {
             grid-template-columns: 1fr;
             justify-items:         stretch;
         }
+
+        .btn {
+            @extend .btn-lg;
+        }
     }
 
     > :last-child {
-        margin-bottom: 0;
+        @extend .mb-0;
     }
-
-    @include container(&);
 }
 
+//**********************************************
 // Carousel
+//**********************************************
 .carousel {
     @extend .mb-3;
-
-    &-inner {
-        border-radius: 0 0 0.5rem 0.5rem;
-    }
-
     @include container(&);
+
+    .main > &-inner {
+        border-radius: 0 0 .5rem .5rem;
+    }
 }
 
+//**********************************************
 // Mandatory
+//**********************************************
 .mandatory {
     color: var(--bs-danger);
 }
 
+//**********************************************
 // Heading
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+//**********************************************
+h1, h2, h3, h4, h5, h6 {
     @include container(&);
 }

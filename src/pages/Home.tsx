@@ -2,7 +2,7 @@ import {Stack} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import Main from '../containers/Main'
-import ListLink from '../components/ListLink'
+import Navigation from '../components/Navigation'
 
 export const title: string = 'Home'
 
@@ -12,7 +12,7 @@ function Home() {
             <Header title={title}/>
             <Main>
                 <Stack gap={2} className="mx-2">
-                    <ListLink/>
+                    <Navigation/>
                 </Stack>
             </Main>
             <Footer/>
