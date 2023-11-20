@@ -220,17 +220,13 @@ body {
 
             // 1 from 2 columns
             &:first-child:nth-last-child(2):not(.body) {
-                font-size:   .875rem;
-                font-weight: 500;
-                line-height: 1.25rem;
-                color:       #667085;
-
+                @extend %__t-list-key;
                 @extend .ps-0, .py-2, .col-7;
             }
 
             // 2 from 2 columns
             &:last-child:nth-child(2):not(.foot) {
-                @extend .__t-3;
+                @extend %__t-list-value;
                 @extend .pe-0, .py-2, .col-5;
             }
 
@@ -317,7 +313,11 @@ body {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 
     &-title {
-        @extend .__t-3, .mb-3;
+        @extend %__t-card-title, .mb-3;
+    }
+
+    &-text {
+        @extend %__t-card-text;
     }
 
     > :only-child,

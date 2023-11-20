@@ -90,10 +90,10 @@ function Property() {
                         <Card.Title>Locație</Card.Title>
                         <Row className="app-list">
                             <Col className="body">
-                                <Card.Text>
+                                <Card.Title>
                                     Chișinău mun., Chișinău, Botanica,
                                     bd. Dacia 11/1 <Image src={iconCopy}/>
-                                </Card.Text>
+                                </Card.Title>
                             </Col>
                             <Col className="foot">
                                 <Link to="/#">
