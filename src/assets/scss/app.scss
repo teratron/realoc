@@ -3,11 +3,13 @@
 
 // Mixins
 @import "mixins";
+@import "typography";
 
 //**********************************************
 // Variables
 //**********************************************
 // 1rem = 16px, rate = 0.0625
+
 :root,
 [data-theme="light"] {
     color-scheme:          light;
@@ -29,6 +31,7 @@ $footer-height: 5rem;
 //**********************************************
 // Reset
 //**********************************************
+
 body {
     overflow-x: hidden;
     min-height: 100vh;
@@ -37,6 +40,7 @@ body {
 //**********************************************
 // Application
 //**********************************************
+
 #app {
     display:            grid;
     align-content:      space-between;
@@ -50,10 +54,12 @@ body {
 //**********************************************
 // App Header
 //**********************************************
+
 #app-header {
     z-index: $zindex-sticky;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
+
     @extend .position-sticky, .top-0;
     @extend .navbar, .py-0;
 
@@ -68,21 +74,25 @@ body {
             align-items:    center;
             flex-direction: row;
             flex-wrap:      nowrap;
+
             @extend .d-flex;
         }
 
         > .head {
             justify-content: flex-start;
+
             @extend .col-3, .ps-2;
         }
 
         > .body {
             justify-content: center;
+
             @extend .col-6;
         }
 
         > .foot {
             justify-content: flex-end;
+
             @extend .col-3, .pe-2;
         }
     }
@@ -95,6 +105,7 @@ body {
 //**********************************************
 // App Footer
 //**********************************************
+
 #app-footer {
     background-color: var(--app-footer-bg-color);
     box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
@@ -113,6 +124,7 @@ body {
 //**********************************************
 // App Main
 //**********************************************
+
 #app-main {
     display:               grid;
     background-color:      var(--app-main-bg-color);
@@ -146,8 +158,10 @@ body {
 //**********************************************
 // App Content
 //**********************************************
+
 .app-content {
     padding-bottom: $footer-height;
+
     @include container(&);
 
     > .card {
@@ -157,6 +171,7 @@ body {
     > .navbar {
         background-color: white;
         box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
+
         @extend .fixed-bottom;
 
         &, > .container {
@@ -187,22 +202,39 @@ body {
 //**********************************************
 // App List
 //**********************************************
+
 .app-list {
+    &.card {
+        padding-bottom: .5rem;
+    }
+
     > .row, &.row {
         @extend .mx-0;
 
         > .col {
+            // 2 columns
+            &:first-child:nth-last-child(2):not(.body),
+            &:last-child:nth-child(2):not(.foot) {
+                align-items: center;
+            }
+
             // 1 from 2 columns
             &:first-child:nth-last-child(2):not(.body) {
-                @extend .ps-0, .col-7;
+                font-size:   .875rem;
+                font-weight: 500;
+                line-height: 1.25rem;
+                color:       #667085;
+
+                @extend .ps-0, .py-2, .col-7;
             }
 
             // 2 from 2 columns
             &:last-child:nth-child(2):not(.foot) {
-                @extend .pe-0, .col-5;
+                @extend .__t-3;
+                @extend .pe-0, .py-2, .col-5;
             }
 
-            // 4 from 4 columns
+            // 4 columns
             &:first-child:nth-last-child(4),
             &:nth-child(2):nth-last-child(3),
             &:nth-child(3):nth-last-child(2),
@@ -228,6 +260,7 @@ body {
 //**********************************************
 // Form
 //**********************************************
+
 .form {
     @extend .app-content;
 
@@ -278,9 +311,14 @@ body {
 //**********************************************
 // Card
 //**********************************************
+
 .card {
     padding:    1rem;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+
+    &-title {
+        @extend .__t-3, .mb-3;
+    }
 
     > :only-child,
     > :not(:only-child):first-child {
@@ -293,7 +331,7 @@ body {
         @extend .mb-0;
     }
 
-    > div:not(:last-of-type) {
+    .form > & > div:not(:last-of-type) {
         @extend .mb-3;
     }
 
@@ -306,13 +344,17 @@ body {
     }
 }
 
+.property-summary {
+
+}
+
 //**********************************************
 // Carousel
 //**********************************************
-.carousel {
-    #app-main > .container > & {
-        @extend .mb-4;
 
+.carousel {
+    .container > & {
+        @extend .mb-4;
     }
 
     &-item {
@@ -325,22 +367,20 @@ body {
 //**********************************************
 // Modal
 //**********************************************
+
 .modal {
     &-body {
         @extend .p-0;
     }
-}
 
-//**********************************************
-// Heading
-//**********************************************
-h1, h2, h3, h4, h5, h6 {
-    @include container(&);
+    .btn-close {
+    }
 }
 
 //**********************************************
 // Location
 //**********************************************
+
 .map {
     &-thumb {
         @extend .position-relative;
@@ -352,6 +392,7 @@ h1, h2, h3, h4, h5, h6 {
         > .overlay {
             top:   calc(50% - 18px);
             right: calc(50% - 15px);
+
             @extend .position-absolute;
         }
     }
@@ -360,6 +401,7 @@ h1, h2, h3, h4, h5, h6 {
 //**********************************************
 // Gallery
 //**********************************************
+
 .gallery {
     &-thumb {
         @extend .row-cols-3, .mb-1;
@@ -372,4 +414,12 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
     }
+}
+
+//**********************************************
+// Heading
+//**********************************************
+
+h1, h2, h3, h4, h5, h6 {
+    @include container(&);
 }

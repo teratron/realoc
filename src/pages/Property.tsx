@@ -48,7 +48,7 @@ function Property() {
                 <Gallery/>
 
                 <Modal show={show} onHide={handleClose} fullscreen centered>
-                    <Modal.Header closeButton/>
+                    <Modal.Header data-bs-theme="dark" closeButton/>
                     <Modal.Body>
                         <Gallery/>
                     </Modal.Body>
@@ -65,7 +65,7 @@ function Property() {
                         <Row className="app-list">
                             <Col>
                                 <div><Image src={iconBuilding} width={16} height={16}/></div>
-                                <Card.Text>Fond locativ</Card.Text>
+                                <small>Fond locativ</small>
                                 <Card.Subtitle>Constr. noi</Card.Subtitle>
                             </Col>
                             <Col>
