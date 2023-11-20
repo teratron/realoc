@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Badge, Button, Card, Carousel, Col, Container, Image, Modal, Navbar, Row} from 'react-bootstrap'
+import {Badge, Button, Card, Carousel, Container, Image, Modal, Navbar} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
 
@@ -62,46 +62,44 @@ function Property() {
                             <Badge bg="secondary"><Image src={iconSelected}/> Credit ipotecar</Badge>
                         </Card.Text>
                         <Card.Title>75 000 € <small>1 086 €/m²</small></Card.Title>
-                        <Row className="app-list">
-                            <Col>
+                        <div className="app-list-item">
+                            <div>
                                 <div><Image src={iconBuilding} width={16} height={16}/></div>
                                 <small>Fond locativ</small>
                                 <Card.Subtitle>Constr. noi</Card.Subtitle>
-                            </Col>
-                            <Col>
+                            </div>
+                            <div>
                                 <div><Image src={iconDoor} height={20}/></div>
                                 <Card.Text>Apartament</Card.Text>
                                 <Card.Subtitle>2 camere</Card.Subtitle>
-                            </Col>
-                            <Col>
+                            </div>
+                            <div>
                                 <div><Image src={iconArea} height={16}/></div>
                                 <Card.Text>Suprafață</Card.Text>
                                 <Card.Subtitle>69 m²</Card.Subtitle>
-                            </Col>
-                            <Col>
+                            </div>
+                            <div>
                                 <div><Image src={iconStair} height={16}/></div>
                                 <Card.Text>Nivel</Card.Text>
                                 <Card.Subtitle>3 din 9</Card.Subtitle>
-                            </Col>
-                        </Row>
+                            </div>
+                        </div>
                     </Card>
 
                     <Card>
                         <Card.Title>Locație</Card.Title>
-                        <Row className="app-list">
-                            <Col className="body">
-                                <Card.Title>
-                                    Chișinău mun., Chișinău, Botanica,
-                                    bd. Dacia 11/1 <Image src={iconCopy}/>
-                                </Card.Title>
-                            </Col>
-                            <Col className="foot">
+                        <div className="app-list-item">
+                            <div className="body card-text">
+                                Chișinău mun., Chișinău, Botanica,
+                                bd. Dacia 11/1 <Image src={iconCopy}/>
+                                <Link to="/#">Deschideți harta</Link>
+                            </div>
+                            <div className="foot">
                                 <Link to="/#">
                                     <Image src={iconMap}/>
                                 </Link>
-                            </Col>
-                        </Row>
-                        <Link to="/#">Deschideți harta</Link>
+                            </div>
+                        </div>
                     </Card>
 
                     <Card>
@@ -114,66 +112,66 @@ function Property() {
 
                     <Card className="app-list">
                         <Card.Title>Despre apartament</Card.Title>
-                        <Row>
-                            <Col>Tip de proprietate</Col>
-                            <Col>Apartament</Col>
-                        </Row>
-                        <Row>
-                            <Col>Fond locativ</Col>
-                            <Col>Construcții noi</Col>
-                        </Row>
-                        <Row>
-                            <Col>Număr de camere</Col>
-                            <Col>2 camere</Col>
-                        </Row>
-                        <Row>
-                            <Col>Suprafață totală</Col>
-                            <Col>69 m²</Col>
-                        </Row>
-                        <Row>
-                            <Col>Starea apartamentului</Col>
-                            <Col>Euroreparație</Col>
-                        </Row>
-                        <Row>
-                            <Col>Mobilier</Col>
-                            <Col>Mobilat</Col>
-                        </Row>
-                        <Row>
-                            <Col>Nivel</Col>
-                            <Col>3 din 9</Col>
-                        </Row>
+                        <div className="app-list-item">
+                            <div>Tip de proprietate</div>
+                            <div>Apartament</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Fond locativ</div>
+                            <div>Construcții noi</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Număr de camere</div>
+                            <div>2 camere</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Suprafață totală</div>
+                            <div>69 m²</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Starea apartamentului</div>
+                            <div>Euroreparație</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Mobilier</div>
+                            <div>Mobilat</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Nivel</div>
+                            <div>3 din 9</div>
+                        </div>
                     </Card>
 
                     <Card className="app-list">
                         <Card.Title>Despre casa</Card.Title>
-                        <Row>
-                            <Col>Număr de nivele</Col>
-                            <Col>9</Col>
-                        </Row>
-                        <Row>
-                            <Col>Dezvoltator</Col>
-                            <Col>Exfactor</Col>
-                        </Row>
-                        <Row>
-                            <Col>Predare în exploatare</Col>
-                            <Col>2024</Col>
-                        </Row>
-                        <Row>
-                            <Col>Ascensor</Col>
-                            <Col><Image src={iconCheck}/></Col>
-                        </Row>
-                        <Row>
-                            <Col>Parcare</Col>
-                            <Col>Subterană</Col>
-                        </Row>
+                        <div className="app-list-item">
+                            <div>Număr de nivele</div>
+                            <div>9</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Dezvoltator</div>
+                            <div>Exfactor</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Predare în exploatare</div>
+                            <div>2024</div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Ascensor</div>
+                            <div><Image src={iconCheck}/></div>
+                        </div>
+                        <div className="app-list-item">
+                            <div>Parcare</div>
+                            <div>Subterană</div>
+                        </div>
                     </Card>
 
-                    <Card>
+                    <Card className="app-list">
                         <Card.Title>Detalii comerciale</Card.Title>
-                        <Row className="app-list">
-                            <Col>Credit ipotecar</Col>
-                            <Col>Disponibil</Col>
-                        </Row>
+                        <div className="app-list-item">
+                            <div>Credit ipotecar</div>
+                            <div>Disponibil</div>
+                        </div>
                     </Card>
 
                     <Navbar>

@@ -208,16 +208,14 @@ body {
         padding-bottom: .5rem;
     }
 
-    > .row, &.row {
-        @extend .mx-0;
+    & > &-item {
+        align-items: center;
+    }
 
-        > .col {
-            // 2 columns
-            &:first-child:nth-last-child(2):not(.body),
-            &:last-child:nth-child(2):not(.foot) {
-                align-items: center;
-            }
+    &-item {
+        @extend .row, .mx-0;
 
+        > * {
             // 1 from 2 columns
             &:first-child:nth-last-child(2):not(.body) {
                 @extend %__t-list-key;
@@ -240,17 +238,86 @@ body {
         }
 
         > .head {
+            @extend .col;
             @extend .ps-0, .col-auto;
         }
 
         > .body {
+            @extend .col;
             @extend .px-0, .col;
+
+            &.card-text > a {
+                @extend .d-block, .mt-2;
+            }
         }
 
         > .foot {
+            @extend .col;
             @extend .pe-0, .col-auto;
         }
     }
+}
+
+//**********************************************
+// App Bar
+//**********************************************
+
+.app-bar {
+    > .head {
+        @extend .ps-0, .col-auto;
+    }
+
+    > .body {
+        @extend .px-0, .col;
+    }
+
+    > .foot {
+        @extend .pe-0, .col-auto;
+    }
+}
+
+//**********************************************
+// Card
+//**********************************************
+
+.card {
+    padding:    1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+
+    &-title {
+        @extend %__t-card-title, .mb-3;
+    }
+
+    &-text {
+        @extend %__t-card-text;
+    }
+
+    > :only-child,
+    > :not(:only-child):first-child {
+        @extend .mt-0;
+    }
+
+    &:last-of-type,
+    > :only-child,
+    > :not(:only-child):last-child {
+        @extend .mb-0;
+    }
+
+    .form > & > div:not(:last-of-type) {
+        @extend .mb-3;
+    }
+
+    > .alert {
+        @extend .d-flex, .align-items-baseline;
+
+        > img {
+            @extend .me-2;
+        }
+    }
+}
+
+.property-summary {
+
 }
 
 //**********************************************
@@ -302,50 +369,6 @@ body {
         background-color: white;
         box-shadow:       0 1px 2px 0 rgba(0, 0, 0, 0.1);
     }
-}
-
-//**********************************************
-// Card
-//**********************************************
-
-.card {
-    padding:    1rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-
-    &-title {
-        @extend %__t-card-title, .mb-3;
-    }
-
-    &-text {
-        @extend %__t-card-text;
-    }
-
-    > :only-child,
-    > :not(:only-child):first-child {
-        @extend .mt-0;
-    }
-
-    &:last-of-type,
-    > :only-child,
-    > :not(:only-child):last-child {
-        @extend .mb-0;
-    }
-
-    .form > & > div:not(:last-of-type) {
-        @extend .mb-3;
-    }
-
-    > .alert {
-        @extend .d-flex, .align-items-baseline;
-
-        > img {
-            @extend .me-2;
-        }
-    }
-}
-
-.property-summary {
-
 }
 
 //**********************************************
