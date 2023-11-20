@@ -36,7 +36,6 @@ function FormAdd({isAddSalePage = false}) {
     }
     const [count, setCount] = useState(254)
 
-
     return (
         // React Bootstrap + Formik example:
         // https://react-bootstrap.github.io/docs/forms/validation/#form-libraries-and-server-rendered-styles

@@ -235,6 +235,15 @@ body {
         @extend .d-flex;
     }
 
+    .feedback {
+        color: var(--bs-danger);
+        @extend .d-none;
+
+        &.show {
+            @extend .d-block;
+        }
+    }
+
     &-label, &-check-label {
         font-size:   0.9rem;
         font-weight: 500;
@@ -245,17 +254,8 @@ body {
             @extend .float-end, .ms-2;
         }
 
-        > .feedback {
-            color: var(--bs-danger);
+        > .feedback.show + .foot {
             @extend .d-none;
-
-            &.show {
-                @extend .d-block;
-
-                + .foot {
-                    @extend .d-none;
-                }
-            }
         }
 
         > .foot {
@@ -346,7 +346,7 @@ h1, h2, h3, h4, h5, h6 {
         @extend .position-relative;
 
         > .backdrop {
-            @extend .border, .rounded, .img-fluid;
+            @extend .border, .rounded, .img-fluid, .w-100;
         }
 
         > .overlay {
