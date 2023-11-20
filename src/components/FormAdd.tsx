@@ -39,6 +39,7 @@ function FormAdd({isAddSalePage = false}) {
     return (
         // React Bootstrap + Formik example:
         // https://react-bootstrap.github.io/docs/forms/validation/#form-libraries-and-server-rendered-styles
+        // https://formik.org/docs/tutorial#validation
         <Formik
             initialValues={{
                 numberRooms: '',
@@ -308,23 +309,23 @@ function FormAdd({isAddSalePage = false}) {
                                     <Feedback dataName="photos"/>
                                     <span className="foot">5/{conf.MAX_PHOTOS}</span>
                                 </Form.Label>
-                                <Row className="gallery-thumb">
-                                    <Col>
+                                <div className="gallery-thumb">
+                                    <div>
                                         <img src="../assets/media/plug_room_01.jpg" alt=""/>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    <div>
                                         <img src="../assets/media/plug_room_01.jpg" alt=""/>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    <div>
                                         <img src="../assets/media/plug_room_01.jpg" alt=""/>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    <div>
                                         <img src="../assets/media/plug_room_01.jpg" alt=""/>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    <div>
                                         <img src="../assets/media/plug_room_01.jpg" alt=""/>
-                                    </Col>
-                                </Row>
+                                    </div>
+                                </div>
                                 <Form.Control
                                     type="file"
                                     name="photos"

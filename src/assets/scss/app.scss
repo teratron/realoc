@@ -427,10 +427,10 @@ body {
 
 .gallery {
     &-thumb {
-        @extend .row-cols-3, .mb-1;
+        @extend .row, .row-cols-3, .mb-1;
 
-        > .col {
-            @extend .mb-2;
+        > * {
+            @extend .col, .mb-2;
 
             > img {
                 @extend .rounded, .img-fluid;
