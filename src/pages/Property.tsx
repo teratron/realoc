@@ -56,11 +56,13 @@ function Property() {
 
                 <div className="app-content">
                     <Card className="property-summary">
-                        <Card.Text>
+                        <div className="badges">
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
                             <Badge bg="secondary"><Image src={iconSelected}/> Credit ipotecar</Badge>
-                        </Card.Text>
+                            <Badge bg="secondary">Apartament</Badge>
+                            <Badge bg="success">Vânzare</Badge>
+                        </div>
                         <Card.Title>75 000 € <small>1 086 €/m²</small></Card.Title>
                         <div className="app-list-item">
                             <div>
@@ -70,17 +72,17 @@ function Property() {
                             </div>
                             <div>
                                 <div><Image src={iconDoor} height={20}/></div>
-                                <Card.Text>Apartament</Card.Text>
+                                <small>Apartament</small>
                                 <Card.Subtitle>2 camere</Card.Subtitle>
                             </div>
                             <div>
                                 <div><Image src={iconArea} height={16}/></div>
-                                <Card.Text>Suprafață</Card.Text>
+                                <small>Suprafață</small>
                                 <Card.Subtitle>69 m²</Card.Subtitle>
                             </div>
                             <div>
                                 <div><Image src={iconStair} height={16}/></div>
-                                <Card.Text>Nivel</Card.Text>
+                                <small>Nivel</small>
                                 <Card.Subtitle>3 din 9</Card.Subtitle>
                             </div>
                         </div>
