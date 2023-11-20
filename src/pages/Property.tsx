@@ -55,35 +55,35 @@ function Property() {
                 </Modal>
 
                 <div className="app-content">
-                    <Card className="property-summary">
+                    <Card className="summary">
                         <div className="badges">
                             <Badge bg="warning">Vânzare</Badge>
                             <Badge bg="secondary">Apartament</Badge>
                             <Badge bg="secondary"><Image src={iconSelected}/> Credit ipotecar</Badge>
-                            <Badge bg="secondary">Apartament</Badge>
+                            <Badge>Apartament</Badge>
                             <Badge bg="success">Vânzare</Badge>
                         </div>
-                        <Card.Title>75 000 € <small>1 086 €/m²</small></Card.Title>
-                        <div className="app-list-item">
-                            <div>
-                                <div><Image src={iconBuilding} width={16} height={16}/></div>
-                                <small>Fond locativ</small>
-                                <Card.Subtitle>Constr. noi</Card.Subtitle>
+                        <div className="price">75 000 € <small>1 086 €/m²</small></div>
+                        <div className="info">
+                            <div className="app-list">
+                                <div className="media"><Image src={iconBuilding} height={18}/></div>
+                                <div className="key">Fond locativ</div>
+                                <div className="value">Constr. noi</div>
                             </div>
-                            <div>
-                                <div><Image src={iconDoor} height={20}/></div>
-                                <small>Apartament</small>
-                                <Card.Subtitle>2 camere</Card.Subtitle>
+                            <div className="app-list">
+                                <div className="media"><Image src={iconDoor} height={22}/></div>
+                                <div className="key">Apartament</div>
+                                <div className="value">2 camere</div>
                             </div>
-                            <div>
-                                <div><Image src={iconArea} height={16}/></div>
-                                <small>Suprafață</small>
-                                <Card.Subtitle>69 m²</Card.Subtitle>
+                            <div className="app-list">
+                                <div className="media"><Image src={iconArea} height={16}/></div>
+                                <div className="key">Suprafață</div>
+                                <div className="value">69 m²</div>
                             </div>
-                            <div>
-                                <div><Image src={iconStair} height={16}/></div>
-                                <small>Nivel</small>
-                                <Card.Subtitle>3 din 9</Card.Subtitle>
+                            <div className="app-list">
+                                <div className="media"><Image src={iconStair} height={16}/></div>
+                                <div className="key">Nivel</div>
+                                <div className="value">3 din 9</div>
                             </div>
                         </div>
                     </Card>

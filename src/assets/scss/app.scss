@@ -204,6 +204,12 @@ body {
 //**********************************************
 
 .app-list {
+    flex-direction:  column;
+    flex-wrap:       nowrap;
+    justify-content: flex-start;
+
+    @extend .d-flex;
+
     &.card {
         padding-bottom: .5rem;
     }
@@ -215,27 +221,25 @@ body {
     &-item {
         @extend .row, .mx-0;
 
-        > * {
-            // 1 from 2 columns
-            &:first-child:nth-last-child(2):not(.body) {
+        // 1 from 2 columns
+        > :first-child:nth-last-child(2):not(.body) {
                 @extend %__t-list-key;
                 @extend .ps-0, .py-2, .col-7;
             }
 
             // 2 from 2 columns
-            &:last-child:nth-child(2):not(.foot) {
+        > :last-child:nth-child(2):not(.foot) {
                 @extend %__t-list-value;
                 @extend .pe-0, .py-2, .col-5;
             }
 
             // 4 columns
-            &:first-child:nth-last-child(4),
-            &:nth-child(2):nth-last-child(3),
-            &:nth-child(3):nth-last-child(2),
-            &:last-child:nth-child(4) {
+        > :first-child:nth-last-child(4),
+        > :nth-child(2):nth-last-child(3),
+        > :nth-child(3):nth-last-child(2),
+        > :last-child:nth-child(4) {
                 @extend .px-0, .col-3;
             }
-        }
 
         > .head {
             @extend .col;
@@ -316,7 +320,7 @@ body {
     }
 }
 
-.property-summary {
+.summary {
     > .badges {
         flex-wrap: wrap;
 
@@ -347,6 +351,54 @@ body {
 
             > img {
                 @extend .me-1;
+            }
+        }
+    }
+
+    > .price {
+        @extend %__t-price-summary;
+        @extend .mb-4;
+
+        > small {
+            @extend %__t-price-summary-small;
+            @extend .ps-1;
+        }
+    }
+
+    > .info {
+        align-items:     stretch;
+        flex-direction:  row;
+        flex-wrap:       nowrap;
+        justify-content: space-between;
+
+        @extend .d-flex;
+
+        > .app-list {
+            > * {
+                overflow-x:      hidden;
+                flex-wrap:       nowrap;
+                justify-content: flex-start;
+                white-space:     nowrap;
+
+                @extend .d-flex;
+            }
+
+            > .media {
+                align-items: flex-start;
+                min-height:  1.625rem;
+            }
+
+            > .key {
+                align-items: center;
+
+                @extend %__t-stack-summary-small;
+                @extend .py-2;
+            }
+
+            > .value {
+                align-items: flex-end;
+
+                @extend %__t-card-subtitle;
             }
         }
     }
