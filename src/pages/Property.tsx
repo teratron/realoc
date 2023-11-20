@@ -178,7 +178,7 @@ function Property() {
 
                     <Navbar>
                         <Container>
-                            <Button type="button">Împărtășiți obiectul</Button>
+                            <Button variant="secondary" type="button">Împărtășiți obiectul</Button>
                         </Container>
                     </Navbar>
                 </div>

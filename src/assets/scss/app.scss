@@ -190,7 +190,22 @@ body {
         }
 
         .btn {
+            height:       3rem;
+            max-height:   3rem;
+            border-width: 0;
+
+            @extend %__t-button-lg;
             @extend .btn-lg;
+
+            &, &.btn-primary {
+                color:            white;
+                background-color: #2f56ff;
+            }
+
+            &.btn-secondary {
+                color:            #2f56ff;
+                background-color: rgba(47, 86, 255, .1);
+            }
         }
     }
 
