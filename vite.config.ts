@@ -9,7 +9,7 @@ export default defineConfig({
     //base: pkg.homepage,
     base: './',
     publicDir: '../public',
-    appType: 'spa',
+    //appType: 'spa',
     plugins: [
         react()
     ],
