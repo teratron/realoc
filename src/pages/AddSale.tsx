@@ -454,9 +454,6 @@ function AddSale() {
                                 </div>
                             </div>
 
-                            {/******************************************************
-                             * Button Block
-                             *******************************************************/}
                             <div className="navbar">
                                 <div className="container">
                                     <button

@@ -43,9 +43,9 @@ body {
 
 #app {
     display:            grid;
-    align-content: space-between;
-    align-items:   start;
-    height:        100vh;
+    align-content:      space-between;
+    align-items:        start;
+    height:             100vh;
     grid-template-rows: auto 1fr;
     grid-auto-rows:     auto;
     justify-items:      stretch;
@@ -56,10 +56,10 @@ body {
 //**********************************************
 
 #app-header {
+    z-index:          $zindex-sticky;
+    overflow-x:       hidden;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    z-index: $zindex-sticky;
-    overflow-x: hidden;
 
     @extend .position-sticky, .top-0;
     @extend .navbar, .py-0;
@@ -108,9 +108,9 @@ body {
 //**********************************************
 
 #app-footer {
+    overflow-x:       hidden;
     background-color: var(--app-footer-bg-color);
     box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
-    overflow-x: hidden;
 
     > .container {
         display:               grid;
@@ -128,10 +128,10 @@ body {
 //**********************************************
 
 #app-main {
-    background-color:      var(--app-main-bg-color);
     display:               grid;
+    overflow-x:            hidden;
+    background-color:      var(--app-main-bg-color);
     grid-template-columns: auto;
-    overflow-x: hidden;
 
     > .container {
         height:         100%;
@@ -249,23 +249,23 @@ body {
 
         // 1 from 2 columns
         > :first-child:nth-last-child(2):not(.body) {
-                @extend %__t-list-key;
-                @extend .ps-0, .py-2, .col-7;
-            }
+            @extend %__t-list-key;
+            @extend .ps-0, .py-2, .col-7;
+        }
 
-            // 2 from 2 columns
+        // 2 from 2 columns
         > :last-child:nth-child(2):not(.foot) {
-                @extend %__t-list-value;
-                @extend .pe-0, .py-2, .col-5;
-            }
+            @extend %__t-list-value;
+            @extend .pe-0, .py-2, .col-5;
+        }
 
-            // 4 columns
+        // 4 columns
         > :first-child:nth-last-child(4),
         > :nth-child(2):nth-last-child(3),
         > :nth-child(3):nth-last-child(2),
         > :last-child:nth-child(4) {
-                @extend .px-0, .col-3;
-            }
+            @extend .px-0, .col-3;
+        }
 
         > .head {
             @extend .col;

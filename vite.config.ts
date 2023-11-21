@@ -9,7 +9,7 @@ export default defineConfig({
     //base: pkg.homepage,
     base: './',
     publicDir: '../public',
-    //appType: 'spa',
+    appType: 'spa',
     plugins: [
         react()
     ],
@@ -46,10 +46,10 @@ export default defineConfig({
                     // @ts-ignore
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
                         ext = 'media'
-                        // @ts-ignore
+                    // @ts-ignore
                     } else if (/(sa|sc|c)ss/i.test(ext)) {
                         ext = 'css'
-                        // @ts-ignore
+                    // @ts-ignore
                     } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
                         ext = 'fonts'
                     } else ext = ''

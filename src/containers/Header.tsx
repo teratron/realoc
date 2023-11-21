@@ -5,9 +5,8 @@ import Container from '../containers/Container'
 import Navigation from '../components/Navigation'
 
 // Media
-import logo from '../assets/media/logo.svg' // 96x24
+import logo from '../assets/media/logo.svg'
 import iconChevronLeft from '../assets/media/icon_chevron_left.svg'
-
 
 interface HeaderProps {
     title?: string
@@ -23,9 +22,7 @@ function Header({title = '', idResetButton = ''}: HeaderProps) {
         <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton/>
             <Offcanvas.Body>
-                <div className="vstack gap-2 mx-2">
-                    <Navigation/>
-                </div>
+                <Navigation/>
             </Offcanvas.Body>
         </Offcanvas>
     )

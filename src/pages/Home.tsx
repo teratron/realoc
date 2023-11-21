@@ -10,9 +10,7 @@ function Home() {
         <>
             <Header title={title}/>
             <Main>
-                <div className="vstack gap-2 mx-2">
-                    <Navigation/>
-                </div>
+                <Navigation/>
             </Main>
             <Footer/>
         </>

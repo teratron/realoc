@@ -23,8 +23,8 @@ function AddRequest() {
                      * Transaction Block
                      *******************************************************/}
                     <div className="card">
-                        <Form.Group controlId="transaction-type-1">
-                            <Form.Label>Tip tranzacție</Form.Label>
+                        <Form.Group>
+                            <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
                             <div>
                                 <ToggleButtonGroup type="radio" name="transactionType" defaultValue={1}>
                                     <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
@@ -51,8 +51,8 @@ function AddRequest() {
                      * Housing Block
                      *******************************************************/}
                     <div className="card">
-                        <Form.Group controlId="housing-stock-1">
-                            <Form.Label>Fond locativ</Form.Label>
+                        <Form.Group>
+                            <Form.Label htmlFor="housing-stock-1">Fond locativ</Form.Label>
                             <div>
                                 <ToggleButtonGroup type="radio" name="housingStock" defaultValue={1}>
                                     <ToggleButton variant="outline-primary" id="housing-stock-1" value={1}>
@@ -83,11 +83,11 @@ function AddRequest() {
                             </div>
                         </Form.Group>
 
-                        <Form.Group controlId="sale-price">
-                            <Form.Label>Preț vânzare</Form.Label>
+                        <Form.Group>
+                            <Form.Label htmlFor="sale-price-from">Preț vânzare</Form.Label>
                             <div className="row">
                                 <div className="col">
-                                    <Form.Control type="text" name="salePrice" placeholder="De la"/>
+                                    <Form.Control id="sale-price-from" type="text" name="salePrice" placeholder="De la"/>
                                 </div>
                                 <div className="col">
                                     <InputGroup>
@@ -118,11 +118,11 @@ function AddRequest() {
                             ))}
                         </Form.Group>
 
-                        <Form.Group controlId="area">
-                            <Form.Label>Suprafață totală</Form.Label>
+                        <Form.Group>
+                            <Form.Label htmlFor="area-from">Suprafață totală</Form.Label>
                             <div className="row">
                                 <div className="col">
-                                    <Form.Control name="area" type="text" placeholder="De la"/>
+                                    <Form.Control id="area-from" name="area" type="text" placeholder="De la"/>
                                 </div>
                                 <div className="col">
                                     <InputGroup>
@@ -245,11 +245,11 @@ function AddRequest() {
                             ))}
                         </Form.Group>
 
-                        <Form.Group controlId="number-levels">
-                            <Form.Label>Număr de nivele în casă</Form.Label>
+                        <Form.Group>
+                            <Form.Label htmlFor="number-levels-from">Număr de nivele în casă</Form.Label>
                             <div className="row">
                                 <div className="col">
-                                    <Form.Select>
+                                    <Form.Select id="number-levels-from">
                                         <option>De la</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -329,16 +329,13 @@ function AddRequest() {
                         </Form.Group>
                     </div>
 
-                    {/******************************************************
-                     * Button Block
-                     *******************************************************/}
                     <div className="navbar">
                         <div className="container">
                             <button
                                 type="submit"
                                 className="btn btn-primary"
                                 onClick={() => setCount((count) => count + 1)}>
-                                Afișați ${count} de anunțuri
+                                Afișați {count} de anunțuri
                             </button>
                         </div>
                     </div>

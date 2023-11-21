@@ -20,7 +20,7 @@ $enable-container-classes:                    true;
 $enable-cssgrid:                              false;
 $enable-button-pointers:                      true;
 $enable-rfs:                                  true;
-$enable-validation-icons:   false; // *
+$enable-validation-icons:                     false; // *
 $enable-negative-margins:                     false;
 $enable-deprecation-messages:                 true;
 $enable-important-utilities:                  true;
@@ -40,8 +40,8 @@ $green:                                       #198754;
 $teal:                                        #20c997;
 $cyan:                                        #20bbf7; // *
 
-$primary: #2f56ff; // * $blue
-$secondary:            $cyan; // *
+$primary:                                     #2f56ff; // * $blue
+$secondary:                                   $cyan; // *
 $success:                                     $green;
 $info:                                        $cyan;
 $warning:                                     $yellow;
@@ -72,8 +72,8 @@ $spacers:                                     (
 $body-text-align:                             null;
 $body-color:                                  $gray-900;
 $body-bg:                                     $white;
-$body-secondary-color: rgba($body-color, .75);
-$body-secondary-bg:    $gray-200;
+$body-secondary-color:                        rgba($body-color, .75);
+$body-secondary-bg:                           $gray-200;
 $body-tertiary-color:                         rgba($body-color, .5);
 $body-tertiary-bg:                            $gray-100;
 $body-emphasis-color:                         $black;
@@ -314,7 +314,7 @@ $btn-link-disabled-color:                     $gray-600;
 $btn-link-focus-shadow-rgb:                   to-rgb(mix(color-contrast($link-color), $link-color, 15%));
 $btn-border-radius:                           var(--#{$prefix}border-radius);
 $btn-border-radius-sm:                        var(--#{$prefix}border-radius-sm);
-$btn-border-radius-lg:      .375rem; // * var(--#{$prefix}border-radius-lg);
+$btn-border-radius-lg:                        .375rem; // * var(--#{$prefix}border-radius-lg);
 $btn-transition:                              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 $btn-hover-bg-shade-amount:                   15%;
 $btn-hover-bg-tint-amount:                    15%;
@@ -813,10 +813,10 @@ $modal-footer-margin-between:                 .5rem;
 $modal-dialog-margin:                         .5rem;
 $modal-dialog-margin-y-sm-up:                 1.75rem;
 $modal-title-line-height:                     $line-height-base;
-$modal-content-color:        $white;
-$modal-content-bg:           #11141a; // * var(--#{$prefix}body-bg);
+$modal-content-color:                         $white;
+$modal-content-bg:                            #11141a; // * var(--#{$prefix}body-bg);
 $modal-content-border-color:                  var(--#{$prefix}border-color-translucent);
-$modal-content-border-width: 0; // * var(--#{$prefix}border-width);
+$modal-content-border-width:                  0; // * var(--#{$prefix}border-width);
 $modal-content-border-radius:                 var(--#{$prefix}border-radius-lg);
 $modal-content-inner-border-radius:           subtract($modal-content-border-radius, $modal-content-border-width);
 $modal-content-box-shadow-xs:                 var(--#{$prefix}box-shadow-sm);
@@ -824,13 +824,13 @@ $modal-content-box-shadow-sm-up:              var(--#{$prefix}box-shadow);
 $modal-backdrop-bg:                           $black;
 $modal-backdrop-opacity:                      .5;
 $modal-header-border-color:                   var(--#{$prefix}border-color);
-$modal-header-border-width: 0; // * $modal-content-border-width;
+$modal-header-border-width:                   0; // * $modal-content-border-width;
 $modal-header-padding-y:                      $modal-inner-padding;
 $modal-header-padding-x:                      $modal-inner-padding;
 $modal-header-padding:                        $modal-header-padding-y $modal-header-padding-x; // Keep this for backwards compatibility
 $modal-footer-bg:                             null;
 $modal-footer-border-color:                   $modal-header-border-color;
-$modal-footer-border-width:  0; // * $modal-header-border-width;
+$modal-footer-border-width:                   0; // * $modal-header-border-width;
 $modal-sm:                                    300px;
 $modal-md:                                    500px;
 $modal-lg:                                    800px;

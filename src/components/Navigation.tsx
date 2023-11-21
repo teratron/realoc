@@ -11,11 +11,13 @@ function Navigation() {
     return (
         <>
             <h2>{getPathName().replace('-', ' ').toUpperCase()}</h2>
-            <Link to="/">Home</Link>
-            <Link to="/add-request">Add Request</Link>
-            <Link to="/add-sale">Add Sale</Link>
-            <Link to="/property">Property</Link>
-            <Link to="/about">About</Link>
+            <div className="vstack gap-2 mx-2">
+                <Link to="/">Home</Link>
+                <Link to="/add-request">Add Request</Link>
+                <Link to="/add-sale">Add Sale</Link>
+                <Link to="/property">Property</Link>
+                <Link to="/about">About</Link>
+            </div>
         </>
     )
 }
