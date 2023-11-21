@@ -178,7 +178,7 @@ function Property() {
                     </div>
 
                     <div className="navbar">
-                        <div className="container">
+                        <div className="app-container">
                             <button type="button" className="btn btn-secondary">Împărtășiți obiectul</button>
                         </div>
                     </div>

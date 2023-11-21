@@ -15,7 +15,7 @@
     color-scheme:          light;
     --app-header-bg-color: white;
     --app-footer-bg-color: white;
-    --app-main-bg-color:   var(--bs-body-bg);
+    --app-main-bg-color:   #F9F9F9;
 }
 
 [data-theme="dark"] {
@@ -61,22 +61,25 @@ body {
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
 
-    @extend .position-sticky, .top-0;
-    @extend .navbar, .py-0;
+    @extend .position-sticky, .top-0, .py-0;
 
-    &, > .container {
+    &, > .app-container {
         height: $header-height;
     }
 
-    > .container {
-        @extend .px-0;
+    > .app-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: stretch;
+        //@extend .px-0;
 
         > * {
+            display: flex;
             align-items:    center;
             flex-direction: row;
             flex-wrap:      nowrap;
-
-            @extend .d-flex;
         }
 
         > .head {
@@ -112,7 +115,7 @@ body {
     background-color: var(--app-footer-bg-color);
     box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
 
-    > .container {
+    > .app-container {
         display:               grid;
         align-content:         center;
         align-items:           center;
@@ -131,9 +134,12 @@ body {
     display:               grid;
     overflow-x:            hidden;
     background-color:      var(--app-main-bg-color);
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: start;
+    min-height: 100%;
 
-    > .container {
+    > .app-container {
         height:         100%;
         padding-right:  0;
         padding-bottom: 20px;
@@ -163,7 +169,9 @@ body {
 //**********************************************
 
 .app-container {
-    @extend .container;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 //**********************************************
@@ -181,23 +189,25 @@ body {
 
     > .navbar {
         background-color: white;
-        box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, .1);
 
         @extend .fixed-bottom, .navbar-expand;
 
-        &, > .container {
+        &, > .app-container {
             min-height:     $footer-height;
             padding-top:    0;
             padding-bottom: 0;
         }
 
-        > .container {
+        > .app-container {
             display:               grid;
             align-content:         center;
             align-items:           center;
             justify-content:       center;
             grid-template-columns: 1fr;
             justify-items:         stretch;
+
+            @include container(&); // TODO:
         }
 
         .btn {
@@ -311,8 +321,11 @@ body {
 //**********************************************
 
 .card {
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
+    border: 1px solid #e3e3e3;
+    border-radius: .5rem;
     padding:    1rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 
     &-title {
         @extend %__t-card-title;
@@ -444,18 +457,18 @@ body {
 
     .feedback {
         color: var(--bs-danger);
-        @extend .d-none;
+        display: none;
 
         &.show {
-            @extend .d-block;
+            display: block;
         }
     }
 
     &-label, &-check-label {
-        font-size:   0.9rem;
+        font-size:   .9rem; // TODO:
         font-weight: 500;
         width:       100%;
-        color:       #344054;
+        color:       #344054; // TODO:
 
         > .foot, > .feedback {
             @extend .float-end, .ms-2;
@@ -487,7 +500,7 @@ body {
 //**********************************************
 
 .carousel {
-    .container > & {
+    .app-container > & {
         @extend .mb-4;
     }
 

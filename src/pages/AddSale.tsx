@@ -207,7 +207,6 @@ function AddSale() {
                              * Location Block
                              *******************************************************/}
                             <div className="card">
-                                <>
                                     <Form.Group controlId="location">
                                         <Form.Label>Locație<Star/><Feedback dataName="location"/></Form.Label>
                                         <InputGroup>
@@ -231,7 +230,6 @@ function AddSale() {
                                         <img className="backdrop" src={`${conf.MEDIA}/thumb_map.png`} alt=""/>
                                         <img className="overlay" src={iconLocation} alt=""/>
                                     </Form.Group>
-                                </>
                             </div>
 
                             {/******************************************************
@@ -455,7 +453,7 @@ function AddSale() {
                             </div>
 
                             <div className="navbar">
-                                <div className="container">
+                                <div className="app-container">
                                     <button
                                         type="submit"
                                         className="btn btn-primary">

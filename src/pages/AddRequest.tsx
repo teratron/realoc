@@ -23,8 +23,8 @@ function AddRequest() {
                      * Transaction Block
                      *******************************************************/}
                     <div className="card">
-                        <Form.Group>
-                            <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
+                        <Form.Group controlId="transaction-type-1">
+                            <Form.Label>Tip tranzacție</Form.Label>
                             <div>
                                 <ToggleButtonGroup type="radio" name="transactionType" defaultValue={1}>
                                     <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
@@ -330,7 +330,7 @@ function AddRequest() {
                     </div>
 
                     <div className="navbar">
-                        <div className="container">
+                        <div className="app-container">
                             <button
                                 type="submit"
                                 className="btn btn-primary"
