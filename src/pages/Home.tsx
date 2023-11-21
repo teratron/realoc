@@ -1,4 +1,3 @@
-import {Stack} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import Main from '../containers/Main'
@@ -11,9 +10,9 @@ function Home() {
         <>
             <Header title={title}/>
             <Main>
-                <Stack gap={2} className="mx-2">
+                <div className="vstack gap-2 mx-2">
                     <Navigation/>
-                </Stack>
+                </div>
             </Main>
             <Footer/>
         </>

@@ -3,6 +3,7 @@ import {Link, useLocation} from 'react-router-dom'
 function getPathName() {
     const location = useLocation
     const path = location().pathname.split('/')
+
     return path[path.length - 1]
 }
 

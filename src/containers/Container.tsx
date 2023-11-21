@@ -1,14 +1,13 @@
-import Container from '../containers/Container'
 import {Children} from '../utils/Attributes'
 
-function Main(props: Children) {
+function Container(props: Children) {
     return (
-        <main id="app-main">
+        <section className="app-container">
             <Container>
                 {props.children}
             </Container>
-        </main>
+        </section>
     )
 }
 
-export default Main
+export default Container

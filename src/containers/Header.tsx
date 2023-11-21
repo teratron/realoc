@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Button, Container, Image, Offcanvas, Stack} from 'react-bootstrap'
+import {Offcanvas} from 'react-bootstrap'
+import Container from '../containers/Container'
 import Navigation from '../components/Navigation'
 
 // Media
@@ -22,9 +23,9 @@ function Header({title = '', idResetButton = ''}: HeaderProps) {
         <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton/>
             <Offcanvas.Body>
-                <Stack gap={2}>
+                <div className="vstack gap-2 mx-2">
                     <Navigation/>
-                </Stack>
+                </div>
             </Offcanvas.Body>
         </Offcanvas>
     )
@@ -34,28 +35,26 @@ function Header({title = '', idResetButton = ''}: HeaderProps) {
             <header id="app-header">
                 <Container>
                     <div className="head">
-                        <Button variant="light" onClick={handleShow}>
-                            <Image src={iconChevronLeft}/>
-                        </Button>
+                        <button type="button" className="btn btn-light" onClick={handleShow}>
+                            <img src={iconChevronLeft} alt=""/>
+                        </button>
                     </div>
                     <div className="body">
                         <Link to="/">
-                            <Image src={logo} className="logo" alt={title}/>
+                            <img src={logo} className="logo" alt={title}/>
                         </Link>
                     </div>
                     <div className="foot">
                         {idResetButton !== ''
-                            ? <Button
+                            ? <button
                                 form={idResetButton}
                                 type="reset"
-                                variant="light">
-                                Resetare
+                                className="btn btn-light">Resetare
                                 <span
-                                    className="badge">
-                                    9
+                                    className="badge">9
                                     <span className="visually-hidden">unread messages</span>
                                 </span>
-                            </Button>
+                            </button>
                             : null
                         }
                     </div>

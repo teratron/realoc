@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Badge, Button, Card, Carousel, Container, Image, Modal, Navbar} from 'react-bootstrap'
+import {Carousel, Modal} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
 import * as conf from '../config.ts'
@@ -56,65 +56,65 @@ function Property() {
                 </Modal>
 
                 <div className="app-content">
-                    <Card className="summary">
+                    <div className="card summary">
                         <div className="badges">
-                            <Badge bg="warning">Vânzare</Badge>
-                            <Badge bg="secondary">Apartament</Badge>
-                            <Badge bg="secondary"><Image src={iconSelected}/> Credit ipotecar</Badge>
-                            <Badge>Apartament</Badge>
-                            <Badge bg="success">Vânzare</Badge>
+                            <span className="badge bg-warning">Vânzare</span>
+                            <span className="badge bg-secondary">Apartament</span>
+                            <span className="badge bg-secondary"><img src={iconSelected} alt=""/> Credit ipotecar</span>
+                            <span className="badge">Apartament</span>
+                            <span className="badge bg-success">Vânzare</span>
                         </div>
                         <div className="price">75 000 € <small>1 086 €/m²</small></div>
                         <div className="info">
                             <div className="app-list">
-                                <div className="media"><Image src={iconBuilding} height={18}/></div>
+                                <div className="media"><img src={iconBuilding} height={18} alt=""/></div>
                                 <div className="key">Fond locativ</div>
                                 <div className="value">Constr. noi</div>
                             </div>
                             <div className="app-list">
-                                <div className="media"><Image src={iconDoor} height={22}/></div>
+                                <div className="media"><img src={iconDoor} height={22} alt=""/></div>
                                 <div className="key">Apartament</div>
                                 <div className="value">2 camere</div>
                             </div>
                             <div className="app-list">
-                                <div className="media"><Image src={iconArea} height={16}/></div>
+                                <div className="media"><img src={iconArea} height={16} alt=""/></div>
                                 <div className="key">Suprafață</div>
                                 <div className="value">69 m²</div>
                             </div>
                             <div className="app-list">
-                                <div className="media"><Image src={iconStair} height={16}/></div>
+                                <div className="media"><img src={iconStair} height={16} alt=""/></div>
                                 <div className="key">Nivel</div>
                                 <div className="value">3 din 9</div>
                             </div>
                         </div>
-                    </Card>
+                    </div>
 
-                    <Card>
-                        <Card.Title>Locație</Card.Title>
+                    <div className="card">
+                        <div className="card-title">Locație</div>
                         <div className="app-list-item">
                             <div className="body card-text">
                                 Chișinău mun., Chișinău, Botanica,
-                                bd. Dacia 11/1 <Image src={iconCopy}/>
+                                bd. Dacia 11/1 <img src={iconCopy} alt=""/>
                                 <Link to="/#">Deschideți harta</Link>
                             </div>
                             <div className="foot">
                                 <Link to="/#">
-                                    <Image src={iconMap}/>
+                                    <img src={iconMap} alt=""/>
                                 </Link>
                             </div>
                         </div>
-                    </Card>
+                    </div>
 
-                    <Card>
-                        <Card.Title>Descriere</Card.Title>
-                        <Card.Text>
+                    <div className="card">
+                        <div className="card-title">Descriere</div>
+                        <div className="card-text">
                             Vă oferim spre vânzare apartament cu 2 camere în bloc NOU, sect. Botanica.
                             În apropierea casei este grădiniță, școală, magazine, farmacie etc.
-                        </Card.Text>
-                    </Card>
+                        </div>
+                    </div>
 
-                    <Card className="app-list">
-                        <Card.Title>Despre apartament</Card.Title>
+                    <div className="card app-list">
+                        <div className="card-title">Despre apartament</div>
                         <div className="app-list-item">
                             <div>Tip de proprietate</div>
                             <div>Apartament</div>
@@ -143,10 +143,10 @@ function Property() {
                             <div>Nivel</div>
                             <div>3 din 9</div>
                         </div>
-                    </Card>
+                    </div>
 
-                    <Card className="app-list">
-                        <Card.Title>Despre casa</Card.Title>
+                    <div className="card app-list">
+                        <div className="card-title">Despre casa</div>
                         <div className="app-list-item">
                             <div>Număr de nivele</div>
                             <div>9</div>
@@ -161,27 +161,27 @@ function Property() {
                         </div>
                         <div className="app-list-item">
                             <div>Ascensor</div>
-                            <div><Image src={iconCheck}/></div>
+                            <div><img src={iconCheck} alt=""/></div>
                         </div>
                         <div className="app-list-item">
                             <div>Parcare</div>
                             <div>Subterană</div>
                         </div>
-                    </Card>
+                    </div>
 
-                    <Card className="app-list">
-                        <Card.Title>Detalii comerciale</Card.Title>
+                    <div className="card app-list">
+                        <div className="card-title">Detalii comerciale</div>
                         <div className="app-list-item">
                             <div>Credit ipotecar</div>
                             <div>Disponibil</div>
                         </div>
-                    </Card>
+                    </div>
 
-                    <Navbar>
-                        <Container>
-                            <Button variant="secondary" type="button">Împărtășiți obiectul</Button>
-                        </Container>
-                    </Navbar>
+                    <div className="navbar">
+                        <div className="container">
+                            <button type="button" className="btn btn-secondary">Împărtășiți obiectul</button>
+                        </div>
+                    </div>
                 </div>
             </Main>
         </>

@@ -56,9 +56,10 @@ body {
 //**********************************************
 
 #app-header {
-    z-index: $zindex-sticky;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    z-index: $zindex-sticky;
+    overflow-x: hidden;
 
     @extend .position-sticky, .top-0;
     @extend .navbar, .py-0;
@@ -109,6 +110,7 @@ body {
 #app-footer {
     background-color: var(--app-footer-bg-color);
     box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
 
     > .container {
         display:               grid;
@@ -126,9 +128,10 @@ body {
 //**********************************************
 
 #app-main {
-    display:               grid;
     background-color:      var(--app-main-bg-color);
+    display:               grid;
     grid-template-columns: auto;
+    overflow-x: hidden;
 
     > .container {
         height:         100%;
@@ -159,6 +162,14 @@ body {
 // App Content
 //**********************************************
 
+.app-container {
+    @extend .container;
+}
+
+//**********************************************
+// App Content
+//**********************************************
+
 .app-content {
     padding-bottom: $footer-height;
 
@@ -172,7 +183,7 @@ body {
         background-color: white;
         box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, 0.1);
 
-        @extend .fixed-bottom;
+        @extend .fixed-bottom, .navbar-expand;
 
         &, > .container {
             min-height:     $footer-height;
@@ -304,7 +315,8 @@ body {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 
     &-title {
-        @extend %__t-card-title, .mb-3;
+        @extend %__t-card-title;
+        @extend .mb-3;
     }
 
     &-text {

@@ -1,4 +1,4 @@
-import {Container} from 'react-bootstrap'
+import Container from '../containers/Container'
 import {Children} from '../utils/Attributes'
 
 interface FooterProps extends Children {

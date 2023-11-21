@@ -1,3 +1,4 @@
+// TODO: remove react-bootstrap from spinner
 import {Spinner as BootstrapSpinner} from 'react-bootstrap'
 
 function Spinner() {

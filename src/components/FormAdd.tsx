@@ -1,15 +1,7 @@
 import {useState} from 'react'
 import {
-    Alert,
-    Button,
-    Card,
-    Col,
-    Container,
     Form,
-    Image,
     InputGroup,
-    Navbar,
-    Row,
     ToggleButton,
     ToggleButtonGroup
 } from 'react-bootstrap'
@@ -26,11 +18,11 @@ import iconSearch from '../assets/media/icon_search.svg'
 import iconLocation from '../assets/media/icon_location_house.svg'
 
 function FormAdd({isAddSalePage = false}) {
-    const Star = () => isAddSalePage ? <Image src={iconStar}/> : null
+    const Star = () => isAddSalePage ? <img src={iconStar} alt=""/> : null
     const Feedback = ({dataName = ''}) => {
         return (
             isAddSalePage
-                ? <span className="feedback" data-name={dataName}>Obligatoriu <Image src={iconInvalid}/></span>
+                ? <span className="feedback" data-name={dataName}>Obligatoriu <img src={iconInvalid} alt=""/></span>
                 : null
         )
     }
@@ -78,7 +70,7 @@ function FormAdd({isAddSalePage = false}) {
                     {/******************************************************
                      * Transaction Block
                      *******************************************************/}
-                    <Card>
+                    <div className="card">
                         <Form.Group controlId="transaction-type-1">
                             <Form.Label>Tip tranzacție</Form.Label>
                             <div>
@@ -101,12 +93,12 @@ function FormAdd({isAddSalePage = false}) {
                                 <option value="2">Two</option>
                             </Form.Select>
                         </Form.Group>
-                    </Card>
+                    </div>
 
                     {/******************************************************
                      * Housing Block
                      *******************************************************/}
-                    <Card>
+                    <div className="card">
                         <Form.Group controlId="housing-stock-1">
                             <Form.Label>Fond locativ</Form.Label>
                             <div>
@@ -157,11 +149,11 @@ function FormAdd({isAddSalePage = false}) {
                                 </InputGroup>
 
                                 /*** Add Request Page ***/
-                                : <Row>
-                                    <Col>
-                                        <Form.Control id="sale-price" type="text" name="salePrice" placeholder="De la"/>
-                                    </Col>
-                                    <Col>
+                                : <div className="row">
+                                    <div className="col">
+                                        <Form.Control type="text" name="salePrice" placeholder="De la"/>
+                                    </div>
+                                    <div className="col">
                                         <InputGroup>
                                             <Form.Control
                                                 id="sale-price-to"
@@ -170,8 +162,8 @@ function FormAdd({isAddSalePage = false}) {
                                                 placeholder="Până la"/>
                                             <InputGroup.Text>€</InputGroup.Text>
                                         </InputGroup>
-                                    </Col>
-                                </Row>
+                                    </div>
+                                </div>
                             }
                         </Form.Group>
 
@@ -232,25 +224,25 @@ function FormAdd({isAddSalePage = false}) {
                                 </InputGroup>
 
                                 /*** Add Request Page ***/
-                                : <Row>
-                                    <Col>
+                                : <div className="row">
+                                    <div className="col">
                                         <Form.Control name="area" type="text" placeholder="De la"/>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    <div className="col">
                                         <InputGroup>
                                             <Form.Control id="area-to" name="area" type="text" placeholder="Până la"/>
                                             <InputGroup.Text>m²</InputGroup.Text>
                                         </InputGroup>
-                                    </Col>
-                                </Row>
+                                    </div>
+                                </div>
                             }
                         </Form.Group>
-                    </Card>
+                    </div>
 
                     {/******************************************************
                      * Location Block
                      *******************************************************/}
-                    <Card>
+                    <div className="card">
                         {isAddSalePage
                             /*** Add Sale Page ***/
                             ? <>
@@ -258,7 +250,7 @@ function FormAdd({isAddSalePage = false}) {
                                     <Form.Label>Locație<Star/><Feedback dataName="location"/></Form.Label>
                                     <InputGroup>
                                         <InputGroup.Text>
-                                            <Image src={iconSearch}/>
+                                            <img src={iconSearch} alt=""/>
                                         </InputGroup.Text>
                                         <Form.Control
                                             name="location"
@@ -268,14 +260,14 @@ function FormAdd({isAddSalePage = false}) {
                                             onChange={handleChange}
                                             isInvalid={touched.location && !!errors.location}/>
                                         <InputGroup.Text>
-                                            <Image src={iconCheck}/>
+                                            <img src={iconCheck} alt=""/>
                                         </InputGroup.Text>
                                     </InputGroup>
                                 </Form.Group>
 
                                 <Form.Group className="map-thumb">
                                     <img className="backdrop" src={`${conf.MEDIA}/thumb_map.png`} alt=""/>
-                                    <Image className="overlay" src={iconLocation}/>
+                                    <img className="overlay" src={iconLocation} alt=""/>
                                 </Form.Group>
                             </>
 
@@ -295,19 +287,20 @@ function FormAdd({isAddSalePage = false}) {
                                     <InputGroup>
                                         <Form.Control name="map" type="text" placeholder="Selectați zona pe hartă"/>
                                         <InputGroup.Text>
-                                            <Image src={iconSelectMap}/>
+                                            <img src={iconSelectMap} alt=""/>
                                         </InputGroup.Text>
                                     </InputGroup>
                                 </Form.Group>
                             </>
                         }
-                    </Card>
+                    </div>
 
                     {/******************************************************
                      * Photo Block
                      *******************************************************/}
                     {isAddSalePage
-                        ? <Card>
+                        /*** Add Sale Page ***/
+                        ? <div className="card">
                             <Form.Group controlId="photos">
                                 <Form.Label>Fotografie<Star/>
                                     <Feedback dataName="photos"/>
@@ -338,18 +331,20 @@ function FormAdd({isAddSalePage = false}) {
                                     isInvalid={touched.photos && !!errors.photos}/>
                             </Form.Group>
 
-                            <Alert variant="light">
-                                <Image src={iconNote}/>
+                            <div className="alert alert-light">
+                                <img src={iconNote} alt=""/>
                                 <div>Primele 3 fotografii vor fi folosite pentru coperta anunțului.</div>
-                            </Alert>
-                        </Card>
+                            </div>
+                        </div>
+
+                        /*** Add Request Page ***/
                         : null
                     }
 
                     {/******************************************************
                      * Apartment Block
                      *******************************************************/}
-                    <Card>
+                    <div className="card">
                         <Form.Group controlId="apartment-status-1">
                             <Form.Label>Starea apartamentului</Form.Label>
                             <div>
@@ -389,12 +384,12 @@ function FormAdd({isAddSalePage = false}) {
                                 ))}
                             </div>
                         </Form.Group>
-                    </Card>
+                    </div>
 
                     {/******************************************************
                      * Level Block
                      *******************************************************/}
-                    <Card>
+                    <div className="card">
                         <Form.Group controlId="levels">
                             <Form.Label>Nivel<Star/><Feedback dataName="levels"/></Form.Label>
                             {isAddSalePage
@@ -409,22 +404,22 @@ function FormAdd({isAddSalePage = false}) {
                                 </Form.Select>
 
                                 /*** Add Request Page ***/
-                                : <Row>
-                                    <Col>
+                                : <div className="row">
+                                    <div className="col">
                                         <Form.Select name="levels">
                                             <option>De la</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                         </Form.Select>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    <div className="col">
                                         <Form.Select id="levels-to" name="levels">
                                             <option>Până la</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                         </Form.Select>
-                                    </Col>
-                                </Row>
+                                    </div>
+                                </div>
                             }
                         </Form.Group>
 
@@ -466,22 +461,22 @@ function FormAdd({isAddSalePage = false}) {
                                 </Form.Select>
 
                                 /*** Add Request Page ***/
-                                : <Row>
-                                    <Col>
+                                : <div className="row">
+                                    <div className="col">
                                         <Form.Select>
                                             <option>De la</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                         </Form.Select>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    <div className="col">
                                         <Form.Select id="number-levels-to">
                                             <option>Până la</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                         </Form.Select>
-                                    </Col>
-                                </Row>
+                                    </div>
+                                </div>
                             }
                         </Form.Group>
 
@@ -564,13 +559,14 @@ function FormAdd({isAddSalePage = false}) {
                             /*** Add Request Page ***/
                             : null
                         }
-                    </Card>
+                    </div>
 
                     {/******************************************************
                      * Fee Block
                      *******************************************************/}
                     {isAddSalePage
-                        ? <Card>
+                        /*** Add Sale Page ***/
+                        ? <div className="card">
                             <Form.Group controlId="transaction-fee-1">
                                 <Form.Label>Comision de tranzacție</Form.Label>
                                 <div>
@@ -588,25 +584,27 @@ function FormAdd({isAddSalePage = false}) {
                                 </div>
                             </Form.Group>
 
-                            <Alert variant="light">
-                                <Image src={iconNote}/>
+                            <div className="alert alert-light">
+                                <img src={iconNote} alt=""/>
                                 <div>
                                     Acest comision se referă la procentajul din suma totală
                                     a tranzacției pe care sunteți dispus să îl împărțiți cu afiliat.
                                 </div>
-                            </Alert>
-                        </Card>
+                            </div>
+                        </div>
+
+                        /*** Add Request Page ***/
                         : null
                     }
 
                     {/******************************************************
                      * Button Block
                      *******************************************************/}
-                    <Navbar>
-                        <Container>
-                            <Button
+                    <div className="navbar">
+                        <div className="container">
+                            <button
                                 type="submit"
-                                variant="primary"
+                                className="btn btn-primary"
                                 onClick={() => setCount((count) => count + 1)}>
                                 {isAddSalePage
                                     /*** Add Sale Page ***/
@@ -615,9 +613,9 @@ function FormAdd({isAddSalePage = false}) {
                                     /*** Add Request Page ***/
                                     : `Afișați ${count} de anunțuri`
                                 }
-                            </Button>
-                        </Container>
-                    </Navbar>
+                            </button>
+                        </div>
+                    </div>
                 </Form>
             )}
         </Formik>
