@@ -1,13 +1,13 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
-//import pkg from './package.json'
+import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
-    //base: pkg.homepage,
-    base: './',
+    base: pkg.homepage,
+    //base: './',
     publicDir: '../public',
     //appType: 'spa',
     plugins: [
@@ -57,6 +57,11 @@ export default defineConfig({
                     return `assets/${ext}[name].[hash][extname]`
                 }
             }
+        }
+    },
+    resolve: {
+        alias: {
+            '@': './src'
         }
     }
 })

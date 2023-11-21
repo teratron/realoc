@@ -7,7 +7,7 @@ export const title: string = 'Add Request'
 function AddRequest() {
     return (
         <>
-            <Header title={title} isResetButton/>
+            <Header title={title} idResetButton="add-request-form"/>
             <Main>
                 <h2>Caută imobiliare</h2>
                 <FormAdd/>

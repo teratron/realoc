@@ -10,10 +10,10 @@ import iconChevronLeft from '../assets/media/icon_chevron_left.svg'
 
 interface HeaderProps {
     title?: string
-    isResetButton?: boolean
+    idResetButton?: string
 }
 
-function Header({title, isResetButton = false}: HeaderProps) {
+function Header({title, idResetButton = ''}: HeaderProps) {
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
@@ -44,7 +44,15 @@ function Header({title, isResetButton = false}: HeaderProps) {
                         </Link>
                     </div>
                     <div className="foot">
-                        {isResetButton ? <Button variant="light">Resetare</Button> : null}
+                        {idResetButton !== ''
+                            ? <Button
+                                form={idResetButton}
+                                type="reset"
+                                variant="light">
+                                Resetare
+                            </Button>
+                            : null
+                        }
                     </div>
                 </Container>
             </header>

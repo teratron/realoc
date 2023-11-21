@@ -69,7 +69,11 @@ function FormAdd({isAddSalePage = false}) {
                     errors
                 }
             ) => (
-                <Form className="form" onSubmit={handleSubmit} noValidate>
+                <Form
+                    id={isAddSalePage ? 'add-sale-form' : 'add-request-form'}
+                    className="form"
+                    onSubmit={handleSubmit}
+                    noValidate>
 
                     {/******************************************************
                      * Transaction Block
