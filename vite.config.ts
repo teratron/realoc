@@ -21,10 +21,10 @@ export default defineConfig({
         }
     },
     server: {
-        open: './realoc',
+        open: 'realoc',
         warmup: {
             clientFiles: [
-                './src/**/*.tsx'
+                'src/**/*.tsx'
             ]
         }
     },
@@ -34,29 +34,28 @@ export default defineConfig({
         manifest: 'resource.json',
         rollupOptions: {
             input: {
-                main: './src/index.html',
+                main: 'src/index.html',
             },
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',
                 chunkFileNames: 'assets/js/[name].[hash].js',
                 assetFileNames: assetInfo => {
+                    // @ts-ignore
                     const info = assetInfo.name?.split('.')
-                    let ext: string = info![info!.length - 1]
+                    let ext: string = info[info.length - 1]
+                    // @ts-ignore
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
                         ext = 'media'
+                        // @ts-ignore
                     } else if (/(sa|sc|c)ss/i.test(ext)) {
                         ext = 'css'
+                        // @ts-ignore
                     } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
                         ext = 'fonts'
                     } else ext = ''
                     return `assets/${ext}/[name].[hash][extname]`
                 }
             }
-        }
-    },
-    resolve: {
-        alias: {
-            '@/': './src/'
         }
     }
 })
