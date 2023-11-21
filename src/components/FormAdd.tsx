@@ -274,7 +274,7 @@ function FormAdd({isAddSalePage = false}) {
                                 </Form.Group>
 
                                 <Form.Group className="map-thumb">
-                                    <img className="backdrop" src="../assets/media/thumb_map.png" alt=""/>
+                                    <img className="backdrop" src={`${conf.MEDIA}/thumb_map.png`} alt=""/>
                                     <Image className="overlay" src={iconLocation}/>
                                 </Form.Group>
                             </>
@@ -315,19 +315,19 @@ function FormAdd({isAddSalePage = false}) {
                                 </Form.Label>
                                 <div className="gallery-thumb">
                                     <div>
-                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
+                                        <img src={`${conf.MEDIA}/plug_room_01.jpg`} alt=""/>
                                     </div>
                                     <div>
-                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
+                                        <img src={`${conf.MEDIA}/plug_room_01.jpg`} alt=""/>
                                     </div>
                                     <div>
-                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
+                                        <img src={`${conf.MEDIA}/plug_room_01.jpg`} alt=""/>
                                     </div>
                                     <div>
-                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
+                                        <img src={`${conf.MEDIA}/plug_room_01.jpg`} alt=""/>
                                     </div>
                                     <div>
-                                        <img src="../assets/media/plug_room_01.jpg" alt=""/>
+                                        <img src={`${conf.MEDIA}/plug_room_01.jpg`} alt=""/>
                                     </div>
                                 </div>
                                 <Form.Control

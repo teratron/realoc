@@ -545,3 +545,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
     @include container(&);
 }
+
+//**********************************************
+// Button
+//**********************************************
+.btn {
+    position: relative;
+
+    > .badge {
+        @extend .rounded-pill, .bg-danger;
+        @extend .position-absolute, .top-0, .start-100, .translate-middle;
+    }
+}

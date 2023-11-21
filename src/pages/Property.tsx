@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {Badge, Button, Card, Carousel, Container, Image, Modal, Navbar} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
+import * as conf from '../config.ts'
 
 // Media
 import iconCheck from '../assets/media/icon_check_green_circle.svg'
@@ -23,9 +24,9 @@ function Property() {
 
     function Gallery() {
         const slides = [
-            '../assets/media/plug_room_01.jpg',
-            '../assets/media/plug_room_01.jpg',
-            '../assets/media/plug_room_01.jpg'
+            `${conf.MEDIA}/plug_room_01.jpg`,
+            `${conf.MEDIA}/plug_room_01.jpg`,
+            `${conf.MEDIA}/plug_room_01.jpg`
         ]
         const numSlides = slides.length
 

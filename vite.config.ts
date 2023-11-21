@@ -1,15 +1,15 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
-import pkg from './package.json'
+//import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     root: './src',
-    base: pkg.homepage,
-    //base: './',
+    //base: pkg.homepage,
+    base: './',
     publicDir: '../public',
-    //appType: 'spa',
+    appType: 'spa',
     plugins: [
         react()
     ],
@@ -21,7 +21,7 @@ export default defineConfig({
         }
     },
     server: {
-        //open: 'index.html',
+        open: 'realoc',
         warmup: {
             clientFiles: [
                 'src/**/*.tsx'
@@ -34,11 +34,11 @@ export default defineConfig({
         manifest: 'resource.json',
         rollupOptions: {
             input: {
-                main: 'src/index.html'
+                main: 'src/index.html',
             },
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',
-                chunkFileNames: 'assets/js/[name]-[hash].js',
+                chunkFileNames: 'assets/js/[name].[hash].js',
                 assetFileNames: assetInfo => {
                     // @ts-ignore
                     const info = assetInfo.name?.split('.')
@@ -46,22 +46,22 @@ export default defineConfig({
                     let ext: string = info[info.length - 1]
                     // @ts-ignore
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
-                        ext = 'media/'
+                        ext = 'media'
                     // @ts-ignore
                     } else if (/(sa|sc|c)ss/i.test(ext)) {
-                        ext = 'css/'
+                        ext = 'css'
                     // @ts-ignore
                     } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
-                        ext = 'fonts/'
+                        ext = 'fonts'
                     } else ext = ''
-                    return `assets/${ext}[name].[hash][extname]`
+                    return `assets/${ext}/[name].[hash][extname]`
                 }
             }
         }
     },
     resolve: {
         alias: {
-            '@': './src'
+            '@/': './src/'
         }
     }
 })

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Button, Container, Offcanvas, Stack} from 'react-bootstrap'
+import {Button, Container, Image, Offcanvas, Stack} from 'react-bootstrap'
 import Navigation from '../components/Navigation'
 
 // Media
@@ -13,7 +13,7 @@ interface HeaderProps {
     idResetButton?: string
 }
 
-function Header({title, idResetButton = ''}: HeaderProps) {
+function Header({title = '', idResetButton = ''}: HeaderProps) {
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
@@ -35,12 +35,12 @@ function Header({title, idResetButton = ''}: HeaderProps) {
                 <Container>
                     <div className="head">
                         <Button variant="light" onClick={handleShow}>
-                            <img src={iconChevronLeft} alt=""/>
+                            <Image src={iconChevronLeft}/>
                         </Button>
                     </div>
                     <div className="body">
                         <Link to="/">
-                            <img src={logo} className="logo" alt={title}/>
+                            <Image src={logo} className="logo" alt={title}/>
                         </Link>
                     </div>
                     <div className="foot">
@@ -50,6 +50,11 @@ function Header({title, idResetButton = ''}: HeaderProps) {
                                 type="reset"
                                 variant="light">
                                 Resetare
+                                <span
+                                    className="badge">
+                                    9
+                                    <span className="visually-hidden">unread messages</span>
+                                </span>
                             </Button>
                             : null
                         }
