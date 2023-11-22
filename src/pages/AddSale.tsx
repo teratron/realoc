@@ -76,7 +76,7 @@ function AddSale() {
                             {/******************************************************
                              * Transaction Block
                              *******************************************************/}
-                            <div className="card">
+                            <div className="app-card">
                                 <Form.Group controlId="transaction-type-1">
                                     <Form.Label>Tip tranzacție</Form.Label>
                                     <div>
@@ -104,7 +104,7 @@ function AddSale() {
                             {/******************************************************
                              * Housing Block
                              *******************************************************/}
-                            <div className="card">
+                            <div className="app-card">
                                 <Form.Group controlId="housing-stock-1">
                                     <Form.Label>Fond locativ</Form.Label>
                                     <div>
@@ -206,7 +206,7 @@ function AddSale() {
                             {/******************************************************
                              * Location Block
                              *******************************************************/}
-                            <div className="card">
+                            <div className="app-card">
                                     <Form.Group controlId="location">
                                         <Form.Label>Locație<Star/><Feedback dataName="location"/></Form.Label>
                                         <InputGroup>
@@ -235,7 +235,7 @@ function AddSale() {
                             {/******************************************************
                              * Photo Block
                              *******************************************************/}
-                            <div className="card">
+                            <div className="app-card">
                                 <Form.Group controlId="photos">
                                     <Form.Label>Fotografie<Star/>
                                         <Feedback dataName="photos"/>
@@ -275,7 +275,7 @@ function AddSale() {
                             {/******************************************************
                              * Apartment Block
                              *******************************************************/}
-                            <div className="card">
+                            <div className="app-card">
                                 <Form.Group controlId="apartment-status-1">
                                     <Form.Label>Starea apartamentului</Form.Label>
                                     <div>
@@ -320,7 +320,7 @@ function AddSale() {
                             {/******************************************************
                              * Level Block
                              *******************************************************/}
-                            <div className="card">
+                            <div className="app-card">
                                 <Form.Group controlId="levels">
                                     <Form.Label>Nivel<Star/><Feedback dataName="levels"/></Form.Label>
                                     <Form.Select
@@ -425,7 +425,7 @@ function AddSale() {
                             {/******************************************************
                              * Fee Block
                              *******************************************************/}
-                            <div className="card">
+                            <div className="app-card">
                                 <Form.Group controlId="transaction-fee-1">
                                     <Form.Label>Comision de tranzacție</Form.Label>
                                     <div>

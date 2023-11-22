@@ -56,7 +56,7 @@ function Property() {
                 </Modal>
 
                 <div className="app-content">
-                    <div className="card summary">
+                    <div className="app-card summary">
                         <div className="badges">
                             <span className="badge bg-warning">Vânzare</span>
                             <span className="badge bg-secondary">Apartament</span>
@@ -89,7 +89,7 @@ function Property() {
                         </div>
                     </div>
 
-                    <div className="card">
+                    <div className="app-card">
                         <div className="card-title">Locație</div>
                         <div className="app-list-item">
                             <div className="body card-text">
@@ -105,7 +105,7 @@ function Property() {
                         </div>
                     </div>
 
-                    <div className="card">
+                    <div className="app-card">
                         <div className="card-title">Descriere</div>
                         <div className="card-text">
                             Vă oferim spre vânzare apartament cu 2 camere în bloc NOU, sect. Botanica.
@@ -113,7 +113,7 @@ function Property() {
                         </div>
                     </div>
 
-                    <div className="card app-list">
+                    <div className="app-card app-list">
                         <div className="card-title">Despre apartament</div>
                         <div className="app-list-item">
                             <div>Tip de proprietate</div>
@@ -145,7 +145,7 @@ function Property() {
                         </div>
                     </div>
 
-                    <div className="card app-list">
+                    <div className="app-card app-list">
                         <div className="card-title">Despre casa</div>
                         <div className="app-list-item">
                             <div>Număr de nivele</div>
@@ -169,7 +169,7 @@ function Property() {
                         </div>
                     </div>
 
-                    <div className="card app-list">
+                    <div className="app-card app-list">
                         <div className="card-title">Detalii comerciale</div>
                         <div className="app-list-item">
                             <div>Credit ipotecar</div>

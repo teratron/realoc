@@ -22,7 +22,7 @@ function AddRequest() {
                     {/******************************************************
                      * Transaction Block
                      *******************************************************/}
-                    <div className="card">
+                    <div className="app-card">
                         <Form.Group controlId="transaction-type-1">
                             <Form.Label>Tip tranzacție</Form.Label>
                             <div>
@@ -50,7 +50,7 @@ function AddRequest() {
                     {/******************************************************
                      * Housing Block
                      *******************************************************/}
-                    <div className="card">
+                    <div className="app-card">
                         <Form.Group>
                             <Form.Label htmlFor="housing-stock-1">Fond locativ</Form.Label>
                             <div>
@@ -137,7 +137,7 @@ function AddRequest() {
                     {/******************************************************
                      * Location Block
                      *******************************************************/}
-                    <div className="card">
+                    <div className="app-card">
                         <>
                             <Form.Group controlId="location">
                                 <Form.Label>Raion/oraș</Form.Label>
@@ -163,7 +163,7 @@ function AddRequest() {
                     {/******************************************************
                      * Apartment Block
                      *******************************************************/}
-                    <div className="card">
+                    <div className="app-card">
                         <Form.Group controlId="apartment-status-1">
                             <Form.Label>Starea apartamentului</Form.Label>
                             <div>
@@ -208,7 +208,7 @@ function AddRequest() {
                     {/******************************************************
                      * Level Block
                      *******************************************************/}
-                    <div className="card">
+                    <div className="app-card">
                         <Form.Group controlId="levels">
                             <Form.Label>Nivel</Form.Label>
                             <div className="row">

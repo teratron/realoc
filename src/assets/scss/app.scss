@@ -183,7 +183,7 @@ body {
 
     @include container(&);
 
-    > .card {
+    > .app-card {
         @extend .mb-2;
     }
 
@@ -246,7 +246,7 @@ body {
 
     @extend .d-flex;
 
-    &.card {
+    &.app-card {
         padding-bottom: .5rem;
     }
 
@@ -320,7 +320,7 @@ body {
 // Card
 //**********************************************
 
-.card {
+.app-card {
     background-color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
     border: 1px solid #e3e3e3;
