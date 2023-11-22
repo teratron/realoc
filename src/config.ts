@@ -1,6 +1,6 @@
 // Configuration
 
-const base: string  = '/'//__VITE_COMMAND__ === 'build' ? './' : '/'
+const base: string  = './'//__VITE_COMMAND__ === 'build' ? './' : '/'
 
 // Paths
 //export const JS: string = base + 'assets/js'

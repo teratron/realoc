@@ -22,23 +22,23 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
     // preview    command='serve', mode='production'
 
     return {
-        base: command === 'serve' ? '/' : '/',
+        base: command === 'serve' ? '/' : './',
         root: path.src,
         publicDir: path.public,
         plugins: [
             react()
         ],
         server: {
-            open: 'realoc',
+            //open: 'realoc',
             warmup: {
                 clientFiles: [
                     'src/!**!/!*.tsx'
                 ]
             }
         },
-        preview: {
+        /*preview: {
             open: 'realoc',
-        },
+        },*/
         css: {
             devSourcemap: true,
             postcss: {
