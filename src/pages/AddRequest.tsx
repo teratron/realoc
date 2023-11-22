@@ -17,7 +17,7 @@ function AddRequest() {
             <Main>
                 <h2>Caută imobiliare</h2>
 
-                <Form id="add-request-form" className="form">
+                <Form id="add-request-form" className="app-form">
 
                     {/******************************************************
                      * Transaction Block

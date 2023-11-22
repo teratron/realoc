@@ -69,7 +69,7 @@ function AddSale() {
                     ) => (
                         <Form
                             id="add-sale-form"
-                            className="form"
+                            className="app-form"
                             onSubmit={handleSubmit}
                             noValidate>
 

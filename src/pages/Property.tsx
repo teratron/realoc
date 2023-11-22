@@ -33,7 +33,7 @@ function Property() {
         return (
             <Carousel>
                 {slides.map((value, index) => (
-                    <Carousel.Item key={`slide-${index}`}>
+                    <Carousel.Item key={`slide-photo-${index}`}>
                         <img src={value} onClick={handleShow} alt=""/>
                         <Carousel.Caption>{index + 1}/{numSlides}</Carousel.Caption>
                     </Carousel.Item>
@@ -91,7 +91,7 @@ function Property() {
 
                     <div className="app-card">
                         <div className="card-title">Locație</div>
-                        <div className="list-item">
+                        <div className="app-row">
                             <div className="body card-text">
                                 Chișinău mun., Chișinău, Botanica, bd. Dacia 11/1 <img src={iconCopy} alt=""/>
                                 <Link to="/#" className="d-block">Deschideți harta</Link>

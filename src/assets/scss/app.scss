@@ -236,35 +236,56 @@ body {
 }
 
 //**********************************************
-// App List
+// App Col, List
 //**********************************************
 
-.app-list {
-    flex-direction:  column;
-    flex-wrap:       nowrap;
+.app-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
 
-    @extend .d-flex;
+    > .head {
+        padding-right: .5rem;
+    }
+
+    > .body {
+        flex-grow: 1;
+    }
+
+    > .foot {
+        padding-left: .5rem;
+    }
+}
+
+.app-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
 
     &.app-card {
         padding-bottom: .5rem;
     }
 
-    & > &-item {
-        align-items: center;
-    }
-
     > .list-item {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
         @extend .row, .mx-0;
 
         // 1 from 2 columns
-        > :first-child:nth-last-child(2):not(.body) {
+        > :first-child:nth-last-child(2):not(.head):not(.body) {
             @extend %__t-list-key;
             @extend .ps-0, .py-2, .col-7;
         }
 
         // 2 from 2 columns
-        > :last-child:nth-child(2):not(.foot) {
+        > :last-child:nth-child(2):not(.foot):not(.body) {
             @extend %__t-list-value;
             @extend .pe-0, .py-2, .col-5;
         }
@@ -282,7 +303,8 @@ body {
         }
 
         > .body {
-            @extend .px-0, .col;
+            flex-grow: 1;
+            @extend .px-0, .col-auto;
         }
 
         > .foot {
@@ -292,25 +314,51 @@ body {
 }
 
 //**********************************************
-// App Bar
+// App Row, Bar
 //**********************************************
 
-.app-bar {
+.app-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
     > .head {
-        @extend .ps-0, .col-auto;
+        padding-right: .5rem;
     }
 
     > .body {
-        @extend .px-0, .col;
+        flex-grow: 1;
     }
 
     > .foot {
-        @extend .pe-0, .col-auto;
+        padding-left: .5rem;
+    }
+}
+
+.app-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+
+    > .head {
+        padding-right: .5rem;
+    }
+
+    > .body {
+        flex-grow: 1;
+    }
+
+    > .foot {
+        padding-left: .5rem;
     }
 }
 
 //**********************************************
-// Card
+// App Card
 //**********************************************
 
 .app-card {
@@ -320,12 +368,12 @@ body {
     background-color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
 
-    > .card-title {
+    .card-title {
         @extend %__t-card-title;
         @extend .mb-3;
     }
 
-    > .card-text {
+    .card-text {
         @extend %__t-card-text;
 
         > a.d-block {
@@ -344,11 +392,11 @@ body {
         @extend .mb-0;
     }
 
-    .form > & > div:not(:last-of-type) {
+    .app-form > & > div:not(:last-of-type) {
         @extend .mb-3;
     }
 
-    > .alert {
+    .alert {
         @extend .d-flex, .align-items-baseline;
 
         > img {
@@ -358,26 +406,14 @@ body {
 }
 
 //**********************************************
-// Form
+// App Form
 //**********************************************
 
-.form {
-    @extend .app-content;
+.app-form {
+    @extend .app-content, .form !optional;
 
-    .btn-group {
-        @extend .d-flex;
-    }
-
-    .feedback {
-        color: var(--bs-danger);
-        display: none;
-
-        &.show {
-            display: block;
-        }
-    }
-
-    &-label, &-check-label {
+    .form-label,
+    .form-check-label {
         font-size:   .9rem; // TODO:
         font-weight: 500;
         width:       100%;
@@ -398,13 +434,27 @@ body {
         @extend .clearfix;
     }
 
-    &-control, &-select {
+    .form-control,
+    .form-select {
         font-size:        0.9rem;
         color:            var(--bs-body-color);
         border:           1px solid #d0d5dd;
         border-radius:    6px;
         background-color: white;
         box-shadow:       0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-group {
+        @extend .d-flex;
+    }
+
+    .feedback {
+        color: var(--bs-danger);
+        display: none;
+
+        &.show {
+            display: block;
+        }
     }
 }
 
@@ -434,6 +484,19 @@ body {
     }
 
     .btn-close {
+    }
+}
+
+//**********************************************
+// Button
+//**********************************************
+
+.btn {
+    position: relative;
+
+    > .badge {
+        @extend .rounded-pill, .bg-danger;
+        @extend .position-absolute, .top-0, .start-100, .translate-middle;
     }
 }
 
@@ -475,7 +538,6 @@ body {
         }
     }
 }
-
 
 //**********************************************
 // Property summary
@@ -536,12 +598,11 @@ body {
 
         > .app-list {
             > * {
+                display: flex;
                 overflow-x:      hidden;
                 flex-wrap:       nowrap;
                 justify-content: flex-start;
                 white-space:     nowrap;
-
-                @extend .d-flex;
             }
 
             > .media {
@@ -570,17 +631,7 @@ body {
 //**********************************************
 
 h1, h2, h3, h4, h5, h6 {
-    @include container(&);
-}
-
-//**********************************************
-// Button
-//**********************************************
-.btn {
-    position: relative;
-
-    > .badge {
-        @extend .rounded-pill, .bg-danger;
-        @extend .position-absolute, .top-0, .start-100, .translate-middle;
+    .app-container > & {
+        @include container(&);
     }
 }

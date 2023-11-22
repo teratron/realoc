@@ -1,6 +1,8 @@
+/** @type {import('vite').UserConfig} */
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
+import * as path from 'path'
 //import pkg from './package.json'
 
 // https://vitejs.dev/config/
@@ -34,21 +36,18 @@ export default defineConfig({
         manifest: 'resource.json',
         rollupOptions: {
             input: {
-                main: 'src/index.html',
+                main: path.resolve(__dirname, 'src/index.html'),
             },
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',
                 chunkFileNames: 'assets/js/[name].[hash].js',
-                assetFileNames: (assetInfo: {name: { split: (arg0: string) => any }}) => {
-                    const info = assetInfo.name.split('.')
-                    let ext: string = info[info.length - 1]
-                    // @ts-ignore
+                assetFileNames: assetInfo => {
+                    const info = assetInfo.name?.split('.')
+                    let ext: string = info![info!.length - 1]
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
                         ext = 'media'
-                    // @ts-ignore
                     } else if (/(sa|sc|c)ss/i.test(ext)) {
                         ext = 'css'
-                    // @ts-ignore
                     } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
                         ext = 'fonts'
                     } else ext = ''

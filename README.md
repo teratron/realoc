@@ -26,7 +26,7 @@ Code review:
 npm run lint
 ```
 
-Deploying the distribution on GitHub pages:
+Deploying the distribution on GitHub Pages:
 
 ```shell
 npm run deploy:gh
