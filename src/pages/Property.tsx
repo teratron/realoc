@@ -14,6 +14,8 @@ import iconDoor from '../assets/media/icon_door.svg'
 import iconArea from '../assets/media/icon_area.svg'
 import iconStair from '../assets/media/icon_stair.svg'
 import iconSelected from '../assets/media/icon_selected.svg'
+import imgEmpty from '../assets/media/empty.png'
+import imgEmpty16x9 from '../assets/media/empty_16x9.png'
 
 export const title: string = 'Property'
 
@@ -34,7 +36,12 @@ function Property() {
             <Carousel>
                 {slides.map((value, index) => (
                     <Carousel.Item key={`slide-photo-${index}`}>
-                        <img src={value} onClick={handleShowGallery} alt=""/>
+                        <img
+                            src={imgEmpty16x9}
+                            className="photo-backdrop"
+                            style={{backgroundImage: `url(${value}`}}
+                            onClick={handleShowGallery}
+                            alt=""/>
                         <Carousel.Caption>{index + 1}/{numSlides}</Carousel.Caption>
                     </Carousel.Item>
                 ))}
@@ -47,9 +54,11 @@ function Property() {
     const handleShowMap = () => setShowMap(true)
 
     function Map() {
-        return (
-            <></>
-        )
+        return <img
+            src={imgEmpty}
+            className="map-backdrop"
+            style={{backgroundImage: `url(${conf.MEDIA}/thumb_map.png)`}}
+            alt=""/>
     }
 
     return (
@@ -185,16 +194,26 @@ function Property() {
                 </div>
 
                 {/*** Gallery ***/}
-                <Modal show={showGallery} onHide={handleCloseGallery} fullscreen centered>
-                    <Modal.Header data-bs-theme="dark" closeButton/>
+                <Modal
+                    show={showGallery}
+                    onHide={handleCloseGallery}
+                    data-bs-theme="dark"
+                    className="modal-gallery"
+                    fullscreen>
+                    <Modal.Header closeButton/>
                     <Modal.Body>
                         <Gallery/>
                     </Modal.Body>
                 </Modal>
 
                 {/*** Map ***/}
-                <Modal show={showMap} onHide={handleCloseMap} fullscreen centered>
-                    <Modal.Header data-bs-theme="dark" closeButton/>
+                <Modal
+                    show={showMap}
+                    onHide={handleCloseMap}
+                    data-bs-theme="light"
+                    className="modal-map"
+                    fullscreen>
+                    <Modal.Header closeButton/>
                     <Modal.Body>
                         <Map/>
                     </Modal.Body>

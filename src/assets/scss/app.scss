@@ -350,6 +350,16 @@ body {
             @extend .position-absolute;
         }
     }
+
+    &-backdrop {
+        @extend .img-wrapper;
+
+        height: 100%;
+    }
+
+    .modal-& {
+
+    }
 }
 
 //**********************************************
@@ -368,7 +378,19 @@ body {
             }
         }
     }
+
+    .modal-& {
+
+    }
 }
+
+.photo-backdrop {
+    @extend .img-wrapper;
+
+    background-size: contain;
+    height: auto;
+}
+
 
 //**********************************************
 // Property summary
@@ -465,4 +487,17 @@ h1, h2, h3, h4, h5, h6 {
     .app-container > & {
         @include container(&);
     }
+}
+
+//**********************************************
+// Image
+//**********************************************
+
+.img-wrapper {
+    background: no-repeat center center;
+    background-size: cover;
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    //height: auto;
 }
