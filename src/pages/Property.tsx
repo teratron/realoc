@@ -18,9 +18,9 @@ import iconSelected from '../assets/media/icon_selected.svg'
 export const title: string = 'Property'
 
 function Property() {
-    const [show, setShow] = useState(false)
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
+    const [showGallery, setShowGalleryGallery] = useState(false)
+    const handleCloseGallery = () => setShowGalleryGallery(false)
+    const handleShowGallery = () => setShowGalleryGallery(true)
 
     function Gallery() {
         const slides = [
@@ -34,11 +34,21 @@ function Property() {
             <Carousel>
                 {slides.map((value, index) => (
                     <Carousel.Item key={`slide-photo-${index}`}>
-                        <img src={value} onClick={handleShow} alt=""/>
+                        <img src={value} onClick={handleShowGallery} alt=""/>
                         <Carousel.Caption>{index + 1}/{numSlides}</Carousel.Caption>
                     </Carousel.Item>
                 ))}
             </Carousel>
+        )
+    }
+
+    const [showMap, setShowMap] = useState(false)
+    const handleCloseMap = () => setShowMap(false)
+    const handleShowMap = () => setShowMap(true)
+
+    function Map() {
+        return (
+            <></>
         )
     }
 
@@ -47,13 +57,6 @@ function Property() {
             <Header title={title}/>
             <Main>
                 <Gallery/>
-
-                <Modal show={show} onHide={handleClose} fullscreen centered>
-                    <Modal.Header data-bs-theme="dark" closeButton/>
-                    <Modal.Body>
-                        <Gallery/>
-                    </Modal.Body>
-                </Modal>
 
                 <div className="app-content">
                     <div className="app-card property-summary">
@@ -97,9 +100,7 @@ function Property() {
                                 <Link to="/#" className="d-block">Deschideți harta</Link>
                             </div>
                             <div className="foot">
-                                <Link to="/#">
-                                    <img src={iconMap} alt=""/>
-                                </Link>
+                                <img src={iconMap} onClick={handleShowMap} alt=""/>
                             </div>
                         </div>
                     </div>
@@ -182,6 +183,22 @@ function Property() {
                         </div>
                     </div>
                 </div>
+
+                {/*** Gallery ***/}
+                <Modal show={showGallery} onHide={handleCloseGallery} fullscreen centered>
+                    <Modal.Header data-bs-theme="dark" closeButton/>
+                    <Modal.Body>
+                        <Gallery/>
+                    </Modal.Body>
+                </Modal>
+
+                {/*** Map ***/}
+                <Modal show={showMap} onHide={handleCloseMap} fullscreen centered>
+                    <Modal.Header data-bs-theme="dark" closeButton/>
+                    <Modal.Body>
+                        <Map/>
+                    </Modal.Body>
+                </Modal>
             </Main>
         </>
     )

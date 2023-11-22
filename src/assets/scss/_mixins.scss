@@ -1,11 +1,11 @@
 @use "sass:selector";
 
 // Container
-@mixin container($child) {
+@mixin container($child, $gap: .5rem) {
     @at-root #{selector.unify(&, $child)} {
         .app-container > & {
-            margin-left:  .5rem;
-            margin-right: .5rem;
+            margin-left:  $gap;
+            margin-right: $gap;
         }
     }
 }

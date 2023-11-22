@@ -1,0 +1,131 @@
+@import "typography";
+
+//**********************************************
+// App Col
+//**********************************************
+
+.app-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > .head {
+        padding-right: .5rem;
+    }
+
+    > .body {
+        flex-grow: 1;
+    }
+
+    > .foot {
+        padding-left: .5rem;
+    }
+}
+
+//**********************************************
+// App List
+//**********************************************
+
+.app-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+
+    &.app-card {
+        padding-bottom: .5rem;
+    }
+
+    > .list-item {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        @extend .row, .mx-0;
+
+        // 1 from 2 columns
+        > :first-child:nth-last-child(2):not(.head):not(.body) {
+            @extend %__t-list-key;
+            @extend .ps-0, .py-2, .col-7;
+        }
+
+        // 2 from 2 columns
+        > :last-child:nth-child(2):not(.foot):not(.body) {
+            @extend %__t-list-value;
+            @extend .pe-0, .py-2, .col-5;
+        }
+
+        // 4 columns
+        > :first-child:nth-last-child(4),
+        > :nth-child(2):nth-last-child(3),
+        > :nth-child(3):nth-last-child(2),
+        > :last-child:nth-child(4) {
+            @extend .px-0, .col-3;
+        }
+
+        > .head {
+            @extend .ps-0, .col-auto;
+        }
+
+        > .body {
+            flex-grow: 1;
+            @extend .px-0, .col-auto;
+        }
+
+        > .foot {
+            @extend .pe-0, .col-auto;
+        }
+    }
+}
+
+//**********************************************
+// App Row
+//**********************************************
+
+.app-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > .head {
+        padding-right: .5rem;
+    }
+
+    > .body {
+        flex-grow: 1;
+    }
+
+    > .foot {
+        padding-left: .5rem;
+    }
+}
+
+//**********************************************
+// App Bar
+//**********************************************
+
+.app-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+
+    > .head {
+        padding-right: .5rem;
+    }
+
+    > .body {
+        flex-grow: 1;
+    }
+
+    > .foot {
+        padding-left: .5rem;
+    }
+}

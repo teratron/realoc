@@ -2,16 +2,22 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
-import * as path from 'path'
-//import pkg from './package.json'
+import * as paths from 'path'
+
+const root = paths.resolve(__dirname, './')
+export const path = {
+    root: root,
+    src: paths.resolve(root, 'src'),
+    build: paths.resolve(root, 'dist'),
+    public: paths.resolve(root, 'public')
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    root: './src',
-    //base: pkg.homepage,
-    base: './',
-    publicDir: '../public',
-    //appType: 'spa',
+    base: '/',
+    root: path.src,
+    publicDir: path.public,
+    appType: 'spa',
     plugins: [
         react()
     ],
@@ -31,12 +37,12 @@ export default defineConfig({
         }
     },
     build: {
-        outDir: '../dist',
+        outDir: path.build,
         emptyOutDir: true,
         manifest: 'resource.json',
         rollupOptions: {
             input: {
-                main: path.resolve(__dirname, 'src/index.html'),
+                main: path.src + '/index.html',
             },
             output: {
                 entryFileNames: 'assets/js/[name].[hash].js',

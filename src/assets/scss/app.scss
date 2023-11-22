@@ -1,9 +1,11 @@
 // Bootstrap
 @import "bootstrap";
 
-// Mixins
+// Application Modules
 @import "mixins";
 @import "typography";
+@import "layot";
+@import "form";
 
 //**********************************************
 // Variables
@@ -190,13 +192,13 @@ body {
     > .navbar {
         background-color: white;
         box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, .1);
+        padding-top:    0;
+        padding-bottom: 0;
 
         @extend .fixed-bottom, .navbar-expand;
 
         &, > .app-container {
             min-height:     $footer-height;
-            padding-top:    0;
-            padding-bottom: 0;
         }
 
         > .app-container {
@@ -206,8 +208,6 @@ body {
             justify-content:       center;
             grid-template-columns: 1fr;
             justify-items:         stretch;
-
-            @include container(&); // TODO:
         }
 
         .btn {
@@ -217,6 +217,7 @@ body {
 
             @extend %__t-button-lg;
             @extend .btn-lg;
+            @include container(&, 1rem);
 
             &, &.btn-primary {
                 color:            white;
@@ -236,135 +237,13 @@ body {
 }
 
 //**********************************************
-// App Col, List
-//**********************************************
-
-.app-col {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    > .head {
-        padding-right: .5rem;
-    }
-
-    > .body {
-        flex-grow: 1;
-    }
-
-    > .foot {
-        padding-left: .5rem;
-    }
-}
-
-.app-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: stretch;
-
-    &.app-card {
-        padding-bottom: .5rem;
-    }
-
-    > .list-item {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-
-        @extend .row, .mx-0;
-
-        // 1 from 2 columns
-        > :first-child:nth-last-child(2):not(.head):not(.body) {
-            @extend %__t-list-key;
-            @extend .ps-0, .py-2, .col-7;
-        }
-
-        // 2 from 2 columns
-        > :last-child:nth-child(2):not(.foot):not(.body) {
-            @extend %__t-list-value;
-            @extend .pe-0, .py-2, .col-5;
-        }
-
-        // 4 columns
-        > :first-child:nth-last-child(4),
-        > :nth-child(2):nth-last-child(3),
-        > :nth-child(3):nth-last-child(2),
-        > :last-child:nth-child(4) {
-            @extend .px-0, .col-3;
-        }
-
-        > .head {
-            @extend .ps-0, .col-auto;
-        }
-
-        > .body {
-            flex-grow: 1;
-            @extend .px-0, .col-auto;
-        }
-
-        > .foot {
-            @extend .pe-0, .col-auto;
-        }
-    }
-}
-
-//**********************************************
-// App Row, Bar
-//**********************************************
-
-.app-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    > .head {
-        padding-right: .5rem;
-    }
-
-    > .body {
-        flex-grow: 1;
-    }
-
-    > .foot {
-        padding-left: .5rem;
-    }
-}
-
-.app-bar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: stretch;
-
-    > .head {
-        padding-right: .5rem;
-    }
-
-    > .body {
-        flex-grow: 1;
-    }
-
-    > .foot {
-        padding-left: .5rem;
-    }
-}
-
-//**********************************************
 // App Card
 //**********************************************
 
 .app-card {
     padding:    1rem;
     border: 1px solid #e3e3e3;
-    border-radius: .5rem;
+    border-radius: .625rem;
     background-color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
 
@@ -406,59 +285,6 @@ body {
 }
 
 //**********************************************
-// App Form
-//**********************************************
-
-.app-form {
-    @extend .app-content, .form !optional;
-
-    .form-label,
-    .form-check-label {
-        font-size:   .9rem; // TODO:
-        font-weight: 500;
-        width:       100%;
-        color:       #344054; // TODO:
-
-        > .foot, > .feedback {
-            @extend .float-end, .ms-2;
-        }
-
-        > .feedback.show + .foot {
-            @extend .d-none;
-        }
-
-        > .foot {
-            @extend .d-block, .text-body-tertiary;
-        }
-
-        @extend .clearfix;
-    }
-
-    .form-control,
-    .form-select {
-        font-size:        0.9rem;
-        color:            var(--bs-body-color);
-        border:           1px solid #d0d5dd;
-        border-radius:    6px;
-        background-color: white;
-        box-shadow:       0 1px 2px 0 rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-group {
-        @extend .d-flex;
-    }
-
-    .feedback {
-        color: var(--bs-danger);
-        display: none;
-
-        &.show {
-            display: block;
-        }
-    }
-}
-
-//**********************************************
 // Carousel
 //**********************************************
 
@@ -492,11 +318,16 @@ body {
 //**********************************************
 
 .btn {
+    border-radius: .5rem;
     position: relative;
 
     > .badge {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transform: translate(-50%, -50%);
+
         @extend .rounded-pill, .bg-danger;
-        @extend .position-absolute, .top-0, .start-100, .translate-middle;
     }
 }
 

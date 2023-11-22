@@ -1,0 +1,52 @@
+//**********************************************
+// App Form
+//**********************************************
+
+.app-form {
+    @extend .app-content, .form !optional;
+
+    .form-label,
+    .form-check-label {
+        font-size:   .9rem; // TODO:
+        font-weight: 500;
+        width:       100%;
+        color:       #344054; // TODO:
+
+        > .foot, > .feedback {
+            @extend .float-end, .ms-2;
+        }
+
+        > .feedback.show + .foot {
+            @extend .d-none;
+        }
+
+        > .foot {
+            @extend .d-block, .text-body-tertiary;
+        }
+
+        @extend .clearfix;
+    }
+
+    .form-control,
+    .form-select {
+        font-size:        0.9rem;
+        color:            var(--bs-body-color);
+        border:           1px solid #d0d5dd;
+        border-radius:    6px;
+        background-color: white;
+        box-shadow:       0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-group {
+        @extend .d-flex;
+    }
+
+    .feedback {
+        color: var(--bs-danger);
+        display: none;
+
+        &.show {
+            display: block;
+        }
+    }
+}
