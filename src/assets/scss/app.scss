@@ -254,7 +254,7 @@ body {
         align-items: center;
     }
 
-    &-item {
+    > .list-item {
         @extend .row, .mx-0;
 
         // 1 from 2 columns
@@ -278,21 +278,14 @@ body {
         }
 
         > .head {
-            @extend .col;
             @extend .ps-0, .col-auto;
         }
 
         > .body {
-            @extend .col;
             @extend .px-0, .col;
-
-            &.card-text > a {
-                @extend .d-block, .mt-2;
-            }
         }
 
         > .foot {
-            @extend .col;
             @extend .pe-0, .col-auto;
         }
     }
@@ -321,19 +314,23 @@ body {
 //**********************************************
 
 .app-card {
-    background-color: white;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
+    padding:    1rem;
     border: 1px solid #e3e3e3;
     border-radius: .5rem;
-    padding:    1rem;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
 
-    &-title {
+    > .card-title {
         @extend %__t-card-title;
         @extend .mb-3;
     }
 
-    &-text {
+    > .card-text {
         @extend %__t-card-text;
+
+        > a.d-block {
+            @extend .mt-2;
+        }
     }
 
     > :only-child,
@@ -356,90 +353,6 @@ body {
 
         > img {
             @extend .me-2;
-        }
-    }
-}
-
-.summary {
-    > .badges {
-        flex-wrap: wrap;
-
-        @extend .d-flex, .mb-3;
-
-        > .badge {
-            align-items:   center;
-            flex-wrap:     nowrap;
-            height:        1.375rem;
-            padding-right: .375rem;
-            padding-left:  .375rem;
-            border-radius: .15rem;
-
-            @extend %__t-badge-summary;
-            @extend .d-flex, .me-2, .mb-1, .py-0;
-
-            &, &.bg-secondary {
-                background-color: #f2f4f7 !important;
-            }
-
-            &.bg-success {
-                background-color: #ebfbf1 !important;
-            }
-
-            &.bg-warning {
-                background-color: #fff4d0 !important;
-            }
-
-            > img {
-                @extend .me-1;
-            }
-        }
-    }
-
-    > .price {
-        @extend %__t-price-summary;
-        @extend .mb-4;
-
-        > small {
-            @extend %__t-price-summary-small;
-            @extend .ps-1;
-        }
-    }
-
-    > .info {
-        align-items:     stretch;
-        flex-direction:  row;
-        flex-wrap:       nowrap;
-        justify-content: space-between;
-
-        @extend .d-flex;
-
-        > .app-list {
-            > * {
-                overflow-x:      hidden;
-                flex-wrap:       nowrap;
-                justify-content: flex-start;
-                white-space:     nowrap;
-
-                @extend .d-flex;
-            }
-
-            > .media {
-                align-items: flex-start;
-                min-height:  1.625rem;
-            }
-
-            > .key {
-                align-items: center;
-
-                @extend %__t-stack-summary-small;
-                @extend .py-2;
-            }
-
-            > .value {
-                align-items: flex-end;
-
-                @extend %__t-card-subtitle;
-            }
         }
     }
 }
@@ -558,6 +471,95 @@ body {
 
             > img {
                 @extend .rounded, .img-fluid;
+            }
+        }
+    }
+}
+
+
+//**********************************************
+// Property summary
+//**********************************************
+
+.property-summary {
+    > .badges {
+        flex-wrap: wrap;
+
+        @extend .d-flex, .mb-3;
+
+        > .badge {
+            align-items:   center;
+            flex-wrap:     nowrap;
+            height:        1.375rem;
+            padding-right: .375rem;
+            padding-left:  .375rem;
+            border-radius: .15rem;
+
+            @extend %__t-badge-summary;
+            @extend .d-flex, .me-2, .mb-1, .py-0;
+
+            &, &.bg-secondary {
+                background-color: #f2f4f7 !important;
+            }
+
+            &.bg-success {
+                background-color: #ebfbf1 !important;
+            }
+
+            &.bg-warning {
+                background-color: #fff4d0 !important;
+            }
+
+            > img {
+                @extend .me-1;
+            }
+        }
+    }
+
+    > .price {
+        @extend %__t-price-summary;
+        @extend .mb-4;
+
+        > small {
+            @extend %__t-price-summary-small;
+            @extend .ps-1;
+        }
+    }
+
+    > .info {
+        align-items:     stretch;
+        flex-direction:  row;
+        flex-wrap:       nowrap;
+        justify-content: space-between;
+
+        @extend .d-flex;
+
+        > .app-list {
+            > * {
+                overflow-x:      hidden;
+                flex-wrap:       nowrap;
+                justify-content: flex-start;
+                white-space:     nowrap;
+
+                @extend .d-flex;
+            }
+
+            > .media {
+                align-items: flex-start;
+                min-height:  1.625rem;
+            }
+
+            > .key {
+                align-items: center;
+
+                @extend %__t-stack-summary-small;
+                @extend .py-2;
+            }
+
+            > .value {
+                align-items: flex-end;
+
+                @extend %__t-card-subtitle;
             }
         }
     }

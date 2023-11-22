@@ -12,7 +12,7 @@ import iconNote from '../assets/media/icon_note_grey_circle.svg'
 import iconSearch from '../assets/media/icon_search.svg'
 import iconLocation from '../assets/media/icon_location_house.svg'
 
-export const title: string = 'Add Sale'
+const title: string = 'Add Sale'
 
 function Star() {
     return <img src={iconStar} alt=""/>

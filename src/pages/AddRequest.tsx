@@ -6,7 +6,7 @@ import Main from '../containers/Main'
 // Media
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 
-export const title: string = 'Add Request'
+const title: string = 'Add Request'
 
 function AddRequest() {
     const [count, setCount] = useState(254)
