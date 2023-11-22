@@ -3,8 +3,8 @@
 const base: string  = './'//__VITE_COMMAND__ === 'build' ? './' : '/'
 
 // Paths
-export const JS: string = base + 'assets/js'
-export const CSS: string = base + 'assets/css'
+//export const JS: string = base + 'assets/js'
+//export const CSS: string = base + 'assets/css'
 export const MEDIA: string = base + 'assets/media'
 
 // Variables

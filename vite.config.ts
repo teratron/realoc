@@ -16,18 +16,12 @@ export const path = {
 export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
     console.log('Config arguments:', command, mode, isSsrBuild, isPreview)
 
-    // build:   command='build', mode='production'
-    // dev:     command='serve', mode='development'
-    // preview: command='serve', mode='production'
-
-    //const env = loadEnv(mode, process.cwd(), '')
-    //console.log(process.env)
+    // build      command='build', mode='production'
+    // build:dev  command='build', mode='development'
+    // dev        command='serve', mode='development'
+    // preview    command='serve', mode='production'
 
     return {
-        /*define: {
-            //__VITE_COMMAND__: command,
-            // __VITE_MODE__: mode
-        },*/
         base: command === 'serve' ? '/' : './',
         root: path.src,
         publicDir: path.public,
@@ -46,13 +40,14 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             open: 'realoc',
         },
         css: {
+            devSourcemap: true,
             postcss: {
                 plugins: [
                     autoprefixer({})
                 ]
             }
         },
-        minify: command === 'build' ? 'terser' : false,
+        minify: mode === 'development' ? false : 'terser',
         sourcemap: command === 'serve' ? 'inline' : false,
         build: {
             outDir: path.build,
@@ -65,7 +60,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
                 output: {
                     entryFileNames: 'assets/js/[name].[hash].js',
                     chunkFileNames: 'assets/js/[name].[hash].js',
-                    assetFileNames: assetInfo => {
+                    assetFileNames: (assetInfo) => {
                         const info = assetInfo.name?.split('.')
                         let ext: string = info![info!.length - 1]
                         if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {

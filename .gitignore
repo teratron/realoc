@@ -31,9 +31,10 @@ coverage
 
 # Misc
 .DS_Store
+*.pem
 .env
 .env.*
-*.pem
+!.env.vault
 
 # Next.js
 .next

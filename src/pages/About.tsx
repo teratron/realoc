@@ -9,6 +9,7 @@ function About() {
         <>
             <Header title={title}/>
             <Main>
+                <div>{import.meta.env.VITE_SOME_KEY}</div>
             </Main>
             <Footer/>
         </>

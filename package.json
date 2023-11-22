@@ -2,7 +2,7 @@
   "name": "realoc",
   "description": "Realoc - real estate bot app",
   "private": true,
-  "version": "0.0.44",
+  "version": "0.0.50",
   "type": "module",
   "keywords": [
     "realoc",
@@ -15,6 +15,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode development",
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy:gh": "gh-pages -d dist",

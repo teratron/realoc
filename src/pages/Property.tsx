@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import {Link} from 'react-router-dom'
 import {Carousel, Modal} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
@@ -106,7 +105,11 @@ function Property() {
                         <div className="app-row">
                             <div className="body card-text">
                                 Chișinău mun., Chișinău, Botanica, bd. Dacia 11/1 <img src={iconCopy} alt=""/>
-                                <Link to="/#" className="d-block">Deschideți harta</Link>
+                                <button
+                                    type="button"
+                                    className="btn btn-link d-block"
+                                    onClick={handleShowMap}>Deschideți harta
+                                </button>
                             </div>
                             <div className="foot">
                                 <img src={iconMap} onClick={handleShowMap} alt=""/>

@@ -1,6 +1,6 @@
-//import React from 'react'
+import React from 'react'
 import {Outlet, Route, Routes} from 'react-router-dom'
-//import Spinner from '../components/Spinner'
+import Spinner from '../components/Spinner'
 import '../assets/scss/app.scss'
 
 // Pages
@@ -17,7 +17,7 @@ function Layout() {
 
 function App() {
     return (
-
+        <React.Suspense fallback={<Spinner/>}>
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
@@ -28,7 +28,7 @@ function App() {
                     <Route path="*" element={<NoMatch/>}/>
                 </Route>
             </Routes>
-
+        </React.Suspense>
     )
 }
 
