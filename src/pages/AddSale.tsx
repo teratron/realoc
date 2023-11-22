@@ -44,7 +44,7 @@ function AddSale() {
                         salePrice: '',
                         area: '',
                         location: '',
-                        photos: '',
+                        addPhoto: '',
                         levels: '',
                         numberLevels: ''
                     }}
@@ -227,8 +227,8 @@ function AddSale() {
                                     </Form.Group>
 
                                     <Form.Group className="map-thumb">
-                                        <img className="backdrop" src={`${conf.MEDIA}/thumb_map.png`} alt=""/>
-                                        <img className="overlay" src={iconLocation} alt=""/>
+                                        <img className="map-preview" src={`${conf.MEDIA}/thumb_map.png`} alt=""/>
+                                        <img className="map-overlay" src={iconLocation} alt=""/>
                                     </Form.Group>
                             </div>
 
@@ -236,9 +236,9 @@ function AddSale() {
                              * Photo Block
                              *******************************************************/}
                             <div className="app-card">
-                                <Form.Group controlId="photos">
+                                <Form.Group controlId="add-photo">
                                     <Form.Label>Fotografie<Star/>
-                                        <Feedback dataName="photos"/>
+                                        <Feedback dataName="addPhoto"/>
                                         <span className="foot">5/{conf.MAX_PHOTOS}</span>
                                     </Form.Label>
                                     <div className="gallery-thumb">
@@ -260,10 +260,10 @@ function AddSale() {
                                     </div>
                                     <Form.Control
                                         type="file"
-                                        name="photos"
+                                        name="addPhoto"
                                         multiple
                                         onChange={handleChange}
-                                        isInvalid={touched.photos && !!errors.photos}/>
+                                        isInvalid={touched.addPhoto && !!errors.addPhoto}/>
                                 </Form.Group>
 
                                 <div className="alert alert-light">

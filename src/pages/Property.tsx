@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {Carousel, Modal} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
-import * as conf from '../config.ts'
+import {MEDIA} from '../config.ts'
 
 // Media
 import iconCheck from '../assets/media/icon_check_green_circle.svg'
@@ -17,7 +17,7 @@ import iconSelected from '../assets/media/icon_selected.svg'
 import imgEmpty from '../assets/media/empty.png'
 import imgEmpty16x9 from '../assets/media/empty_16x9.png'
 
-export const title: string = 'Property'
+const title: string = 'Property'
 
 function Property() {
     const [showGallery, setShowGalleryGallery] = useState(false)
@@ -26,9 +26,9 @@ function Property() {
 
     function Gallery() {
         const slides = [
-            `${conf.MEDIA}/plug_room_01.jpg`,
-            `${conf.MEDIA}/plug_room_01.jpg`,
-            `${conf.MEDIA}/plug_room_01.jpg`
+            `${MEDIA}/plug_room_01.jpg`,
+            `${MEDIA}/plug_room_01.jpg`,
+            `${MEDIA}/plug_room_01.jpg`
         ]
         const numSlides = slides.length
 
@@ -39,7 +39,7 @@ function Property() {
                         <img
                             src={imgEmpty16x9}
                             className="photo-backdrop"
-                            style={{backgroundImage: `url(${value}`}}
+                            style={{backgroundImage: `url(${value})`}}
                             onClick={handleShowGallery}
                             alt=""/>
                         <Carousel.Caption>{index + 1}/{numSlides}</Carousel.Caption>
@@ -57,7 +57,7 @@ function Property() {
         return <img
             src={imgEmpty}
             className="map-backdrop"
-            style={{backgroundImage: `url(${conf.MEDIA}/thumb_map.png)`}}
+            style={{backgroundImage: `url(${MEDIA}/thumb_map.png)`}}
             alt=""/>
     }
 

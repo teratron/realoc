@@ -311,6 +311,14 @@ body {
 
     .btn-close {
     }
+
+    &-gallery {
+
+    }
+
+    &-map {
+
+    }
 }
 
 //**********************************************
@@ -338,27 +346,23 @@ body {
 .map {
     &-thumb {
         @extend .position-relative;
+    }
 
-        > .backdrop {
-            @extend .border, .rounded, .img-fluid, .w-100;
-        }
+    &-preview {
+        @extend .border, .rounded, .img-fluid, .w-100;
+    }
 
-        > .overlay {
-            top:   calc(50% - 18px);
-            right: calc(50% - 15px);
+    &-overlay {
+        top:   calc(50% - 18px);
+        right: calc(50% - 15px);
 
-            @extend .position-absolute;
-        }
+        @extend .position-absolute;
     }
 
     &-backdrop {
         @extend .img-wrapper;
 
         height: 100%;
-    }
-
-    .modal-& {
-
     }
 }
 
@@ -377,10 +381,6 @@ body {
                 @extend .rounded, .img-fluid;
             }
         }
-    }
-
-    .modal-& {
-
     }
 }
 

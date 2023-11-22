@@ -1,9 +1,11 @@
 // Configuration
 
+const base: string  = './'//__VITE_COMMAND__ === 'build' ? './' : '/'
+
 // Paths
-export const JS: string = '/assets/js'
-export const CSS: string = '/assets/css'
-export const MEDIA: string = '/assets/media'
+export const JS: string = base + 'assets/js'
+export const CSS: string = base + 'assets/css'
+export const MEDIA: string = base + 'assets/media'
 
 // Variables
 export const MAX_PHOTOS: number = 10

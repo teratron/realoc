@@ -13,51 +13,70 @@ export const path = {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
-    base: '/',
-    root: path.src,
-    publicDir: path.public,
-    appType: 'spa',
-    plugins: [
-        react()
-    ],
-    css: {
-        postcss: {
-            plugins: [
-                autoprefixer()
-            ]
-        }
-    },
-    server: {
-        open: 'realoc',
-        warmup: {
-            clientFiles: [
-                'src/**/*.tsx'
-            ]
-        }
-    },
-    build: {
-        outDir: path.build,
-        emptyOutDir: true,
-        manifest: 'resource.json',
-        rollupOptions: {
-            input: {
-                main: path.src + '/index.html',
-            },
-            output: {
-                entryFileNames: 'assets/js/[name].[hash].js',
-                chunkFileNames: 'assets/js/[name].[hash].js',
-                assetFileNames: assetInfo => {
-                    const info = assetInfo.name?.split('.')
-                    let ext: string = info![info!.length - 1]
-                    if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
-                        ext = 'media'
-                    } else if (/(sa|sc|c)ss/i.test(ext)) {
-                        ext = 'css'
-                    } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
-                        ext = 'fonts'
-                    } else ext = ''
-                    return `assets/${ext}/[name].[hash][extname]`
+export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
+    console.log('Config arguments:', command, mode, isSsrBuild, isPreview)
+
+    // build:   command='build', mode='production'
+    // dev:     command='serve', mode='development'
+    // preview: command='serve', mode='production'
+
+    //const env = loadEnv(mode, process.cwd(), '')
+    //console.log(process.env)
+
+    return {
+        /*define: {
+            //__VITE_COMMAND__: command,
+            // __VITE_MODE__: mode
+        },*/
+        base: command === 'serve' ? '/' : './',
+        root: path.src,
+        publicDir: path.public,
+        plugins: [
+            react()
+        ],
+        server: {
+            open: 'realoc',
+            warmup: {
+                clientFiles: [
+                    'src/!**!/!*.tsx'
+                ]
+            }
+        },
+        preview: {
+            open: 'realoc',
+        },
+        css: {
+            postcss: {
+                plugins: [
+                    autoprefixer({})
+                ]
+            }
+        },
+        minify: command === 'build' ? 'terser' : false,
+        sourcemap: command === 'serve' ? 'inline' : false,
+        build: {
+            outDir: path.build,
+            emptyOutDir: true,
+            manifest: command === 'build' ? 'resource.json' : false,
+            rollupOptions: {
+                input: {
+                    main: path.src + '/index.html',
+                },
+                output: {
+                    entryFileNames: 'assets/js/[name].[hash].js',
+                    chunkFileNames: 'assets/js/[name].[hash].js',
+                    assetFileNames: assetInfo => {
+                        const info = assetInfo.name?.split('.')
+                        let ext: string = info![info!.length - 1]
+                        if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
+                            ext = 'media'
+                        } else if (/(sa|sc|c)ss/i.test(ext)) {
+                            ext = 'css'
+                        } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
+                            ext = 'fonts'
+                        } else ext = ''
+                        return `assets/${ext}/[name].[hash][extname]`
+                    }
                 }
             }
         }
