@@ -22,7 +22,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
     // preview    command='serve', mode='production'
 
     return {
-        base: command === 'serve' ? '/' : './',
+        base: command === 'serve' ? '/' : '/',
         root: path.src,
         publicDir: path.public,
         plugins: [
