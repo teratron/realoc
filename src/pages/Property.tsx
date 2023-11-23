@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {Carousel, Modal} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
-import {URL_MEDIA} from '../config.ts'
+import {MEDIA_URL} from '../config.ts'
 
 // Media
 import iconCheck from '../assets/media/icon_check_green_circle.svg'
@@ -25,9 +25,9 @@ function Property() {
 
     function Gallery() {
         const slides = [
-            `${URL_MEDIA}/plug_room_01.jpg`,
-            `${URL_MEDIA}/plug_room_01.jpg`,
-            `${URL_MEDIA}/plug_room_01.jpg`
+            `${MEDIA_URL}/plug_room_01.jpg`,
+            `${MEDIA_URL}/plug_room_01.jpg`,
+            `${MEDIA_URL}/plug_room_01.jpg`
         ]
         const numSlides = slides.length
 
@@ -56,7 +56,7 @@ function Property() {
         return <img
             src={imgEmpty}
             className="map-backdrop"
-            style={{backgroundImage: `url(${URL_MEDIA}/thumb_map.png)`}}
+            style={{backgroundImage: `url(${MEDIA_URL}/thumb_map.png)`}}
             alt=""/>
     }
 

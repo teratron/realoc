@@ -2,8 +2,8 @@ import React from 'react'
 import {Outlet, Route, Routes, BrowserRouter} from 'react-router-dom'
 import Spinner from './components/Spinner'
 import './assets/scss/app.scss'
-//import './assets/ts/location.ts'
-//import './assets/ts/404.ts'
+//import {BASE_URL} from './config.ts'
+import app from '../package.json'
 
 // Pages
 import Home from './pages/Home'
@@ -19,8 +19,7 @@ function Layout() {
 
 function App() {
     return (
-        /*<BrowserRouter basename={import.meta.env.BASE_URL}>*/
-        <BrowserRouter basename="/realoc">
+        <BrowserRouter basename={app.name}>
             <React.Suspense fallback={<Spinner/>}>
                 <Routes>
                     <Route path="/" element={<Layout/>}>

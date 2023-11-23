@@ -229,7 +229,7 @@ function AddSale() {
                                     </Form.Group>
 
                                     <Form.Group className="map-thumb">
-                                        <img className="map-preview" src={`${conf.URL_MEDIA}/thumb_map.png`} alt=""/>
+                                        <img className="map-preview" src={`${conf.MEDIA_URL}/thumb_map.png`} alt=""/>
                                         <img className="map-overlay" src={iconLocation} alt=""/>
                                     </Form.Group>
                             </div>
@@ -245,19 +245,19 @@ function AddSale() {
                                     </Form.Label>
                                     <div className="gallery-thumb">
                                         <div>
-                                            <img src={`${conf.URL_MEDIA}/plug_room_01.jpg`} alt=""/>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
                                         </div>
                                         <div>
-                                            <img src={`${conf.URL_MEDIA}/plug_room_01.jpg`} alt=""/>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
                                         </div>
                                         <div>
-                                            <img src={`${conf.URL_MEDIA}/plug_room_01.jpg`} alt=""/>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
                                         </div>
                                         <div>
-                                            <img src={`${conf.URL_MEDIA}/plug_room_01.jpg`} alt=""/>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
                                         </div>
                                         <div>
-                                            <img src={`${conf.URL_MEDIA}/plug_room_01.jpg`} alt=""/>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
                                         </div>
                                     </div>
                                     <Form.Control

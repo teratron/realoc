@@ -3,6 +3,7 @@ import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
 import * as paths from 'path'
+import app from './package.json'
 
 const root = paths.resolve(__dirname, './')
 export const path = {
@@ -29,7 +30,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             react()
         ],
         server: {
-            open: 'realoc',
+            open: app.name,
             warmup: {
                 clientFiles: [
                     'src/!**!/!*.tsx'
@@ -37,7 +38,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             }
         },
         preview: {
-            open: 'realoc',
+            open: app.name,
         },
         test: {
         },
@@ -57,8 +58,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             manifest: command === 'build' ? 'resource.json' : false,
             rollupOptions: {
                 input: {
-                    main: path.src + '/index.html',
-                    //location: path.src + '/assets/ts/location.ts'
+                    main: path.src + '/index.html'
                 },
                 output: {
                     entryFileNames: 'assets/js/[name].[hash].js',

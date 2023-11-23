@@ -20,21 +20,22 @@ Build for production:
 npm run build
 ```
 
-Code review:
-
-```shell
-npm run lint
-```
-
 Deploying the distribution on GitHub Pages:
 
 ```shell
 npm run deploy:gh
 ```
 
+Code review:
+
+```shell
+npm run lint
+```
+
 ## References
 
 - [Vite](https://vitejs.dev)
+- [TypeScript](https://www.typescriptlang.org)
 - [React](https://react.dev)
   * [React Router](https://reactrouter.com)
   * [React Bootstrap](https://react-bootstrap.github.io)
