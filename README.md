@@ -32,12 +32,6 @@ Deploying the distribution on GitHub Pages:
 npm run deploy:gh
 ```
 
-Build and deploy distribution to GitHub Pages:
-
-```shell
-npm run build-deploy:gh
-```
-
 ## References
 
 - [Vite](https://vitejs.dev)

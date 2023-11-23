@@ -2,7 +2,7 @@
   "name": "realoc",
   "description": "Realoc - real estate bot app",
   "private": true,
-  "version": "0.0.50",
+  "version": "0.0.90",
   "type": "module",
   "keywords": [
     "realoc",
@@ -18,15 +18,12 @@
     "build:dev": "tsc && vite build --mode development",
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy:gh": "gh-pages -d dist",
-    "build-deploy:gh": "npm run build && npm run deploy:gh"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.19.0"
+    "deploy:gh": "gh-pages -d dist"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.19.0",
     "@popperjs/core": "^2.11.8",
     "@types/node": "^20.9.4",
     "@types/react": "^18.2.37",
@@ -45,9 +42,7 @@
     "postcss": "^8.4.31",
     "react-bootstrap": "^2.9.1",
     "sass": "^1.69.5",
-    "vite": "^5.0.0"
-  },
-  "peerDependencies": {
+    "vite": "^5.0.0",
     "typescript": "^5.2.2"
   }
 }

@@ -39,6 +39,8 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
         preview: {
             open: 'realoc',
         },
+        test: {
+        },
         css: {
             devSourcemap: true,
             postcss: {
@@ -55,12 +57,13 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             manifest: command === 'build' ? 'resource.json' : false,
             rollupOptions: {
                 input: {
-                    main: path.src + '/index.html'
+                    main: path.src + '/index.html',
+                    //location: path.src + '/assets/ts/location.ts'
                 },
                 output: {
                     entryFileNames: 'assets/js/[name].[hash].js',
                     chunkFileNames: 'assets/js/[name].[hash].js',
-                    assetFileNames: (assetInfo) => {
+                    assetFileNames: (assetInfo => {
                         const info = assetInfo.name?.split('.')
                         let ext: string = info![info!.length - 1]
                         if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|webm|mp3|wav/i.test(ext)) {
@@ -71,7 +74,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
                             ext = 'fonts'
                         } else ext = ''
                         return `assets/${ext}/[name].[hash][extname]`
-                    }
+                    })
                 }
             }
         }

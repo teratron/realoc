@@ -3,9 +3,9 @@
 const base: string  = './'//__VITE_COMMAND__ === 'build' ? './' : '/'
 
 // Paths
-//export const JS: string = base + 'assets/js'
-//export const CSS: string = base + 'assets/css'
-export const MEDIA: string = base + 'assets/media'
+//export const URL_JS: string = base + 'assets/js'
+//export const URL_CSS: string = base + 'assets/css'
+export const URL_MEDIA: string = base + 'assets/media'
 
 // Variables
 export const MAX_PHOTOS: number = 10

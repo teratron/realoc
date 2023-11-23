@@ -62,8 +62,10 @@ body {
     overflow-x:       hidden;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
-
-    @extend .position-sticky, .top-0, .py-0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
     &, > .app-container {
         height: $header-height;
