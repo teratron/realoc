@@ -7,11 +7,6 @@
     "file": "assets/media/logo.F9eUXiYu.svg",
     "src": "assets/media/logo.svg"
   },
-  "assets/ts/location.ts": {
-    "file": "assets/js/location.D9jvHjPH.js",
-    "isEntry": true,
-    "src": "assets/ts/location.ts"
-  },
   "index.html": {
     "assets": [
       "assets/media/logo.F9eUXiYu.svg",
@@ -20,10 +15,7 @@
     "css": [
       "assets/css/main.JDCMCeoK.css"
     ],
-    "file": "assets/js/main.RWNt1FKg.js",
-    "imports": [
-      "assets/ts/location.ts"
-    ],
+    "file": "assets/js/main.wRy0VZq4.js",
     "isEntry": true,
     "src": "index.html"
   }
