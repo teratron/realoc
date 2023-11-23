@@ -15,12 +15,14 @@
     <title>Realoc</title>
     <!--<script src="/assets/js/location.js"></script>-->
     <script type="text/javascript">
-        (loc => {
+        ((loc) => {
             if (loc.search[1] === '/') {
                 let decoded = loc.search
                     .slice(1)
                     .split('&')
-                    .map((s) => s.replace(/~and~/g, '&'))
+                    .map((s) => {
+                        return s.replace(/~and~/g, '&')
+                    })
                     .join('?')
                 window.history.replaceState(null, null, loc.pathname.slice(0, -1) + decoded + loc.hash)
             }

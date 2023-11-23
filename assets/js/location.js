@@ -4,7 +4,7 @@
         let decoded = loc.search
             .slice(1)
             .split('&')
-            .map((s) => s.replace(/~and~/g, '&'))
+            .map((val) => val.replace(/~and~/g, '&'))
             .join('?')
         window.history.replaceState(null, null, loc.pathname.slice(0, -1) + decoded + loc.hash)
     }
