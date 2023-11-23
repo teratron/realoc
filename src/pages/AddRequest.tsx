@@ -26,7 +26,7 @@ function AddRequest() {
                         <Form.Group controlId="transaction-type-1">
                             <Form.Label>Tip tranzacție</Form.Label>
                             <div>
-                                <ToggleButtonGroup type="radio" name="transactionType" defaultValue={1}>
+                                <ToggleButtonGroup className="form-tab" type="radio" name="transactionType" defaultValue={1}>
                                     <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
                                         De vânzare
                                     </ToggleButton>
@@ -54,7 +54,7 @@ function AddRequest() {
                         <Form.Group>
                             <Form.Label htmlFor="housing-stock-1">Fond locativ</Form.Label>
                             <div>
-                                <ToggleButtonGroup type="radio" name="housingStock" defaultValue={1}>
+                                <ToggleButtonGroup className="form-tab" type="radio" name="housingStock" defaultValue={1}>
                                     <ToggleButton variant="outline-primary" id="housing-stock-1" value={1}>
                                         Construcții noi
                                     </ToggleButton>
@@ -78,6 +78,7 @@ function AddRequest() {
                                         label={value}
                                         value={value}
                                         name="numberRooms"
+                                        className="form-biscotte"
                                         inline/>
                                 ))}
                             </div>
@@ -180,6 +181,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="apartmentStatus"
+                                        className="form-biscotte"
                                         inline/>
                                 ))}
                             </div>
@@ -199,6 +201,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="furniture"
+                                        className="form-biscotte"
                                         inline/>
                                 ))}
                             </div>
@@ -241,6 +244,7 @@ function AddRequest() {
                                     type="checkbox"
                                     label={value}
                                     name="optionLevels"
+                                    className="form-biscotte"
                                     inline/>
                             ))}
                         </Form.Group>
@@ -278,6 +282,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="ascensor"
+                                        className="form-biscotte"
                                         inline/>
                                 ))}
                             </div>
@@ -323,6 +328,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="exploitation"
+                                        className="form-biscotte"
                                         inline/>
                                 ))}
                             </div>

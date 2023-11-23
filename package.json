@@ -2,7 +2,7 @@
   "name": "realoc",
   "description": "Realoc - real estate bot app",
   "private": true,
-  "version": "0.0.90",
+  "version": "0.0.64",
   "type": "module",
   "keywords": [
     "realoc",

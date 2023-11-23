@@ -145,12 +145,11 @@ body {
 
     > .app-container {
         height:         100%;
-        padding-right:  0;
-        padding-bottom: 1.25rem;
-        padding-left:   0;
+        padding:        $header-height 0 1.25rem;
+
 
         > :first-child:not(.carousel) {
-            margin-top: 2.5rem + $header-height;
+            margin-top: 2.5rem;
         }
 
         > :last-child {
@@ -293,12 +292,6 @@ body {
 .carousel {
     .app-container > & {
         @extend .mb-4;
-    }
-
-    &-item {
-        > img {
-            @extend .d-block, .w-100;
-        }
     }
 }
 

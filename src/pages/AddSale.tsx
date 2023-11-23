@@ -80,7 +80,7 @@ function AddSale() {
                                 <Form.Group controlId="transaction-type-1">
                                     <Form.Label>Tip tranzacție</Form.Label>
                                     <div>
-                                        <ToggleButtonGroup type="radio" name="transactionType" defaultValue={1}>
+                                        <ToggleButtonGroup className="form-tab" type="radio" name="transactionType" defaultValue={1}>
                                             <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
                                                 De vânzare
                                             </ToggleButton>
@@ -108,7 +108,7 @@ function AddSale() {
                                 <Form.Group controlId="housing-stock-1">
                                     <Form.Label>Fond locativ</Form.Label>
                                     <div>
-                                        <ToggleButtonGroup type="radio" name="housingStock" defaultValue={1}>
+                                        <ToggleButtonGroup className="form-tab" type="radio" name="housingStock" defaultValue={1}>
                                             <ToggleButton variant="outline-primary" id="housing-stock-1" value={1}>
                                                 Construcții noi
                                             </ToggleButton>
