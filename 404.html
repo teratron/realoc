@@ -5,8 +5,7 @@
     <title>404</title>
     <script type="text/javascript">
         let pathSegmentsToKeep = 1
-        const loc = window.location
-
+        let loc = window.location
         loc.replace(
             loc.protocol + '//' +
             loc.hostname +
@@ -21,7 +20,7 @@
                 .slice(pathSegmentsToKeep)
                 .join('/')
                 .replace(/&/g, '~and~') +
-            loc.search ? '&' + loc.search.slice(1).replace(/&/g, '~and~') : '' +
+            (loc.search ? '&' + loc.search.slice(1).replace(/&/g, '~and~') : '') +
             loc.hash
         )
     </script>
