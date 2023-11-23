@@ -5,11 +5,10 @@
     <title>404</title>
     <script type="text/javascript">
         let pathSegmentsToKeep = 1
-        let loc = window.location
+        const loc = window.location
 
         loc.replace(
-            loc.protocol +
-            '//' +
+            loc.protocol + '//' +
             loc.hostname +
             (loc.port ? ':' + loc.port : '') +
             loc.pathname
