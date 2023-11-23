@@ -1,15 +1,15 @@
 import React from 'react'
 import {Outlet, Route, Routes, BrowserRouter} from 'react-router-dom'
-import Spinner from './components/Spinner.tsx'
+import Spinner from './components/Spinner'
 import './assets/scss/app.scss'
 
 // Pages
-import Home from './pages/Home.tsx'
-import AddRequest from './pages/AddRequest.tsx'
-import AddSale from './pages/AddSale.tsx'
-import Property from './pages/Property.tsx'
-import About from './pages/About.tsx'
-import NoMatch from './pages/404.tsx'
+import Home from './pages/Home'
+import AddRequest from './pages/AddRequest'
+import AddSale from './pages/AddSale'
+import Property from './pages/Property'
+import About from './pages/About'
+import NoMatch from './pages/404'
 
 function Layout() {
     return <Outlet/>

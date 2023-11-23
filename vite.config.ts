@@ -55,7 +55,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             manifest: command === 'build' ? 'resource.json' : false,
             rollupOptions: {
                 input: {
-                    main: path.src + '/index.html',
+                    main: path.src + '/index.html'
                 },
                 output: {
                     entryFileNames: 'assets/js/[name].[hash].js',

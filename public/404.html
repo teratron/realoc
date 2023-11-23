@@ -8,8 +8,7 @@
         const loc = window.location
 
         loc.replace(
-            loc.protocol +
-            '//' +
+            loc.protocol + '//' +
             loc.hostname +
             (loc.port ? ':' + loc.port : '') +
             loc.pathname
@@ -22,7 +21,7 @@
                 .slice(pathSegmentsToKeep)
                 .join('/')
                 .replace(/&/g, '~and~') +
-            (loc.search ? '&' + loc.search.slice(1).replace(/&/g, '~and~') : '') +
+            loc.search ? '&' + loc.search.slice(1).replace(/&/g, '~and~') : '' +
             loc.hash
         )
     </script>
