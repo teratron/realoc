@@ -29,16 +29,16 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             react()
         ],
         server: {
-            //open: 'realoc',
+            open: 'realoc',
             warmup: {
                 clientFiles: [
                     'src/!**!/!*.tsx'
                 ]
             }
         },
-        /*preview: {
+        preview: {
             open: 'realoc',
-        },*/
+        },
         css: {
             devSourcemap: true,
             postcss: {

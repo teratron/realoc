@@ -1,12 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter as Router} from 'react-router-dom'
-import App from './containers/App'
-//basename="/realoc"
+import App from './App'
+
 ReactDOM.createRoot(document.getElementById('app')!).render(
     <React.StrictMode>
-        <Router>
-            <App/>
-        </Router>
+        <App/>
     </React.StrictMode>
 )
