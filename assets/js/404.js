@@ -1,6 +1,7 @@
 // A crutch for problem 404 on GitHub Pages
 let pathSegmentsToKeep = 1
 let loc = window.location
+
 loc.replace(
     loc.protocol + '//' +
     loc.hostname +
