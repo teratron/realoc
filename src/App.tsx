@@ -2,7 +2,6 @@ import React from 'react'
 import {Outlet, Route, Routes, BrowserRouter} from 'react-router-dom'
 import Spinner from './components/Spinner'
 import './assets/scss/app.scss'
-//import {BASE_URL} from './config.ts'
 import app from '../package.json'
 
 // Pages

@@ -55,7 +55,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
         build: {
             outDir: path.build,
             emptyOutDir: true,
-            manifest: command === 'build' ? 'resource.json' : false,
+            manifest: command === 'build',
             rollupOptions: {
                 input: {
                     main: path.src + '/index.html'
