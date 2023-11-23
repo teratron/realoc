@@ -132,6 +132,7 @@ function AddSale() {
                                                 label={value}
                                                 value={value}
                                                 name="numberRooms"
+                                                className="form-biscotte"
                                                 inline
                                                 onChange={handleChange}
                                                 isInvalid={touched.numberRooms && !!errors.numberRooms}/>
@@ -183,6 +184,7 @@ function AddSale() {
                                                 label={value}
                                                 value={value}
                                                 name="mortgage"
+                                                className="form-biscotte"
                                                 inline/>
                                         ))}
                                     </div>
@@ -292,6 +294,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="apartmentStatus"
+                                                className="form-biscotte"
                                                 inline/>
                                         ))}
                                     </div>
@@ -311,6 +314,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="furniture"
+                                                className="form-biscotte"
                                                 inline/>
                                         ))}
                                     </div>
@@ -360,6 +364,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="ascensor"
+                                                className="form-biscotte"
                                                 inline/>
                                         ))}
                                     </div>
@@ -379,6 +384,7 @@ function AddSale() {
                                                 type="checkbox"
                                                 label={value}
                                                 name="parking"
+                                                className="form-biscotte"
                                                 inline/>
                                         ))}
                                     </div>
@@ -405,6 +411,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="exploitation"
+                                                className="form-biscotte"
                                                 inline/>
                                         ))}
                                     </div>

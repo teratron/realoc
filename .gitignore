@@ -32,9 +32,11 @@ coverage
 # Misc
 .DS_Store
 *.pem
-.env
+env/.env
 .env.*
 !.env.vault
+!.env.development
+!.env.production
 
 # Next.js
 .next
