@@ -271,6 +271,7 @@ function AddSale() {
                                         multiple
                                         onChange={handleChange}
                                         isInvalid={touched.addPhoto && !!errors.addPhoto}/>
+                                    <Form.Label>Adaugă fotografie</Form.Label>
                                 </Form.Group>
 
                                 <div className="alert alert-light">

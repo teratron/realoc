@@ -81,7 +81,23 @@ $custom-bg-color: #f2f4f7;
     }
 
     .form-add-photo {
+        position: relative;
+        height:   44px;
 
+        &:after {
+            background-color: rgba(47, 86, 255, .2);
+            border:           1px dashed rgba(47, 86, 255, .7);
+            border-radius:    8px;
+            content:          "";
+            position:         absolute;
+            top:              0;
+            bottom:           0;
+            left:             0;
+            right:            0;
+            display:          block;
+            width:            14px;
+            height:           14px;
+        }
     }
 
     .feedback {
