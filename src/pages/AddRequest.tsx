@@ -1,7 +1,9 @@
-import {useState} from 'react'
+import {FormEvent, useCallback, useState} from 'react'
 import {Form, InputGroup, ToggleButton, ToggleButtonGroup} from 'react-bootstrap'
+import debounce from 'lodash.debounce'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
+import {formData, search, searchCount} from '../api'
 
 // Media
 import iconSelectMap from '../assets/media/icon_select_map.svg'
@@ -11,13 +13,28 @@ const title: string = 'Add Request'
 function AddRequest() {
     const [count, setCount] = useState(254)
 
+    const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const searchResult = await search(formData(event.currentTarget))
+        console.log('formSubmitHandler', searchResult);
+    }
+
+    const formChangeHandler = async (event: FormEvent<HTMLFormElement>) => {
+        // @ts-ignore TS does not recognize .form
+        const form = event.target.form
+        const total = await searchCount(formData(form))
+        setCount(() => total)
+    }
+
+    const debouncedFormChangeHandler = useCallback(debounce(formChangeHandler, 1000), []);
+
     return (
         <>
             <Header title={title} idResetButton="add-request-form"/>
             <Main>
                 <h2>Caută imobiliare</h2>
 
-                <Form id="add-request-form" className="app-form">
+                <Form id="add-request-form" className="app-form" onSubmitCapture={formSubmitHandler} onChange={debouncedFormChangeHandler}>
 
                     {/******************************************************
                      * Transaction Block
@@ -340,7 +357,7 @@ function AddRequest() {
                             <button
                                 type="submit"
                                 className="btn btn-primary"
-                                onClick={() => setCount((count) => count + 1)}>
+                            >
                                 Afișați {count} de anunțuri
                             </button>
                         </div>
