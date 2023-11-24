@@ -3,32 +3,10 @@
 
 // Application Modules
 @import "mixins";
+@import "theme";
 @import "typography";
 @import "layot";
 @import "form";
-
-//**********************************************
-// Variables
-//**********************************************
-// 1rem = 16px, rate = 0.0625
-
-:root,
-[data-theme="light"] {
-    color-scheme:          light;
-    --app-header-bg-color: white;
-    --app-footer-bg-color: white;
-    --app-main-bg-color:   #F9F9F9;
-}
-
-[data-theme="dark"] {
-    color-scheme:          dark;
-    --app-header-bg-color: var(--bs-primary-rgb);
-    --app-footer-bg-color: var(--bs-primary-rgb);
-    --app-main-bg-color:   var(--bs-body-bg);
-}
-
-$header-height: 4rem;
-$footer-height: 5rem;
 
 //**********************************************
 // Reset

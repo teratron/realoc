@@ -55,14 +55,14 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
         build: {
             outDir: path.build,
             emptyOutDir: true,
-            manifest: command === 'build',
+            manifest: command === 'build' ? 'manifest.json' : false,
             rollupOptions: {
                 input: {
                     main: path.src + '/index.html'
                 },
                 output: {
-                    entryFileNames: 'assets/js/[name].[hash].js',
-                    chunkFileNames: 'assets/js/[name].[hash].js',
+                    entryFileNames: 'js/[name].[hash].js',
+                    chunkFileNames: 'js/[name].[hash].js',
                     assetFileNames: (assetInfo => {
                         const info = assetInfo.name?.split('.')
                         let ext: string = info![info!.length - 1]
@@ -73,9 +73,14 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
                         } else if (/woff(2)?|eot|ttf|otf/i.test(ext)) {
                             ext = 'fonts'
                         } else ext = ''
-                        return `assets/${ext}/[name].[hash][extname]`
+                        return `${ext}/[name].[hash][extname]`
                     })
                 }
+            }
+        },
+        resolve: {
+            alias: {
+                '@': path.src,
             }
         }
     }
