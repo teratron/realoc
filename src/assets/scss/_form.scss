@@ -1,6 +1,7 @@
 //**********************************************
 // App Form
 //**********************************************
+@use "sass:math";
 
 $custom-bg-color: #f2f4f7;
 
@@ -88,15 +89,18 @@ $custom-bg-color: #f2f4f7;
             border:           1px dashed rgba(47, 86, 255, .7);
             border-radius:    8px;
             display: flex;
-
+            flex-direction:  row;
+            flex-wrap:       nowrap;
+            justify-content: center;
+            align-items:     center;
             height:  44px;
             margin-bottom: 0;
-            //position:         absolute;
-            //top:              0;
-            //bottom:           0;
-            //left:             0;
-            //right:            0;
 
+            @extend %__t-add-photo;
+
+            > img {
+                margin-right: 6px;
+            }
         }
     }
 
@@ -106,6 +110,23 @@ $custom-bg-color: #f2f4f7;
 
         &.show {
             display: block;
+        }
+    }
+
+    .row {
+        > .col {
+            &:first-child:not(:only-child) {
+                padding-right: 6px;
+            }
+
+            &:last-child:not(:only-child) {
+                padding-left: 6px;
+            }
+
+            &:not(:first-child):not(:last-child) {
+                padding-right: 6px;
+                padding-left:  6px;
+            }
         }
     }
 }
@@ -179,7 +200,7 @@ $custom-bg-color: #f2f4f7;
         align-items:      center;
         min-width:        60px;
         height:           $cracker-height;
-        border-radius:    $cracker-height / 2;
+        border-radius: math.div($cracker-height, 2);
         border:           2px solid transparent;
         line-height:      1;
         padding:          0 $padding-side;
