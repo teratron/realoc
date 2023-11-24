@@ -3,7 +3,7 @@
 //**********************************************
 
 .app-form {
-    @extend .app-content, .form !optional;
+    @extend .app-content;
 
     .form-label,
     .form-check-label {
@@ -11,7 +11,9 @@
         font-weight: 500;
         width:       100%;
         color:       #344054; // TODO:
+    }
 
+    .form-label {
         > .foot, > .feedback {
             @extend .float-end, .ms-2;
         }
