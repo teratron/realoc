@@ -267,6 +267,7 @@ function AddSale() {
                                     <Form.Control
                                         type="file"
                                         name="addPhoto"
+                                        className="form-add-photo"
                                         multiple
                                         onChange={handleChange}
                                         isInvalid={touched.addPhoto && !!errors.addPhoto}/>

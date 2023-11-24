@@ -41,20 +41,20 @@ body {
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top:      0;
+    left:     0;
+    right:    0;
 
     &, > .app-container {
         height: $header-height;
     }
 
     > .app-container {
-        display: flex;
+        display:        flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap:      nowrap;
         justify-content: space-around;
-        align-items: stretch;
+        align-items:    stretch;
         //@extend .px-0;
 
         > * {
@@ -122,8 +122,8 @@ body {
     grid-template-rows: 1fr;
 
     > .app-container {
-        height:         100%;
-        padding:        $header-height 0 1.25rem;
+        height:  100%;
+        padding: $header-height 0 1.25rem;
 
 
         > :first-child:not(.carousel) {
@@ -177,7 +177,7 @@ body {
         @extend .fixed-bottom, .navbar-expand;
 
         &, > .app-container {
-            min-height:     $footer-height;
+            min-height: $footer-height;
         }
 
         > .app-container {
@@ -220,11 +220,12 @@ body {
 //**********************************************
 
 .app-card {
-    padding:    1rem;
-    border: 1px solid #e3e3e3;
+    padding:       1rem;
+    border:        1px solid #e3e3e3;
     border-radius: .625rem;
     background-color: white;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
+    box-shadow:    0 3px 2px 0 rgba(0, 0, 0, 0.04),
+                   0 3px 16px 0 rgba(0, 0, 0, 0.06);
 
     .card-title {
         @extend %__t-card-title;
@@ -255,10 +256,19 @@ body {
     }
 
     .alert {
-        @extend .d-flex, .align-items-baseline;
+        background:    linear-gradient(0deg, rgba(47, 86, 255, .05), rgba(47, 86, 255, .05)),
+                       linear-gradient(0deg, rgba(47, 86, 255, .02), rgba(47, 86, 255, .02));
+        display:       flex;
+        align-items:   flex-start;
+        border-radius: 8px;
+        border:        1px solid rgba(47, 86, 255, .05);
+        padding:       12px;
 
-        > img {
-            @extend .me-2;
+        @extend %__t-card-alert;
+
+        > img:first-of-type {
+            margin-top:   2px;
+            margin-right: .5rem;
         }
     }
 }
@@ -309,13 +319,13 @@ body {
     &-light {
         background-color: transparent;
         border-color: transparent;
-        box-shadow: none;
+        box-shadow:   none;
     }
 
     > .badge {
         position: absolute;
-        top: 0;
-        left: 100%;
+        top:      0;
+        left:     100%;
         transform: translate(-50%, -50%);
 
         @extend .rounded-pill, .bg-danger;
@@ -479,7 +489,7 @@ h1, h2, h3, h4, h5, h6 {
 .img-wrapper {
     background: no-repeat center center;
     background-size: cover;
-    display: block;
-    max-width: 100%;
-    width: 100%;
+    display:    block;
+    max-width:  100%;
+    width:      100%;
 }

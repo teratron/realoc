@@ -96,6 +96,22 @@
     color:       #344054;
 }
 
+// 13/13/500
+%__t-tab-form-active {
+    font-size:   .8125rem;
+    font-weight: 500;
+    line-height: 1;
+    color:       #101828;
+}
+
+// 13/13/400
+%__t-tab-form {
+    font-size:   .8125rem;
+    font-weight: 400;
+    line-height: 1;
+    color:       #000000;
+}
+
 // 13/16/500
 %__t-price-summary-small {
     font-size:   .8125rem;
@@ -125,4 +141,12 @@
     font-weight: 500;
     line-height: 1;
     color:       #344054;
+}
+
+// 12/16/400
+%__t-card-alert {
+    font-size:   .75rem;
+    font-weight: 400;
+    line-height: 1rem;
+    color:       #667085;
 }

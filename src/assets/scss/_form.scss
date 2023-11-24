@@ -17,9 +17,7 @@ $custom-bg-color: #f2f4f7;
         width: 100%;
 
         @extend %__t-card-subtitle;
-    }
 
-    .form-label {
         > .foot, > .feedback {
             @extend .float-end, .ms-2;
         }
@@ -38,15 +36,52 @@ $custom-bg-color: #f2f4f7;
     .form-control,
     .form-select {
         font-size:        0.9rem;
-        color:            var(--bs-body-color);
+        color:         #101828;
         border:           1px solid #d0d5dd;
-        border-radius:    6px;
+        border-radius: 8px;
         background-color: white;
-        box-shadow:       0 1px 2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow:    0 1px 2px 0 rgba(16, 24, 40, .05);
     }
 
-    .btn-group {
-        @extend .d-flex;
+    .input-group {
+        flex-wrap:       nowrap;
+        align-content:   center;
+        align-items:     center;
+        justify-content: center;
+
+        > .form-control,
+        > .form-select {
+            border-radius: 8px !important;
+
+            &:first-child:not(:only-child) {
+                padding-right: 40px;
+            }
+
+            &:nth-child(2) {
+                padding-left: 40px;
+            }
+        }
+
+        > .input-group-text {
+            background-color: transparent;
+            border-radius:    8px;
+            border:           0;
+            position:         absolute;
+            padding:          0 12px;
+
+            &:first-child {
+                left:    0;
+                z-index: 1;
+            }
+
+            &:last-child {
+                right: 0;
+            }
+        }
+    }
+
+    .form-add-photo {
+
     }
 
     .feedback {
@@ -61,30 +96,52 @@ $custom-bg-color: #f2f4f7;
 
 .form-tab {
     $tab-height:      44px;
-    $tab-radius:    8px;
-    $tab-padding:   3px;
+    $tab-radius:     8px;
+    $tab-padding:    4px;
 
-    display:        flex;
-    flex-direction: row;
-    flex-wrap:      nowrap;
-    flex-basis:     100%;
+    display:         flex;
+    flex-direction:  row;
+    flex-wrap:       nowrap;
+    justify-content: space-between;
+    align-items:     stretch;
     background-color: $custom-bg-color;
     height:           $tab-height;
-    border-radius:  $tab-radius;
-    padding:        $tab-padding;
+    border-radius:   $tab-radius;
+    padding:         $tab-padding;
+    overflow:        hidden;
 
     > label {
-        background-color: white;
-        border-radius:    $tab-radius - $tab-padding;
-        border:           1px solid rgba(0, 0, 0, .04);
-        line-height:      1;
-        padding:          0;
+        display:         flex;
+        flex-direction:  row;
+        flex-wrap:       nowrap;
+        justify-content: center;
+        align-items:     center;
+        flex-grow:       1;
+        border-radius:   $tab-radius - $tab-padding;
+        border:          1px solid transparent;
+        line-height:     1;
+        padding:         0;
 
-        @extend %__t-check-cracker;
+        @extend %__t-tab-form;
     }
 
     > input {
         display: none;
+    }
+
+    > input {
+        display: none;
+
+        &:checked {
+            + label {
+                background-color: white;
+                border-color:     rgba(0, 0, 0, .04);
+                box-shadow:       0 3px 2px 0 rgba(0, 0, 0, .04),
+                                  0 3px 16px 0 rgba(0, 0, 0, .08);
+
+                @extend %__t-tab-form-active;
+            }
+        }
     }
 }
 
