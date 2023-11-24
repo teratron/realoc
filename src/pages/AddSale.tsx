@@ -243,40 +243,37 @@ function AddSale() {
                              * Photo Block
                              *******************************************************/}
                             <div className="app-card">
-
-                                <Form.Label htmlFor="add-photo">Fotografie<Star/>
-                                    <Feedback dataName="addPhoto"/>
-                                    <span className="foot">5/{conf.MAX_PHOTOS}</span>
-                                </Form.Label>
-                                <div className="gallery-thumb">
-                                    <div>
-                                        <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
+                                <Form.Group controlId="add-photo">
+                                    <Form.Label>Fotografie<Star/>
+                                        <Feedback dataName="addPhoto"/>
+                                        <span className="foot">5/{conf.MAX_PHOTOS}</span>
+                                    </Form.Label>
+                                    <div className="gallery-thumb">
+                                        <div>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
+                                        </div>
+                                        <div>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
+                                        </div>
+                                        <div>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
+                                        </div>
+                                        <div>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
+                                        </div>
+                                        <div>
+                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                    </div>
-                                    <div>
-                                        <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                    </div>
-                                    <div>
-                                        <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                    </div>
-                                    <div>
-                                        <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                    </div>
-                                </div>
-                                <Form.Control
-                                    id="add-photo"
-                                    type="file"
-                                    name="addPhoto"
-                                    className="form-add-photo"
-                                    multiple
-                                    onChange={handleChange}
-                                    isInvalid={touched.addPhoto && !!errors.addPhoto}/>
-                                <Form.Label htmlFor="add-photo">
-                                    <img src={iconAddPhoto} alt=""/>
-                                    Adaugă fotografie
-                                </Form.Label>
+                                    <Form.Control
+                                        type="file"
+                                        name="addPhoto"
+                                        className="form-add-photo"
+                                        multiple
+                                        onChange={handleChange}
+                                        isInvalid={touched.addPhoto && !!errors.addPhoto}/>
+                                    <Form.Label><img src={iconAddPhoto} alt=""/>Adaugă fotografie</Form.Label>
+                                </Form.Group>
 
                                 <div className="alert alert-light">
                                     <img src={iconNote} alt=""/>
