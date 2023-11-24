@@ -25,7 +25,6 @@ function AddRequest() {
                     <div className="app-card">
                         <Form.Group controlId="transaction-type-1">
                             <Form.Label>Tip tranzacție</Form.Label>
-                            <div>
                                 <ToggleButtonGroup className="form-tab" type="radio" name="transactionType" defaultValue={1}>
                                     <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
                                         De vânzare
@@ -34,7 +33,6 @@ function AddRequest() {
                                         De închiriat
                                     </ToggleButton>
                                 </ToggleButtonGroup>
-                            </div>
                         </Form.Group>
 
                         <Form.Group controlId="property-type">
@@ -53,7 +51,6 @@ function AddRequest() {
                     <div className="app-card">
                         <Form.Group>
                             <Form.Label htmlFor="housing-stock-1">Fond locativ</Form.Label>
-                            <div>
                                 <ToggleButtonGroup className="form-tab" type="radio" name="housingStock" defaultValue={1}>
                                     <ToggleButton variant="outline-primary" id="housing-stock-1" value={1}>
                                         Construcții noi
@@ -62,12 +59,10 @@ function AddRequest() {
                                         Secundare
                                     </ToggleButton>
                                 </ToggleButtonGroup>
-                            </div>
                         </Form.Group>
 
                         <Form.Group controlId="number-rooms-1">
                             <Form.Label>Număr de camere</Form.Label>
-                            <div>
                                 {[
                                     '1', '1.5', '2', '2.5', '3', '4.5', '4+'
                                 ].map((value, index) => (
@@ -80,7 +75,6 @@ function AddRequest() {
                                         name="numberRooms"
                                         className="form-cracker"/>
                                 ))}
-                            </div>
                         </Form.Group>
 
                         <Form.Group>
@@ -138,26 +132,24 @@ function AddRequest() {
                      * Location Block
                      *******************************************************/}
                     <div className="app-card">
-                        <>
-                            <Form.Group controlId="location">
-                                <Form.Label>Raion/oraș</Form.Label>
-                                <Form.Select name="location">
-                                    <option>Selectați o locație</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                </Form.Select>
-                            </Form.Group>
+                        <Form.Group controlId="location">
+                            <Form.Label>Raion/oraș</Form.Label>
+                            <Form.Select name="location">
+                                <option>Selectați o locație</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                            </Form.Select>
+                        </Form.Group>
 
-                            <Form.Group controlId="map">
-                                <Form.Label>Zona pe hartă</Form.Label>
-                                <InputGroup>
-                                    <Form.Control name="map" type="text" placeholder="Selectați zona pe hartă"/>
-                                    <InputGroup.Text>
-                                        <img src={iconSelectMap} alt=""/>
-                                    </InputGroup.Text>
-                                </InputGroup>
-                            </Form.Group>
-                        </>
+                        <Form.Group controlId="map">
+                            <Form.Label>Zona pe hartă</Form.Label>
+                            <InputGroup>
+                                <Form.Control name="map" type="text" placeholder="Selectați zona pe hartă"/>
+                                <InputGroup.Text>
+                                    <img src={iconSelectMap} alt=""/>
+                                </InputGroup.Text>
+                            </InputGroup>
+                        </Form.Group>
                     </div>
 
                     {/******************************************************
@@ -166,7 +158,6 @@ function AddRequest() {
                     <div className="app-card">
                         <Form.Group controlId="apartment-status-1">
                             <Form.Label>Starea apartamentului</Form.Label>
-                            <div>
                                 {[
                                     'Varianta albă',
                                     'Varianta sură',
@@ -182,12 +173,10 @@ function AddRequest() {
                                         name="apartmentStatus"
                                         className="form-cracker"/>
                                 ))}
-                            </div>
                         </Form.Group>
 
                         <Form.Group controlId="furniture-1">
                             <Form.Label>Mobilier</Form.Label>
-                            <div>
                                 {[
                                     'Nemobilat',
                                     'Parțial mobilat',
@@ -201,7 +190,6 @@ function AddRequest() {
                                         name="furniture"
                                         className="form-cracker"/>
                                 ))}
-                            </div>
                         </Form.Group>
                     </div>
 
@@ -267,7 +255,6 @@ function AddRequest() {
 
                         <Form.Group controlId="ascensor-1">
                             <Form.Label>Ascensor</Form.Label>
-                            <div>
                                 {[
                                     'Este',
                                     'Absent'
@@ -280,12 +267,10 @@ function AddRequest() {
                                         name="ascensor"
                                         className="form-cracker"/>
                                 ))}
-                            </div>
                         </Form.Group>
 
                         <Form.Group controlId="parking-1">
                             <Form.Label>Parcare</Form.Label>
-                            <div>
                                 {[
                                     'Subterană',
                                     'În curtea',
@@ -299,7 +284,6 @@ function AddRequest() {
                                         name="parking"
                                         className="form-cracker"/>
                                 ))}
-                            </div>
                         </Form.Group>
 
                         <Form.Group controlId="developer">
@@ -313,7 +297,6 @@ function AddRequest() {
 
                         <Form.Group controlId="exploitation-1">
                             <Form.Label>Predare în exploatare</Form.Label>
-                            <div>
                                 {[
                                     'Dat în exploatare', '2023', '2024', '2025', '2026', '2027+'
                                 ].map((value, index) => (
@@ -325,7 +308,6 @@ function AddRequest() {
                                         name="exploitation"
                                         className="form-cracker"/>
                                 ))}
-                            </div>
                         </Form.Group>
                     </div>
 

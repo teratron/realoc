@@ -2,6 +2,8 @@
 // App Form
 //**********************************************
 
+$custom-bg-color: #f2f4f7;
+
 .app-form {
     @extend .app-content;
 
@@ -12,10 +14,9 @@
     }
 
     .form-label {
-        font-size:   .9rem; // TODO:
-        font-weight: 500;
         width:       100%;
-        color:       #344054; // TODO:
+
+        @extend %__t-card-subtitle;
     }
 
     .form-label {
@@ -58,8 +59,15 @@
     }
 }
 
+.form-tab {
+    $tab-height:      44px;
+
+    background-color: $custom-bg-color;
+    height:           $tab-height;
+    border-radius:    8px;
+}
+
 .form-cracker {
-    $cracker-bg-color: #f2f4f7;
     $cracker-height:   36px;
     $padding-side: 14px;
 
@@ -69,7 +77,7 @@
     margin-bottom:     12px;
 
     > label {
-        background-color: #f2f4f7;
+        background-color: $custom-bg-color;
         display:          flex;
         flex-direction:   row;
         flex-wrap:        nowrap;
@@ -87,7 +95,9 @@
 
     > label:hover,
     > input:checked {
-        box-shadow: 0 0 0 4px $cracker-bg-color;
+        + label {
+            box-shadow: 0 0 0 4px $custom-bg-color;
+        }
     }
 
     > input {
@@ -117,26 +127,12 @@
 
             &:checked {
                 + label {
-                    padding-left: $padding-side + 20px;
+                    padding-left: $padding-side + 18px;
                     &:before {
                         background: transparent url("#{$media-url}/icon_check_dark.svg") no-repeat center center;
                     }
                 }
             }
         }
-
-        //&:before, &:after {
-        //    content: "";
-        //    display: block;
-        //    position: absolute;
-        //}
-        //&:before {
-        //    top: 0;
-        //    left: 0;
-        //    .square(2rem);
-        //}
-        //&:after {
-        //    .hidden;
-        //}
     }
 }

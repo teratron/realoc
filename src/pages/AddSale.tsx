@@ -79,7 +79,6 @@ function AddSale() {
                             <div className="app-card">
                                 <Form.Group controlId="transaction-type-1">
                                     <Form.Label>Tip tranzacție</Form.Label>
-                                    <div>
                                         <ToggleButtonGroup className="form-tab" type="radio" name="transactionType" defaultValue={1}>
                                             <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
                                                 De vânzare
@@ -88,7 +87,6 @@ function AddSale() {
                                                 De închiriat
                                             </ToggleButton>
                                         </ToggleButtonGroup>
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="property-type">
@@ -107,7 +105,6 @@ function AddSale() {
                             <div className="app-card">
                                 <Form.Group controlId="housing-stock-1">
                                     <Form.Label>Fond locativ</Form.Label>
-                                    <div>
                                         <ToggleButtonGroup className="form-tab" type="radio" name="housingStock" defaultValue={1}>
                                             <ToggleButton variant="outline-primary" id="housing-stock-1" value={1}>
                                                 Construcții noi
@@ -116,12 +113,10 @@ function AddSale() {
                                                 Secundare
                                             </ToggleButton>
                                         </ToggleButtonGroup>
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="number-rooms-1">
                                     <Form.Label>Număr de camere<Star/><Feedback dataName="numberRooms"/></Form.Label>
-                                    <div>
                                         {[
                                             '1', '1.5', '2', '2.5', '3', '4.5', '4+'
                                         ].map((value, index) => (
@@ -136,7 +131,6 @@ function AddSale() {
                                                 onChange={handleChange}
                                                 isInvalid={touched.numberRooms && !!errors.numberRooms}/>
                                         ))}
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="sale-price">
@@ -171,7 +165,6 @@ function AddSale() {
 
                                 <Form.Group controlId="mortgage-1">
                                     <Form.Label>Credit ipotecar</Form.Label>
-                                    <div>
                                         {[
                                             'Disponibil',
                                             'Indisponibil'
@@ -185,7 +178,6 @@ function AddSale() {
                                                 name="mortgage"
                                                 className="form-cracker"/>
                                         ))}
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="area">
@@ -278,7 +270,6 @@ function AddSale() {
                             <div className="app-card">
                                 <Form.Group controlId="apartment-status-1">
                                     <Form.Label>Starea apartamentului</Form.Label>
-                                    <div>
                                         {[
                                             'Varianta albă',
                                             'Varianta sură',
@@ -294,12 +285,10 @@ function AddSale() {
                                                 name="apartmentStatus"
                                                 className="form-cracker"/>
                                         ))}
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="furniture-1">
                                     <Form.Label>Mobilier</Form.Label>
-                                    <div>
                                         {[
                                             'Nemobilat',
                                             'Parțial mobilat',
@@ -313,7 +302,6 @@ function AddSale() {
                                                 name="furniture"
                                                 className="form-cracker"/>
                                         ))}
-                                    </div>
                                 </Form.Group>
                             </div>
 
@@ -349,7 +337,6 @@ function AddSale() {
 
                                 <Form.Group controlId="ascensor-1">
                                     <Form.Label>Ascensor</Form.Label>
-                                    <div>
                                         {[
                                             'Este',
                                             'Absent'
@@ -362,12 +349,10 @@ function AddSale() {
                                                 name="ascensor"
                                                 className="form-cracker"/>
                                         ))}
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="parking-1">
                                     <Form.Label>Parcare</Form.Label>
-                                    <div>
                                         {[
                                             'Subterană',
                                             'În curtea',
@@ -381,7 +366,6 @@ function AddSale() {
                                                 name="parking"
                                                 className="form-cracker"/>
                                         ))}
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="developer">
@@ -395,7 +379,6 @@ function AddSale() {
 
                                 <Form.Group controlId="exploitation-1">
                                     <Form.Label>Predare în exploatare</Form.Label>
-                                    <div>
                                         {[
                                             'Dat în exploatare', '2023', '2024', '2025', '2026', '2027+'
                                         ].map((value, index) => (
@@ -407,7 +390,6 @@ function AddSale() {
                                                 name="exploitation"
                                                 className="form-cracker"/>
                                         ))}
-                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="description">
@@ -428,7 +410,6 @@ function AddSale() {
                             <div className="app-card">
                                 <Form.Group controlId="transaction-fee-1">
                                     <Form.Label>Comision de tranzacție</Form.Label>
-                                    <div>
                                         {[
                                             '0.5%', '1.5%', '1.5%', '2%', '2.5%', '3%', 'Alt'
                                         ].map((value, index) => (
@@ -440,7 +421,6 @@ function AddSale() {
                                                 type="radio"
                                                 className="form-cracker"/>
                                         ))}
-                                    </div>
                                 </Form.Group>
 
                                 <div className="alert alert-light">
