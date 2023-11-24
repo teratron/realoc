@@ -1,16 +1,23 @@
 //**********************************************
 // App Form
 //**********************************************
+@use "sass:math";
+
+$custom-bg-color: #f2f4f7;
 
 .app-form {
-    @extend .app-content, .form !optional;
+    @extend .app-content;
 
-    .form-label,
-    .form-check-label {
-        font-size:   .9rem; // TODO:
-        font-weight: 500;
-        width:       100%;
-        color:       #344054; // TODO:
+    label {
+        cursor:   pointer;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .form-label {
+        width: 100%;
+
+        @extend %__t-card-subtitle;
 
         > .foot, > .feedback {
             @extend .float-end, .ms-2;
@@ -30,15 +37,71 @@
     .form-control,
     .form-select {
         font-size:        0.9rem;
-        color:            var(--bs-body-color);
+        color:         #101828;
         border:           1px solid #d0d5dd;
-        border-radius:    6px;
+        border-radius: 8px;
         background-color: white;
-        box-shadow:       0 1px 2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow:    0 1px 2px 0 rgba(16, 24, 40, .05);
     }
 
-    .btn-group {
-        @extend .d-flex;
+    .input-group {
+        flex-wrap:       nowrap;
+        align-content:   center;
+        align-items:     center;
+        justify-content: center;
+
+        > .form-control,
+        > .form-select {
+            border-radius: 8px !important;
+
+            &:first-child:not(:only-child) {
+                padding-right: 40px;
+            }
+
+            &:nth-child(2) {
+                padding-left: 40px;
+            }
+        }
+
+        > .input-group-text {
+            background-color: transparent;
+            border-radius:    8px;
+            border:           0;
+            position:         absolute;
+            padding:          0 12px;
+
+            &:first-child {
+                left:    0;
+                z-index: 1;
+            }
+
+            &:last-child {
+                right: 0;
+            }
+        }
+    }
+
+    .form-add-photo {
+        display: none;
+
+        + label {
+            background-color: rgba(47, 86, 255, .2);
+            border:           1px dashed rgba(47, 86, 255, .7);
+            border-radius:    8px;
+            display: flex;
+            flex-direction:  row;
+            flex-wrap:       nowrap;
+            justify-content: center;
+            align-items:     center;
+            height:  44px;
+            margin-bottom: 0;
+
+            @extend %__t-add-photo;
+
+            > img {
+                margin-right: 6px;
+            }
+        }
     }
 
     .feedback {
@@ -47,6 +110,142 @@
 
         &.show {
             display: block;
+        }
+    }
+
+    .row {
+        > .col {
+            &:first-child:not(:only-child) {
+                padding-right: 6px;
+            }
+
+            &:last-child:not(:only-child) {
+                padding-left: 6px;
+            }
+
+            &:not(:first-child):not(:last-child) {
+                padding-right: 6px;
+                padding-left:  6px;
+            }
+        }
+    }
+}
+
+.form-tab {
+    $tab-height:      44px;
+    $tab-radius:     8px;
+    $tab-padding:    4px;
+
+    display:         flex;
+    flex-direction:  row;
+    flex-wrap:       nowrap;
+    justify-content: space-between;
+    align-items:     stretch;
+    background-color: $custom-bg-color;
+    height:           $tab-height;
+    border-radius:   $tab-radius;
+    padding:         $tab-padding;
+    overflow:        hidden;
+
+    > label {
+        display:         flex;
+        flex-direction:  row;
+        flex-wrap:       nowrap;
+        justify-content: center;
+        align-items:     center;
+        flex-grow:       1;
+        border-radius:   $tab-radius - $tab-padding;
+        border:          1px solid transparent;
+        line-height:     1;
+        padding:         0;
+
+        @extend %__t-tab-form;
+    }
+
+    > input {
+        display: none;
+    }
+
+    > input {
+        display: none;
+
+        &:checked {
+            + label {
+                background-color: white;
+                border-color:     rgba(0, 0, 0, .04);
+                box-shadow:       0 3px 2px 0 rgba(0, 0, 0, .04),
+                                  0 3px 16px 0 rgba(0, 0, 0, .08);
+
+                @extend %__t-tab-form-active;
+            }
+        }
+    }
+}
+
+.form-cracker {
+    $cracker-height: 36px;
+    $padding-side:   14px;
+
+    display:         inline-flex;
+    padding:         0;
+    margin-right:    12px;
+    margin-bottom:   12px;
+
+    > label {
+        background-color: $custom-bg-color;
+        display:          flex;
+        flex-direction:   row;
+        flex-wrap:        nowrap;
+        justify-content:  center;
+        align-items:      center;
+        min-width:        60px;
+        height:           $cracker-height;
+        border-radius: math.div($cracker-height, 2);
+        border:           2px solid transparent;
+        line-height:      1;
+        padding:          0 $padding-side;
+
+        @extend %__t-check-cracker;
+    }
+
+    > label:hover,
+    > input:checked {
+        + label {
+            box-shadow: 0 0 0 4px $custom-bg-color;
+        }
+    }
+
+    > input {
+        display: none;
+
+        &:checked {
+            + label {
+                background-color: rgba(47, 86, 255, .2);
+                border-color:     rgba(47, 86, 255, .7);
+            }
+        }
+
+        &[type="checkbox"] {
+            + label {
+                &:before {
+                    content:  "";
+                    position: absolute;
+                    left:     $padding-side;
+                    display:  block;
+                    width:    14px;
+                    height:   14px;
+                }
+            }
+
+            &:checked {
+                + label {
+                    padding-left: $padding-side + 18px;
+
+                    &:before {
+                        background: transparent url("#{$media-url}/icon_check_dark.svg") no-repeat center center;
+                    }
+                }
+            }
         }
     }
 }

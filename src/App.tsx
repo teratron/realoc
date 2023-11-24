@@ -1,5 +1,5 @@
 import React from 'react'
-import {Outlet, Route, Routes, BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Outlet, Route, Routes} from 'react-router-dom'
 import Spinner from './components/Spinner'
 import './assets/scss/app.scss'
 import app from '../package.json'
@@ -18,7 +18,7 @@ function Layout() {
 
 function App() {
     return (
-        <BrowserRouter basename={app.name}>
+        <BrowserRouter basename={import.meta.env.BASE_URL + app.name}>
             <React.Suspense fallback={<Spinner/>}>
                 <Routes>
                     <Route path="/" element={<Layout/>}>

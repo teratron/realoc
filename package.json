@@ -2,7 +2,7 @@
   "name": "realoc",
   "description": "Realoc - real estate bot app",
   "private": true,
-  "version": "0.0.67",
+  "version": "0.0.72",
   "type": "module",
   "keywords": [
     "realoc",
@@ -44,7 +44,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
     "sass": "^1.69.5",
-    "typescript": "^5.2.2",
     "vite": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.2.2"
   }
 }
