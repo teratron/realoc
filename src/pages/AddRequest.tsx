@@ -78,8 +78,7 @@ function AddRequest() {
                                         label={value}
                                         value={value}
                                         name="numberRooms"
-                                        className="form-cracker"
-                                        inline/>
+                                        className="form-cracker"/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -181,8 +180,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="apartmentStatus"
-                                        className="form-cracker"
-                                        inline/>
+                                        className="form-cracker"/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -201,8 +199,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="furniture"
-                                        className="form-cracker"
-                                        inline/>
+                                        className="form-cracker"/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -244,8 +241,7 @@ function AddRequest() {
                                     type="checkbox"
                                     label={value}
                                     name="optionLevels"
-                                    className="form-cracker"
-                                    inline/>
+                                    className="form-cracker"/>
                             ))}
                         </Form.Group>
 
@@ -282,8 +278,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="ascensor"
-                                        className="form-cracker"
-                                        inline/>
+                                        className="form-cracker"/>
                                 ))}
                             </div>
                         </Form.Group>
@@ -328,8 +323,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="exploitation"
-                                        className="form-cracker"
-                                        inline/>
+                                        className="form-cracker"/>
                                 ))}
                             </div>
                         </Form.Group>

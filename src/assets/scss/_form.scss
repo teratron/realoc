@@ -53,7 +53,29 @@
     }
 }
 
-
 .form-cracker{
+    $cracker-height: 26px;
+    background-color:#F2F4F7;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: $cracker-height;
+    border-radius: $cracker-height / 2;
+    line-height: 1;
+    padding: 0 1rem;
 
+    > input {
+        display: none;
+    }
+
+    > label {
+        align-self: center;
+        text-align: center;
+    }
+
+    &.form-check {
+    }
 }

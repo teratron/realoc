@@ -133,7 +133,6 @@ function AddSale() {
                                                 value={value}
                                                 name="numberRooms"
                                                 className="form-cracker"
-                                                inline
                                                 onChange={handleChange}
                                                 isInvalid={touched.numberRooms && !!errors.numberRooms}/>
                                         ))}
@@ -184,8 +183,7 @@ function AddSale() {
                                                 label={value}
                                                 value={value}
                                                 name="mortgage"
-                                                className="form-cracker"
-                                                inline/>
+                                                className="form-cracker"/>
                                         ))}
                                     </div>
                                 </Form.Group>
@@ -294,8 +292,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="apartmentStatus"
-                                                className="form-cracker"
-                                                inline/>
+                                                className="form-cracker"/>
                                         ))}
                                     </div>
                                 </Form.Group>
@@ -314,8 +311,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="furniture"
-                                                className="form-cracker"
-                                                inline/>
+                                                className="form-cracker"/>
                                         ))}
                                     </div>
                                 </Form.Group>
@@ -364,8 +360,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="ascensor"
-                                                className="form-cracker"
-                                                inline/>
+                                                className="form-cracker"/>
                                         ))}
                                     </div>
                                 </Form.Group>
@@ -384,8 +379,7 @@ function AddSale() {
                                                 type="checkbox"
                                                 label={value}
                                                 name="parking"
-                                                className="form-cracker"
-                                                inline/>
+                                                className="form-cracker"/>
                                         ))}
                                     </div>
                                 </Form.Group>
@@ -411,8 +405,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="exploitation"
-                                                className="form-cracker"
-                                                inline/>
+                                                className="form-cracker"/>
                                         ))}
                                     </div>
                                 </Form.Group>
