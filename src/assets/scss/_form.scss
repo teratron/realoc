@@ -5,8 +5,13 @@
 .app-form {
     @extend .app-content;
 
-    .form-label,
-    .form-check-label {
+    label {
+        cursor:   pointer;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .form-label {
         font-size:   .9rem; // TODO:
         font-weight: 500;
         width:       100%;
@@ -53,29 +58,85 @@
     }
 }
 
-.form-cracker{
-    $cracker-height: 26px;
-    background-color:#F2F4F7;
+.form-cracker {
+    $cracker-bg-color: #f2f4f7;
+    $cracker-height:   36px;
+    $padding-side: 14px;
+
     display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    min-width: 60px;
-    height: $cracker-height;
-    border-radius: $cracker-height / 2;
-    line-height: 1;
-    padding: 0 1rem;
+    padding:           0;
+    margin-right:      12px;
+    margin-bottom:     12px;
+
+    > label {
+        background-color: #f2f4f7;
+        display:          flex;
+        flex-direction:   row;
+        flex-wrap:        nowrap;
+        justify-content:  center;
+        align-items:      center;
+        min-width:        60px;
+        height:           $cracker-height;
+        border-radius:    $cracker-height / 2;
+        border:           2px solid transparent;
+        line-height:      1;
+        padding:          0 $padding-side;
+
+        @extend %__t-check-cracker;
+    }
+
+    > label:hover,
+    > input:checked {
+        box-shadow: 0 0 0 4px $cracker-bg-color;
+    }
 
     > input {
         display: none;
-    }
 
-    > label {
-        align-self: center;
-        text-align: center;
-    }
+        &:checked {
+            + label {
+                background-color: rgba(47, 86, 255, .2);
+                border-color:     rgba(47, 86, 255, .7);
+            }
+        }
 
-    &.form-check {
+        &[type="radio"] {
+        }
+
+        &[type="checkbox"] {
+            + label {
+                &:before {
+                    content:  "";
+                    position: absolute;
+                    left:     $padding-side;
+                    display:  block;
+                    width:    14px;
+                    height:   14px;
+                }
+            }
+
+            &:checked {
+                + label {
+                    padding-left: $padding-side + 20px;
+                    &:before {
+                        background: transparent url("#{$media-url}/icon_check_dark.svg") no-repeat center center;
+                    }
+                }
+            }
+        }
+
+        //&:before, &:after {
+        //    content: "";
+        //    display: block;
+        //    position: absolute;
+        //}
+        //&:before {
+        //    top: 0;
+        //    left: 0;
+        //    .square(2rem);
+        //}
+        //&:after {
+        //    .hidden;
+        //}
     }
 }

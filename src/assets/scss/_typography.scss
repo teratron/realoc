@@ -2,7 +2,7 @@
 // Typography
 //**********************************************
 
-@import "variables";
+//@import "variables";
 
 // Fonts
 //@import "https://fonts.googleapis.com/css2?family=Inter&display=swap";
@@ -117,4 +117,12 @@
     font-size:   1rem;
     font-weight: 500;
     line-height: 1;
+}
+
+// 14/14/500
+%__t-check-cracker {
+    font-size:   .875rem;
+    font-weight: 500;
+    line-height: 1;
+    color:       #344054;
 }

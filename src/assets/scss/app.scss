@@ -306,6 +306,12 @@ body {
         @extend .px-0;
     }
 
+    &-light {
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
     > .badge {
         position: absolute;
         top: 0;

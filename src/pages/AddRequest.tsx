@@ -297,7 +297,7 @@ function AddRequest() {
                                         type="checkbox"
                                         label={value}
                                         name="parking"
-                                        inline/>
+                                        className="form-cracker"/>
                                 ))}
                             </div>
                         </Form.Group>

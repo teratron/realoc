@@ -438,7 +438,7 @@ function AddSale() {
                                                 label={value}
                                                 name="transactionFee"
                                                 type="radio"
-                                                inline/>
+                                                className="form-cracker"/>
                                         ))}
                                     </div>
                                 </Form.Group>
