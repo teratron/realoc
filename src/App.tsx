@@ -18,7 +18,7 @@ function Layout() {
 
 function App() {
     return (
-        <BrowserRouter basename={import.meta.env.BASE_URL + app.name}>
+        <BrowserRouter basename={app.name}>
             <React.Suspense fallback={<Spinner/>}>
                 <Routes>
                     <Route path="/" element={<Layout/>}>

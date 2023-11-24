@@ -10,7 +10,7 @@
     "estate",
     "bot"
   ],
-  "homepage": "https://teratron.github.io/realoc/",
+  "homepage": "https://teratron.github.io/realoc",
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
