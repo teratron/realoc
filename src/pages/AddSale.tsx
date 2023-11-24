@@ -132,7 +132,7 @@ function AddSale() {
                                                 label={value}
                                                 value={value}
                                                 name="numberRooms"
-                                                className="form-biscotte"
+                                                className="form-cracker"
                                                 inline
                                                 onChange={handleChange}
                                                 isInvalid={touched.numberRooms && !!errors.numberRooms}/>
@@ -184,7 +184,7 @@ function AddSale() {
                                                 label={value}
                                                 value={value}
                                                 name="mortgage"
-                                                className="form-biscotte"
+                                                className="form-cracker"
                                                 inline/>
                                         ))}
                                     </div>
@@ -294,7 +294,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="apartmentStatus"
-                                                className="form-biscotte"
+                                                className="form-cracker"
                                                 inline/>
                                         ))}
                                     </div>
@@ -314,7 +314,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="furniture"
-                                                className="form-biscotte"
+                                                className="form-cracker"
                                                 inline/>
                                         ))}
                                     </div>
@@ -364,7 +364,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="ascensor"
-                                                className="form-biscotte"
+                                                className="form-cracker"
                                                 inline/>
                                         ))}
                                     </div>
@@ -384,7 +384,7 @@ function AddSale() {
                                                 type="checkbox"
                                                 label={value}
                                                 name="parking"
-                                                className="form-biscotte"
+                                                className="form-cracker"
                                                 inline/>
                                         ))}
                                     </div>
@@ -411,7 +411,7 @@ function AddSale() {
                                                 type="radio"
                                                 label={value}
                                                 name="exploitation"
-                                                className="form-biscotte"
+                                                className="form-cracker"
                                                 inline/>
                                         ))}
                                     </div>
