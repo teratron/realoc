@@ -11,6 +11,7 @@ import iconInvalid from '../assets/media/icon_invalid_red_circle.svg'
 import iconNote from '../assets/media/icon_note_grey_circle.svg'
 import iconSearch from '../assets/media/icon_search.svg'
 import iconLocation from '../assets/media/icon_location_house.svg'
+import iconAddPhoto from '../assets/media/icon_add_photo.svg'
 
 const title: string = 'Add Sale'
 
@@ -271,7 +272,7 @@ function AddSale() {
                                         multiple
                                         onChange={handleChange}
                                         isInvalid={touched.addPhoto && !!errors.addPhoto}/>
-                                    <Form.Label>Adaugă fotografie</Form.Label>
+                                    <Form.Label><img src={iconAddPhoto} alt=""/>Adaugă fotografie</Form.Label>
                                 </Form.Group>
 
                                 <div className="alert alert-light">
