@@ -14,7 +14,7 @@ $custom-bg-color: #f2f4f7;
     }
 
     .form-label {
-        width:       100%;
+        width: 100%;
 
         @extend %__t-card-subtitle;
     }
@@ -61,20 +61,41 @@ $custom-bg-color: #f2f4f7;
 
 .form-tab {
     $tab-height:      44px;
+    $tab-radius:    8px;
+    $tab-padding:   3px;
 
+    display:        flex;
+    flex-direction: row;
+    flex-wrap:      nowrap;
+    flex-basis:     100%;
     background-color: $custom-bg-color;
     height:           $tab-height;
-    border-radius:    8px;
+    border-radius:  $tab-radius;
+    padding:        $tab-padding;
+
+    > label {
+        background-color: white;
+        border-radius:    $tab-radius - $tab-padding;
+        border:           1px solid rgba(0, 0, 0, .04);
+        line-height:      1;
+        padding:          0;
+
+        @extend %__t-check-cracker;
+    }
+
+    > input {
+        display: none;
+    }
 }
 
 .form-cracker {
-    $cracker-height:   36px;
-    $padding-side: 14px;
+    $cracker-height: 36px;
+    $padding-side:   14px;
 
-    display: inline-flex;
-    padding:           0;
-    margin-right:      12px;
-    margin-bottom:     12px;
+    display:         inline-flex;
+    padding:         0;
+    margin-right:    12px;
+    margin-bottom:   12px;
 
     > label {
         background-color: $custom-bg-color;
@@ -110,9 +131,6 @@ $custom-bg-color: #f2f4f7;
             }
         }
 
-        &[type="radio"] {
-        }
-
         &[type="checkbox"] {
             + label {
                 &:before {
@@ -128,6 +146,7 @@ $custom-bg-color: #f2f4f7;
             &:checked {
                 + label {
                     padding-left: $padding-side + 18px;
+
                     &:before {
                         background: transparent url("#{$media-url}/icon_check_dark.svg") no-repeat center center;
                     }

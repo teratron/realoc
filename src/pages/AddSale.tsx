@@ -1,4 +1,4 @@
-import {Form, InputGroup, ToggleButton, ToggleButtonGroup} from 'react-bootstrap'
+import {Form, InputGroup} from 'react-bootstrap'
 import {Formik} from 'formik'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
@@ -77,16 +77,23 @@ function AddSale() {
                              * Transaction Block
                              *******************************************************/}
                             <div className="app-card">
-                                <Form.Group controlId="transaction-type-1">
-                                    <Form.Label>Tip tranzacție</Form.Label>
-                                        <ToggleButtonGroup className="form-tab" type="radio" name="transactionType" defaultValue={1}>
-                                            <ToggleButton variant="outline-primary" id="transaction-type-1" value={1}>
-                                                De vânzare
-                                            </ToggleButton>
-                                            <ToggleButton variant="outline-primary" id="transaction-type-2" value={2}>
-                                                De închiriat
-                                            </ToggleButton>
-                                        </ToggleButtonGroup>
+                                <Form.Group>
+                                    <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
+                                    <div className="form-tab">
+                                        <input
+                                            id="transaction-type-1"
+                                            name="transactionType"
+                                            value="1"
+                                            type="radio"
+                                            defaultChecked={true}/>
+                                        <label htmlFor="transaction-type-1">De vânzare</label>
+                                        <input
+                                            id="transaction-type-2"
+                                            name="transactionType"
+                                            value="2"
+                                            type="radio"/>
+                                        <label htmlFor="transaction-type-2">De închiriat</label>
+                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="property-type">
@@ -103,34 +110,41 @@ function AddSale() {
                              * Housing Block
                              *******************************************************/}
                             <div className="app-card">
-                                <Form.Group controlId="housing-stock-1">
-                                    <Form.Label>Fond locativ</Form.Label>
-                                        <ToggleButtonGroup className="form-tab" type="radio" name="housingStock" defaultValue={1}>
-                                            <ToggleButton variant="outline-primary" id="housing-stock-1" value={1}>
-                                                Construcții noi
-                                            </ToggleButton>
-                                            <ToggleButton variant="outline-primary" id="housing-stock-2" value={2}>
-                                                Secundare
-                                            </ToggleButton>
-                                        </ToggleButtonGroup>
+                                <Form.Group>
+                                    <Form.Label htmlFor="housing-stock-1">Fond locativ</Form.Label>
+                                    <div className="form-tab">
+                                        <input
+                                            id="housing-stock-1"
+                                            name="housingStock"
+                                            value="1"
+                                            type="radio"
+                                            defaultChecked={true}/>
+                                        <label htmlFor="housing-stock-1">Construcții noi</label>
+                                        <input
+                                            id="housing-stock-2"
+                                            name="housingStock"
+                                            value="2"
+                                            type="radio"/>
+                                        <label htmlFor="housing-stock-2">Secundare</label>
+                                    </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="number-rooms-1">
                                     <Form.Label>Număr de camere<Star/><Feedback dataName="numberRooms"/></Form.Label>
-                                        {[
-                                            '1', '1.5', '2', '2.5', '3', '4.5', '4+'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`number-rooms-${index}`}
-                                                id={`number-rooms-${index + 1}`}
-                                                type="radio"
-                                                label={value}
-                                                value={value}
-                                                name="numberRooms"
-                                                className="form-cracker"
-                                                onChange={handleChange}
-                                                isInvalid={touched.numberRooms && !!errors.numberRooms}/>
-                                        ))}
+                                    {[
+                                        '1', '1.5', '2', '2.5', '3', '4.5', '4+'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`number-rooms-${index}`}
+                                            id={`number-rooms-${index + 1}`}
+                                            type="radio"
+                                            label={value}
+                                            value={value}
+                                            name="numberRooms"
+                                            className="form-cracker"
+                                            onChange={handleChange}
+                                            isInvalid={touched.numberRooms && !!errors.numberRooms}/>
+                                    ))}
                                 </Form.Group>
 
                                 <Form.Group controlId="sale-price">
@@ -165,19 +179,19 @@ function AddSale() {
 
                                 <Form.Group controlId="mortgage-1">
                                     <Form.Label>Credit ipotecar</Form.Label>
-                                        {[
-                                            'Disponibil',
-                                            'Indisponibil'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`mortgage-${index}`}
-                                                id={`mortgage-${index + 1}`}
-                                                type="radio"
-                                                label={value}
-                                                value={value}
-                                                name="mortgage"
-                                                className="form-cracker"/>
-                                        ))}
+                                    {[
+                                        'Disponibil',
+                                        'Indisponibil'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`mortgage-${index}`}
+                                            id={`mortgage-${index + 1}`}
+                                            type="radio"
+                                            label={value}
+                                            value={value}
+                                            name="mortgage"
+                                            className="form-cracker"/>
+                                    ))}
                                 </Form.Group>
 
                                 <Form.Group controlId="area">
@@ -199,29 +213,29 @@ function AddSale() {
                              * Location Block
                              *******************************************************/}
                             <div className="app-card">
-                                    <Form.Group controlId="location">
-                                        <Form.Label>Locație<Star/><Feedback dataName="location"/></Form.Label>
-                                        <InputGroup>
-                                            <InputGroup.Text>
-                                                <img src={iconSearch} alt=""/>
-                                            </InputGroup.Text>
-                                            <Form.Control
-                                                name="location"
-                                                type="text"
-                                                value={values.location}
-                                                placeholder="Orașul, strada, numărul casei"
-                                                onChange={handleChange}
-                                                isInvalid={touched.location && !!errors.location}/>
-                                            <InputGroup.Text>
-                                                <img src={iconCheck} alt=""/>
-                                            </InputGroup.Text>
-                                        </InputGroup>
-                                    </Form.Group>
+                                <Form.Group controlId="location">
+                                    <Form.Label>Locație<Star/><Feedback dataName="location"/></Form.Label>
+                                    <InputGroup>
+                                        <InputGroup.Text>
+                                            <img src={iconSearch} alt=""/>
+                                        </InputGroup.Text>
+                                        <Form.Control
+                                            name="location"
+                                            type="text"
+                                            value={values.location}
+                                            placeholder="Orașul, strada, numărul casei"
+                                            onChange={handleChange}
+                                            isInvalid={touched.location && !!errors.location}/>
+                                        <InputGroup.Text>
+                                            <img src={iconCheck} alt=""/>
+                                        </InputGroup.Text>
+                                    </InputGroup>
+                                </Form.Group>
 
-                                    <Form.Group className="map-thumb">
-                                        <img className="map-preview" src={`${conf.MEDIA_URL}/thumb_map.png`} alt=""/>
-                                        <img className="map-overlay" src={iconLocation} alt=""/>
-                                    </Form.Group>
+                                <Form.Group className="map-thumb">
+                                    <img className="map-preview" src={`${conf.MEDIA_URL}/thumb_map.png`} alt=""/>
+                                    <img className="map-overlay" src={iconLocation} alt=""/>
+                                </Form.Group>
                             </div>
 
                             {/******************************************************
@@ -270,38 +284,38 @@ function AddSale() {
                             <div className="app-card">
                                 <Form.Group controlId="apartment-status-1">
                                     <Form.Label>Starea apartamentului</Form.Label>
-                                        {[
-                                            'Varianta albă',
-                                            'Varianta sură',
-                                            'Reparație cosmetică',
-                                            'Euroreparație',
-                                            'Design individual'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`apartment-status-${index}`}
-                                                id={`apartment-status-${index + 1}`}
-                                                type="radio"
-                                                label={value}
-                                                name="apartmentStatus"
-                                                className="form-cracker"/>
-                                        ))}
+                                    {[
+                                        'Varianta albă',
+                                        'Varianta sură',
+                                        'Reparație cosmetică',
+                                        'Euroreparație',
+                                        'Design individual'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`apartment-status-${index}`}
+                                            id={`apartment-status-${index + 1}`}
+                                            type="radio"
+                                            label={value}
+                                            name="apartmentStatus"
+                                            className="form-cracker"/>
+                                    ))}
                                 </Form.Group>
 
                                 <Form.Group controlId="furniture-1">
                                     <Form.Label>Mobilier</Form.Label>
-                                        {[
-                                            'Nemobilat',
-                                            'Parțial mobilat',
-                                            'Mobilat'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`furniture-${index}`}
-                                                id={`furniture-${index + 1}`}
-                                                type="radio"
-                                                label={value}
-                                                name="furniture"
-                                                className="form-cracker"/>
-                                        ))}
+                                    {[
+                                        'Nemobilat',
+                                        'Parțial mobilat',
+                                        'Mobilat'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`furniture-${index}`}
+                                            id={`furniture-${index + 1}`}
+                                            type="radio"
+                                            label={value}
+                                            name="furniture"
+                                            className="form-cracker"/>
+                                    ))}
                                 </Form.Group>
                             </div>
 
@@ -337,35 +351,35 @@ function AddSale() {
 
                                 <Form.Group controlId="ascensor-1">
                                     <Form.Label>Ascensor</Form.Label>
-                                        {[
-                                            'Este',
-                                            'Absent'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`ascensor-${index}`}
-                                                id={`ascensor-${index + 1}`}
-                                                type="radio"
-                                                label={value}
-                                                name="ascensor"
-                                                className="form-cracker"/>
-                                        ))}
+                                    {[
+                                        'Este',
+                                        'Absent'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`ascensor-${index}`}
+                                            id={`ascensor-${index + 1}`}
+                                            type="radio"
+                                            label={value}
+                                            name="ascensor"
+                                            className="form-cracker"/>
+                                    ))}
                                 </Form.Group>
 
                                 <Form.Group controlId="parking-1">
                                     <Form.Label>Parcare</Form.Label>
-                                        {[
-                                            'Subterană',
-                                            'În curtea',
-                                            'Garaj'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`parking-${index}`}
-                                                id={`parking-${index + 1}`}
-                                                type="checkbox"
-                                                label={value}
-                                                name="parking"
-                                                className="form-cracker"/>
-                                        ))}
+                                    {[
+                                        'Subterană',
+                                        'În curtea',
+                                        'Garaj'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`parking-${index}`}
+                                            id={`parking-${index + 1}`}
+                                            type="checkbox"
+                                            label={value}
+                                            name="parking"
+                                            className="form-cracker"/>
+                                    ))}
                                 </Form.Group>
 
                                 <Form.Group controlId="developer">
@@ -379,17 +393,17 @@ function AddSale() {
 
                                 <Form.Group controlId="exploitation-1">
                                     <Form.Label>Predare în exploatare</Form.Label>
-                                        {[
-                                            'Dat în exploatare', '2023', '2024', '2025', '2026', '2027+'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`exploitation-${index}`}
-                                                id={`exploitation-${index + 1}`}
-                                                type="radio"
-                                                label={value}
-                                                name="exploitation"
-                                                className="form-cracker"/>
-                                        ))}
+                                    {[
+                                        'Dat în exploatare', '2023', '2024', '2025', '2026', '2027+'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`exploitation-${index}`}
+                                            id={`exploitation-${index + 1}`}
+                                            type="radio"
+                                            label={value}
+                                            name="exploitation"
+                                            className="form-cracker"/>
+                                    ))}
                                 </Form.Group>
 
                                 <Form.Group controlId="description">
@@ -410,17 +424,17 @@ function AddSale() {
                             <div className="app-card">
                                 <Form.Group controlId="transaction-fee-1">
                                     <Form.Label>Comision de tranzacție</Form.Label>
-                                        {[
-                                            '0.5%', '1.5%', '1.5%', '2%', '2.5%', '3%', 'Alt'
-                                        ].map((value, index) => (
-                                            <Form.Check
-                                                key={`transaction-fee-${index}`}
-                                                id={`transaction-fee-${index + 1}`}
-                                                label={value}
-                                                name="transactionFee"
-                                                type="radio"
-                                                className="form-cracker"/>
-                                        ))}
+                                    {[
+                                        '0.5%', '1.5%', '1.5%', '2%', '2.5%', '3%', 'Alt'
+                                    ].map((value, index) => (
+                                        <Form.Check
+                                            key={`transaction-fee-${index}`}
+                                            id={`transaction-fee-${index + 1}`}
+                                            label={value}
+                                            name="transactionFee"
+                                            type="radio"
+                                            className="form-cracker"/>
+                                    ))}
                                 </Form.Group>
 
                                 <div className="alert alert-light">
