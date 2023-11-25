@@ -203,10 +203,11 @@ function Property() {
                     data-bs-theme="dark"
                     className="modal-gallery"
                     fullscreen>
-                    <Modal.Header closeButton/>
                     <Modal.Body>
                         <Gallery/>
                     </Modal.Body>
+                    <Modal.Header closeButton/>
+                    <Modal.Footer/>
                 </Modal>
 
                 {/*** Map ***/}
@@ -216,10 +217,11 @@ function Property() {
                     data-bs-theme="light"
                     className="modal-map"
                     fullscreen>
-                    <Modal.Header closeButton/>
                     <Modal.Body>
                         <Map/>
                     </Modal.Body>
+                    <Modal.Header closeButton/>
+                    <Modal.Footer/>
                 </Modal>
             </Main>
         </>

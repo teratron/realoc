@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Bootstrap
 @import "bootstrap";
 
@@ -290,12 +292,35 @@ body {
     .btn-close {
     }
 
+    &-map,
     &-gallery {
+        .modal-content {
+            position: relative;
+        }
 
-    }
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+        }
 
-    &-map {
+        .modal-header,
+        .modal-footer {
+            display: flex;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
 
+        .modal-header {
+            top: 0;
+        }
+
+        .modal-footer {
+            bottom: 0;
+        }
     }
 }
 
@@ -335,6 +360,8 @@ body {
     }
 
     > .badge {
+        $badge-height:      1rem;
+
         background:     rgba(47, 86, 255, .13);
         color:          #344054;
         font-size:      .625rem;
@@ -345,9 +372,9 @@ body {
         top:            0;
         left:           100%;
         transform:      translate(-100%, -10%);
-        min-width:      1rem;
-        height:         1rem;
-        border-radius:  .5rem;
+        min-width:      $badge-height;
+        height:         $badge-height;
+        border-radius:  math.div($badge-height, 2);
         padding-left:   .25rem;
         padding-right:  .25rem;
     }
@@ -391,6 +418,17 @@ body {
     }
 }
 
+.modal-map {
+    .modal-body {
+    }
+
+    .modal-header {
+    }
+
+    .modal-footer {
+    }
+}
+
 //**********************************************
 // Gallery
 //**********************************************
@@ -409,13 +447,23 @@ body {
     }
 }
 
+.modal-gallery {
+    .modal-body {
+    }
+
+    .modal-header {
+    }
+
+    .modal-footer {
+    }
+}
+
 .photo-backdrop {
     @extend .img-wrapper;
 
     background-size: contain;
     height:          auto;
 }
-
 
 //**********************************************
 // Property summary
