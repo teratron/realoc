@@ -164,6 +164,7 @@ $custom-bg-color: #f2f4f7;
         border:          1px solid transparent;
         line-height:     1;
         padding:         0;
+        cursor: pointer;
 
         @extend %__t-tab-form;
 
@@ -226,6 +227,7 @@ $custom-bg-color: #f2f4f7;
         border:           2px solid transparent;
         line-height:      1;
         padding:          0 $padding-side;
+        cursor: pointer;
 
         @extend %__t-check-cracker;
     }
