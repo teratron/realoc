@@ -147,6 +147,7 @@ body {
 
 .app-container {
     width:        100%;
+    max-width: $container-width;
     margin-right: auto;
     margin-left:  auto;
 }
