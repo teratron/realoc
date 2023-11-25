@@ -16,8 +16,7 @@ function Template() {
                 <h5>Heading 5</h5>
                 <h6>Heading 6</h6>
 
-
-                <form className="mt-5">
+                <form className="mt-5 mb-4 app-content">
                     <h2>Form</h2>
                     <div className="app-card">
                         <div className="form-tab mb-2">
@@ -58,7 +57,20 @@ function Template() {
                         </div>
                     </div>
                 </form>
-                <h2 className="mt-4">Button</h2>
+                <h2 className="">Button</h2>
+                <div className="app-content mb-4">
+                    <button type="button" className="btn">Default</button>
+                    <button type="button" className="btn btn-primary">Button</button>
+                    <button type="button" className="btn btn-primary">Primary</button>
+                    <button type="button" className="btn btn-secondary">Secondary</button>
+                    <button type="button" className="btn btn-success">Success</button>
+                    <button type="button" className="btn btn-danger">Danger</button>
+                    <button type="button" className="btn btn-warning">Warning</button>
+                    <button type="button" className="btn btn-info">Info</button>
+                    <button type="button" className="btn btn-light">Light</button>
+                    <button type="button" className="btn btn-dark">Dark</button>
+                    <button type="button" className="btn btn-link">Link</button>
+                </div>
             </Main>
             <Footer/>
         </>

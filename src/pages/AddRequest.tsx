@@ -13,7 +13,7 @@ function AddRequest() {
 
     return (
         <>
-            <Header title={title} idResetButton="add-request-form"/>
+            <Header title={title} resetButton={{id: 'add-request-form', badge: 99}}/>
             <Main>
                 <h2>Caută imobiliare</h2>
 

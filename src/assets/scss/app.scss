@@ -115,16 +115,15 @@ body {
 #app-main {
     display:               grid;
     overflow-x:            hidden;
-    align-items: start;
-    min-height:  100%;
+    align-items:           start;
+    min-height:            100%;
     background-color:      var(--app-main-bg-color);
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows:    1fr;
 
     > .app-container {
         height:  100%;
-        padding: $header-height 0 1.25rem;
-
+        padding: $header-height 0 1.25rem + $footer-height;
 
         > :first-child:not(.carousel) {
             margin-top: 2.5rem;
@@ -133,15 +132,12 @@ body {
         > :last-child {
             margin-bottom: 0;
         }
-    }
 
-    h2 {
-        font-size:      calc(1.05rem + 0.9vw);
-        font-weight:    700;
-        margin-bottom:  1rem;
-        padding-right:  1rem;
-        padding-left:   1rem;
-        letter-spacing: -0.01em;
+        > h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            padding-right: 1rem;
+            padding-left:  1rem;
+        }
     }
 }
 
@@ -160,8 +156,6 @@ body {
 //**********************************************
 
 .app-content {
-    padding-bottom: $footer-height;
-
     @include container(&);
 
     > .app-card {
@@ -309,11 +303,16 @@ body {
 //**********************************************
 
 .btn {
+    font-size:   1rem;
+    font-weight: 500;
+    line-height: 1;
     border-radius: .5rem;
-    position: relative;
+    position:    relative;
+    min-height:  2.5rem;
 
     &-link {
-        @extend .px-0;
+        padding-right: 0;
+        padding-left:  0;
     }
 
     &-light {
@@ -322,14 +321,45 @@ body {
         box-shadow:   none;
     }
 
-    > .badge {
-        position: absolute;
-        top:      0;
-        left:     100%;
-        transform: translate(-50%, -50%);
-
-        @extend .rounded-pill, .bg-danger;
+    &-link,
+    &-light {
+        color: #2f56ff;
     }
+
+    > .badge {
+        background:     rgba(47, 86, 255, .13);
+        color:          #344054;
+        font-size:      .625rem;
+        font-weight:    500;
+        line-height:    1;
+        letter-spacing: .03125rem;
+        position:       absolute;
+        top:            0;
+        left:           100%;
+        transform:      translate(-100%, -10%);
+        min-width:      1rem;
+        height:         1rem;
+        border-radius:  .5rem;
+        padding-left:   .25rem;
+        padding-right:  .25rem;
+    }
+}
+
+//**********************************************
+// Badge
+//**********************************************
+.badge {
+    //background: rgba(47, 86, 255, .13);
+    //color: #344054;
+    //font-size: .625rem;
+    //font-weight: 500;
+    //line-height: 1;
+    //letter-spacing: .03125rem;
+    display:         inline-flex;
+    flex-direction:  row;
+    flex-wrap:       nowrap;
+    justify-content: center;
+    align-items:     center;
 }
 
 //**********************************************
@@ -435,12 +465,11 @@ body {
     }
 
     > .info {
+        display: flex;
         align-items:     stretch;
         flex-direction:  row;
         flex-wrap:       nowrap;
         justify-content: space-between;
-
-        @extend .d-flex;
 
         > .app-list {
             > * {
@@ -469,16 +498,6 @@ body {
                 @extend %__t-card-subtitle;
             }
         }
-    }
-}
-
-//**********************************************
-// Heading
-//**********************************************
-
-h1, h2, h3, h4, h5, h6 {
-    .app-container > & {
-        @include container(&);
     }
 }
 
