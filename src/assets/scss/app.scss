@@ -275,8 +275,17 @@ body {
 //**********************************************
 
 .carousel {
-    .app-container > & {
-        @extend .mt-0, .mb-4;
+    #app-main > .app-container > &:first-child {
+        margin-top:    0;
+        margin-bottom: 1.5rem;
+    }
+
+    @media only screen and (min-width: $container-width) {
+        @include container(&);
+
+        .app-container > &:first-child > .carousel-inner {
+            border-radius: 0 0 .625rem .625rem;
+        }
     }
 }
 
