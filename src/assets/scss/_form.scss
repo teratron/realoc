@@ -37,11 +37,11 @@ $custom-bg-color: #f2f4f7;
     .form-control,
     .form-select {
         font-size:        0.9rem;
-        color:         #101828;
+        color:            #101828;
         border:           1px solid #d0d5dd;
-        border-radius: 8px;
+        border-radius:    8px;
         background-color: white;
-        box-shadow:    0 1px 2px 0 rgba(16, 24, 40, .05);
+        box-shadow:       0 1px 2px 0 rgba(16, 24, 40, .05);
     }
 
     .input-group {
@@ -69,10 +69,10 @@ $custom-bg-color: #f2f4f7;
             border:           0;
             position:         absolute;
             padding:          0 12px;
+            z-index:          10;
 
             &:first-child {
-                left:    0;
-                z-index: 1;
+                left: 0;
             }
 
             &:last-child {
@@ -88,13 +88,13 @@ $custom-bg-color: #f2f4f7;
             background-color: rgba(47, 86, 255, .2);
             border:           1px dashed rgba(47, 86, 255, .7);
             border-radius:    8px;
-            display: flex;
-            flex-direction:  row;
-            flex-wrap:       nowrap;
-            justify-content: center;
-            align-items:     center;
-            height:  44px;
-            margin-bottom: 0;
+            display:          flex;
+            flex-direction:   row;
+            flex-wrap:        nowrap;
+            justify-content:  center;
+            align-items:      center;
+            height:           44px;
+            margin-bottom:    0;
 
             @extend %__t-add-photo;
 
@@ -105,7 +105,7 @@ $custom-bg-color: #f2f4f7;
     }
 
     .feedback {
-        color: var(--bs-danger);
+        color:   var(--bs-danger);
         display: none;
 
         &.show {
@@ -133,19 +133,19 @@ $custom-bg-color: #f2f4f7;
 
 .form-tab {
     $tab-height:      44px;
-    $tab-radius:     8px;
-    $tab-padding:    4px;
+    $tab-radius:      8px;
+    $tab-padding:     4px;
 
-    display:         flex;
-    flex-direction:  row;
-    flex-wrap:       nowrap;
-    justify-content: space-between;
-    align-items:     stretch;
+    display:          flex;
+    flex-direction:   row;
+    flex-wrap:        nowrap;
+    justify-content:  space-between;
+    align-items:      stretch;
     background-color: $custom-bg-color;
     height:           $tab-height;
-    border-radius:   $tab-radius;
-    padding:         $tab-padding;
-    overflow:        hidden;
+    border-radius:    $tab-radius;
+    padding:          $tab-padding;
+    overflow:         hidden;
 
     > label {
         display:         flex;
@@ -200,7 +200,7 @@ $custom-bg-color: #f2f4f7;
         align-items:      center;
         min-width:        60px;
         height:           $cracker-height;
-        border-radius: math.div($cracker-height, 2);
+        border-radius:    math.div($cracker-height, 2);
         border:           2px solid transparent;
         line-height:      1;
         padding:          0 $padding-side;
