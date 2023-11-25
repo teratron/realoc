@@ -15,6 +15,7 @@ $custom-bg-color: #f2f4f7;
     }
 
     .form-label {
+        display: block;
         width: 100%;
 
         @extend %__t-card-subtitle;

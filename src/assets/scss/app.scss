@@ -40,25 +40,25 @@ body {
     overflow-x:       hidden;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top:      0;
-    left:     0;
-    right:    0;
+    position:         fixed;
+    top:              0;
+    left:             0;
+    right:            0;
 
     &, > .app-container {
         height: $header-height;
     }
 
     > .app-container {
-        display:        flex;
-        flex-direction: row;
-        flex-wrap:      nowrap;
+        display:         flex;
+        flex-direction:  row;
+        flex-wrap:       nowrap;
         justify-content: space-around;
-        align-items:    stretch;
+        align-items:     stretch;
         //@extend .px-0;
 
         > * {
-            display: flex;
+            display:        flex;
             align-items:    center;
             flex-direction: row;
             flex-wrap:      nowrap;
@@ -125,7 +125,7 @@ body {
         height:  100%;
         padding: $header-height 0 1.25rem + $footer-height;
 
-        > :first-child:not(.carousel) {
+        > :first-child {
             margin-top: 2.5rem;
         }
 
@@ -147,7 +147,7 @@ body {
 
 .app-container {
     width:        100%;
-    max-width: $container-width;
+    max-width:    $container-width;
     margin-right: auto;
     margin-left:  auto;
 }
@@ -166,8 +166,8 @@ body {
     > .navbar {
         background-color: white;
         box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, .1);
-        padding-top:    0;
-        padding-bottom: 0;
+        padding-top:      0;
+        padding-bottom:   0;
 
         @extend .fixed-bottom, .navbar-expand;
 
@@ -215,12 +215,12 @@ body {
 //**********************************************
 
 .app-card {
-    padding:       1rem;
-    border:        1px solid #e3e3e3;
-    border-radius: .625rem;
+    padding:          1rem;
+    border:           1px solid #e3e3e3;
+    border-radius:    .625rem;
     background-color: white;
-    box-shadow:    0 3px 2px 0 rgba(0, 0, 0, 0.04),
-                   0 3px 16px 0 rgba(0, 0, 0, 0.06);
+    box-shadow:       0 3px 2px 0 rgba(0, 0, 0, 0.04),
+                      0 3px 16px 0 rgba(0, 0, 0, 0.06);
 
     .card-title {
         @extend %__t-card-title;
@@ -274,7 +274,7 @@ body {
 
 .carousel {
     .app-container > & {
-        @extend .mb-4;
+        @extend .mt-0, .mb-4;
     }
 }
 
@@ -304,12 +304,19 @@ body {
 //**********************************************
 
 .btn {
-    font-size:   1rem;
-    font-weight: 500;
-    line-height: 1;
-    border-radius: .5rem;
-    position:    relative;
-    min-height:  2.5rem;
+    font-size:       1rem;
+    font-weight:     500;
+    line-height:     1;
+    display:         inline-flex;
+    flex-direction:  row;
+    flex-wrap:       nowrap;
+    justify-content: center;
+    align-items:     center;
+    border-radius:   .5rem;
+    position:        relative;
+    min-width:       2.5rem;
+    min-height:      2.5rem;
+    padding:         0 .75rem;
 
     &-link {
         padding-right: 0;
@@ -318,8 +325,8 @@ body {
 
     &-light {
         background-color: transparent;
-        border-color: transparent;
-        box-shadow:   none;
+        border-color:     transparent;
+        box-shadow:       none;
     }
 
     &-link,
@@ -350,12 +357,6 @@ body {
 // Badge
 //**********************************************
 .badge {
-    //background: rgba(47, 86, 255, .13);
-    //color: #344054;
-    //font-size: .625rem;
-    //font-weight: 500;
-    //line-height: 1;
-    //letter-spacing: .03125rem;
     display:         inline-flex;
     flex-direction:  row;
     flex-wrap:       nowrap;
@@ -412,7 +413,7 @@ body {
     @extend .img-wrapper;
 
     background-size: contain;
-    height: auto;
+    height:          auto;
 }
 
 
@@ -466,7 +467,7 @@ body {
     }
 
     > .info {
-        display: flex;
+        display:         flex;
         align-items:     stretch;
         flex-direction:  row;
         flex-wrap:       nowrap;
@@ -474,7 +475,7 @@ body {
 
         > .app-list {
             > * {
-                display: flex;
+                display:         flex;
                 overflow-x:      hidden;
                 flex-wrap:       nowrap;
                 justify-content: flex-start;
@@ -507,9 +508,9 @@ body {
 //**********************************************
 
 .img-wrapper {
-    background: no-repeat center center;
+    background:      no-repeat center center;
     background-size: cover;
-    display:    block;
-    max-width:  100%;
-    width:      100%;
+    display:         block;
+    max-width:       100%;
+    width:           100%;
 }
