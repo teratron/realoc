@@ -20,15 +20,19 @@ $custom-bg-color: #f2f4f7;
         @extend %__t-card-subtitle;
 
         > .foot, > .feedback {
-            @extend .float-end, .ms-2;
+            float: right;
+
+            @extend .ms-2;
         }
 
         > .feedback.show + .foot {
-            @extend .d-none;
+            display: none;
         }
 
         > .foot {
-            @extend .d-block, .text-body-tertiary;
+            display: block;
+
+            @extend .text-body-tertiary;
         }
 
         @extend .clearfix;

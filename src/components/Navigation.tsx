@@ -16,6 +16,7 @@ function Navigation() {
                 <Link to="/add-request">Add Request</Link>
                 <Link to="/add-sale">Add Sale</Link>
                 <Link to="/property">Property</Link>
+                <Link to="/template">Template</Link>
                 <Link to="/about">About</Link>
             </div>
         </>
