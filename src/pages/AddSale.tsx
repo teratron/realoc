@@ -284,7 +284,7 @@ function AddSale() {
                             {/******************************************************
                              * Apartment Block
                              *******************************************************/}
-                            <div className="app-card">
+                            <div className="app-card pb-1">
                                 <Form.Group controlId="apartment-status-1">
                                     <Form.Label>Starea apartamentului</Form.Label>
                                     {[

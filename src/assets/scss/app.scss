@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Bootstrap
 @import "bootstrap";
 
@@ -40,25 +42,25 @@ body {
     overflow-x:       hidden;
     background-color: var(--app-header-bg-color);
     box-shadow:       0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top:      0;
-    left:     0;
-    right:    0;
+    position:         fixed;
+    top:              0;
+    left:             0;
+    right:            0;
 
     &, > .app-container {
         height: $header-height;
     }
 
     > .app-container {
-        display:        flex;
-        flex-direction: row;
-        flex-wrap:      nowrap;
+        display:         flex;
+        flex-direction:  row;
+        flex-wrap:       nowrap;
         justify-content: space-around;
-        align-items:    stretch;
+        align-items:     stretch;
         //@extend .px-0;
 
         > * {
-            display: flex;
+            display:        flex;
             align-items:    center;
             flex-direction: row;
             flex-wrap:      nowrap;
@@ -115,33 +117,29 @@ body {
 #app-main {
     display:               grid;
     overflow-x:            hidden;
-    align-items: start;
-    min-height:  100%;
+    align-items:           start;
+    min-height:            100%;
     background-color:      var(--app-main-bg-color);
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows:    1fr;
 
     > .app-container {
         height:  100%;
-        padding: $header-height 0 1.25rem;
+        padding: $header-height 0 1.25rem + $footer-height;
 
-
-        > :first-child:not(.carousel) {
+        > :first-child {
             margin-top: 2.5rem;
         }
 
         > :last-child {
             margin-bottom: 0;
         }
-    }
 
-    h2 {
-        font-size:      calc(1.05rem + 0.9vw);
-        font-weight:    700;
-        margin-bottom:  1rem;
-        padding-right:  1rem;
-        padding-left:   1rem;
-        letter-spacing: -0.01em;
+        > h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            padding-right: 1rem;
+            padding-left:  1rem;
+        }
     }
 }
 
@@ -151,6 +149,7 @@ body {
 
 .app-container {
     width:        100%;
+    max-width:    $container-width;
     margin-right: auto;
     margin-left:  auto;
 }
@@ -160,8 +159,6 @@ body {
 //**********************************************
 
 .app-content {
-    padding-bottom: $footer-height;
-
     @include container(&);
 
     > .app-card {
@@ -171,8 +168,8 @@ body {
     > .navbar {
         background-color: white;
         box-shadow:       0 -2px 2px 0 rgba(0, 0, 0, .1);
-        padding-top:    0;
-        padding-bottom: 0;
+        padding-top:      0;
+        padding-bottom:   0;
 
         @extend .fixed-bottom, .navbar-expand;
 
@@ -220,12 +217,12 @@ body {
 //**********************************************
 
 .app-card {
-    padding:       1rem;
-    border:        1px solid #e3e3e3;
-    border-radius: .625rem;
+    padding:          1rem;
+    border:           1px solid #e3e3e3;
+    border-radius:    .625rem;
     background-color: white;
-    box-shadow:    0 3px 2px 0 rgba(0, 0, 0, 0.04),
-                   0 3px 16px 0 rgba(0, 0, 0, 0.06);
+    box-shadow:       0 3px 2px 0 rgba(0, 0, 0, 0.04),
+                      0 3px 16px 0 rgba(0, 0, 0, 0.06);
 
     .card-title {
         @extend %__t-card-title;
@@ -278,8 +275,64 @@ body {
 //**********************************************
 
 .carousel {
-    .app-container > & {
-        @extend .mb-4;
+    &-indicators {
+        $indicator-height: .5rem;
+
+        > button[data-#{$prefix}target] {
+            box-sizing:    content-box;
+            width:         $indicator-height;
+            height:        $indicator-height;
+            padding:       0;
+            margin-right:  3px;
+            margin-left:   3px;
+            border:        0 none;
+            border-radius: math.div($indicator-height, 2);
+            opacity:       .4;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.app-carousel {
+    position: relative;
+
+    #app-main > .app-container > &:first-child {
+        margin-top:    0;
+        margin-bottom: 1.5rem;
+    }
+
+    &-caption {
+        background-color: rgba(255, 255, 255, .6);
+        color:            black;
+        font-size:        .75rem;
+        font-weight:      500;
+        line-height:      1;
+        display:          flex;
+        flex-direction:   row;
+        flex-wrap:        nowrap;
+        justify-content:  center;
+        align-items:      center;
+        min-width:        2.25rem;
+        height:           1.375rem;
+        border-radius:    2px;
+        position:         absolute;
+        bottom:           0;
+        right:            0;
+        transform:        translate(-30%, -50%);
+        padding:          0 .375rem;
+    }
+
+    @media only screen and (min-width: $container-width) {
+        @include container(&);
+
+        #app-main > .app-container > &:first-child .carousel-inner {
+            border-radius: 0 0 .625rem .625rem;
+            box-shadow:    0 3px 2px 0 rgba(0, 0, 0, 0.04),
+                           0 3px 16px 0 rgba(0, 0, 0, 0.06);
+        }
     }
 }
 
@@ -292,15 +345,50 @@ body {
         @extend .p-0;
     }
 
-    .btn-close {
+    &-map,
+    &-gallery {
+        .modal-content {
+            position: relative;
+        }
+
+        .modal-body {
+            display:        flex;
+            flex-direction: column;
+            flex-wrap:      nowrap;
+            justify-content: center;
+            align-items:    stretch;
+        }
     }
 
     &-gallery {
+        .modal-header,
+        .modal-footer {
+            display:  flex;
+            position: absolute;
+            left:     0;
+            right:    0;
+        }
 
+        .modal-header {
+            top: 0;
+        }
+
+        .modal-footer {
+            bottom: 0;
+        }
     }
 
     &-map {
+        .modal-header {
+            background-color: white;
+        }
 
+        .modal-footer {
+            display:  flex;
+            position: absolute;
+            left:     0;
+            right:    0;
+        }
     }
 }
 
@@ -309,27 +397,66 @@ body {
 //**********************************************
 
 .btn {
-    border-radius: .5rem;
-    position: relative;
+    font-size:       1rem;
+    font-weight:     500;
+    line-height:     1;
+    display:         inline-flex;
+    flex-direction:  row;
+    flex-wrap:       nowrap;
+    justify-content: center;
+    align-items:     center;
+    border-radius:   .5rem;
+    position:        relative;
+    min-width:       2.5rem;
+    min-height:      2.5rem;
+    padding:         0 .75rem;
 
     &-link {
-        @extend .px-0;
+        padding-right: 0;
+        padding-left:  0;
     }
 
     &-light {
         background-color: transparent;
-        border-color: transparent;
-        box-shadow:   none;
+        border-color:     transparent;
+        box-shadow:       none;
+    }
+
+    &-link,
+    &-light {
+        color: #2f56ff;
     }
 
     > .badge {
-        position: absolute;
-        top:      0;
-        left:     100%;
-        transform: translate(-50%, -50%);
+        $badge-height: 1rem;
 
-        @extend .rounded-pill, .bg-danger;
+        background:     rgba(47, 86, 255, .13);
+        color:          #344054;
+        font-size:      .625rem;
+        font-weight:    500;
+        line-height:    1;
+        letter-spacing: .03125rem;
+        position:       absolute;
+        top:            0;
+        left:           100%;
+        transform:      translate(-100%, -10%);
+        min-width:      $badge-height;
+        height:         $badge-height;
+        border-radius:  math.div($badge-height, 2);
+        padding-left:   .25rem;
+        padding-right:  .25rem;
     }
+}
+
+//**********************************************
+// Badge
+//**********************************************
+.badge {
+    display:         inline-flex;
+    flex-direction:  row;
+    flex-wrap:       nowrap;
+    justify-content: center;
+    align-items:     center;
 }
 
 //**********************************************
@@ -359,6 +486,17 @@ body {
     }
 }
 
+.modal-map {
+    .modal-body {
+    }
+
+    .modal-header {
+    }
+
+    .modal-footer {
+    }
+}
+
 //**********************************************
 // Gallery
 //**********************************************
@@ -377,13 +515,23 @@ body {
     }
 }
 
+.modal-gallery {
+    .modal-body {
+    }
+
+    .modal-header {
+    }
+
+    .modal-footer {
+    }
+}
+
 .photo-backdrop {
     @extend .img-wrapper;
 
     background-size: contain;
-    height: auto;
+    height:          auto;
 }
-
 
 //**********************************************
 // Property summary
@@ -435,16 +583,15 @@ body {
     }
 
     > .info {
+        display:         flex;
         align-items:     stretch;
         flex-direction:  row;
         flex-wrap:       nowrap;
         justify-content: space-between;
 
-        @extend .d-flex;
-
         > .app-list {
             > * {
-                display: flex;
+                display:         flex;
                 overflow-x:      hidden;
                 flex-wrap:       nowrap;
                 justify-content: flex-start;
@@ -473,23 +620,13 @@ body {
 }
 
 //**********************************************
-// Heading
-//**********************************************
-
-h1, h2, h3, h4, h5, h6 {
-    .app-container > & {
-        @include container(&);
-    }
-}
-
-//**********************************************
 // Image
 //**********************************************
 
 .img-wrapper {
-    background: no-repeat center center;
+    background:      no-repeat center center;
     background-size: cover;
-    display:    block;
-    max-width:  100%;
-    width:      100%;
+    display:         block;
+    max-width:       100%;
+    width:           100%;
 }

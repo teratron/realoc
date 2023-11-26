@@ -30,21 +30,24 @@ function Property() {
             `${MEDIA_URL}/plug_room_01.jpg`
         ]
         const numSlides = slides.length
+        const [photo, setPhoto] = useState(1)
 
         return (
-            <Carousel>
-                {slides.map((value, index) => (
-                    <Carousel.Item key={`slide-photo-${index}`}>
-                        <img
-                            src={imgEmpty16x9}
-                            className="photo-backdrop"
-                            style={{backgroundImage: `url(${value})`}}
-                            onClick={handleShowGallery}
-                            alt=""/>
-                        <Carousel.Caption>{index + 1}/{numSlides}</Carousel.Caption>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
+            <div className="app-carousel">
+                <Carousel onSlide={(index) => setPhoto(index + 1)}>
+                    {slides.map((value, index) => (
+                        <Carousel.Item key={`slide-photo-${index}`}>
+                            <img
+                                src={imgEmpty16x9}
+                                className="photo-backdrop"
+                                style={{backgroundImage: `url(${value})`}}
+                                onClick={handleShowGallery}
+                                alt=""/>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+                <div className="app-carousel-caption">{photo}/{numSlides}</div>
+            </div>
         )
     }
 
@@ -203,10 +206,11 @@ function Property() {
                     data-bs-theme="dark"
                     className="modal-gallery"
                     fullscreen>
-                    <Modal.Header closeButton/>
                     <Modal.Body>
                         <Gallery/>
                     </Modal.Body>
+                    <Modal.Header closeButton/>
+                    <Modal.Footer/>
                 </Modal>
 
                 {/*** Map ***/}
@@ -216,10 +220,11 @@ function Property() {
                     data-bs-theme="light"
                     className="modal-map"
                     fullscreen>
-                    <Modal.Header closeButton/>
+                    <Modal.Header closeButton>Locație</Modal.Header>
                     <Modal.Body>
                         <Map/>
                     </Modal.Body>
+                    <Modal.Footer/>
                 </Modal>
             </Main>
         </>

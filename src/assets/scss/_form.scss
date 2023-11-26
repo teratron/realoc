@@ -15,20 +15,25 @@ $custom-bg-color: #f2f4f7;
     }
 
     .form-label {
+        display: block;
         width: 100%;
 
         @extend %__t-card-subtitle;
 
         > .foot, > .feedback {
-            @extend .float-end, .ms-2;
+            float: right;
+
+            @extend .ms-2;
         }
 
         > .feedback.show + .foot {
-            @extend .d-none;
+            display: none;
         }
 
         > .foot {
-            @extend .d-block, .text-body-tertiary;
+            display: block;
+
+            @extend .text-body-tertiary;
         }
 
         @extend .clearfix;
@@ -37,11 +42,11 @@ $custom-bg-color: #f2f4f7;
     .form-control,
     .form-select {
         font-size:        0.9rem;
-        color:         #101828;
+        color:            #101828;
         border:           1px solid #d0d5dd;
-        border-radius: 8px;
+        border-radius:    8px;
         background-color: white;
-        box-shadow:    0 1px 2px 0 rgba(16, 24, 40, .05);
+        box-shadow:       0 1px 2px 0 rgba(16, 24, 40, .05);
     }
 
     .input-group {
@@ -69,10 +74,10 @@ $custom-bg-color: #f2f4f7;
             border:           0;
             position:         absolute;
             padding:          0 12px;
+            z-index:          10;
 
             &:first-child {
-                left:    0;
-                z-index: 1;
+                left: 0;
             }
 
             &:last-child {
@@ -88,13 +93,13 @@ $custom-bg-color: #f2f4f7;
             background-color: rgba(47, 86, 255, .2);
             border:           1px dashed rgba(47, 86, 255, .7);
             border-radius:    8px;
-            display: flex;
-            flex-direction:  row;
-            flex-wrap:       nowrap;
-            justify-content: center;
-            align-items:     center;
-            height:  44px;
-            margin-bottom: 0;
+            display:          flex;
+            flex-direction:   row;
+            flex-wrap:        nowrap;
+            justify-content:  center;
+            align-items:      center;
+            height:           44px;
+            margin-bottom:    0;
 
             @extend %__t-add-photo;
 
@@ -105,7 +110,7 @@ $custom-bg-color: #f2f4f7;
     }
 
     .feedback {
-        color: var(--bs-danger);
+        color:   var(--bs-danger);
         display: none;
 
         &.show {
@@ -132,20 +137,20 @@ $custom-bg-color: #f2f4f7;
 }
 
 .form-tab {
-    $tab-height:      44px;
-    $tab-radius:     8px;
-    $tab-padding:    4px;
+    $tab-height:      2.75rem;
+    $tab-radius:      .5rem;
+    $tab-padding:     .25rem;
 
-    display:         flex;
-    flex-direction:  row;
-    flex-wrap:       nowrap;
-    justify-content: space-between;
-    align-items:     stretch;
+    display:          flex;
+    flex-direction:   row;
+    flex-wrap:        nowrap;
+    justify-content:  space-between;
+    align-items:      stretch;
     background-color: $custom-bg-color;
     height:           $tab-height;
-    border-radius:   $tab-radius;
-    padding:         $tab-padding;
-    overflow:        hidden;
+    border-radius:    $tab-radius;
+    padding:          $tab-padding;
+    overflow:         hidden;
 
     > label {
         display:         flex;
@@ -154,12 +159,26 @@ $custom-bg-color: #f2f4f7;
         justify-content: center;
         align-items:     center;
         flex-grow:       1;
+        position: relative;
         border-radius:   $tab-radius - $tab-padding;
         border:          1px solid transparent;
         line-height:     1;
         padding:         0;
+        cursor:   pointer;
 
         @extend %__t-tab-form;
+
+        &:not(:last-of-type) {
+            &::after {
+                display:  block;
+                content:  "";
+                position: absolute;
+                right:    -2px;
+                width:    0;
+                height:   1.25rem;
+                border-left: 1px solid #dfe0e4;
+            }
+        }
     }
 
     > input {
@@ -177,6 +196,10 @@ $custom-bg-color: #f2f4f7;
                                   0 3px 16px 0 rgba(0, 0, 0, .08);
 
                 @extend %__t-tab-form-active;
+
+                &::after {
+                    display: none;
+                }
             }
         }
     }
@@ -198,12 +221,13 @@ $custom-bg-color: #f2f4f7;
         flex-wrap:        nowrap;
         justify-content:  center;
         align-items:      center;
-        min-width:        60px;
+        min-width:        3.75rem;
         height:           $cracker-height;
-        border-radius: math.div($cracker-height, 2);
+        border-radius:    math.div($cracker-height, 2);
         border:           2px solid transparent;
         line-height:      1;
         padding:          0 $padding-side;
+        cursor: pointer;
 
         @extend %__t-check-cracker;
     }
@@ -227,7 +251,7 @@ $custom-bg-color: #f2f4f7;
 
         &[type="checkbox"] {
             + label {
-                &:before {
+                &::before {
                     content:  "";
                     position: absolute;
                     left:     $padding-side;
@@ -241,7 +265,7 @@ $custom-bg-color: #f2f4f7;
                 + label {
                     padding-left: $padding-side + 18px;
 
-                    &:before {
+                    &::before {
                         background: transparent url("#{$media-url}/icon_check_dark.svg") no-repeat center center;
                     }
                 }

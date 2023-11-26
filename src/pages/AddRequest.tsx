@@ -30,7 +30,7 @@ function AddRequest() {
 
     return (
         <>
-            <Header title={title} idResetButton="add-request-form"/>
+            <Header title={title} resetButton={{id: 'add-request-form', badge: 99}}/>
             <Main>
                 <h2>Caută imobiliare</h2>
 
@@ -187,7 +187,7 @@ function AddRequest() {
                     {/******************************************************
                      * Apartment Block
                      *******************************************************/}
-                    <div className="app-card">
+                    <div className="app-card pb-1">
                         <Form.Group controlId="apartment-status-1">
                             <Form.Label>Starea apartamentului</Form.Label>
                             {[
@@ -228,7 +228,7 @@ function AddRequest() {
                     {/******************************************************
                      * Level Block
                      *******************************************************/}
-                    <div className="app-card">
+                    <div className="app-card pb-1">
                         <Form.Group controlId="levels">
                             <Form.Label>Nivel</Form.Label>
                             <div className="row">

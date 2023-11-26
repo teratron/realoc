@@ -7,13 +7,22 @@ import Navigation from '../components/Navigation'
 // Media
 import logo from '../assets/media/logo.svg'
 import iconChevronLeft from '../assets/media/icon_chevron_left.svg'
+import iconMenu from '../assets/media/icon_menu.svg'
 
 interface HeaderProps {
     title?: string
-    idResetButton?: string
+    menuButton?: { isMenu: boolean }
+    resetButton?: { id: string, badge: number }
 }
 
-function Header({title = '', idResetButton = ''}: HeaderProps) {
+function Header({
+                    title = '',
+                    menuButton = {isMenu: true},
+                    resetButton = {
+                        id: '',
+                        badge: 0
+                    }
+                }: HeaderProps) {
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
@@ -32,9 +41,14 @@ function Header({title = '', idResetButton = ''}: HeaderProps) {
             <header id="app-header">
                 <Container>
                     <div className="head">
-                        <button type="button" className="btn btn-light" onClick={handleShow}>
-                            <img src={iconChevronLeft} alt=""/>
-                        </button>
+                        {menuButton.isMenu
+                            ? <button type="button" className="btn btn-light" onClick={handleShow}>
+                                <img src={iconMenu} alt=""/>
+                            </button>
+                            : <button type="button" className="btn btn-light" onClick={handleShow}>
+                                <img src={iconChevronLeft} alt=""/>
+                            </button>
+                        }
                     </div>
                     <div className="body">
                         <Link to="/">
@@ -42,15 +56,13 @@ function Header({title = '', idResetButton = ''}: HeaderProps) {
                         </Link>
                     </div>
                     <div className="foot">
-                        {idResetButton !== ''
+                        {resetButton.id !== ''
                             ? <button
-                                form={idResetButton}
+                                form={resetButton.id}
                                 type="reset"
-                                className="btn btn-light">Resetare
-                                <span
-                                    className="badge">9
-                                    <span className="visually-hidden">unread messages</span>
-                                </span>
+                                className="btn btn-light"
+                                disabled={resetButton.badge === 0}>Resetare
+                                {resetButton?.badge > 0 ? <span className="badge">{resetButton.badge}</span> : null}
                             </button>
                             : null
                         }

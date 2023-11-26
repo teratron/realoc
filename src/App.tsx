@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import AddRequest from './pages/AddRequest'
 import AddSale from './pages/AddSale'
 import Property from './pages/Property'
+import Template from './pages/Template'
 import About from './pages/About'
 import NoMatch from './pages/404'
 
@@ -18,7 +19,7 @@ function Layout() {
 
 function App() {
     return (
-        <BrowserRouter basename={import.meta.env.BASE_URL + app.name}>
+        <BrowserRouter basename={app.name}>
             <React.Suspense fallback={<Spinner/>}>
                 <Routes>
                     <Route path="/" element={<Layout/>}>
@@ -26,6 +27,7 @@ function App() {
                         <Route path="/add-request" element={<AddRequest/>}/>
                         <Route path="/add-sale" element={<AddSale/>}/>
                         <Route path="/property" element={<Property/>}/>
+                        <Route path="/template" element={<Template/>}/>
                         <Route path="/about" element={<About/>}/>
                         <Route path="*" element={<NoMatch/>}/>
                     </Route>

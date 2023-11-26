@@ -38,6 +38,24 @@
                  url("#{$font-url}/Inter-Bold.ttf") format("truetype");
 }
 
+//**********************************************
+// Heading
+//**********************************************
+
+h1, h2, h3, h4, h5, h6 {
+    .app-container > & {
+        @include container(&);
+    }
+}
+
+h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.6875rem;
+    letter-spacing: -0.01em;
+    color: #344054;
+}
+
 // Temporary block
 
 // 22/26/600
