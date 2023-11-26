@@ -433,6 +433,11 @@ body {
             bottom: -3rem;
         }
 
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: none !important;
+        }
+
         @media only screen and (min-width: $container-width) {
             .modal-footer {
                 width:      80%;
