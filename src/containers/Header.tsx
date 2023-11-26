@@ -12,7 +12,7 @@ import iconMenu from '../assets/media/icon_menu.svg'
 interface HeaderProps {
     title?: string
     menuButton?: { isMenu: boolean }
-    resetButton?: { id: string, badge: number }
+    resetButton?: { id: string, count: number }
 }
 
 function Header({
@@ -20,7 +20,7 @@ function Header({
                     menuButton = {isMenu: true},
                     resetButton = {
                         id: '',
-                        badge: 0
+                        count: 0
                     }
                 }: HeaderProps) {
     const [show, setShow] = useState(false)
@@ -61,8 +61,8 @@ function Header({
                                 form={resetButton.id}
                                 type="reset"
                                 className="btn btn-light"
-                                disabled={resetButton.badge === 0}>Resetare
-                                {resetButton?.badge > 0 ? <span className="badge">{resetButton.badge}</span> : null}
+                                disabled={resetButton.count === 0}>Resetare
+                                {resetButton?.count > 0 ? <span className="badge">{resetButton.count}</span> : null}
                             </button>
                             : null
                         }

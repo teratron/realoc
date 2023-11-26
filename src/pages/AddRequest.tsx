@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import {Form, InputGroup} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
@@ -10,10 +11,11 @@ const title: string = 'Add Request'
 
 function AddRequest() {
     const [count, setCount] = useState(254)
+    const navigate = useNavigate();
 
     return (
         <>
-            <Header title={title} resetButton={{id: 'add-request-form', badge: 99}}/>
+            <Header title={title} resetButton={{id: 'add-request-form', count: 99}}/>
             <Main>
                 <h2>Caută imobiliare</h2>
 
@@ -95,8 +97,11 @@ function AddRequest() {
                             <Form.Label htmlFor="sale-price-from">Preț vânzare</Form.Label>
                             <div className="row">
                                 <div className="col">
-                                    <Form.Control id="sale-price-from" type="text" name="salePrice"
-                                                  placeholder="De la"/>
+                                    <Form.Control
+                                        id="sale-price-from"
+                                        type="text"
+                                        name="salePrice"
+                                        placeholder="De la"/>
                                 </div>
                                 <div className="col">
                                     <InputGroup>
@@ -149,11 +154,14 @@ function AddRequest() {
                     <div className="app-card">
                         <Form.Group controlId="location">
                             <Form.Label>Raion/oraș</Form.Label>
-                            <Form.Select name="location">
-                                <option>Selectați o locație</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </Form.Select>
+                            <Form.Control
+                                name="location"
+                                type="text"
+                                placeholder="Selectați o locație"
+                                onClick={e => {
+                                    e.preventDefault();
+                                    navigate('/select-location');
+                                }}/>
                         </Form.Group>
 
                         <Form.Group controlId="map">
