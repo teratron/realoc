@@ -13,6 +13,7 @@ import iconDoor from '../assets/media/icon_door.svg'
 import iconArea from '../assets/media/icon_area.svg'
 import iconStair from '../assets/media/icon_stair.svg'
 import iconSelected from '../assets/media/icon_selected.svg'
+import iconShare from '../assets/media/icon_share.svg'
 import imgEmpty from '../assets/media/empty.png'
 import imgEmpty16x9 from '../assets/media/empty_16x9.png'
 
@@ -210,9 +211,16 @@ function Property() {
                         <Gallery/>
                     </Modal.Body>
                     <Modal.Header closeButton>
-
                     </Modal.Header>
-                    <Modal.Footer/>
+                    <Modal.Footer>
+                        <div className="info">
+                            Apartament • Construcție noua • Euroreparație •
+                            2 camere • 65 m² • Nivel 4 din 9
+                        </div>
+                        <div className="price">75 000 €
+                            <button type="button" className="btn btn-light"><img src={iconShare} alt=""/></button>
+                        </div>
+                    </Modal.Footer>
                 </Modal>
 
                 {/*** Map ***/}
