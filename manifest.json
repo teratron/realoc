@@ -19,13 +19,8 @@
     "file": "media/icon_map.npKUssM9.png",
     "src": "assets/media/icon_map.png"
   },
-  "assets/media/logo.svg": {
-    "file": "media/logo.F9eUXiYu.svg",
-    "src": "assets/media/logo.svg"
-  },
   "index.html": {
     "assets": [
-      "media/logo.F9eUXiYu.svg",
       "media/icon_map.npKUssM9.png",
       "fonts/Inter-Regular.2I8oMEJp.ttf",
       "fonts/Inter-Medium.iiyWV0du.ttf",
@@ -33,9 +28,9 @@
       "fonts/Inter-Bold.M3YqJr2G.ttf"
     ],
     "css": [
-      "css/main.M3iRLCSQ.css"
+      "css/main.rKVcTIFU.css"
     ],
-    "file": "js/main.Ek7TXLgY.js",
+    "file": "js/main.Se1tayFN.js",
     "isEntry": true,
     "src": "index.html"
   }
