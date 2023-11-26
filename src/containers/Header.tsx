@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {Offcanvas} from 'react-bootstrap'
 import Container from '../containers/Container'
 import Navigation from '../components/Navigation'
@@ -11,18 +11,19 @@ import iconMenu from '../assets/media/icon_menu.svg'
 
 interface HeaderProps {
     title?: string
-    menuButton?: { isMenu: boolean }
+    prevPath?: string
     resetButton?: { id: string, count: number }
 }
 
 function Header({
                     title = '',
-                    menuButton = {isMenu: true},
+                    prevPath = '',
                     resetButton = {
                         id: '',
                         count: 0
                     }
                 }: HeaderProps) {
+    const navigate = useNavigate();
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
@@ -41,19 +42,28 @@ function Header({
             <header id="app-header">
                 <Container>
                     <div className="head">
-                        {menuButton.isMenu
+                        {prevPath === ''
                             ? <button type="button" className="btn btn-light" onClick={handleShow}>
                                 <img src={iconMenu} alt=""/>
                             </button>
-                            : <button type="button" className="btn btn-light" onClick={handleShow}>
+                            : <button
+                                type="button"
+                                className="btn btn-light"
+                                onClick={e => {
+                                    e.preventDefault();
+                                    navigate(`/${prevPath}`);
+                                }}>
                                 <img src={iconChevronLeft} alt=""/>
                             </button>
                         }
                     </div>
                     <div className="body">
-                        <Link to="/">
-                            <img src={logo} className="logo" alt={title}/>
-                        </Link>
+                        {prevPath === ''
+                            ? <Link to="/">
+                                <img src={logo} className="logo" alt={title}/>
+                            </Link>
+                            : <div>{title}</div>
+                        }
                     </div>
                     <div className="foot">
                         {resetButton.id !== ''

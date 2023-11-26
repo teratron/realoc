@@ -1,10 +1,11 @@
 import React from 'react'
-import {BrowserRouter, Outlet, Route, Routes} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Spinner from './components/Spinner'
 import './assets/scss/app.scss'
 import app from '../package.json'
 
 // Pages
+import Layout from './pages/Layout'
 import Home from './pages/Home'
 import AddRequest from './pages/AddRequest'
 import AddSale from './pages/AddSale'
@@ -13,14 +14,7 @@ import Template from './pages/Template'
 import About from './pages/About'
 import NoMatch from './pages/404'
 import SelectLocation from './pages/SelectLocation'
-
-function Layout() {
-    return (
-        <>
-            <Outlet/>
-        </>
-    )
-}
+import Request from './pages/Request'
 
 function App() {
     return (
@@ -29,8 +23,10 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Layout/>}>
                         <Route index element={<Home/>}/>
-                        <Route path="add-request" element={<AddRequest/>}/>
-                        <Route path="select-location" element={<SelectLocation/>}/>
+                        <Route path="add-request" element={<Request/>}>
+                            <Route index element={<AddRequest/>}/>
+                            <Route path="select-location" element={<SelectLocation/>}/>
+                        </Route>
                         <Route path="add-sale" element={<AddSale/>}/>
                         <Route path="property" element={<Property/>}/>
                         <Route path="template" element={<Template/>}/>
