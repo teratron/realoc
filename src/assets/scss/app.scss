@@ -57,7 +57,6 @@ body {
         flex-wrap:       nowrap;
         justify-content: space-around;
         align-items:     stretch;
-        //@extend .px-0;
 
         > * {
             display:        flex;
@@ -351,6 +350,42 @@ body {
             position: relative;
         }
 
+        .modal-header,
+        .modal-footer {
+            position:        relative;
+            display:         flex;
+            flex-direction:  row;
+            flex-wrap:       nowrap;
+            justify-content: center;
+            align-items:     center;
+        }
+
+        .modal-header {
+            height: $header-height;
+
+            > .btn-close {
+                position:  absolute;
+                left:      0;
+                transform: translate(40%, 0);
+            }
+
+            //> :first-child {
+            //    display: flex;
+            //    flex-wrap: nowrap;
+            //    flex-direction: row;
+            //    justify-content: center;
+            //    align-items: center;
+            //    order: 2;
+            //    flex-grow: 1;
+            //}
+            //
+            //> :nth-child(2):not(:last-child) {
+            //    order: 3;
+            //
+            //    @extend .col-1;
+            //}
+        }
+
         .modal-body {
             display:        flex;
             flex-direction: column;
@@ -363,7 +398,6 @@ body {
     &-gallery {
         .modal-header,
         .modal-footer {
-            display:  flex;
             position: absolute;
             left:     0;
             right:    0;
@@ -381,10 +415,10 @@ body {
     &-map {
         .modal-header {
             background-color: white;
+            color: #344054;
         }
 
         .modal-footer {
-            display:  flex;
             position: absolute;
             left:     0;
             right:    0;
@@ -486,17 +520,6 @@ body {
     }
 }
 
-.modal-map {
-    .modal-body {
-    }
-
-    .modal-header {
-    }
-
-    .modal-footer {
-    }
-}
-
 //**********************************************
 // Gallery
 //**********************************************
@@ -512,17 +535,6 @@ body {
                 @extend .rounded, .img-fluid;
             }
         }
-    }
-}
-
-.modal-gallery {
-    .modal-body {
-    }
-
-    .modal-header {
-    }
-
-    .modal-footer {
     }
 }
 

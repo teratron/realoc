@@ -209,7 +209,9 @@ function Property() {
                     <Modal.Body>
                         <Gallery/>
                     </Modal.Body>
-                    <Modal.Header closeButton/>
+                    <Modal.Header closeButton>
+
+                    </Modal.Header>
                     <Modal.Footer/>
                 </Modal>
 
