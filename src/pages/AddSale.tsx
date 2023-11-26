@@ -12,6 +12,8 @@ import iconNote from '../assets/media/icon_note_grey_circle.svg'
 import iconSearch from '../assets/media/icon_search.svg'
 import iconLocation from '../assets/media/icon_location_house.svg'
 import iconAddPhoto from '../assets/media/icon_add_photo.svg'
+import {FormEvent} from "react";
+import {createProperty, formData} from "../api";
 
 const title: string = 'Add Sale'
 
@@ -33,6 +35,12 @@ function Feedback({dataName = ''}) {
 // https://react-bootstrap.github.io/docs/forms/validation/#form-libraries-and-server-rendered-styles
 // https://formik.org/docs/tutorial#validation
 function AddSale() {
+    const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const result = await createProperty(formData(event.currentTarget))
+        console.log('formSubmitHandler', result);
+    }
+
     return (
         <>
             <Header title={title}/>
@@ -71,7 +79,7 @@ function AddSale() {
                         <Form
                             id="add-sale-form"
                             className="app-form"
-                            onSubmit={handleSubmit}
+                            onSubmit={formSubmitHandler}
                             noValidate>
 
                             {/******************************************************

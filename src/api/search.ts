@@ -1,7 +1,6 @@
-export type SearchFilters = Record<string, string | string[]>
-export type SearchResult = Record<string, any>
+import {FormValues} from "./form-helper.ts";
 
-export async function search(filters: SearchFilters): Promise<SearchResult> {
+export async function search(filters: FormValues): Promise<any> {
     console.log('search', filters)
     return {}
     /*
@@ -9,7 +8,7 @@ export async function search(filters: SearchFilters): Promise<SearchResult> {
      */
 }
 
-export async function searchCount(filters: SearchFilters): Promise<number> {
+export async function searchCount(filters: FormValues): Promise<number> {
     console.log('searchCount', filters)
     return Math.ceil(Math.random() * 1000)
     /*
@@ -17,21 +16,4 @@ export async function searchCount(filters: SearchFilters): Promise<number> {
         const {total}: {total: number} = await response.json()
         return total
      */
-}
-
-export function formData(form: HTMLFormElement): SearchFilters {
-    const data = new FormData(form)
-    const payload: Record<string, any> = {}
-    data.forEach((value, key) => {
-        if (payload.hasOwnProperty(key)) {
-            if (Array.isArray(payload[key])) {
-                payload[key].push(value)
-            } else {
-                payload[key] = [payload[key], value]
-            }
-        } else {
-            payload[key] = value
-        }
-    })
-    return payload
 }
