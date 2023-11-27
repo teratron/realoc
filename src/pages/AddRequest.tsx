@@ -2,7 +2,7 @@ import {useNavigate} from 'react-router-dom'
 import {Form, InputGroup} from 'react-bootstrap'
 
 // Media
-import iconSelectMap from '../assets/media/icon_select_map.svg'
+import iconSelectMap from '../media/icon_select_map.svg'
 
 function AddRequest() {
     const navigate = useNavigate();

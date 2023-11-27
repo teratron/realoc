@@ -5,15 +5,15 @@ import Main from '../containers/Main'
 import * as conf from '../config.ts'
 
 // Media
-import iconCheck from '../assets/media/icon_check_green_circle.svg'
-import iconStar from '../assets/media/icon_sulafat.svg'
-import iconInvalid from '../assets/media/icon_invalid_red_circle.svg'
-import iconNote from '../assets/media/icon_note_grey_circle.svg'
-import iconSearch from '../assets/media/icon_search.svg'
-import iconLocation from '../assets/media/icon_location_house.svg'
-import iconAddPhoto from '../assets/media/icon_add_photo.svg'
-import {FormEvent} from "react";
-import {createProperty, formData} from "../api";
+import iconCheck from '../media/icon_check_green_circle.svg'
+import iconStar from '../media/icon_sulafat.svg'
+import iconInvalid from '../media/icon_invalid_red_circle.svg'
+import iconNote from '../media/icon_note_grey_circle.svg'
+import iconSearch from '../media/icon_search.svg'
+import iconLocation from '../media/icon_location_house.svg'
+import iconAddPhoto from '../media/icon_add_photo.svg'
+import {FormEvent} from 'react';
+import {createProperty, formData} from '../api';
 
 const title: string = 'Add Sale'
 

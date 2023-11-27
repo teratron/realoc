@@ -5,9 +5,9 @@ import Container from '../containers/Container'
 import Navigation from '../components/Navigation'
 
 // Media
-import logo from '../assets/media/logo.svg'
-import iconChevronLeft from '../assets/media/icon_chevron_left.svg'
-import iconMenu from '../assets/media/icon_menu.svg'
+import logo from '../media/logo.svg'
+import iconChevronLeft from '../media/icon_chevron_left.svg'
+import iconMenu from '../media/icon_menu.svg'
 
 interface HeaderProps {
     title?: string

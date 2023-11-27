@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Spinner from './components/Spinner'
-import './assets/scss/app.scss'
+import './scss/app.scss'
 import app from '../package.json'
 
 // Pages
