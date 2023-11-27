@@ -134,11 +134,11 @@ body {
             margin-bottom: 0;
         }
 
-        > h1, h2, h3, h4, h5, h6 {
-            margin-bottom: 1rem;
-            padding-right: 1rem;
-            padding-left:  1rem;
-        }
+        //> h1, h2, h3, h4, h5, h6 {
+        //    margin-bottom: 1rem;
+        //    padding-right: 1rem;
+        //    padding-left:  1rem;
+        //}
     }
 }
 
@@ -159,6 +159,12 @@ body {
 
 .app-content {
     @include container(&);
+
+    > :first-child:not(.app-card) {
+        margin-bottom: 1rem;
+        padding-right: 1rem;
+        padding-left:  1rem;
+    }
 
     > .app-card {
         @extend .mb-2;

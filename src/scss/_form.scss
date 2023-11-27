@@ -8,6 +8,10 @@ $custom-bg-color: #f2f4f7;
 .app-form {
     @extend .app-content;
 
+    > :first-child:not(.app-card) {
+        margin-bottom: 1.5rem !important;
+    }
+
     label {
         cursor:   pointer;
         overflow: hidden;
@@ -133,6 +137,10 @@ $custom-bg-color: #f2f4f7;
                 padding-left:  6px;
             }
         }
+    }
+
+    .accordion {
+
     }
 }
 
