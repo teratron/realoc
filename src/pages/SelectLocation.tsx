@@ -1,10 +1,55 @@
 import {Accordion, Form, InputGroup} from 'react-bootstrap'
 
 // Media Popular localities
-import iconSearch      from '../media/icon_search.svg'
-import iconChevronDown from '../media/icon_chevron_down.svg'
+import iconSearch from '../media/icon_search.svg'
+
+//import iconChevronDown from '../media/icon_chevron_down.svg'
+
+//type ListLocation = (string | (string | string[])[])[]
 
 function SelectLocation() {
+    const location = [
+        ['Chișinău mun.',
+            ['Chișinău',
+                [
+                    'Aeroport',
+                    'Botanica',
+                    'Buiucani'
+                ]
+            ],
+            ['Bacioi',
+                [
+                    'Aeroport',
+                    'Botanica',
+                    'Buiucani'
+                ]
+            ]
+        ],
+        ['Bălți mun.',
+            ['Bubuieci',
+                [
+                    'Aeroport',
+                    'Botanica',
+                    'Buiucani'
+                ]
+            ]
+        ],
+        ['Cahul mun.']
+    ]
+
+    /*function iter(array: [...ListLocation[]]) {
+        for (const element of array) {
+            console.log(element.length)
+            if (element.length > 1 && (typeof element[1] === Array)) {
+                console.log(element[0])
+                console.log('\t', element[1])
+                //iter(element[1] as ListLocation[])
+            }
+        }
+    }
+
+    iter(location)*/
+
     return (
         <>
             <Form.Group controlId="location">
@@ -24,57 +69,72 @@ function SelectLocation() {
             <div className="app-card">
                 <Form.Group>
                     {/*<Form.Label htmlFor="popular-localities">Localități populare</Form.Label>*/}
+                    {/*** Level #1 ***/}
                     <Accordion flush>
-                        {[
-                            'Chișinău mun.',
-                            'Bălți mun.'
-                        ].map((value, index) => (
+                        {location.map((value, index, array) => (
                             <Accordion.Item
-                                eventKey={`level-${index}`}
                                 key={`level-${index}`}
+                                eventKey={`level-${index}`}
+                                className="accordion-upper-level"
                             >
-                                <Accordion.Button as="div">
-                                    {value}
-                                    <img src={iconChevronDown} alt=""/>
-                                </Accordion.Button>
-                                {/*<Form.Check
+                                <Accordion.Button as="div"> {value[0]} 34 localități</Accordion.Button>
+                                <Accordion.Collapse eventKey={`level-${index}`}>
+
+                                    {/*** Level #2 ***/}
+                                    <>
+                                        {array[index][1]}
+                                    </>
+
+                                    {/*<Accordion>
+                                        {[
+                                            ['Chișinău', [
+                                                'Aeroport',
+                                                'Botanica',
+                                                'Buiucani'
+                                            ]],
+                                            ['Bacioi', [
+                                                'Aeroport',
+                                                'Botanica',
+                                                'Buiucani'
+                                            ]],
+                                            ['Bubuieci', [
+                                                'Aeroport',
+                                                'Botanica',
+                                                'Buiucani'
+                                            ]]
+                                        ].map((value, index) => (
+                                            <Accordion.Item
+                                                eventKey={`level-2-${index}`}
+                                                key={`level-2-${index}`}
+                                                className="accordion-upper-level"
+                                            >
+                                                <Accordion.Button as="div">
+                                                    {value}
+                                                    10 sectoare
+                                                    <img src={iconChevronDown} alt=""/>
+                                                </Accordion.Button>
+                                                <Accordion.Collapse eventKey={`level-2-${index}`}>
+
+                                                    ** Level #3 **
+                                                    <>
+                                                        {value}
+                                                    </>
+                                                </Accordion.Collapse>
+                                                <Form.Check
                                         key={`popular-localities-${index}`}
                                         id={`popular-localities-${index + 1}`}
                                         type="checkbox"
                                         label={value}
                                         name="popularLocalities"
                                         className=""
-                                    />*/}
+                                    />
+                                            </Accordion.Item>
+                                        ))}
+                                    </Accordion>*/}
 
-                                <Accordion.Body>
-                                    {value}
-                                </Accordion.Body>
+                                </Accordion.Collapse>
                             </Accordion.Item>
                         ))}
-                        {/*<Accordion.Item eventKey="0">
-                            <Accordion.Header>Accordion Item #1</Accordion.Header>
-                            <Accordion.Body>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="1">
-                            <Accordion.Header>Accordion Item #2</Accordion.Header>
-                            <Accordion.Body>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
-                            </Accordion.Body>
-                        </Accordion.Item>*/}
                     </Accordion>
                 </Form.Group>
             </div>
