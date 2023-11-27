@@ -25,13 +25,15 @@ function Template() {
                                 name="formTab1"
                                 value="1"
                                 type="radio"
-                                defaultChecked={true}/>
+                                defaultChecked={true}
+                            />
                             <label htmlFor="form-tab-1-1">Tab 1</label>
                             <input
                                 id="form-tab-1-2"
                                 name="formTab1"
                                 value="2"
-                                type="radio"/>
+                                type="radio"
+                            />
                             <label htmlFor="form-tab-1-2">Tab 2</label>
                         </div>
                         <div className="form-tab">
@@ -40,19 +42,22 @@ function Template() {
                                 name="formTab2"
                                 value="1"
                                 type="radio"
-                                defaultChecked={true}/>
+                                defaultChecked={true}
+                            />
                             <label htmlFor="form-tab-2-1">Tab 1</label>
                             <input
                                 id="form-tab-2-2"
                                 name="formTab2"
                                 value="2"
-                                type="radio"/>
+                                type="radio"
+                            />
                             <label htmlFor="form-tab-2-2">Tab 2</label>
                             <input
                                 id="form-tab-2-3"
                                 name="formTab2"
                                 value="3"
-                                type="radio"/>
+                                type="radio"
+                            />
                             <label htmlFor="form-tab-2-3">Tab 3</label>
                         </div>
                     </div>

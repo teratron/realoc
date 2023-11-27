@@ -43,7 +43,8 @@ function Property() {
                                 className="photo-backdrop"
                                 style={{backgroundImage: `url(${value})`}}
                                 onClick={handleShowGallery}
-                                alt=""/>
+                                alt=""
+                            />
                         </Carousel.Item>
                     ))}
                 </Carousel>
@@ -57,11 +58,14 @@ function Property() {
     const handleShowMap = () => setShowMap(true)
 
     function Map() {
-        return <img
-            src={imgEmpty}
-            className="map-backdrop"
-            style={{backgroundImage: `url(${MEDIA_URL}/thumb_map.png)`}}
-            alt=""/>
+        return (
+            <img
+                src={imgEmpty}
+                className="map-backdrop"
+                style={{backgroundImage: `url(${MEDIA_URL}/thumb_map.png)`}}
+                alt=""
+            />
+        )
     }
 
     return (
@@ -112,7 +116,9 @@ function Property() {
                                 <button
                                     type="button"
                                     className="btn btn-link d-block"
-                                    onClick={handleShowMap}>Deschideți harta
+                                    onClick={handleShowMap}
+                                >
+                                    Deschideți harta
                                 </button>
                             </div>
                             <div className="foot">
@@ -206,7 +212,8 @@ function Property() {
                     onHide={handleCloseGallery}
                     data-bs-theme="dark"
                     className="modal-gallery"
-                    fullscreen>
+                    fullscreen
+                >
                     <Modal.Body>
                         <Gallery/>
                     </Modal.Body>
@@ -218,7 +225,9 @@ function Property() {
                             2 camere • 65 m² • Nivel 4 din 9
                         </div>
                         <div className="price">75 000 €
-                            <button type="button" className="btn btn-light"><img src={iconShare} alt=""/></button>
+                            <button type="button" className="btn btn-light">
+                                <img src={iconShare} alt=""/>
+                            </button>
                         </div>
                     </Modal.Footer>
                 </Modal>
@@ -234,7 +243,8 @@ function Property() {
                     <Modal.Body>
                         <Map/>
                     </Modal.Body>
-                    <Modal.Footer/>
+                    <Modal.Footer
+                    />
                 </Modal>
             </Main>
         </>

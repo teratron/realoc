@@ -5,7 +5,7 @@ import {Form, InputGroup} from 'react-bootstrap'
 import iconSelectMap from '../media/icon_select_map.svg'
 
 function AddRequest() {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     return (
         <>

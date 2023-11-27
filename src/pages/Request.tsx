@@ -20,7 +20,6 @@ function Request() {
         console.log('formSubmitHandler', searchResult);
     }
 
-
     const formChangeHandler = async (event: FormEvent<HTMLFormElement>) => {
         // @ts-expect-error TS does not recognize .form
         const form = event.target.form
@@ -39,8 +38,12 @@ function Request() {
                 resetButton={{id: 'add-request-form', count: 99}}
             />
             <Main>
-                <Form id="add-request-form" className="app-form" onSubmitCapture={formSubmitHandler}
-                      onChange={debouncedFormChangeHandler}>
+                <Form
+                    id="add-request-form"
+                    className="app-form"
+                    onSubmitCapture={formSubmitHandler}
+                    onChange={debouncedFormChangeHandler}
+                >
                     <Outlet/>
 
                     <div className="navbar">

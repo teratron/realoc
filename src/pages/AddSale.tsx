@@ -3,6 +3,8 @@ import {Formik} from 'formik'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
 import * as conf from '../config.ts'
+import {createProperty, formData} from '../api'
+import {FormEvent} from 'react'
 
 // Media
 import iconCheck from '../media/icon_check_green_circle.svg'
@@ -12,8 +14,6 @@ import iconNote from '../media/icon_note_grey_circle.svg'
 import iconSearch from '../media/icon_search.svg'
 import iconLocation from '../media/icon_location_house.svg'
 import iconAddPhoto from '../media/icon_add_photo.svg'
-import {FormEvent} from 'react';
-import {createProperty, formData} from '../api';
 
 const title: string = 'Add Sale'
 
@@ -31,9 +31,6 @@ function Feedback({dataName = ''}) {
     )
 }
 
-// React Bootstrap + Formik example:
-// https://react-bootstrap.github.io/docs/forms/validation/#form-libraries-and-server-rendered-styles
-// https://formik.org/docs/tutorial#validation
 function AddSale() {
     const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -69,7 +66,6 @@ function AddSale() {
                     }}>
                     {(
                         {
-                            handleSubmit,
                             handleChange,
                             values,
                             touched,
@@ -152,7 +148,8 @@ function AddSale() {
                                             name="numberRooms"
                                             className="form-cracker"
                                             onChange={handleChange}
-                                            isInvalid={touched.numberRooms && !!errors.numberRooms}/>
+                                            isInvalid={touched.numberRooms && !!errors.numberRooms}
+                                        />
                                     ))}
                                 </Form.Group>
 
@@ -165,7 +162,8 @@ function AddSale() {
                                             name="salePrice"
                                             value={values.salePrice}
                                             onChange={handleChange}
-                                            isInvalid={touched.salePrice && !!errors.salePrice}/>
+                                            isInvalid={touched.salePrice && !!errors.salePrice}
+                                        />
                                         <InputGroup.Text>€</InputGroup.Text>
                                     </InputGroup>
                                 </Form.Group>
@@ -182,7 +180,8 @@ function AddSale() {
                                             label={value}
                                             value={value}
                                             name="priceType"
-                                            inline/>
+                                            inline
+                                        />
                                     ))}
                                 </Form.Group>
 
@@ -199,7 +198,8 @@ function AddSale() {
                                             label={value}
                                             value={value}
                                             name="mortgage"
-                                            className="form-cracker"/>
+                                            className="form-cracker"
+                                        />
                                     ))}
                                 </Form.Group>
 
@@ -212,7 +212,8 @@ function AddSale() {
                                             placeholder="Indicați suprafață"
                                             value={values.area}
                                             onChange={handleChange}
-                                            isInvalid={touched.area && !!errors.area}/>
+                                            isInvalid={touched.area && !!errors.area}
+                                        />
                                         <InputGroup.Text>m²</InputGroup.Text>
                                     </InputGroup>
                                 </Form.Group>
@@ -279,7 +280,8 @@ function AddSale() {
                                         className="form-add-photo"
                                         multiple
                                         onChange={handleChange}
-                                        isInvalid={touched.addPhoto && !!errors.addPhoto}/>
+                                        isInvalid={touched.addPhoto && !!errors.addPhoto}
+                                    />
                                     <Form.Label><img src={iconAddPhoto} alt=""/>Adaugă fotografie</Form.Label>
                                 </Form.Group>
 
@@ -308,7 +310,8 @@ function AddSale() {
                                             type="radio"
                                             label={value}
                                             name="apartmentStatus"
-                                            className="form-cracker"/>
+                                            className="form-cracker"
+                                        />
                                     ))}
                                 </Form.Group>
 
@@ -325,7 +328,8 @@ function AddSale() {
                                             type="radio"
                                             label={value}
                                             name="furniture"
-                                            className="form-cracker"/>
+                                            className="form-cracker"
+                                        />
                                     ))}
                                 </Form.Group>
                             </div>
@@ -372,7 +376,8 @@ function AddSale() {
                                             type="radio"
                                             label={value}
                                             name="ascensor"
-                                            className="form-cracker"/>
+                                            className="form-cracker"
+                                        />
                                     ))}
                                 </Form.Group>
 
@@ -389,7 +394,8 @@ function AddSale() {
                                             type="checkbox"
                                             label={value}
                                             name="parking"
-                                            className="form-cracker"/>
+                                            className="form-cracker"
+                                        />
                                     ))}
                                 </Form.Group>
 
@@ -413,7 +419,8 @@ function AddSale() {
                                             type="radio"
                                             label={value}
                                             name="exploitation"
-                                            className="form-cracker"/>
+                                            className="form-cracker"
+                                        />
                                     ))}
                                 </Form.Group>
 
@@ -425,7 +432,8 @@ function AddSale() {
                                     <Form.Control
                                         as="textarea"
                                         placeholder="Spuneți-ne despre proprietatea dumneavoastră. O descriere bine completată ajută la vânzarea mai rapidă a proprietății."
-                                        rows={4}/>
+                                        rows={4}
+                                    />
                                 </Form.Group>
                             </div>
 
@@ -444,7 +452,8 @@ function AddSale() {
                                             label={value}
                                             name="transactionFee"
                                             type="radio"
-                                            className="form-cracker"/>
+                                            className="form-cracker"
+                                        />
                                     ))}
                                 </Form.Group>
 
