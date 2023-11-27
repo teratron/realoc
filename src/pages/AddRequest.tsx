@@ -1,38 +1,64 @@
 import {useNavigate} from 'react-router-dom'
+import {FormEvent, useCallback, useState} from 'react'
 import {Form, InputGroup} from 'react-bootstrap'
+import debounce from 'lodash.debounce'
+import Header from '../containers/Header'
+import Main from '../containers/Main'
+import {formData, search, searchCount} from '../api'
 
 // Media
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 
+const title: string = 'Add Request'
+
 function AddRequest() {
     const navigate = useNavigate();
 
+    const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const searchResult = await search(formData(event.currentTarget))
+        console.log('formSubmitHandler', searchResult);
+    }
+
+    const formChangeHandler = async (event: FormEvent<HTMLFormElement>) => {
+        // @ts-ignore TS does not recognize .form
+        const form = event.target.form
+        const total = await searchCount(formData(form))
+        setCount(() => total)
+    }
+
+    const debouncedFormChangeHandler = useCallback(debounce(formChangeHandler, 1000), []);
+
     return (
         <>
-            <h2>Caută imobiliare</h2>
+            <Header title={title} resetButton={{id: 'add-request-form', badge: 99}}/>
+            <Main>
+                <h2>Caută imobiliare</h2>
 
-            {/******************************************************
-             * Transaction Block
-             *******************************************************/}
-            <div className="app-card">
-                <Form.Group>
-                    <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
-                    <div className="form-tab">
-                        <input
-                            id="transaction-type-1"
-                            name="transactionType"
-                            value="1"
-                            type="radio"
-                            defaultChecked={true}/>
-                        <label htmlFor="transaction-type-1">De vânzare</label>
-                        <input
-                            id="transaction-type-2"
-                            name="transactionType"
-                            value="2"
-                            type="radio"/>
-                        <label htmlFor="transaction-type-2">De închiriat</label>
-                    </div>
-                </Form.Group>
+                <Form id="add-request-form" className="app-form" onSubmitCapture={formSubmitHandler} onChange={debouncedFormChangeHandler}>
+
+                    {/******************************************************
+                     * Transaction Block
+                     *******************************************************/}
+                    <div className="app-card">
+                        <Form.Group>
+                            <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
+                            <div className="form-tab">
+                                <input
+                                    id="transaction-type-1"
+                                    name="transactionType"
+                                    value="1"
+                                    type="radio"
+                                    defaultChecked={true}/>
+                                <label htmlFor="transaction-type-1">De vânzare</label>
+                                <input
+                                    id="transaction-type-2"
+                                    name="transactionType"
+                                    value="2"
+                                    type="radio"/>
+                                <label htmlFor="transaction-type-2">De închiriat</label>
+                            </div>
+                        </Form.Group>
 
                 <Form.Group controlId="property-type">
                     <Form.Label>Tip de proprietate</Form.Label>
