@@ -1,64 +1,40 @@
 import {useNavigate} from 'react-router-dom'
-import {FormEvent, useCallback, useState} from 'react'
 import {Form, InputGroup} from 'react-bootstrap'
-import debounce from 'lodash.debounce'
-import Header from '../containers/Header'
-import Main from '../containers/Main'
-import {formData, search, searchCount} from '../api'
 
 // Media
 import iconSelectMap from '../assets/media/icon_select_map.svg'
 
-const title: string = 'Add Request'
-
 function AddRequest() {
     const navigate = useNavigate();
 
-    const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        const searchResult = await search(formData(event.currentTarget))
-        console.log('formSubmitHandler', searchResult);
-    }
-
-    const formChangeHandler = async (event: FormEvent<HTMLFormElement>) => {
-        // @ts-ignore TS does not recognize .form
-        const form = event.target.form
-        const total = await searchCount(formData(form))
-        setCount(() => total)
-    }
-
-    const debouncedFormChangeHandler = useCallback(debounce(formChangeHandler, 1000), []);
-
     return (
         <>
-            <Header title={title} resetButton={{id: 'add-request-form', badge: 99}}/>
-            <Main>
-                <h2>Caută imobiliare</h2>
+            <h2>Caută imobiliare</h2>
 
-                <Form id="add-request-form" className="app-form" onSubmitCapture={formSubmitHandler} onChange={debouncedFormChangeHandler}>
-
-                    {/******************************************************
-                     * Transaction Block
-                     *******************************************************/}
-                    <div className="app-card">
-                        <Form.Group>
-                            <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
-                            <div className="form-tab">
-                                <input
-                                    id="transaction-type-1"
-                                    name="transactionType"
-                                    value="1"
-                                    type="radio"
-                                    defaultChecked={true}/>
-                                <label htmlFor="transaction-type-1">De vânzare</label>
-                                <input
-                                    id="transaction-type-2"
-                                    name="transactionType"
-                                    value="2"
-                                    type="radio"/>
-                                <label htmlFor="transaction-type-2">De închiriat</label>
-                            </div>
-                        </Form.Group>
+            {/******************************************************
+             * Transaction Block
+             *******************************************************/}
+            <div className="app-card">
+                <Form.Group>
+                    <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
+                    <div className="form-tab">
+                        <input
+                            id="transaction-type-1"
+                            name="transactionType"
+                            value="1"
+                            type="radio"
+                            defaultChecked={true}
+                        />
+                        <label htmlFor="transaction-type-1">De vânzare</label>
+                        <input
+                            id="transaction-type-2"
+                            name="transactionType"
+                            value="2"
+                            type="radio"
+                        />
+                        <label htmlFor="transaction-type-2">De închiriat</label>
+                    </div>
+                </Form.Group>
 
                 <Form.Group controlId="property-type">
                     <Form.Label>Tip de proprietate</Form.Label>
@@ -82,13 +58,15 @@ function AddRequest() {
                             name="housingStock"
                             value="1"
                             type="radio"
-                            defaultChecked={true}/>
+                            defaultChecked={true}
+                        />
                         <label htmlFor="housing-stock-1">Construcții noi</label>
                         <input
                             id="housing-stock-2"
                             name="housingStock"
                             value="2"
-                            type="radio"/>
+                            type="radio"
+                        />
                         <label htmlFor="housing-stock-2">Secundare</label>
                     </div>
                 </Form.Group>
@@ -105,7 +83,8 @@ function AddRequest() {
                             label={value}
                             value={value}
                             name="numberRooms"
-                            className="form-cracker"/>
+                            className="form-cracker"
+                        />
                     ))}
                 </Form.Group>
 
@@ -117,7 +96,8 @@ function AddRequest() {
                                 id="sale-price-from"
                                 type="text"
                                 name="salePrice"
-                                placeholder="De la"/>
+                                placeholder="De la"
+                            />
                         </div>
                         <div className="col">
                             <InputGroup>
@@ -125,7 +105,8 @@ function AddRequest() {
                                     id="sale-price-to"
                                     type="text"
                                     name="salePrice"
-                                    placeholder="Până la"/>
+                                    placeholder="Până la"
+                                />
                                 <InputGroup.Text>€</InputGroup.Text>
                             </InputGroup>
                         </div>
@@ -144,7 +125,8 @@ function AddRequest() {
                             label={value}
                             value={value}
                             name="priceType"
-                            inline/>
+                            inline
+                        />
                     ))}
                 </Form.Group>
 
@@ -174,8 +156,8 @@ function AddRequest() {
                         name="location"
                         type="text"
                         placeholder="Selectați o locație"
-                        onClick={e => {
-                            e.preventDefault();
+                        onClick={event => {
+                            event.preventDefault();
                             navigate('select-location');
                         }}/>
                 </Form.Group>
@@ -210,7 +192,8 @@ function AddRequest() {
                             type="checkbox"
                             label={value}
                             name="apartmentStatus"
-                            className="form-cracker"/>
+                            className="form-cracker"
+                        />
                     ))}
                 </Form.Group>
 
@@ -227,7 +210,8 @@ function AddRequest() {
                             type="checkbox"
                             label={value}
                             name="furniture"
-                            className="form-cracker"/>
+                            className="form-cracker"
+                        />
                     ))}
                 </Form.Group>
             </div>
@@ -268,7 +252,8 @@ function AddRequest() {
                             type="checkbox"
                             label={value}
                             name="optionLevels"
-                            className="form-cracker"/>
+                            className="form-cracker"
+                        />
                     ))}
                 </Form.Group>
 
@@ -304,7 +289,8 @@ function AddRequest() {
                             type="checkbox"
                             label={value}
                             name="ascensor"
-                            className="form-cracker"/>
+                            className="form-cracker"
+                        />
                     ))}
                 </Form.Group>
 
@@ -321,7 +307,8 @@ function AddRequest() {
                             type="checkbox"
                             label={value}
                             name="parking"
-                            className="form-cracker"/>
+                            className="form-cracker"
+                        />
                     ))}
                 </Form.Group>
 
@@ -345,7 +332,8 @@ function AddRequest() {
                             type="checkbox"
                             label={value}
                             name="exploitation"
-                            className="form-cracker"/>
+                            className="form-cracker"
+                        />
                     ))}
                 </Form.Group>
             </div>

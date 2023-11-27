@@ -49,8 +49,8 @@ function Header({
                             : <button
                                 type="button"
                                 className="btn btn-light"
-                                onClick={e => {
-                                    e.preventDefault();
+                                onClick={event => {
+                                    event.preventDefault();
                                     navigate(`/${prevPath}`);
                                 }}>
                                 <img src={iconChevronLeft} alt=""/>
@@ -71,7 +71,9 @@ function Header({
                                 form={resetButton.id}
                                 type="reset"
                                 className="btn btn-light"
-                                disabled={resetButton.count === 0}>Resetare
+                                disabled={resetButton.count === 0}
+                            >
+                                Resetare
                                 {resetButton?.count > 0 ? <span className="badge">{resetButton.count}</span> : null}
                             </button>
                             : null

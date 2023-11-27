@@ -380,9 +380,9 @@ body {
         }
 
         .modal-body {
-            display:   flex;
+            display:        flex;
             flex-direction: column;
-            flex-wrap: nowrap;
+            flex-wrap:      nowrap;
             justify-content: center;
         }
     }
@@ -394,9 +394,9 @@ body {
         }
 
         .modal-header {
-            left:     0;
-            right:    0;
-            top: 0;
+            left:  0;
+            right: 0;
+            top:   0;
         }
 
         .modal-footer {
