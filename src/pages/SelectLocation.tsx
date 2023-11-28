@@ -5,7 +5,7 @@ import iconSearch from '../media/icon_search.svg'
 
 //import iconChevronDown from '../media/icon_chevron_down.svg'
 
-//type ListLocation = (string | (string | string[])[])[]
+type TreeLocation = (string | (string | (string | string[])[])[])[] | string | string[]//[string, []] | [string, string[]] | string //(string | (string | string[])[])[]
 
 function SelectLocation() {
     const location = [
@@ -34,21 +34,90 @@ function SelectLocation() {
                 ]
             ]
         ],
-        ['Cahul mun.']
+        [
+            'Aeroport',
+            'Botanica',
+            'Buiucani'
+        ],
+        ['Bubuieci',
+            [
+                'Aeroport',
+                'Botanica',
+                'Buiucani'
+            ]
+        ],
+        'Cahul mun.'
     ]
 
-    /*function iter(array: [...ListLocation[]]) {
+    /*const a = [
+        'Chișinău mun.',
+        ['Chișinău',
+            [
+                'Aeroport',
+                'Botanica',
+                'Buiucani'
+            ]
+        ],
+        ['Bacioi',
+            [
+                'Aeroport',
+                'Botanica',
+                'Buiucani'
+            ]
+        ]
+        ,
+        ['Bacioi',
+            [
+                'Aeroport',
+                'Botanica',
+                'Buiucani'
+            ]
+        ]
+    ]*/
+
+    function iter(array: TreeLocation) {
         for (const element of array) {
-            console.log(element.length)
-            if (element.length > 1 && (typeof element[1] === Array)) {
-                console.log(element[0])
-                console.log('\t', element[1])
-                //iter(element[1] as ListLocation[])
+            if (element as string) {
+                console.log('[ ]', element)
+            } else if (element as (string | (string | string[])[])[]) {
+                console.log('[+]', element[0])
+                for (const item of element) {
+                    iter(item)
+                }
+            } else if (element as Array<string>) {
+                for (const item of element) {
+                    iter(item)
+                }
             }
+
+            //console.log(element, '  ----  ',typeof element)
+            /*switch (typeof element) {
+                case 'string':
+                    console.log('[ ]', element)
+                    break
+                case 'object':
+                    if (element as string[]) {
+                        for (const item of element) {
+                            iter(item)
+                        }
+
+                        //console.log('[-]', element[0])
+                    }
+                    break
+                default: return null
+            }*/
+
+
+            // console.log(element.length)
+            // if (element.length > 1 && (typeof element[1] === Array)) {
+            //     console.log(element[0])
+            //     console.log('\t', element[1])
+            //     //iter(element[1] as ListLocation[])
+            // }
         }
     }
 
-    iter(location)*/
+    iter(location)
 
     return (
         <>
