@@ -1,37 +1,17 @@
-import {Accordion, Form, InputGroup} from 'react-bootstrap'
+import {Form, InputGroup} from 'react-bootstrap'
 
-// Media Popular localities
+// Media //Popular localities
 import iconSearch from '../media/icon_search.svg'
-
 //import iconChevronDown from '../media/icon_chevron_down.svg'
 
-type TreeLocation = (string | (string | (string | string[])[])[])[] | string | string[]//[string, []] | [string, string[]] | string //(string | (string | string[])[])[]
-
-function SelectLocation() {
-    const location = [
-        ['Chișinău mun.',
-            ['Chișinău',
-                [
-                    'Aeroport',
-                    'Botanica',
-                    'Buiucani'
-                ]
-            ],
-            ['Bacioi',
-                [
-                    'Aeroport',
-                    'Botanica',
-                    'Buiucani'
-                ]
-            ]
-        ],
-        ['Bălți mun.',
-            ['Bubuieci',
-                [
-                    'Aeroport',
-                    'Botanica',
-                    'Buiucani'
-                ]
+const location = [
+    ['Chișinău mun.',
+        'Buiucani',
+        ['Chișinău',
+            [
+                'Aeroport----',
+                'Botanica',
+                'Buiucani'
             ]
         ],
         [
@@ -39,85 +19,97 @@ function SelectLocation() {
             'Botanica',
             'Buiucani'
         ],
+        ['Bacioi',
+            [
+                'Aeroport',
+                'Botanica',
+                'Buiucani'
+            ]
+        ]
+    ],
+    ['Bălți mun.',
         ['Bubuieci',
             [
                 'Aeroport',
                 'Botanica',
                 'Buiucani'
             ]
-        ],
-        'Cahul mun.'
-    ]
-
-    /*const a = [
-        'Chișinău mun.',
-        ['Chișinău',
-            [
-                'Aeroport',
-                'Botanica',
-                'Buiucani'
-            ]
-        ],
-        ['Bacioi',
-            [
-                'Aeroport',
-                'Botanica',
-                'Buiucani'
-            ]
         ]
-        ,
-        ['Bacioi',
-            [
-                'Aeroport',
-                'Botanica',
-                'Buiucani'
-            ]
+    ],
+    [
+        'Aeroport',
+        'Botanica',
+        'Buiucani'
+    ],
+    ['Bubuieci',
+        [
+            'Aeroport',
+            'Botanica',
+            'Buiucani'
         ]
-    ]*/
+    ],
+    'Cahul mun.'
+]
 
-    function iter(array: TreeLocation) {
-        for (const element of array) {
-            if (element as string) {
-                console.log('[ ]', element)
-            } else if (element as (string | (string | string[])[])[]) {
-                console.log('[+]', element[0])
-                for (const item of element) {
-                    iter(item)
-                }
-            } else if (element as Array<string>) {
-                for (const item of element) {
-                    iter(item)
-                }
-            }
+type TreeLocation = typeof location
 
-            //console.log(element, '  ----  ',typeof element)
-            /*switch (typeof element) {
-                case 'string':
-                    console.log('[ ]', element)
-                    break
-                case 'object':
-                    if (element as string[]) {
-                        for (const item of element) {
-                            iter(item)
-                        }
-
-                        //console.log('[-]', element[0])
-                    }
-                    break
-                default: return null
-            }*/
-
-
-            // console.log(element.length)
-            // if (element.length > 1 && (typeof element[1] === Array)) {
-            //     console.log(element[0])
-            //     console.log('\t', element[1])
-            //     //iter(element[1] as ListLocation[])
-            // }
+/*function isPureStringArray(array: (string | (string | string[])[])[]) {
+    array.map(value => {
+        if (typeof value !== 'string') {
+            return false
         }
-    }
+    })
+    return true
+}*/
 
-    iter(location)
+function tree(array: TreeLocation | string) {
+    let index = 0
+
+    switch (typeof array) {
+        case 'string':
+            console.log('[*]', array)
+            break
+        case 'object':
+            /*array.map((value, index) => {
+                if (typeof value === 'string' && index === 0) {
+                    console.log('[--]', index, value)
+                }
+                console.log('[---------------------------------------------]')
+            })*/
+            //tree(value)
+
+            for (const value of array) {
+                //console.log('[-]', index, value)
+                /*if (typeof value !== 'string') {
+                    let num = 0
+                    array.map(str => {
+                        if (typeof str === 'string') {
+                            num++
+                        }
+                        else  {num = 0}
+                    })
+                    if (value.length === num) {
+                        console.log('[#########]', value)
+                    }
+                }*/
+                if (typeof value === 'string' && index === 0 && array.length > 1) {
+                    console.log('[--]', index, value)
+                } else {
+                    tree(value)
+                }
+
+                index++
+            }
+            break
+        default:
+            console.log('[#########]')
+            break
+    }
+}
+
+function SelectLocation() {
+
+    tree(location)
 
     return (
         <>
@@ -139,7 +131,7 @@ function SelectLocation() {
                 <Form.Group>
                     {/*<Form.Label htmlFor="popular-localities">Localități populare</Form.Label>*/}
                     {/*** Level #1 ***/}
-                    <Accordion flush>
+                    {/*<Accordion flush>
                         {location.map((value, index, array) => (
                             <Accordion.Item
                                 key={`level-${index}`}
@@ -149,12 +141,25 @@ function SelectLocation() {
                                 <Accordion.Button as="div"> {value[0]} 34 localități</Accordion.Button>
                                 <Accordion.Collapse eventKey={`level-${index}`}>
 
-                                    {/*** Level #2 ***/}
+                                    ** Level #2 **
                                     <>
                                         {array[index][1]}
                                     </>
 
-                                    {/*<Accordion>
+
+
+                                </Accordion.Collapse>
+                            </Accordion.Item>
+                        ))}
+                    </Accordion>*/}
+                </Form.Group>
+            </div>
+        </>
+    )
+}
+
+export default SelectLocation
+/*<Accordion>
                                         {[
                                             ['Chișinău', [
                                                 'Aeroport',
@@ -199,16 +204,4 @@ function SelectLocation() {
                                     />
                                             </Accordion.Item>
                                         ))}
-                                    </Accordion>*/}
-
-                                </Accordion.Collapse>
-                            </Accordion.Item>
-                        ))}
-                    </Accordion>
-                </Form.Group>
-            </div>
-        </>
-    )
-}
-
-export default SelectLocation
+                                    </Accordion>*/
