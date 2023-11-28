@@ -276,6 +276,30 @@ body {
 }
 
 //**********************************************
+// App Pane
+//**********************************************
+
+.app-pane {
+    padding:          1rem;
+    background-color: transparent;
+
+    > :only-child,
+    > :not(:only-child):first-child {
+        @extend .mt-0;
+    }
+
+    &:last-of-type,
+    > :only-child,
+    > :not(:only-child):last-child {
+        @extend .mb-0;
+    }
+
+    .app-form > & > div:not(:last-of-type) {
+        @extend .mb-3;
+    }
+}
+
+//**********************************************
 // Carousel
 //**********************************************
 
