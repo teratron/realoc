@@ -1,35 +1,48 @@
 import {useNavigate} from 'react-router-dom'
 import {Form, InputGroup} from 'react-bootstrap'
+import {useState} from 'react'
+import {
+    ApartmentOptions,
+    CommercialOptions,
+    HouseOptions,
+    LandOptions,
+    OfficeOptions,
+    ParkingOptions,
+    WarehouseOptions
+} from '../components/form'
 
 // Media
 import iconSelectMap from '../media/icon_select_map.svg'
 
 function AddRequest() {
     const navigate = useNavigate()
+    const [type, setType] = useState("APARTMENT");
+
+    const  handleTypeChange = (event: any) => {
+        setType(event.target.value);
+    };
 
     return (
         <>
             <h2>Caută imobiliare</h2>
 
-            {/******************************************************
-             * Transaction Block
-             *******************************************************/}
+            {/* Transaction Block */}
             <div className="app-card">
                 <Form.Group>
                     <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
                     <div className="form-tab">
                         <input
                             id="transaction-type-1"
-                            name="transactionType"
-                            value="1"
+                            name="offert_type"
+                            value="SELL"
                             type="radio"
                             defaultChecked={true}
                         />
                         <label htmlFor="transaction-type-1">De vânzare</label>
                         <input
                             id="transaction-type-2"
-                            name="transactionType"
-                            value="2"
+                            name="offert_type"
+                            value="RENT"
                             type="radio"
                         />
                         <label htmlFor="transaction-type-2">De închiriat</label>
@@ -38,113 +51,25 @@ function AddRequest() {
 
                 <Form.Group controlId="property-type">
                     <Form.Label>Tip de proprietate</Form.Label>
-                    <Form.Select name="propertyType">
-                        <option>Apartament</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
+                    <Form.Select name="type" onChange={handleTypeChange}>
+                        <option value="APARTMENT">Apartament</option>
+                        <option value="HOUSE">Casă</option>
+                        <option value="OFFICE">Oficiu</option>
+                        <option value="COMMERCIAL">Spațiu comercial</option>
+                        <option value="WAREHOUSE">Spațiu producție/depozit</option>
+                        <option value="LAND">Lot de teren</option>
+                        <option value="PARKING">Parcare</option>
                     </Form.Select>
                 </Form.Group>
             </div>
 
-            {/******************************************************
-             * Housing Block
-             *******************************************************/}
-            <div className="app-card">
-                <Form.Group>
-                    <Form.Label htmlFor="housing-stock-1">Fond locativ</Form.Label>
-                    <div className="form-tab">
-                        <input
-                            id="housing-stock-1"
-                            name="housingStock"
-                            value="1"
-                            type="radio"
-                            defaultChecked={true}
-                        />
-                        <label htmlFor="housing-stock-1">Construcții noi</label>
-                        <input
-                            id="housing-stock-2"
-                            name="housingStock"
-                            value="2"
-                            type="radio"
-                        />
-                        <label htmlFor="housing-stock-2">Secundare</label>
-                    </div>
-                </Form.Group>
-
-                <Form.Group controlId="number-rooms-1">
-                    <Form.Label>Număr de camere</Form.Label>
-                    {[
-                        '1', '1.5', '2', '2.5', '3', '4.5', '4+'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`number-rooms-${index}`}
-                            id={`number-rooms-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            value={value}
-                            name="numberRooms"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label htmlFor="sale-price-from">Preț vânzare</Form.Label>
-                    <div className="row">
-                        <div className="col">
-                            <Form.Control
-                                id="sale-price-from"
-                                type="text"
-                                name="salePrice"
-                                placeholder="De la"
-                            />
-                        </div>
-                        <div className="col">
-                            <InputGroup>
-                                <Form.Control
-                                    id="sale-price-to"
-                                    type="text"
-                                    name="salePrice"
-                                    placeholder="Până la"
-                                />
-                                <InputGroup.Text>€</InputGroup.Text>
-                            </InputGroup>
-                        </div>
-                    </div>
-                </Form.Group>
-
-                <Form.Group>
-                    {[
-                        'Preț total',
-                        'Preț m²'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`price-type-${index}`}
-                            id={`price-type-${index + 1}`}
-                            type="radio"
-                            label={value}
-                            value={value}
-                            name="priceType"
-                            inline
-                        />
-                    ))}
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label htmlFor="area-from">Suprafață totală</Form.Label>
-                    <div className="row">
-                        <div className="col">
-                            <Form.Control id="area-from" name="area" type="text" placeholder="De la"/>
-                        </div>
-                        <div className="col">
-                            <InputGroup>
-                                <Form.Control id="area-to" name="area" type="text" placeholder="Până la"/>
-                                <InputGroup.Text>m²</InputGroup.Text>
-                            </InputGroup>
-                        </div>
-                    </div>
-                </Form.Group>
-            </div>
+            {type === "APARTMENT" && (<ApartmentOptions/>)}
+            {type === "HOUSE" && (<HouseOptions/>)}
+            {type === "OFFICE" && (<OfficeOptions/>)}
+            {type === "COMMERCIAL" && (<CommercialOptions/>)}
+            {type === "WAREHOUSE" && (<WarehouseOptions/>)}
+            {type === "LAND" && (<LandOptions/>)}
+            {type === "PARKING" && (<ParkingOptions/>)}
 
             {/******************************************************
              * Location Block
@@ -191,7 +116,7 @@ function AddRequest() {
                             id={`apartment-status-${index + 1}`}
                             type="checkbox"
                             label={value}
-                            name="apartmentStatus"
+                            name="reparation"
                             className="form-cracker"
                         />
                     ))}
@@ -224,14 +149,14 @@ function AddRequest() {
                     <Form.Label>Nivel</Form.Label>
                     <div className="row">
                         <div className="col">
-                            <Form.Select name="levels">
+                            <Form.Select name="level_from">
                                 <option>De la</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                             </Form.Select>
                         </div>
                         <div className="col">
-                            <Form.Select id="levels-to" name="levels">
+                            <Form.Select id="levels-to" name="level_to">
                                 <option>Până la</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -288,7 +213,7 @@ function AddRequest() {
                             id={`ascensor-${index + 1}`}
                             type="checkbox"
                             label={value}
-                            name="ascensor"
+                            name="elevator"
                             className="form-cracker"
                         />
                     ))}
@@ -306,7 +231,7 @@ function AddRequest() {
                             id={`parking-${index + 1}`}
                             type="checkbox"
                             label={value}
-                            name="parking"
+                            name="apt_parking"
                             className="form-cracker"
                         />
                     ))}
@@ -314,7 +239,7 @@ function AddRequest() {
 
                 <Form.Group controlId="developer">
                     <Form.Label>Dezvoltator</Form.Label>
-                    <Form.Select>
+                    <Form.Select name="apt_developer">
                         <option>Selectați dezvoltator</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -331,7 +256,7 @@ function AddRequest() {
                             id={`exploitation-${index + 1}`}
                             type="checkbox"
                             label={value}
-                            name="exploitation"
+                            name="apt_construction_date"
                             className="form-cracker"
                         />
                     ))}
