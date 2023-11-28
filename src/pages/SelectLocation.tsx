@@ -1,8 +1,7 @@
-import {Form, InputGroup} from 'react-bootstrap'
+import {Accordion, Form, InputGroup} from 'react-bootstrap'
 
 // Media //Popular localities
 import iconSearch from '../media/icon_search.svg'
-import {JSX}      from 'react/jsx-runtime';
 //import iconChevronDown from '../media/icon_chevron_down.svg'
 
 const location = [
@@ -54,28 +53,41 @@ const location = [
 
 type TreeLocation = typeof location
 
-function Tree(array: TreeLocation | string) {
+interface TreeProps {
+    array: TreeLocation
+}
 
-    if (typeof array === 'string') {
-        console.log('[*]', array)
-        return <TreeItem value={''} index={0}/>
-    } else {
-        if (Array.isArray(array) && array.every(str => typeof str === 'string')) {
-            for (const value of array) {
-                Tree(value)
-            }
-            return
-        }
+function Tree({array}: TreeProps) {
+    if (Array.isArray(array) && array.every(str => typeof str === 'string')) {
+        /*for (const value of array) {
+            Tree(value)
+        }*/
+        return (
+            <Accordion.Collapse eventKey={`level-${0}`}>
+                <>
+                    {array.map((value, index) =>
+                        <TreeItem value={value as string} index={index}/>
+                    )}
+                </>
+            </Accordion.Collapse>
+        )
+    }
 
-        let index = 0
-        for (const value of array) {
-            if (typeof value === 'string' && index === 0 && array.length > 1) {
+    let index = 0
+    for (const value of array) {
+        if (typeof value === 'string') {
+            if (index === 0 && array.length > 1) {
                 console.log('[-]', index, value)
             } else {
-                Tree(value)
+                console.log('[*]', array)
+                return <TreeItem value={''} index={0}/>
             }
-            index++
+        } else {
+            // Tree(value)
+            //
+            // <Tree array={location}/>
         }
+        index++
     }
 }
 
@@ -116,7 +128,7 @@ function SelectLocation() {
                 <Form.Group>
                     {/*<Form.Label htmlFor="popular-localities">Localități populare</Form.Label>*/}
 
-                    <Tree array={location as TreeLocation}/>
+                    <Tree array={location}/>
 
                     {/*** Level #1 ***/}
                     {/*<Accordion flush>
