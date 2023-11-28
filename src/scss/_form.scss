@@ -139,35 +139,139 @@ $custom-bg-color: #f2f4f7;
         }
     }
 
+    // Accordion
     .accordion {
         &-item {
-
-        }
-
-        &-upper-level {
-
-        }
-
-        &-button {
-            &.collapse {
-
-            }
         }
 
         &-collapse {
             &.collapse {
                 &.show {
-
                 }
             }
         }
+
+        &-body {
+            padding-left: 1.5rem;
+        }
+
+        &-button {
+            padding-right: 1.5rem;
+        }
+
+        &-button,
+        .form-check {
+            position:        relative;
+            display:         flex;
+            flex-direction:  row;
+            flex-wrap:       nowrap;
+            justify-content: space-between;
+            align-items:     center;
+            font-size:       1rem;
+            font-weight:     500;
+            line-height:     1;
+            color:           #344054;
+            margin-bottom:   1.25rem;
+        }
+
+        &-button,
+        .form-check-label {
+            min-height:   1.25rem;
+            padding-left: 2rem;
+
+            &::before {
+                background:    white no-repeat center center;
+                position:      absolute;
+                left:          0;
+                display:       block;
+                content:       "";
+                width:         1.25rem;
+                height:        1.25rem;
+                border-radius: 6px;
+                border:        1px solid #d0d5dd;
+            }
+        }
+
+        &-button.fully::before,
+        &-button.partially::before,
+        .form-check-input:checked + .form-check-label::before {
+            background-color: #3a5fff;
+            border-color:     #3a5fff;
+        }
+
+        &-button.fully::before,
+        .form-check-input:checked + .form-check-label::before {
+            background-image: url("#{$media-url}/icon_check_white.svg");
+        }
+
+        &-button.partially::before {
+            background-image: url("#{$media-url}/icon_minus_white.svg");
+        }
+
+        .form-check-input {
+            display: none;
+
+            &:checked {
+                + .form-check-label::before {
+                }
+            }
+        }
+
+        .form-check-label {
+            width: 100%;
+        }
+
+        &-button {
+            &::after {
+                position:        absolute;
+                right:           0;
+                display:         block;
+                content:         "";
+                width:           1.25rem;
+                height:          1.25rem;
+                background:      transparent url("#{$media-url}/icon_chevron_down.svg") no-repeat center center;
+                background-size: auto;
+                transition:      ease .3s;
+            }
+
+            > small {
+                font-size:   12px;
+                font-weight: 500;
+                color:       #667085;
+            }
+
+            &.collapsed {
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &:last-child > .accordion-item:last-child > .accordion-button.collapsed:last-of-type {
+            margin-bottom:    0;
+            background-color: red;
+        }
     }
 
-    .checkbox {
+    .app-card {
+        > h3 {
+            font-size:     14px;
+            font-weight:   500;
+            line-height:   20px;
+            color:         #667085;
+            margin-bottom: 1.25rem;
 
+            &.alphabet {
+                font-size:     24px;
+                font-weight:   600;
+                line-height:   40px;
+                margin-bottom: 1.5rem;
+            }
+        }
     }
 }
 
+// Form Tab
 .form-tab {
     $tab-height:      2.75rem;
     $tab-radius:      .5rem;
@@ -237,6 +341,7 @@ $custom-bg-color: #f2f4f7;
     }
 }
 
+// Form Cracker
 .form-cracker {
     $cracker-height: 36px;
     $padding-side:   14px;

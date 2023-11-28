@@ -2,112 +2,8 @@ import {Accordion, Form, InputGroup} from 'react-bootstrap'
 
 // Media //Popular localities
 import iconSearch from '../media/icon_search.svg'
-//import iconChevronDown from '../media/icon_chevron_down.svg'
-
-const location = [
-    ['--- Chișinău mun.',
-        '* Buiucani',
-        ['-- Chișinău',
-            [
-                '* Aeroport',
-                '* Botanica',
-                '* Buiucani'
-            ]
-        ],
-        [
-            '* Aeroport',
-            '* Botanica',
-            '* Buiucani'
-        ],
-        ['-- Bacioi',
-            [
-                '* Aeroport',
-                '* Botanica',
-                '* Buiucani'
-            ]
-        ]
-    ],
-    ['--- Bălți mun.',
-        ['-- Bubuieci',
-            [
-                '* Aeroport',
-                '* Botanica',
-                '* Buiucani'
-            ]
-        ]
-    ],
-    [
-        '* Aeroport',
-        '* Botanica',
-        '* Buiucani'
-    ],
-    ['--- Bubuieci 2',
-        [
-            '* Aeroport',
-            '* Botanica',
-            '* Buiucani'
-        ]
-    ],
-    '* Cahul mun.'
-]
-
-type TreeLocation = typeof location
-
-interface TreeProps {
-    array: TreeLocation
-}
-
-function Tree({array}: TreeProps) {
-    if (Array.isArray(array) && array.every(str => typeof str === 'string')) {
-        /*for (const value of array) {
-            Tree(value)
-        }*/
-        return (
-            <Accordion.Collapse eventKey={`level-${0}`}>
-                <>
-                    {array.map((value, index) =>
-                        <TreeItem value={value as string} index={index}/>
-                    )}
-                </>
-            </Accordion.Collapse>
-        )
-    }
-
-    let index = 0
-    for (const value of array) {
-        if (typeof value === 'string') {
-            if (index === 0 && array.length > 1) {
-                console.log('[-]', index, value)
-            } else {
-                console.log('[*]', array)
-                return <TreeItem value={''} index={0}/>
-            }
-        } else {
-            // Tree(value)
-            //
-            // <Tree array={location}/>
-        }
-        index++
-    }
-}
-
-function TreeItem({value = '', index = 0}) {
-    return (
-        <Form.Check
-            key={`popular-localities-${index}`}
-            id={`popular-localities-${index + 1}`}
-            type="checkbox"
-            label={value}
-            name="popularLocalities"
-            className=""
-        />
-    )
-}
 
 function SelectLocation() {
-
-    //tree(location)
-
     return (
         <>
             <Form.Group controlId="location">
@@ -125,83 +21,141 @@ function SelectLocation() {
             </Form.Group>
 
             <div className="app-card">
-                <Form.Group>
-                    {/*<Form.Label htmlFor="popular-localities">Localități populare</Form.Label>*/}
+                <h3>Localități populare</h3>
 
-                    <Tree array={location}/>
+                {/*** Level #1 ***/}
+                <Accordion flush>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Button as="div" className="partially">Chișinău mun.<small>34
+                            localități</small></Accordion.Button>
+                        <Accordion.Body>
 
-                    {/*** Level #1 ***/}
-                    {/*<Accordion flush>
-                        {location.map((value, index, array) => (
-                            <Accordion.Item
-                                key={`level-${index}`}
-                                eventKey={`level-${index}`}
-                                className="accordion-upper-level"
-                            >
-                                <Accordion.Button as="div"> {value[0]} 34 localități</Accordion.Button>
-                                <Accordion.Collapse eventKey={`level-${index}`}>
+                            {/*** Level #2 ***/}
+                            <Accordion>
+                                <Accordion.Item eventKey="1">
+                                    <Accordion.Button as="div" className="">Chișinău<small>10
+                                        sectoare</small></Accordion.Button>
+                                    <Accordion.Body>
 
-                                    ** Level #2 **
-                                    <>
-                                        {array[index][1]}
-                                    </>
+                                        {/*** Level #3 ***/}
+                                        {[
+                                            'Aeroport',
+                                            'Botanica',
+                                            'Buiucani'
+                                        ].map((value, index) => (
+                                            <Form.Check
+                                                key={`popular-localities-1-${index}`}
+                                                id={`popular-localities-1-${index + 1}`}
+                                                type="checkbox"
+                                                label={value}
+                                                name="popularLocalities"
+                                                className=""
+                                            />
+                                        ))}
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
 
+                            {/*** Level #2 ***/}
+                            {[
+                                'Bacioi',
+                                'Bubuieci'
+                            ].map((value, index) => (
+                                <Form.Check
+                                    key={`popular-localities-2-${index}`}
+                                    id={`popular-localities-2-${index + 1}`}
+                                    type="checkbox"
+                                    label={value}
+                                    name="popularLocalities"
+                                    className=""
+                                />
+                            ))}
 
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
 
-                                </Accordion.Collapse>
-                            </Accordion.Item>
-                        ))}
-                    </Accordion>*/}
-                </Form.Group>
+                {/*** Level #1 ***/}
+                <Accordion flush>
+                    <Accordion.Item eventKey="2">
+                        <Accordion.Button as="div" className="fully">Bălți mun.<small>3
+                            localități</small></Accordion.Button>
+                        <Accordion.Body>
+
+                            {/*** Level #2 ***/}
+                            <Accordion>
+                                <Accordion.Item eventKey="3">
+                                    <Accordion.Button as="div" className="">Bălți<small>17
+                                        sectoare</small></Accordion.Button>
+                                    <Accordion.Body>
+
+                                        {/*** Level #3 ***/}
+                                        {[
+                                            'Botanica',
+                                            'Buiucani'
+                                        ].map((value, index) => (
+                                            <Form.Check
+                                                key={`popular-localities-3-${index}`}
+                                                id={`popular-localities-3-${index + 1}`}
+                                                type="checkbox"
+                                                label={value}
+                                                name="popularLocalities"
+                                                className=""
+                                            />
+                                        ))}
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
+
+                            {/*** Level #2 ***/}
+                            {[
+                                'Elizaveta',
+                                'Sadovoe'
+                            ].map((value, index) => (
+                                <Form.Check
+                                    key={`popular-localities-4-${index}`}
+                                    id={`popular-localities-4-${index + 1}`}
+                                    type="checkbox"
+                                    label={value}
+                                    name="popularLocalities"
+                                    className=""
+                                />
+                            ))}
+
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            </div>
+
+            <div className="app-card">
+                <h3 className="alphabet">A</h3>
+
+                {/*** Level #1 ***/}
+                <Accordion flush>
+                    <Accordion.Item eventKey="5">
+                        <Accordion.Button as="div">Anenii Noi<small>45 localități</small></Accordion.Button>
+                        <Accordion.Body>
+
+                            {[
+                                'Bacioi',
+                                'Bubuieci'
+                            ].map((value, index) => (
+                                <Form.Check
+                                    key={`popular-localities-5-${index}`}
+                                    id={`popular-localities-5-${index + 1}`}
+                                    type="checkbox"
+                                    label={value}
+                                    name="popularLocalities"
+                                    className=""
+                                />
+                            ))}
+
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
             </div>
         </>
     )
 }
 
 export default SelectLocation
-/*<Accordion>
-                                        {[
-                                            ['Chișinău', [
-                                                'Aeroport',
-                                                'Botanica',
-                                                'Buiucani'
-                                            ]],
-                                            ['Bacioi', [
-                                                'Aeroport',
-                                                'Botanica',
-                                                'Buiucani'
-                                            ]],
-                                            ['Bubuieci', [
-                                                'Aeroport',
-                                                'Botanica',
-                                                'Buiucani'
-                                            ]]
-                                        ].map((value, index) => (
-                                            <Accordion.Item
-                                                eventKey={`level-2-${index}`}
-                                                key={`level-2-${index}`}
-                                                className="accordion-upper-level"
-                                            >
-                                                <Accordion.Button as="div">
-                                                    {value}
-                                                    10 sectoare
-                                                    <img src={iconChevronDown} alt=""/>
-                                                </Accordion.Button>
-                                                <Accordion.Collapse eventKey={`level-2-${index}`}>
-
-                                                    ** Level #3 **
-                                                    <>
-                                                        {value}
-                                                    </>
-                                                </Accordion.Collapse>
-                                                <Form.Check
-                                        key={`popular-localities-${index}`}
-                                        id={`popular-localities-${index + 1}`}
-                                        type="checkbox"
-                                        label={value}
-                                        name="popularLocalities"
-                                        className=""
-                                    />
-                                            </Accordion.Item>
-                                        ))}
-                                    </Accordion>*/
