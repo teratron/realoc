@@ -2,114 +2,99 @@ import {Form, InputGroup} from 'react-bootstrap'
 
 // Media //Popular localities
 import iconSearch from '../media/icon_search.svg'
+import {JSX}      from 'react/jsx-runtime';
 //import iconChevronDown from '../media/icon_chevron_down.svg'
 
 const location = [
-    ['Chișinău mun.',
-        'Buiucani',
-        ['Chișinău',
+    ['--- Chișinău mun.',
+        '* Buiucani',
+        ['-- Chișinău',
             [
-                'Aeroport----',
-                'Botanica',
-                'Buiucani'
+                '* Aeroport',
+                '* Botanica',
+                '* Buiucani'
             ]
         ],
         [
-            'Aeroport',
-            'Botanica',
-            'Buiucani'
+            '* Aeroport',
+            '* Botanica',
+            '* Buiucani'
         ],
-        ['Bacioi',
+        ['-- Bacioi',
             [
-                'Aeroport',
-                'Botanica',
-                'Buiucani'
+                '* Aeroport',
+                '* Botanica',
+                '* Buiucani'
             ]
         ]
     ],
-    ['Bălți mun.',
-        ['Bubuieci',
+    ['--- Bălți mun.',
+        ['-- Bubuieci',
             [
-                'Aeroport',
-                'Botanica',
-                'Buiucani'
+                '* Aeroport',
+                '* Botanica',
+                '* Buiucani'
             ]
         ]
     ],
     [
-        'Aeroport',
-        'Botanica',
-        'Buiucani'
+        '* Aeroport',
+        '* Botanica',
+        '* Buiucani'
     ],
-    ['Bubuieci',
+    ['--- Bubuieci 2',
         [
-            'Aeroport',
-            'Botanica',
-            'Buiucani'
+            '* Aeroport',
+            '* Botanica',
+            '* Buiucani'
         ]
     ],
-    'Cahul mun.'
+    '* Cahul mun.'
 ]
 
 type TreeLocation = typeof location
 
-/*function isPureStringArray(array: (string | (string | string[])[])[]) {
-    array.map(value => {
-        if (typeof value !== 'string') {
-            return false
-        }
-    })
-    return true
-}*/
+function Tree(array: TreeLocation | string) {
 
-function tree(array: TreeLocation | string) {
-    let index = 0
-
-    switch (typeof array) {
-        case 'string':
-            console.log('[*]', array)
-            break
-        case 'object':
-            /*array.map((value, index) => {
-                if (typeof value === 'string' && index === 0) {
-                    console.log('[--]', index, value)
-                }
-                console.log('[---------------------------------------------]')
-            })*/
-            //tree(value)
-
+    if (typeof array === 'string') {
+        console.log('[*]', array)
+        return <TreeItem value={''} index={0}/>
+    } else {
+        if (Array.isArray(array) && array.every(str => typeof str === 'string')) {
             for (const value of array) {
-                //console.log('[-]', index, value)
-                /*if (typeof value !== 'string') {
-                    let num = 0
-                    array.map(str => {
-                        if (typeof str === 'string') {
-                            num++
-                        }
-                        else  {num = 0}
-                    })
-                    if (value.length === num) {
-                        console.log('[#########]', value)
-                    }
-                }*/
-                if (typeof value === 'string' && index === 0 && array.length > 1) {
-                    console.log('[--]', index, value)
-                } else {
-                    tree(value)
-                }
-
-                index++
+                Tree(value)
             }
-            break
-        default:
-            console.log('[#########]')
-            break
+            return
+        }
+
+        let index = 0
+        for (const value of array) {
+            if (typeof value === 'string' && index === 0 && array.length > 1) {
+                console.log('[-]', index, value)
+            } else {
+                Tree(value)
+            }
+            index++
+        }
     }
+}
+
+function TreeItem({value = '', index = 0}) {
+    return (
+        <Form.Check
+            key={`popular-localities-${index}`}
+            id={`popular-localities-${index + 1}`}
+            type="checkbox"
+            label={value}
+            name="popularLocalities"
+            className=""
+        />
+    )
 }
 
 function SelectLocation() {
 
-    tree(location)
+    //tree(location)
 
     return (
         <>
@@ -130,6 +115,9 @@ function SelectLocation() {
             <div className="app-card">
                 <Form.Group>
                     {/*<Form.Label htmlFor="popular-localities">Localități populare</Form.Label>*/}
+
+                    <Tree array={location as TreeLocation}/>
+
                     {/*** Level #1 ***/}
                     {/*<Accordion flush>
                         {location.map((value, index, array) => (
