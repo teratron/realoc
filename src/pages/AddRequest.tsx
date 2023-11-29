@@ -16,9 +16,15 @@ import iconSelectMap from '../media/icon_select_map.svg'
 
 function AddRequest() {
     const navigate = useNavigate()
-    const [type, setType] = useState("APARTMENT");
 
-    const  handleTypeChange = (event: any) => {
+    const [offertType, setOffertType] = useState("SELL");
+    const handleOffertTypeChange = (event: any) => {
+        console.log('handleOffertTypeChange', event.target.value)
+        setOffertType(event.target.value);
+    };
+
+    const [type, setType] = useState("APARTMENT");
+    const handleTypeChange = (event: any) => {
         setType(event.target.value);
     };
 
@@ -31,19 +37,23 @@ function AddRequest() {
                 <Form.Group>
                     <Form.Label htmlFor="transaction-type-1">Tip tranzacție</Form.Label>
                     <div className="form-tab">
-                        <input
+                        <Form.Control
                             id="transaction-type-1"
                             name="offert_type"
                             value="SELL"
                             type="radio"
-                            defaultChecked={true}
+                            checked={offertType === 'SELL'}
+                            onChange={handleOffertTypeChange}
                         />
                         <label htmlFor="transaction-type-1">De vânzare</label>
-                        <input
+
+                        <Form.Control
                             id="transaction-type-2"
                             name="offert_type"
                             value="RENT"
                             type="radio"
+                            checked={offertType === 'RENT'}
+                            onChange={handleOffertTypeChange}
                         />
                         <label htmlFor="transaction-type-2">De închiriat</label>
                     </div>
@@ -63,13 +73,13 @@ function AddRequest() {
                 </Form.Group>
             </div>
 
-            {type === "APARTMENT" && (<ApartmentOptions/>)}
-            {type === "HOUSE" && (<HouseOptions/>)}
-            {type === "OFFICE" && (<OfficeOptions/>)}
-            {type === "COMMERCIAL" && (<CommercialOptions/>)}
-            {type === "WAREHOUSE" && (<WarehouseOptions/>)}
-            {type === "LAND" && (<LandOptions/>)}
-            {type === "PARKING" && (<ParkingOptions/>)}
+            {type === "APARTMENT" && (<ApartmentOptions offertType={offertType}/>)}
+            {type === "HOUSE" && (<HouseOptions offertType={offertType}/>)}
+            {type === "OFFICE" && (<OfficeOptions offertType={offertType}/>)}
+            {type === "COMMERCIAL" && (<CommercialOptions offertType={offertType}/>)}
+            {type === "WAREHOUSE" && (<WarehouseOptions offertType={offertType}/>)}
+            {type === "LAND" && (<LandOptions offertType={offertType}/>)}
+            {type === "PARKING" && (<ParkingOptions offertType={offertType}/>)}
 
             {/******************************************************
              * Location Block

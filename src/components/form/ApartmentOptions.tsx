@@ -1,10 +1,12 @@
-import {Form, InputGroup} from 'react-bootstrap'
+import {Form} from 'react-bootstrap'
+import {PriceRange, PriceUnit, TotalArea} from "./fields";
 
-export function ApartmentOptions() {
+// @ts-ignore
+export function ApartmentOptions({offertType}) {
     return (
         <div className="app-card">
             <Form.Group>
-                <Form.Label htmlFor="housing-stock-1">Fond locativ</Form.Label>
+                <Form.Label>Fond locativ</Form.Label>
                 <div className="form-tab">
                     <input
                         id="housing-stock-1"
@@ -41,62 +43,9 @@ export function ApartmentOptions() {
                 ))}
             </Form.Group>
 
-            <Form.Group>
-                <Form.Label htmlFor="sale-price-from">Preț vânzare</Form.Label>
-                <div className="row">
-                    <div className="col">
-                        <Form.Control
-                            id="sale-price-from"
-                            type="text"
-                            name="price_from"
-                            placeholder="De la"
-                        />
-                    </div>
-                    <div className="col">
-                        <InputGroup>
-                            <Form.Control
-                                id="sale-price-to"
-                                type="text"
-                                name="price_to"
-                                placeholder="Până la"
-                            />
-                            <InputGroup.Text>€</InputGroup.Text>
-                        </InputGroup>
-                    </div>
-                </div>
-            </Form.Group>
-
-            <Form.Group>
-                {Object.entries({
-                    'total': 'Preț total',
-                    'm2': 'Preț m²'
-                }).map(([value, label], index) => (
-                    <Form.Check
-                        key={`price-type-${index}`}
-                        id={`price-type-${index + 1}`}
-                        type="radio"
-                        label={label}
-                        value={value}
-                        name="priceType"
-                        inline
-                    />
-                ))}
-            </Form.Group>
-
-            <Form.Group>
-                <Form.Label htmlFor="area-from">Suprafață totală</Form.Label>
-                <div className="row">
-                    <div className="col">
-                        <Form.Control id="area-from" name="area_from" type="text" placeholder="De la"/>
-                    </div>
-                    <div className="col">
-                        <InputGroup>
-                            <Form.Control id="area-to" name="area_to" type="text" placeholder="Până la"/>
-                            <InputGroup.Text>m²</InputGroup.Text>
-                        </InputGroup>
-                    </div>
-                </div>
-            </Form.Group>
+            <PriceRange offertType={offertType} />
+            <PriceUnit />
+            <TotalArea />
         </div>
     )
 }

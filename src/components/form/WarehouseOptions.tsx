@@ -1,5 +1,12 @@
-export function WarehouseOptions() {
+import {PriceRange, PriceUnit, TotalArea} from "./fields";
+
+// @ts-ignore
+export function WarehouseOptions({offertType}) {
     return (
-        <div>TODO: WarehouseOptions</div>
+        <div className="app-card">
+            <PriceRange offertType={offertType}/>
+            <PriceUnit/>
+            <TotalArea/>
+        </div>
     )
 }
