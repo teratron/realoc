@@ -1,17 +1,24 @@
 import {FormEvent, useCallback, useState} from 'react'
-import {Outlet} from 'react-router-dom'
-import Header from '../containers/Header'
-import Main from '../containers/Main'
-import {Form} from 'react-bootstrap'
-import {GetPathName} from '../components/Navigation'
-import {formData, search, searchCount} from '../api'
-import debounce from 'lodash.debounce'
+import {Outlet}                           from 'react-router-dom'
+import Header                             from '../containers/Header'
+import Main                               from '../containers/Main'
+import {Form}                             from 'react-bootstrap'
+import {GetPathName}                      from '../components/Navigation'
+import {formData, search, searchCount}    from '../api'
+import debounce                           from 'lodash.debounce'
 
-const title: string = 'Add Request'
+let title: string = 'Add Request'
 
 function Request() {
     const path = GetPathName()
-    const isSelectLocation = path === 'select-location'
+    switch (path) {
+        case 'select-location':
+            title = 'Selectați o locație'
+            break
+        case 'select-developer':
+            title = 'Selectați dezvoltator'
+            break
+    }
 
     const [count, setCount] = useState(254)
     const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
@@ -33,8 +40,8 @@ function Request() {
     return (
         <>
             <Header
-                title={isSelectLocation ? 'Selectați o locație' : title}
-                prevPath={isSelectLocation ? 'add-request' : ''}
+                title={title}
+                prevPath={path !== 'add-request' ? 'add-request' : ''}
                 resetButton={{id: 'add-request-form', count: 99}}
             />
             <Main>

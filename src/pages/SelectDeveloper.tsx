@@ -1,9 +1,9 @@
-import {Accordion, Form, InputGroup} from 'react-bootstrap'
+import {Form, InputGroup} from 'react-bootstrap'
 
 // Media
 import iconSearch from '../media/icon_search.svg'
 
-function SelectLocation() {
+function SelectDeveloper() {
     return (
         <>
             <Form.Group controlId="developer">
@@ -12,79 +12,70 @@ function SelectLocation() {
                         <img src={iconSearch} alt=""/>
                     </InputGroup.Text>
                     <Form.Control
-                        name="selectLocation"
+                        name="selectDeveloper"
                         type="text"
                         value=""
-                        placeholder="Municipiu, raion, oraș, sector"
+                        placeholder="Dezvoltator"
                         className="search-control"
                     />
                 </InputGroup>
             </Form.Group>
 
-            <div className="app-card">
+            <div className="app-card form-list">
                 <h3 className="alphabet">A</h3>
+                {[
+                    'Bacioi',
+                    'Bubuieci'
+                ].map((value, index) => (
+                    <Form.Check
+                        key={`select-developer-a-${index}`}
+                        id={`select-developer-a-${index + 1}`}
+                        type="checkbox"
+                        label={value}
+                        name="selectDeveloper"
+                        className="custom-checkbox"
+                    />
+                ))}
 
-                {/*** Level #1 ***/}
-                <Accordion flush>
-                    <Accordion.Item eventKey="5">
-                        <Accordion.Button as="div">Anenii Noi<small>45 localități</small></Accordion.Button>
-                        <Accordion.Body>
-
-                            {[
-                                'Bacioi',
-                                'Bubuieci'
-                            ].map((value, index) => (
-                                <Form.Check
-                                    key={`popular-localities-5-${index}`}
-                                    id={`popular-localities-5-${index + 1}`}
-                                    type="checkbox"
-                                    label={value}
-                                    name="popularLocalities"
-                                    className="custom-checkbox"
-                                />
-                            ))}
-
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
             </div>
 
-            <div className="app-pane">
+            <div className="app-card form-list">
+                <h3 className="alphabet">B</h3>
+                {[
+                    'Bacioi',
+                    'Bubuieci'
+                ].map((value, index) => (
+                    <Form.Check
+                        key={`select-developer-b-${index}`}
+                        id={`select-developer-b-${index + 1}`}
+                        type="checkbox"
+                        label={value}
+                        name="selectDeveloper"
+                        className="custom-checkbox"
+                    />
+                ))}
+
+            </div>
+
+            <div className="app-pane form-list">
                 <h3>Nisporeni</h3>
-                <Form.Check
-                    key="popular-localities-6-0"
-                    id="popular-localities-6-1"
-                    type="checkbox"
-                    label="Chilișoaia"
-                    name="popularLocalities"
-                    className="custom-checkbox"
-                />
-                <h3>Regiune</h3>
-                <Accordion flush>
-                    <Accordion.Item eventKey="7">
-                        <Accordion.Button as="div">Chișinău mun.<small>34 localități</small></Accordion.Button>
-                        <Accordion.Body>
-
-                            {[
-                                'Bacioi',
-                                'Bubuieci'
-                            ].map((value, index) => (
-                                <Form.Check
-                                    key={`popular-localities-7-${index}`}
-                                    id={`popular-localities-7-${index + 1}`}
-                                    type="checkbox"
-                                    label={value}
-                                    name="popularLocalities"
-                                    className="custom-checkbox"
-                                />
-                            ))}
-
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
+                <div className="list-item">
+                    <div>Tip de proprietate</div>
+                    <div>Apartament</div>
+                </div>
+                <div className="">
+                    <Form.Check
+                        key="popular-localities-6-0"
+                        id="popular-localities-6-1"
+                        type="checkbox"
+                        label="Chilișoaia"
+                        name="popularLocalities"
+                        className="custom-checkbox"
+                    />
+                </div>
             </div>
         </>
     )
 }
 
-export default SelectLocation
+export default SelectDeveloper
