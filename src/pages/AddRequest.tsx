@@ -75,7 +75,7 @@ function AddRequest() {
              * Location Block
              *******************************************************/}
             <div className="app-card">
-                <Form.Group controlId="location">
+                <Form.Group controlId="location-link">
                     <Form.Label>Raion/oraș</Form.Label>
                     <Form.Control
                         name="location"
@@ -237,13 +237,16 @@ function AddRequest() {
                     ))}
                 </Form.Group>
 
-                <Form.Group controlId="developer">
+                <Form.Group controlId="developer-link">
                     <Form.Label>Dezvoltator</Form.Label>
-                    <Form.Select name="apt_developer">
-                        <option>Selectați dezvoltator</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                    </Form.Select>
+                    <Form.Control
+                        name="developer"
+                        type="text"
+                        placeholder="Selectați dezvoltator"
+                        onClick={event => {
+                            event.preventDefault();
+                            navigate('select-developer');
+                        }}/>
                 </Form.Group>
 
                 <Form.Group controlId="exploitation-1">
