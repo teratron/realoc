@@ -458,3 +458,25 @@ $custom-bg-color: #f2f4f7;
         }
     }
 }
+
+// Form List
+.form-list {
+    .list-item {
+        &.custom-checkbox {
+            &:not(:last-child) {
+                margin-bottom: 1.75rem !important;
+            }
+
+            > .form-check-label {
+                width:        100%;
+                padding-left: 0;
+
+                &::before {
+                    left:  auto;
+                    right: 0;
+                }
+            }
+        }
+    }
+
+}

@@ -24,8 +24,10 @@ function SelectDeveloper() {
             <div className="app-card form-list">
                 <h3 className="alphabet">A</h3>
                 {[
-                    'Bacioi',
-                    'Bubuieci'
+                    'A-casa',
+                    'Amic',
+                    'A-casa',
+                    'Amic'
                 ].map((value, index) => (
                     <Form.Check
                         key={`select-developer-a-${index}`}
@@ -33,7 +35,7 @@ function SelectDeveloper() {
                         type="checkbox"
                         label={value}
                         name="selectDeveloper"
-                        className="custom-checkbox"
+                        className="custom-checkbox list-item"
                     />
                 ))}
 
@@ -42,8 +44,8 @@ function SelectDeveloper() {
             <div className="app-card form-list">
                 <h3 className="alphabet">B</h3>
                 {[
-                    'Bacioi',
-                    'Bubuieci'
+                    'Basconslux',
+                    'Boiar House'
                 ].map((value, index) => (
                     <Form.Check
                         key={`select-developer-b-${index}`}
@@ -51,28 +53,26 @@ function SelectDeveloper() {
                         type="checkbox"
                         label={value}
                         name="selectDeveloper"
-                        className="custom-checkbox"
+                        className="custom-checkbox list-item"
                     />
                 ))}
 
             </div>
 
             <div className="app-pane form-list">
-                <h3>Nisporeni</h3>
-                <div className="list-item">
-                    <div>Tip de proprietate</div>
-                    <div>Apartament</div>
-                </div>
-                <div className="">
+                {[
+                    'Armoson Invest',
+                    'Art Urban Grup'
+                ].map((value, index) => (
                     <Form.Check
-                        key="popular-localities-6-0"
-                        id="popular-localities-6-1"
+                        key={`select-developer-find-${index}`}
+                        id={`select-developer-find-${index + 1}`}
                         type="checkbox"
-                        label="Chilișoaia"
-                        name="popularLocalities"
-                        className="custom-checkbox"
+                        label={value}
+                        name="selectDeveloper"
+                        className="custom-checkbox list-item"
                     />
-                </div>
+                ))}
             </div>
         </>
     )
