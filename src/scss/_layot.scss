@@ -49,13 +49,21 @@
 
         // 1 from 2 columns
         > :first-child:nth-last-child(2):not(.head):not(.body) {
-            @extend %__t-list-key;
+            font-size:   .875rem;
+            font-weight: 500;
+            line-height: 1.25rem;
+            color:       #667085;
+
             @extend .ps-0, .py-2, .col-7;
         }
 
         // 2 from 2 columns
         > :last-child:nth-child(2):not(.foot):not(.body) {
-            @extend %__t-list-value;
+            font-size:   1rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+            color:       #344054;
+
             @extend .pe-0, .py-2, .col-5;
         }
 
