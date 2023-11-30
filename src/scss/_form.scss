@@ -145,16 +145,6 @@ $custom-bg-color: #f2f4f7;
 
     // Accordion
     .accordion {
-        &-item {
-        }
-
-        &-collapse {
-            &.collapse {
-                &.show {
-                }
-            }
-        }
-
         &-body {
             padding-left: 1.5rem;
         }
@@ -163,12 +153,7 @@ $custom-bg-color: #f2f4f7;
             padding-right: 1.5rem;
         }
 
-        .form-check {
-            padding-left: 0;
-        }
-
-        &-button,
-        .form-check {
+        &-button {
             position:        relative;
             display:         flex;
             flex-direction:  row;
@@ -182,8 +167,7 @@ $custom-bg-color: #f2f4f7;
             margin-bottom:   1.25rem;
         }
 
-        &-button,
-        .form-check-label {
+        &-button {
             min-height:   1.25rem;
             padding-left: 2rem;
             cursor: pointer;
@@ -202,23 +186,17 @@ $custom-bg-color: #f2f4f7;
         }
 
         &-button.fully::before,
-        &-button.partially::before,
-        .form-check-input:checked + .form-check-label::before {
+        &-button.partially::before {
             background-color: #3a5fff;
             border-color:     #3a5fff;
         }
 
-        &-button.fully::before,
-        .form-check-input:checked + .form-check-label::before {
+        &-button.fully::before {
             background-image: url("#{$media-url}/icon_check_white.svg");
         }
 
         &-button.partially::before {
             background-image: url("#{$media-url}/icon_minus_white.svg");
-        }
-
-        .form-check-input {
-            display: none;
         }
 
         .form-check-label {
@@ -290,15 +268,16 @@ $custom-bg-color: #f2f4f7;
     margin-bottom:   1.25rem;
     padding-left:    0;
     min-height:      1.25rem;
+    position: relative;
 
     > .form-check-label {
         display:        inline-flex;
+        cursor:       pointer;
+        padding-left: 2rem;
         flex-direction: row;
         flex-wrap:      nowrap;
         align-items:    center;
         min-height:     1.25rem;
-        padding-left:   2rem;
-        cursor:         pointer;
 
         &::before {
             background:    white no-repeat center center;
@@ -313,10 +292,20 @@ $custom-bg-color: #f2f4f7;
         }
     }
 
+    &.fully::before,
+    &.partially::before,
     > .form-check-input:checked + .form-check-label::before {
         background-color: #3a5fff;
         border-color:     #3a5fff;
+    }
+
+    &.fully::before,
+    > .form-check-input:checked + .form-check-label::before {
         background-image: url("#{$media-url}/icon_check_white.svg");
+    }
+
+    &.partially::before {
+        background-image: url("#{$media-url}/icon_minus_white.svg");
     }
 
     > .form-check-input {
