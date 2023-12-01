@@ -743,3 +743,11 @@ body {
     max-width:       100%;
     width:           100%;
 }
+
+.fs-modal {
+    background-color: var(--app-main-bg-color);
+
+    .modal-title {
+        color: black;
+    }
+}

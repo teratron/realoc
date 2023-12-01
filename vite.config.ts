@@ -10,7 +10,8 @@ export const path = {
     root: root,
     src: paths.resolve(root, 'src'),
     build: paths.resolve(root, 'dist'),
-    public: paths.resolve(root, 'public')
+    public: paths.resolve(root, 'public'),
+    env: paths.resolve(root, 'env')
 }
 
 // https://vitejs.dev/config/
@@ -26,6 +27,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
         base: command === 'serve' ? '/' : './',
         root: path.src,
         publicDir: path.public,
+        envDir: path.env,
         plugins: [
             react()
         ],

@@ -19,7 +19,7 @@ export function ApartmentOptions({offertType, onAptTypeChange}: Params) {
                 <div className="form-tab">
                     <input
                         id="housing-stock-1"
-                        name="apt_type"
+                        name="apt_building_type"
                         value="NEW"
                         type="radio"
                         defaultChecked={true}
@@ -28,7 +28,7 @@ export function ApartmentOptions({offertType, onAptTypeChange}: Params) {
                     <label htmlFor="housing-stock-1">Construcții noi</label>
                     <input
                         id="housing-stock-2"
-                        name="apt_type"
+                        name="apt_building_type"
                         value="OLD"
                         type="radio"
                         onChange={handleAptTypeChange}
