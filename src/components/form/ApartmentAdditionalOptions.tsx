@@ -1,6 +1,5 @@
 import {Form} from "react-bootstrap";
-import {useState} from "react";
-import {ApartmentDeveloper, ConstructionDate} from "./fields";
+import {ApartmentDeveloper, BuildingState, ConstructionDate, FloorRange, OtherOptions} from "./fields";
 
 // @ts-ignore
 export function ApartmentAdditionalOptions({offertType, aptType}) {
@@ -34,101 +33,18 @@ export function ApartmentAdditionalOptions({offertType, aptType}) {
         }
     }
 
-    const [reparation, setReparation] = useState<string[]>([])
-    const handleReparationChange = (event: any) => {
-        let result
-        if (event.target.checked) {
-            result = [...reparation, event.target.value]
-        } else {
-            result = reparation.filter((r) => r != event.target.value)
-        }
-        setReparation(result)
-    }
-
-    const intersect = (array1: string[], array2: string[]): boolean => {
-        const intersection = array1.filter(value => array2.includes(value))
-        return intersection.length > 0
+    const floorOptions = {
+        'not_parterre': 'Nu la parter',
+        'not_last': 'Nu la ultimul',
+        'last': 'La ultimul',
     }
 
     return (
         <>
-            <div className="app-card pb-1">
-                <Form.Group controlId="apartment-status-1">
-                    <Form.Label>Starea apartamentului</Form.Label>
-                    {Object.entries(reparationOptions).map(([value, label], index) => (
-                        <Form.Check
-                            key={`apartment-status-${index}`}
-                            id={`apartment-status-${index + 1}`}
-                            type="checkbox"
-                            label={label}
-                            value={value}
-                            name="reparation"
-                            className="form-cracker"
-                            onChange={handleReparationChange}
-                        />
-                    ))}
-                </Form.Group>
-
-                {!intersect(['WHITE', 'GRAY'], reparation) && (
-                    <Form.Group controlId="furniture-1">
-                        <Form.Label>Mobilier</Form.Label>
-                        {Object.entries({
-                            'NO': 'Nemobilat',
-                            'PART': 'Parțial mobilat',
-                            'FULL': 'Mobilat',
-                        }).map(([value, label], index) => (
-                            <Form.Check
-                                key={`furniture-${index}`}
-                                id={`furniture-${index + 1}`}
-                                type="checkbox"
-                                label={label}
-                                value={value}
-                                name="furniture"
-                                className="form-cracker"
-                            />
-                        ))}
-                    </Form.Group>
-                )}
-            </div>
+            <BuildingState label="Starea apartamentului" reparationOptions={reparationOptions}/>
 
             <div className="app-card pb-1">
-                <Form.Group controlId="levels">
-                    <Form.Label>Nivel</Form.Label>
-                    <div className="row">
-                        <div className="col">
-                            <Form.Control
-                                type="text"
-                                name="level_from"
-                                placeholder="De la"
-                            />
-                        </div>
-                        <div className="col">
-                            <Form.Control
-                                type="text"
-                                name="level_to"
-                                placeholder="Până la"
-                            />
-                        </div>
-                    </div>
-                </Form.Group>
-
-                <Form.Group>
-                    {Object.entries({
-                        'not_parterre': 'Nu la parter',
-                        'not_last': 'Nu la ultimul',
-                        'last': 'La ultimul',
-                    }).map(([value, label], index) => (
-                        <Form.Check
-                            key={`option-levels-${index}`}
-                            id={`option-levels-${index + 1}`}
-                            type="checkbox"
-                            label={label}
-                            value={value}
-                            name="apt_level_option"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
+                <FloorRange label="Etaj" options={floorOptions}/>
 
                 <Form.Group>
                     <Form.Label htmlFor="number-levels-from">Număr de nivele în casă</Form.Label>
@@ -151,25 +67,6 @@ export function ApartmentAdditionalOptions({offertType, aptType}) {
                 </Form.Group>
 
                 <ApartmentDeveloper/>
-
-                {/*
-                <Form.Group controlId="ascensor-1">
-                    <Form.Label>Ascensor</Form.Label>
-                    {[
-                        'Este',
-                        'Absent'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`ascensor-${index}`}
-                            id={`ascensor-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            name="elevator"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-                */}
 
                 <Form.Group controlId="heating">
                     <Form.Label>Încălzire</Form.Label>
@@ -214,21 +111,7 @@ export function ApartmentAdditionalOptions({offertType, aptType}) {
                     </>
                 )}
 
-                <Form.Group>
-                    <Form.Label>Alte condiții</Form.Label>
-                    {Object.entries(otherOptions).map(([name, label], index) => (
-                        <Form.Check
-                            key={`other-options-${index}`}
-                            id={`other-options-${index + 1}`}
-                            type="checkbox"
-                            label={label}
-                            value="1"
-                            name={name}
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-
+                <OtherOptions options={otherOptions} />
             </div>
         </>
     )

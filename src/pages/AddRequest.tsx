@@ -3,19 +3,21 @@ import {Form} from 'react-bootstrap'
 import {useState} from 'react'
 import {
     ApartmentAdditionalOptions,
-    ApartmentOptions,
+    ApartmentOptions, CommercialAdditionalOptions,
     CommercialOptions,
+    HouseAdditionalOptions,
     HouseOptions,
     LandOptions,
+    OfficeAdditionalOptions,
     OfficeOptions,
-    ParkingOptions,
+    ParkingOptions, WarehouseAdditionalOptions,
     WarehouseOptions
 } from '../components/form'
 
 // Media
 // import iconSelectMap from '../media/icon_select_map.svg'
 
-function AddRequest() {
+export default function AddRequest() {
     const navigate = useNavigate()
 
     const [offertType, setOffertType] = useState("SELL");
@@ -103,21 +105,23 @@ function AddRequest() {
                 </Form.Group>
 
                 {/**
-                <Form.Group controlId="map">
-                    <Form.Label>Zona pe hartă</Form.Label>
-                    <InputGroup>
-                        <Form.Control name="map" type="text" placeholder="Selectați zona pe hartă"/>
-                        <InputGroup.Text>
-                            <img src={iconSelectMap} alt=""/>
-                        </InputGroup.Text>
-                    </InputGroup>
-                </Form.Group>
+                 <Form.Group controlId="map">
+                 <Form.Label>Zona pe hartă</Form.Label>
+                 <InputGroup>
+                 <Form.Control name="map" type="text" placeholder="Selectați zona pe hartă"/>
+                 <InputGroup.Text>
+                 <img src={iconSelectMap} alt=""/>
+                 </InputGroup.Text>
+                 </InputGroup>
+                 </Form.Group>
                  */}
             </div>
 
             {type === "APARTMENT" && (<ApartmentAdditionalOptions offertType={offertType} aptType={aptType}/>)}
+            {type === "HOUSE" && (<HouseAdditionalOptions offertType={offertType}/>)}
+            {type === "OFFICE" && (<OfficeAdditionalOptions/>)}
+            {type === "COMMERCIAL" && (<CommercialAdditionalOptions/>)}
+            {type === "WAREHOUSE" && (<WarehouseAdditionalOptions/>)}
         </>
     )
 }
-
-export default AddRequest
