@@ -1,9 +1,16 @@
-// @ts-ignore
 import {Form} from "react-bootstrap";
 import {LandArea, PriceRange} from "./fields";
 
-// @ts-ignore
-export function LandOptions({offertType}) {
+type Params = {
+    offertType: string
+    onLandTypeChange: (value: string) => void
+}
+
+export function LandOptions({offertType, onLandTypeChange}: Params) {
+    const handleLandTypeChange = (event: any) => {
+        onLandTypeChange(event.target.value)
+    }
+
     return (
         <div className="app-card">
             <Form.Group>
@@ -22,6 +29,7 @@ export function LandOptions({offertType}) {
                                 value={value}
                                 type="radio"
                                 defaultChecked={value === 'AGRO'}
+                                onChange={handleLandTypeChange}
                             />
                             <label htmlFor={`land-type-${index + 1}`}>{label}</label>
                         </>

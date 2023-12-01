@@ -1,8 +1,12 @@
 import {Form} from 'react-bootstrap'
 import {PriceRange, PriceUnit, TotalArea} from "./fields";
 
-// @ts-ignore
-export function ApartmentOptions({offertType, onAptTypeChange}) {
+type Params = {
+    offertType: string
+    onAptTypeChange: (value: string) => void
+}
+
+export function ApartmentOptions({offertType, onAptTypeChange}: Params) {
     const handleAptTypeChange = (event: any) => {
         onAptTypeChange(event.target.value)
     }

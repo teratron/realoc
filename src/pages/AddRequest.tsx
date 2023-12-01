@@ -6,7 +6,7 @@ import {
     ApartmentOptions, CommercialAdditionalOptions,
     CommercialOptions,
     HouseAdditionalOptions,
-    HouseOptions,
+    HouseOptions, LandAdditionalOptions,
     LandOptions,
     OfficeAdditionalOptions,
     OfficeOptions,
@@ -33,6 +33,11 @@ export default function AddRequest() {
     const [aptType, setAptType] = useState("NEW");
     const handleAptType = (value: string) => {
         setAptType(value);
+    }
+
+    const [landType, setLandType] = useState("AGRO");
+    const handleLandType = (value: string) => {
+        setLandType(value);
     }
 
     return (
@@ -85,7 +90,7 @@ export default function AddRequest() {
             {type === "OFFICE" && (<OfficeOptions offertType={offertType}/>)}
             {type === "COMMERCIAL" && (<CommercialOptions offertType={offertType}/>)}
             {type === "WAREHOUSE" && (<WarehouseOptions offertType={offertType}/>)}
-            {type === "LAND" && (<LandOptions offertType={offertType}/>)}
+            {type === "LAND" && (<LandOptions offertType={offertType} onLandTypeChange={handleLandType}/>)}
             {type === "PARKING" && (<ParkingOptions offertType={offertType}/>)}
 
             {/******************************************************
@@ -122,6 +127,7 @@ export default function AddRequest() {
             {type === "OFFICE" && (<OfficeAdditionalOptions/>)}
             {type === "COMMERCIAL" && (<CommercialAdditionalOptions/>)}
             {type === "WAREHOUSE" && (<WarehouseAdditionalOptions/>)}
+            {type === "LAND" && (<LandAdditionalOptions landType={landType}/>)}
         </>
     )
 }

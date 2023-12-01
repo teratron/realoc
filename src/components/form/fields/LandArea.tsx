@@ -2,7 +2,18 @@ import {Form, InputGroup} from "react-bootstrap";
 import {useState} from "react";
 
 export function LandArea() {
-    const [unit, setUnit] = useState("ari");
+    const units: Record<string, {label: string, short: string}> = {
+        'ar': {
+            label: 'Ari',
+            short: 'ari',
+        },
+        'ha': {
+            label: 'Hectare',
+            short: 'ha',
+        },
+    }
+
+    const [unit, setUnit] = useState("ar");
     const handleUnitChange = (event: any) => {
         setUnit(event.target.value);
     };
@@ -18,21 +29,18 @@ export function LandArea() {
                     <div className="col">
                         <InputGroup>
                             <Form.Control id="area-to" name="area_to" type="text" placeholder="Până la"/>
-                            <InputGroup.Text>{unit}</InputGroup.Text>
+                            <InputGroup.Text>{units[unit].short}</InputGroup.Text>
                         </InputGroup>
                     </div>
                 </div>
             </Form.Group>
             <Form.Group>
-                {Object.entries({
-                    'ari': 'Ari',
-                    'hec': 'Hectare'
-                }).map(([value, label], index) => (
+                {Object.entries(units).map(([value, data], index) => (
                     <Form.Check
                         key={`land-area-unit-${index}`}
                         id={`land-area-unit-${index + 1}`}
                         type="radio"
-                        label={label}
+                        label={data.label}
                         value={value}
                         name="land_area_unit"
                         checked={value === unit}
