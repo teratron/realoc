@@ -9,10 +9,6 @@ export function ApartmentDeveloper() {
     const [selectedItemsPreview, setSelectedItemsPreview] = useState('')
 
     const handleClose = () => setShow(false)
-    const handleSave = () => {
-        console.log('handleSave')
-        handleClose()
-    }
 
     const handleSelected = (data: DeveloperList) => {
         setSelected(data)
@@ -32,6 +28,7 @@ export function ApartmentDeveloper() {
                     type="text"
                     placeholder="Selectați dezvoltator"
                     value={selectedItemsPreview}
+                    readOnly={true}
                     onClick={event => {
                         event.preventDefault();
                         setShow(true)
@@ -49,7 +46,7 @@ export function ApartmentDeveloper() {
                     <SelectDeveloper onSelected={handleSelected}/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleSave}>OK</Button>
+                    <Button variant="primary" onClick={handleClose}>OK</Button>
                 </Modal.Footer>
             </Modal>
         </>
