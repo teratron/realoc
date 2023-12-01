@@ -1,8 +1,11 @@
 import {Form} from "react-bootstrap";
 import {PriceRange} from "./fields";
 
-// @ts-ignore
-export function HouseOptions({offertType}) {
+type Params = {
+    offertType: string
+}
+
+export function HouseOptions({offertType}: Params) {
     return (
         <div className="app-card">
             <Form.Group controlId="house-type">

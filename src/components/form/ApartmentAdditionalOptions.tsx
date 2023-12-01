@@ -1,8 +1,12 @@
 import {Form} from "react-bootstrap";
 import {ApartmentDeveloper, BuildingState, ConstructionDate, FloorRange, OtherOptions} from "./fields";
 
-// @ts-ignore
-export function ApartmentAdditionalOptions({offertType, aptType}) {
+type Params = {
+    offertType: string
+    aptType: string
+}
+
+export function ApartmentAdditionalOptions({offertType, aptType}: Params) {
     let reparationOptions: Record<string, string> = {
         'COSMETIC': 'Reparație cosmetică',
         'EURO': 'Euroreparație',

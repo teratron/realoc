@@ -1,5 +1,6 @@
 import {Form} from "react-bootstrap";
 import {LandArea, PriceRange} from "./fields";
+import {ChangeEvent} from "react";
 
 type Params = {
     offertType: string
@@ -7,7 +8,7 @@ type Params = {
 }
 
 export function LandOptions({offertType, onLandTypeChange}: Params) {
-    const handleLandTypeChange = (event: any) => {
+    const handleLandTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
         onLandTypeChange(event.target.value)
     }
 

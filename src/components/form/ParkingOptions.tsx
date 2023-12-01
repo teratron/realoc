@@ -1,8 +1,11 @@
 import {Form} from "react-bootstrap";
 import {PriceRange, TotalArea} from "./fields";
 
-// @ts-ignore
-export function ParkingOptions({offertType}) {
+type Params = {
+    offertType: string
+}
+
+export function ParkingOptions({offertType}: Params) {
     return (
         <div className="app-card">
             <Form.Group controlId="parking-type">

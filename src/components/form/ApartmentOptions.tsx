@@ -1,5 +1,6 @@
 import {Form} from 'react-bootstrap'
 import {PriceRange, PriceUnit, TotalArea} from "./fields";
+import {ChangeEvent} from "react";
 
 type Params = {
     offertType: string
@@ -7,7 +8,7 @@ type Params = {
 }
 
 export function ApartmentOptions({offertType, onAptTypeChange}: Params) {
-    const handleAptTypeChange = (event: any) => {
+    const handleAptTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
         onAptTypeChange(event.target.value)
     }
 

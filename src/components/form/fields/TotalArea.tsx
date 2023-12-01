@@ -1,11 +1,13 @@
 import {Form, InputGroup} from "react-bootstrap";
 
-// @ts-ignore
-export function TotalArea(props) {
-    const label = props.label ? props.label : 'Suprafață totală'
+type Params = {
+    label?: string
+}
+export function TotalArea({label}: Params) {
+    const title = label ? label : 'Suprafață totală'
     return (
         <Form.Group>
-            <Form.Label htmlFor="area-from">{label}</Form.Label>
+            <Form.Label htmlFor="area-from">{title}</Form.Label>
             <div className="row">
                 <div className="col">
                     <Form.Control id="area-from" name="area_from" type="text" placeholder="De la"/>

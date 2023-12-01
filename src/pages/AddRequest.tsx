@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom'
 import {Form} from 'react-bootstrap'
-import {useState} from 'react'
+import {ChangeEvent, useState} from 'react'
 import {
     ApartmentAdditionalOptions,
     ApartmentOptions, CommercialAdditionalOptions,
@@ -21,12 +21,12 @@ export default function AddRequest() {
     const navigate = useNavigate()
 
     const [offertType, setOffertType] = useState("SELL");
-    const handleOffertTypeChange = (event: any) => {
+    const handleOffertTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
         setOffertType(event.target.value)
     }
 
     const [type, setType] = useState("APARTMENT");
-    const handleTypeChange = (event: any) => {
+    const handleTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setType(event.target.value);
     }
 

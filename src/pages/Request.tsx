@@ -1,4 +1,4 @@
-import {FormEvent, useCallback, useState} from 'react'
+import {ChangeEvent, FormEvent, useCallback, useState} from 'react'
 import {Outlet}                           from 'react-router-dom'
 import Header                             from '../containers/Header'
 import Main                               from '../containers/Main'
@@ -27,15 +27,14 @@ function Request() {
         console.log('formSubmitHandler', searchResult);
     }
 
-    const formChangeHandler = async (event: FormEvent<HTMLFormElement>) => {
-        // @ts-expect-error TS does not recognize .form
+    const formChangeHandler = async (event: ChangeEvent<HTMLFormElement>): Promise<void> => {
         const form = event.target.form
         const total = await searchCount(formData(form))
         setCount(() => total)
     }
+    const debounced = debounce(formChangeHandler, 1000)
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const debouncedFormChangeHandler = useCallback(debounce(formChangeHandler, 1000), []);
+    const debouncedFormChangeHandler = useCallback((e: ChangeEvent<HTMLFormElement>) => debounced(e), [debounced]);
 
     return (
         <>

@@ -1,12 +1,12 @@
 import {Form} from "react-bootstrap";
 import {Furniture} from "./Furniture.tsx";
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 
 type Params = {label: string, reparationOptions: Record<string, string>}
 
 export function BuildingState({label, reparationOptions}: Params) {
     const [reparation, setReparation] = useState<string[]>([])
-    const handleReparationChange = (event: any) => {
+    const handleReparationChange = (event: ChangeEvent<HTMLInputElement>) => {
         let result
         if (event.target.checked) {
             result = [...reparation, event.target.value]

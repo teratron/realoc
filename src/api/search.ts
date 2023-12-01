@@ -1,6 +1,6 @@
 import {FormValues} from "./form-helper.ts";
 
-export async function search(filters: FormValues): Promise<any> {
+export async function search(filters: FormValues): Promise<unknown> {
     console.log('search', filters)
     return {}
     /*

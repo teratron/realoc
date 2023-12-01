@@ -1,5 +1,5 @@
 import {Form, InputGroup} from "react-bootstrap";
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 
 export function LandArea() {
     const units: Record<string, {label: string, short: string}> = {
@@ -14,7 +14,7 @@ export function LandArea() {
     }
 
     const [unit, setUnit] = useState("ar");
-    const handleUnitChange = (event: any) => {
+    const handleUnitChange = (event: ChangeEvent<HTMLInputElement>) => {
         setUnit(event.target.value);
     };
 

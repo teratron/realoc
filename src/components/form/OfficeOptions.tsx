@@ -1,7 +1,10 @@
 import {PriceRange, PriceUnit, TotalArea} from "./fields";
 
-// @ts-ignore
-export function OfficeOptions({offertType}) {
+type Params = {
+    offertType: string
+}
+
+export function OfficeOptions({offertType}: Params) {
     return (
         <div className="app-card">
             <PriceRange offertType={offertType}/>

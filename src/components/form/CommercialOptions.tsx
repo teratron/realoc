@@ -1,7 +1,10 @@
 import {PriceRange, PriceUnit, TotalArea} from "./fields";
 
-// @ts-ignore
-export function CommercialOptions({offertType}) {
+type Params = {
+    offertType: string
+}
+
+export function CommercialOptions({offertType}: Params) {
     return (
         <div className="app-card">
             <PriceRange offertType={offertType}/>

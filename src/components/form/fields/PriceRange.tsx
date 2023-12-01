@@ -1,7 +1,10 @@
 import {Form, InputGroup} from "react-bootstrap";
 
-// @ts-ignore
-export function PriceRange({offertType}) {
+type Params = {
+    offertType: string
+}
+
+export function PriceRange({offertType}: Params) {
     return (
         <Form.Group>
             <Form.Label htmlFor="sale-price-from">{offertType === 'SELL' ? 'Preț vânzare' : 'Preț chirie/lună'}</Form.Label>
