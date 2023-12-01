@@ -1,7 +1,8 @@
 import {useNavigate} from 'react-router-dom'
-import {Form, InputGroup} from 'react-bootstrap'
+import {Form} from 'react-bootstrap'
 import {useState} from 'react'
 import {
+    ApartmentAdditionalOptions,
     ApartmentOptions,
     CommercialOptions,
     HouseOptions,
@@ -12,21 +13,25 @@ import {
 } from '../components/form'
 
 // Media
-import iconSelectMap from '../media/icon_select_map.svg'
+// import iconSelectMap from '../media/icon_select_map.svg'
 
 function AddRequest() {
     const navigate = useNavigate()
 
     const [offertType, setOffertType] = useState("SELL");
     const handleOffertTypeChange = (event: any) => {
-        console.log('handleOffertTypeChange', event.target.value)
-        setOffertType(event.target.value);
-    };
+        setOffertType(event.target.value)
+    }
 
     const [type, setType] = useState("APARTMENT");
     const handleTypeChange = (event: any) => {
         setType(event.target.value);
-    };
+    }
+
+    const [aptType, setAptType] = useState("NEW");
+    const handleAptType = (value: string) => {
+        setAptType(value);
+    }
 
     return (
         <>
@@ -73,7 +78,7 @@ function AddRequest() {
                 </Form.Group>
             </div>
 
-            {type === "APARTMENT" && (<ApartmentOptions offertType={offertType}/>)}
+            {type === "APARTMENT" && (<ApartmentOptions offertType={offertType} onAptTypeChange={handleAptType}/>)}
             {type === "HOUSE" && (<HouseOptions offertType={offertType}/>)}
             {type === "OFFICE" && (<OfficeOptions offertType={offertType}/>)}
             {type === "COMMERCIAL" && (<CommercialOptions offertType={offertType}/>)}
@@ -97,6 +102,7 @@ function AddRequest() {
                         }}/>
                 </Form.Group>
 
+                {/**
                 <Form.Group controlId="map">
                     <Form.Label>Zona pe hartă</Form.Label>
                     <InputGroup>
@@ -106,175 +112,10 @@ function AddRequest() {
                         </InputGroup.Text>
                     </InputGroup>
                 </Form.Group>
+                 */}
             </div>
 
-            {/******************************************************
-             * Apartment Block
-             *******************************************************/}
-            <div className="app-card pb-1">
-                <Form.Group controlId="apartment-status-1">
-                    <Form.Label>Starea apartamentului</Form.Label>
-                    {[
-                        'Varianta albă',
-                        'Varianta sură',
-                        'Reparație cosmetică',
-                        'Euroreparație',
-                        'Design individual'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`apartment-status-${index}`}
-                            id={`apartment-status-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            name="reparation"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-
-                <Form.Group controlId="furniture-1">
-                    <Form.Label>Mobilier</Form.Label>
-                    {[
-                        'Nemobilat',
-                        'Parțial mobilat',
-                        'Mobilat'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`furniture-${index}`}
-                            id={`furniture-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            name="furniture"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-            </div>
-
-            {/******************************************************
-             * Level Block
-             *******************************************************/}
-            <div className="app-card pb-1">
-                <Form.Group controlId="levels">
-                    <Form.Label>Nivel</Form.Label>
-                    <div className="row">
-                        <div className="col">
-                            <Form.Select name="level_from">
-                                <option>De la</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </Form.Select>
-                        </div>
-                        <div className="col">
-                            <Form.Select id="levels-to" name="level_to">
-                                <option>Până la</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </Form.Select>
-                        </div>
-                    </div>
-                </Form.Group>
-
-                <Form.Group>
-                    {[
-                        'Nu la parterul',
-                        'Nu la ultimul',
-                        'La ultimul'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`option-levels-${index}`}
-                            id={`option-levels-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            name="optionLevels"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label htmlFor="number-levels-from">Număr de nivele în casă</Form.Label>
-                    <div className="row">
-                        <div className="col">
-                            <Form.Select id="number-levels-from">
-                                <option>De la</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </Form.Select>
-                        </div>
-                        <div className="col">
-                            <Form.Select id="number-levels-to">
-                                <option>Până la</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </Form.Select>
-                        </div>
-                    </div>
-                </Form.Group>
-
-                <Form.Group controlId="ascensor-1">
-                    <Form.Label>Ascensor</Form.Label>
-                    {[
-                        'Este',
-                        'Absent'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`ascensor-${index}`}
-                            id={`ascensor-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            name="elevator"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-
-                <Form.Group controlId="parking-1">
-                    <Form.Label>Parcare</Form.Label>
-                    {[
-                        'Subterană',
-                        'În curtea',
-                        'Garaj'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`parking-${index}`}
-                            id={`parking-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            name="apt_parking"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-
-                <Form.Group controlId="developer-link">
-                    <Form.Label>Dezvoltator</Form.Label>
-                    <Form.Control
-                        name="developer"
-                        type="text"
-                        placeholder="Selectați dezvoltator"
-                        onClick={event => {
-                            event.preventDefault();
-                            navigate('select-developer');
-                        }}/>
-                </Form.Group>
-
-                <Form.Group controlId="exploitation-1">
-                    <Form.Label>Predare în exploatare</Form.Label>
-                    {[
-                        'Dat în exploatare', '2023', '2024', '2025', '2026', '2027+'
-                    ].map((value, index) => (
-                        <Form.Check
-                            key={`exploitation-${index}`}
-                            id={`exploitation-${index + 1}`}
-                            type="checkbox"
-                            label={value}
-                            name="apt_construction_date"
-                            className="form-cracker"
-                        />
-                    ))}
-                </Form.Group>
-            </div>
+            {type === "APARTMENT" && (<ApartmentAdditionalOptions offertType={offertType} aptType={aptType}/>)}
         </>
     )
 }

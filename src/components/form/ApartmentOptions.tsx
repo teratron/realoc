@@ -2,7 +2,11 @@ import {Form} from 'react-bootstrap'
 import {PriceRange, PriceUnit, TotalArea} from "./fields";
 
 // @ts-ignore
-export function ApartmentOptions({offertType}) {
+export function ApartmentOptions({offertType, onAptTypeChange}) {
+    const handleAptTypeChange = (event: any) => {
+        onAptTypeChange(event.target.value)
+    }
+
     return (
         <div className="app-card">
             <Form.Group>
@@ -10,17 +14,19 @@ export function ApartmentOptions({offertType}) {
                 <div className="form-tab">
                     <input
                         id="housing-stock-1"
-                        name="housingStock"
-                        value="1"
+                        name="apt_type"
+                        value="NEW"
                         type="radio"
                         defaultChecked={true}
+                        onChange={handleAptTypeChange}
                     />
                     <label htmlFor="housing-stock-1">Construcții noi</label>
                     <input
                         id="housing-stock-2"
-                        name="housingStock"
-                        value="2"
+                        name="apt_type"
+                        value="OLD"
                         type="radio"
+                        onChange={handleAptTypeChange}
                     />
                     <label htmlFor="housing-stock-2">Secundare</label>
                 </div>

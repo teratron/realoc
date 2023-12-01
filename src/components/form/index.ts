@@ -1,3 +1,4 @@
+export * from './ApartmentAdditionalOptions'
 export * from './ApartmentOptions'
 export * from './CommercialOptions'
 export * from './HouseOptions'
