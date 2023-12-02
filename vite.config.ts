@@ -33,7 +33,7 @@ export default defineConfig(({command, mode, isSsrBuild, isPreview}) => {
             open: app.name,
             warmup: {
                 clientFiles: [
-                    'src/!**!/!*.tsx'
+                    'src/**/*.tsx'
                 ]
             }
         },
