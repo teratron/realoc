@@ -1,4 +1,5 @@
 export * from './developer'
 export * from './form-helper'
+export * from './locations'
 export * from './property'
 export * from './search'
