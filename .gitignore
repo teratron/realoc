@@ -8,7 +8,7 @@ node_modules
 .pnp
 .pnp.js
 *.local
-*-lock.json
+#*-lock.json
 .yarn/install-state.gz
 
 # Production
