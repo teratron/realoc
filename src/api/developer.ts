@@ -7,3 +7,15 @@ export async function listDevelopers(): Promise<DeveloperList> {
 
     return Object.entries(data).map(([name, id]) => ({id, name}))
 }
+
+export function orderList(list: DeveloperList): Record<string, Developer[]> {
+    const result: Record<string, Developer[]> = {}
+    list.forEach((item) => {
+        const letter = item.name[0].toUpperCase()
+        if (!result[letter]) {
+            result[letter] = []
+        }
+        result[letter].push(item)
+    })
+    return result
+}

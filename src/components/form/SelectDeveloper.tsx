@@ -1,7 +1,7 @@
 import {Form, InputGroup} from 'react-bootstrap'
 import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import iconSearch from '../../media/icon_search.svg'
-import {Developer, DeveloperList, listDevelopers} from "../../api";
+import {Developer, DeveloperList, listDevelopers, orderList} from "../../api";
 
 type Params = {
     onSelected: (data: DeveloperList) => void
@@ -17,29 +17,24 @@ export function SelectDeveloper({onSelected}: Params) {
         listDevelopers().then(data => setList(data))
     }, [setList])
 
-    const orderList = (list: DeveloperList) => {
-        const result: Record<string, Developer[]> = {}
-        list.forEach((item) => {
-            const letter = item.name[0].toUpperCase()
-            if (!result[letter]) {
-                result[letter] = []
-            }
-            result[letter].push(item)
-        })
-        return result
+    const [searchQuery, setSearchQuery] = useState('')
+    const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value)
     }
 
     const [letters, setLetters] = useState<string[]>([])
     const [items, setItems] = useState<Record<string, Developer[]>>({})
     useEffect(() => {
-        const ordered = orderList(list)
+        let filtered = list
+        if (searchQuery.length) {
+            const query = searchQuery.toLowerCase()
+            filtered = list.filter(v => v.name.toLowerCase().startsWith(query))
+        }
+        const ordered = orderList(filtered)
         setItems(ordered)
         setLetters(Object.keys(ordered).sort())
-    }, [list])
+    }, [list, searchQuery])
 
-    const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log('handleSearch', event.target.value)
-    }
 
     const [selected, setSelected] = useState<DeveloperList>([])
     const handleSelectItem = (event: ChangeEvent<HTMLInputElement>) => {

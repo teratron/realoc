@@ -11,22 +11,40 @@ type Params = {
 export function SelectLocation({onSelected}: Params) {
     let [items, setItems] = useState<Location[]>([])
     useEffect(() => {
+        console.log('loading location list')
         listLocations().then(data => {
             setItems(data)
         })
-    }, []);
+    }, [])
+
+    const [searchQuery, setSearchQuery] = useState('')
+    const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value)
+    }
 
     let [locations, setLocations] = useState<LocationList>({})
-    useEffect(() => {
-        setLocations(reorderLocations(items))
-    }, [items]);
-
     let [letters, setLetters] = useState<string[]>([])
+    const filterByName = (l: Location, query: string): boolean => {
+        if (l.name.toLowerCase().startsWith(query)) {
+            return true
+        }
+        if (l.children.length) {
+            return l.children.some((loc) => filterByName(loc, query))
+        }
+        return false
+    }
     useEffect(() => {
-        const keys = Object.keys(locations).filter(k => !['popular'].includes(k))
+        let filtered = items
+        if (searchQuery.length) {
+            const query = searchQuery.toLowerCase()
+            filtered = items.filter(l => filterByName(l, query))
+        }
+        const result = reorderLocations(filtered)
+        const keys = Object.keys(result).filter(k => !['popular'].includes(k)).sort()
 
-        setLetters(keys.sort())
-    }, [locations]);
+        setLocations(result)
+        setLetters(keys)
+    }, [items, searchQuery]);
 
     const stopPropagation = (e: FormEvent) => {
         e.stopPropagation()
@@ -60,6 +78,7 @@ export function SelectLocation({onSelected}: Params) {
                             type="text"
                             placeholder="Municipiu, raion, oraș, sector"
                             className="search-control"
+                            onChange={handleSearch}
                         />
                     </InputGroup>
                 </Form.Group>
