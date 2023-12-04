@@ -1,12 +1,13 @@
 import {FormValues} from "./form-helper.ts";
 
-export async function search(filters: FormValues): Promise<unknown> {
+export async function search(filters: FormValues): Promise<number[]> {
     const url = `${import.meta.env.VITE_API_URL}/search`
     const params = {
         method: 'POST',
         body: JSON.stringify(filters)
     }
-    return (await fetch(url, params)).json()
+    const results: {ID: number}[] = await (await fetch(url, params)).json()
+    return results.map(r => r.ID)
 }
 
 export async function searchCount(filters: FormValues): Promise<number> {
