@@ -38,15 +38,19 @@ export function Location() {
                 ))}
             </Form.Group>
 
-            <Modal show={show} onHide={handleClose} fullscreen={true} contentClassName="fs-modal">
+            <Modal className="modal-form" show={show} onHide={handleClose} fullscreen={true} contentClassName="fs-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title>Selectați o locație</Modal.Title>
+                    <div className="app-container">
+                        <Modal.Title>Selectați o locație</Modal.Title>
+                    </div>
                 </Modal.Header>
                 <Modal.Body>
                     <SelectLocation onSelected={handleSelected}/>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>OK</Button>
+                <Modal.Footer className="navbar">
+                    <div className="app-container">
+                        <Button type="button" variant="secondary" onClick={handleClose}>OK</Button>
+                    </div>
                 </Modal.Footer>
             </Modal>
         </>

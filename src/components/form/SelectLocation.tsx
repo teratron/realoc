@@ -49,33 +49,35 @@ export function SelectLocation({onSelected}: Params) {
 
     return (
         <div className="app-container" onChange={stopPropagation}>
-            <Form.Group>
-                <InputGroup>
-                    <InputGroup.Text>
-                        <img src={iconSearch} alt=""/>
-                    </InputGroup.Text>
-                    <Form.Control
-                        name="selectLocation"
-                        type="text"
-                        placeholder="Municipiu, raion, oraș, sector"
-                        className="search-control"
-                    />
-                </InputGroup>
-            </Form.Group>
+            <div className="app-form">
+                <Form.Group>
+                    <InputGroup>
+                        <InputGroup.Text>
+                            <img src={iconSearch} alt=""/>
+                        </InputGroup.Text>
+                        <Form.Control
+                            name="selectLocation"
+                            type="text"
+                            placeholder="Municipiu, raion, oraș, sector"
+                            className="search-control"
+                        />
+                    </InputGroup>
+                </Form.Group>
 
-            <div className="app-card">
-                <h3>Localități populare</h3>
-                <LocationTree items={locations.popular || []} onSelected={handleSelectItem} level={0}/>
+                <div className="app-card">
+                    <h3>Localități populare</h3>
+                    <LocationTree items={locations.popular || []} onSelected={handleSelectItem} level={0}/>
+                </div>
+
+                {letters.map(l => {
+                    return (
+                        <div className="app-card" key={`l-${l}`}>
+                            <h3 className="alphabet">{l}</h3>
+                            <LocationTree items={locations[l] || []} onSelected={handleSelectItem} level={0}/>
+                        </div>
+                    )
+                })}
             </div>
-
-            {letters.map(l => {
-                return (
-                    <div className="app-card" key={`l-${l}`}>
-                        <h3 className="alphabet">{l}</h3>
-                        <LocationTree items={locations[l] || []} onSelected={handleSelectItem} level={0}/>
-                    </div>
-                )
-            })}
         </div>
     )
 }

@@ -42,8 +42,6 @@ function AddSale() {
         <>
             <Header title={title}/>
             <Main>
-                <h2>Adaugă imobiliare</h2>
-
                 <Formik
                     initialValues={{
                         numberRooms: '',
@@ -77,6 +75,7 @@ function AddSale() {
                             className="app-form"
                             onSubmit={formSubmitHandler}
                             noValidate>
+                            <h2>Adaugă imobiliare</h2>
 
                             {/******************************************************
                              * Transaction Block
