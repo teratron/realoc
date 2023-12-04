@@ -1,16 +1,16 @@
 import {Button, Form, Modal} from "react-bootstrap";
 import {useState} from "react";
-import {SelectDeveloper} from "../SelectDeveloper.tsx";
-import {DeveloperList} from "../../../api";
+import {Location as LocationDto} from "../../../api";
+import {SelectLocation} from "../SelectLocation";
 
-export function ApartmentDeveloper() {
+export function Location() {
     const [show, setShow] = useState(false)
-    const [selected, setSelected] = useState<DeveloperList>([])
+    const [selected, setSelected] = useState<LocationDto[]>([])
     const [selectedItemsPreview, setSelectedItemsPreview] = useState('')
 
     const handleClose = () => setShow(false)
 
-    const handleSelected = (data: DeveloperList) => {
+    const handleSelected = (data: LocationDto[]) => {
         setSelected(data)
 
         let preview = data.slice(0, 3).map(v => v.name).join(', ')
@@ -22,28 +22,28 @@ export function ApartmentDeveloper() {
 
     return (
         <>
-            <Form.Group controlId="developer-link">
-                <Form.Label>Dezvoltator</Form.Label>
+            <Form.Group>
+                <Form.Label>Raion/oraș</Form.Label>
                 <Form.Control
                     type="text"
-                    placeholder="Selectați dezvoltator"
+                    placeholder="Selectați o locație"
                     value={selectedItemsPreview}
                     readOnly={true}
                     onClick={event => {
-                        event.preventDefault();
+                        event.preventDefault()
                         setShow(true)
                     }}/>
                 {selected.map(v => (
-                    <input type="hidden" name="developer" value={v.id} key={v.id} />
+                    <input type="hidden" name="location" value={v.id} key={v.id} />
                 ))}
             </Form.Group>
 
             <Modal show={show} onHide={handleClose} fullscreen={true} contentClassName="fs-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title>Selectați dezvoltator</Modal.Title>
+                    <Modal.Title>Selectați o locație</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <SelectDeveloper onSelected={handleSelected}/>
+                    <SelectLocation onSelected={handleSelected}/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>OK</Button>

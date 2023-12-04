@@ -747,7 +747,9 @@ body {
 .fs-modal {
     background-color: var(--app-main-bg-color);
 
-    .modal-title {
+    .modal-title,
+    h3,
+    .accordion-item {
         color: black;
     }
 }

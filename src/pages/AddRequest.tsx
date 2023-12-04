@@ -1,25 +1,23 @@
-import {useNavigate} from 'react-router-dom'
 import {Form} from 'react-bootstrap'
 import {ChangeEvent, useState} from 'react'
 import {
     ApartmentAdditionalOptions,
-    ApartmentOptions, CommercialAdditionalOptions,
+    ApartmentOptions,
+    CommercialAdditionalOptions,
     CommercialOptions,
     HouseAdditionalOptions,
-    HouseOptions, LandAdditionalOptions,
+    HouseOptions,
+    LandAdditionalOptions,
     LandOptions,
     OfficeAdditionalOptions,
     OfficeOptions,
-    ParkingOptions, WarehouseAdditionalOptions,
+    ParkingOptions,
+    WarehouseAdditionalOptions,
     WarehouseOptions
 } from '../components/form'
-
-// Media
-// import iconSelectMap from '../media/icon_select_map.svg'
+import {Location} from '../components/form/fields'
 
 export default function AddRequest() {
-    const navigate = useNavigate()
-
     const [offertType, setOffertType] = useState("SELL");
     const handleOffertTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
         setOffertType(event.target.value)
@@ -97,17 +95,7 @@ export default function AddRequest() {
              * Location Block
              *******************************************************/}
             <div className="app-card">
-                <Form.Group controlId="location-link">
-                    <Form.Label>Raion/oraș</Form.Label>
-                    <Form.Control
-                        name="location"
-                        type="text"
-                        placeholder="Selectați o locație"
-                        onClick={event => {
-                            event.preventDefault();
-                            navigate('select-location');
-                        }}/>
-                </Form.Group>
+                <Location/>
 
                 {/**
                  <Form.Group controlId="map">
