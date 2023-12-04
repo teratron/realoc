@@ -2,7 +2,7 @@ import React                          from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Spinner                        from './components/Spinner'
 import './scss/app.scss'
-import app                            from '../package.json'
+// import app                            from '../package.json'
 
 // Pages
 import Layout          from './pages/Layout'
@@ -19,7 +19,7 @@ import Request         from './pages/Request'
 
 function App() {
     return (
-        <BrowserRouter basename={app.name}>
+        <BrowserRouter>
             <React.Suspense fallback={<Spinner/>}>
                 <Routes>
                     <Route path="/" element={<Layout/>}>
