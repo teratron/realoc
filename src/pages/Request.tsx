@@ -24,7 +24,7 @@ function Request() {
     const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const searchResult = await search(formData(event.currentTarget))
-        window.location.href = import.meta.env.VITE_BOT_URL + searchResult.join(',')
+        window.location.href = import.meta.env.VITE_BOT_URL + btoa(`action=results&id=${searchResult.join(',')}`)
     }
 
     const formChangeHandler = async (event: ChangeEvent<HTMLFormElement>): Promise<void> => {
