@@ -7,6 +7,9 @@ export async function search(filters: FormValues): Promise<number[]> {
         body: JSON.stringify(filters)
     }
     const results: {ID: number}[] = await (await fetch(url, params)).json()
+    if (!results) {
+        return []
+    }
     return results.map(r => r.ID)
 }
 

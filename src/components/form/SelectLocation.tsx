@@ -11,7 +11,6 @@ type Params = {
 export function SelectLocation({onSelected}: Params) {
     let [items, setItems] = useState<Location[]>([])
     useEffect(() => {
-        console.log('loading location list')
         listLocations().then(data => {
             setItems(data)
         })
