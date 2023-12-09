@@ -1,6 +1,10 @@
-import {FormValues} from "./form-helper.ts";
+export async function createProperty(data: FormData): Promise<number> {
+    const url = `${import.meta.env.VITE_API_URL}/properties`
 
-export async function createProperty(data: FormValues): Promise<unknown> {
-    console.log('createProperty', data)
-    return {}
+    const response: {ID: number} = await (await fetch(url, {
+        method: "POST",
+        body: data,
+    })).json();
+
+    return response.ID
 }

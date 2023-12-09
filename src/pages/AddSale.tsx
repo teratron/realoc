@@ -1,10 +1,7 @@
 import {Form} from 'react-bootstrap'
 import Header from '../containers/Header'
 import Main from '../containers/Main'
-import * as conf from '../config.ts'
-import iconNote from '../media/icon_note_grey_circle.svg'
-import iconAddPhoto from '../media/icon_add_photo.svg'
-import {Formik, FormikProps} from "formik";
+import {Formik} from "formik";
 import {TypeOptions} from "../components/form";
 import {CreateType} from "../utils";
 import {
@@ -13,19 +10,21 @@ import {
     Fee,
     HouseOptions,
     Location,
-    Required
+    HouseAdditionalOptions,
+    OfficeOptions,
+    OfficeAdditionalOptions,
+    CommercialOptions,
+    CommercialAdditionalOptions,
+    WarehouseOptions,
+    WarehouseAdditionalOptions,
+    LandOptions,
+    LandAdditionalOptions,
+    ParkingOptions,
+    ParkingAdditionalOptions,
+    Photos
 } from "../components/form/create";
-import {HouseAdditionalOptions} from "../components/form/create/HouseAdditionalOptions.tsx";
-import {OfficeOptions} from "../components/form/create/OfficeOptions.tsx";
-import {OfficeAdditionalOptions} from "../components/form/create/OfficeAdditionalOptions.tsx";
-import {CommercialOptions} from "../components/form/create/CommercialOptions.tsx";
-import {CommercialAdditionalOptions} from "../components/form/create/CommercialAdditionalOptions.tsx";
-import {WarehouseOptions} from "../components/form/create/WarehouseOptions.tsx";
-import {WarehouseAdditionalOptions} from "../components/form/create/WarehouseAdditionalOptions.tsx";
-import {LandOptions} from "../components/form/create/LandOptions.tsx";
-import {LandAdditionalOptions} from "../components/form/create/LandAdditionalOptions.tsx";
-import {ParkingOptions} from "../components/form/create/ParkingOptions.tsx";
-import {ParkingAdditionalOptions} from "../components/form/create/ParkingAdditionalOptions.tsx";
+import {FormEvent} from "react";
+import {createProperty} from "../api";
 
 function AddSale() {
     const state: CreateType = {
@@ -35,18 +34,21 @@ function AddSale() {
         apt_building_type: 'NEW',
         land_type: 'AGRO',
         land_area_unit: 'ar',
+        price: '',
+        area: '',
     }
 
-    const formSubmitHandler = async (values: CreateType) => {
-        console.log('formSubmitHandler', values);
+    const formikSubmitHandler = async () => {}
+
+    const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const data = new FormData(event.currentTarget)
+        const id = await createProperty(data)
+        alert(`Property ID:${id} created`)
     }
 
-    const data = (formik: FormikProps<CreateType>) => {
-        console.log(formik.values);
-        return '';
-    }
     return (
-        <Formik onSubmit={formSubmitHandler} initialValues={state}>
+        <Formik onSubmit={formikSubmitHandler} initialValues={state}>
             {formik => (
                 <>
                     <Header title="Add Sale"/>
@@ -54,11 +56,9 @@ function AddSale() {
                         <Form
                             id="add-sale-form"
                             className="app-form"
-                            onSubmit={formik.handleSubmit}
+                            onSubmit={formSubmitHandler}
                         >
                             <h2>Adaugă imobiliare</h2>
-
-                            <div>{data(formik)}</div>
 
                             <TypeOptions formik={formik}/>
 
@@ -78,47 +78,7 @@ function AddSale() {
                                 <Location formik={formik} multiple={false}/>
                             </div>
 
-                            {/******************************************************
-                             * Photo Block
-                             *******************************************************/}
-                            <div className="app-card">
-                                <Form.Group controlId="add-photo">
-                                    <Form.Label>
-                                        Fotografie
-                                        <Required dataName="addPhoto"/>
-                                        <span className="foot">5/{conf.MAX_PHOTOS}</span>
-                                    </Form.Label>
-                                    <div className="gallery-thumb">
-                                        <div>
-                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                        </div>
-                                        <div>
-                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                        </div>
-                                        <div>
-                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                        </div>
-                                        <div>
-                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                        </div>
-                                        <div>
-                                            <img src={`${conf.MEDIA_URL}/plug_room_01.jpg`} alt=""/>
-                                        </div>
-                                    </div>
-                                    <Form.Control
-                                        type="file"
-                                        name="addPhoto"
-                                        className="form-add-photo"
-                                        multiple
-                                    />
-                                    <Form.Label><img src={iconAddPhoto} alt=""/>Adaugă fotografie</Form.Label>
-                                </Form.Group>
-
-                                <div className="alert alert-light">
-                                    <img src={iconNote} alt=""/>
-                                    <div>Primele 3 fotografii vor fi folosite pentru coperta anunțului.</div>
-                                </div>
-                            </div>
+                            <Photos />
 
                             {formik.values.type === "APARTMENT" &&
                                 <ApartmentAdditionalOptions formik={formik} multiple={false}/>}

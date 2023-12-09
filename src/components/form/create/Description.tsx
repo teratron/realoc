@@ -5,10 +5,8 @@ export function Description({formik}: FormikAware<CreateType>) {
     return (
         <Form.Group>
             <Form.Label>
-                <div className="row">
-                    <div className="col">Descriere</div>
-                    <div className="col text-end">{formik.values.description ? formik.values.description.length : 0}/2000</div>
-                </div>
+                Descriere
+                <span className="foot">{formik.values.description ? formik.values.description.length : 0}/2000</span>
             </Form.Label>
             <Form.Control
                 as="textarea"
