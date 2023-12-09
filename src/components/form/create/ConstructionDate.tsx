@@ -1,7 +1,15 @@
-import {CreateType, FormikAware} from "../../../utils";
+import {CreateType, FormikAware, MultipleOptions} from "../../../utils";
 import {Form} from "react-bootstrap";
 
-export function ConstructionDate({formik}: FormikAware<CreateType>) {
+export function ConstructionDate({formik, multiple}: FormikAware<CreateType> & MultipleOptions) {
+    const isChecked = (value: string): boolean => {
+        if (multiple && Array.isArray(formik.values.construction_date)) {
+            return formik.values.construction_date.includes(value)
+        } else {
+            return formik.values.construction_date === value
+        }
+    }
+
     return (
         <Form.Group>
             <Form.Label>Predare în exploatare</Form.Label>
@@ -11,12 +19,12 @@ export function ConstructionDate({formik}: FormikAware<CreateType>) {
                 <Form.Check
                     key={`construction-date-${index}`}
                     id={`construction-date-${index + 1}`}
-                    type="radio"
+                    type={multiple ? 'checkbox' : 'radio'}
                     label={value}
                     value={value}
                     name="construction_date"
                     className="form-cracker"
-                    checked={formik.values.construction_date === value}
+                    checked={isChecked(value)}
                     onChange={formik.handleChange}
                 />
             ))}

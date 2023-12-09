@@ -1,6 +1,6 @@
 import {Form} from "react-bootstrap";
 import {FormikProps} from "formik";
-import {CreateType} from "../../utils/CreateType.ts";
+import {CreateType} from "../../utils";
 
 type Params = {
     formik: FormikProps<CreateType>

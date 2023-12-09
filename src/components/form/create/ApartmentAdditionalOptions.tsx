@@ -37,6 +37,7 @@ export function ApartmentAdditionalOptions({formik, multiple}: FormikAware<Creat
                 label="Starea apartamentului"
                 reparationOptions={reparationOptions}
                 multiple={false}
+                required={true}
             />
 
             <div className="app-card">
@@ -45,7 +46,7 @@ export function ApartmentAdditionalOptions({formik, multiple}: FormikAware<Creat
                 <Lift formik={formik}/>
                 {formik.values.offert_type === 'SELL' && <Parking formik={formik}/>}
                 <ApartmentDeveloper formik={formik} multiple={multiple}/>
-                {formik.values.offert_type === 'SELL' && <ConstructionDate formik={formik}/>}
+                {formik.values.offert_type === 'SELL' && <ConstructionDate formik={formik} multiple={multiple}/>}
                 {formik.values.offert_type === 'RENT' && (
                     <>
                         <Children formik={formik}/>

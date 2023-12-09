@@ -1,6 +1,6 @@
 import {Form} from "react-bootstrap";
 import {FormikProps} from "formik";
-import {CreateType} from "../../../utils/CreateType.ts";
+import {CreateType} from "../../../utils";
 import {Required} from "./Required.tsx";
 
 type Params = {
@@ -10,6 +10,15 @@ type Params = {
 }
 
 export function Rooms({formik, multiple, required}: Params){
+
+    const isChecked = (value: string): boolean => {
+        if (multiple && Array.isArray(formik.values.rooms)) {
+            return formik.values.rooms.includes(value)
+        } else {
+            return formik.values.rooms === value
+        }
+    }
+
     return (
         <Form.Group controlId="number-rooms-1">
             <Form.Label>
@@ -27,7 +36,7 @@ export function Rooms({formik, multiple, required}: Params){
                     value={value}
                     name="rooms"
                     className="form-cracker"
-                    checked={formik.values.rooms.includes(value)}
+                    checked={isChecked(value)}
                     onChange={formik.handleChange}
                 />
             ))}

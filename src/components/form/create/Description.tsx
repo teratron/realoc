@@ -7,7 +7,7 @@ export function Description({formik}: FormikAware<CreateType>) {
             <Form.Label>
                 <div className="row">
                     <div className="col">Descriere</div>
-                    <div className="col text-end">{formik.values.description.length}/2000</div>
+                    <div className="col text-end">{formik.values.description ? formik.values.description.length : 0}/2000</div>
                 </div>
             </Form.Label>
             <Form.Control

@@ -35,11 +35,11 @@ export function ApartmentOptions({formik}: FormikAware<CreateType>) {
             </Form.Group>
 
             <Rooms formik={formik} multiple={false} required={true} />
-            <Price formik={formik} />
+            <Price formik={formik} required={true} />
             <PriceUnit formik={formik} />
             {formik.values.offert_type === 'SELL' && <Credit formik={formik}/>}
 
-            <TotalArea formik={formik} />
+            <TotalArea formik={formik} required={true} label=''/>
         </div>
     )
 }

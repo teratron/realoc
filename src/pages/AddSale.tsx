@@ -7,9 +7,25 @@ import iconAddPhoto from '../media/icon_add_photo.svg'
 import {Formik, FormikProps} from "formik";
 import {TypeOptions} from "../components/form";
 import {CreateType} from "../utils";
-import {ApartmentAdditionalOptions, ApartmentOptions, Required} from "../components/form/create";
-import {Fee} from "../components/form/create/Fee.tsx";
-import {Location} from "../components/form/create/Location.tsx";
+import {
+    ApartmentAdditionalOptions,
+    ApartmentOptions,
+    Fee,
+    HouseOptions,
+    Location,
+    Required
+} from "../components/form/create";
+import {HouseAdditionalOptions} from "../components/form/create/HouseAdditionalOptions.tsx";
+import {OfficeOptions} from "../components/form/create/OfficeOptions.tsx";
+import {OfficeAdditionalOptions} from "../components/form/create/OfficeAdditionalOptions.tsx";
+import {CommercialOptions} from "../components/form/create/CommercialOptions.tsx";
+import {CommercialAdditionalOptions} from "../components/form/create/CommercialAdditionalOptions.tsx";
+import {WarehouseOptions} from "../components/form/create/WarehouseOptions.tsx";
+import {WarehouseAdditionalOptions} from "../components/form/create/WarehouseAdditionalOptions.tsx";
+import {LandOptions} from "../components/form/create/LandOptions.tsx";
+import {LandAdditionalOptions} from "../components/form/create/LandAdditionalOptions.tsx";
+import {ParkingOptions} from "../components/form/create/ParkingOptions.tsx";
+import {ParkingAdditionalOptions} from "../components/form/create/ParkingAdditionalOptions.tsx";
 
 function AddSale() {
     const state: CreateType = {
@@ -17,33 +33,16 @@ function AddSale() {
         type: 'APARTMENT',
         price_type: 'total',
         apt_building_type: 'NEW',
-        rooms: '',
-        price: '',
-        area: '',
-        mortgage: '',
-        reparation: '',
-        level: '',
-        apt_levels_total: '',
-        elevator: '',
-        apt_animals_allowed: '',
-        apt_kids_allowed: '',
-        apt_parking: '',
-        construction_date: '',
-        description: '',
-        furniture: '',
-        transaction_fee: '',
-        developer: '',
-        developer_preview: '',
-        location: '',
-        location_preview: '',
+        land_type: 'AGRO',
+        land_area_unit: 'ar',
     }
 
     const formSubmitHandler = async (values: CreateType) => {
         console.log('formSubmitHandler', values);
     }
 
-    const data = (formik: FormikProps<any>) => {
-        console.log(formik.values.location, formik.values.location_preview);
+    const data = (formik: FormikProps<CreateType>) => {
+        console.log(formik.values);
         return '';
     }
     return (
@@ -61,10 +60,19 @@ function AddSale() {
 
                             <div>{data(formik)}</div>
 
-                            <TypeOptions formik={formik} />
+                            <TypeOptions formik={formik}/>
 
-                            {formik.values.type === "APARTMENT" && <ApartmentOptions formik={formik} />}
-
+                            {formik.values.type === "APARTMENT" && <ApartmentOptions formik={formik}/>}
+                            {formik.values.type === "HOUSE" &&
+                                <HouseOptions formik={formik} multiple={false} required={true}/>}
+                            {formik.values.type === "OFFICE" && <OfficeOptions formik={formik} required={true}/>}
+                            {formik.values.type === "COMMERCIAL" &&
+                                <CommercialOptions formik={formik} required={true}/>}
+                            {formik.values.type === "WAREHOUSE" && <WarehouseOptions formik={formik} required={true}/>}
+                            {formik.values.type === "LAND" &&
+                                <LandOptions formik={formik} required={true} multiple={false}/>}
+                            {formik.values.type === "PARKING" &&
+                                <ParkingOptions formik={formik} required={true} multiple={false}/>}
 
                             <div className="app-card">
                                 <Location formik={formik} multiple={false}/>
@@ -77,7 +85,7 @@ function AddSale() {
                                 <Form.Group controlId="add-photo">
                                     <Form.Label>
                                         Fotografie
-                                        <Required dataName="addPhoto" />
+                                        <Required dataName="addPhoto"/>
                                         <span className="foot">5/{conf.MAX_PHOTOS}</span>
                                     </Form.Label>
                                     <div className="gallery-thumb">
@@ -112,10 +120,20 @@ function AddSale() {
                                 </div>
                             </div>
 
-                            {formik.values.type === "APARTMENT" && <ApartmentAdditionalOptions formik={formik} multiple={false}/>}
+                            {formik.values.type === "APARTMENT" &&
+                                <ApartmentAdditionalOptions formik={formik} multiple={false}/>}
+                            {formik.values.type === "HOUSE" && <HouseAdditionalOptions formik={formik}/>}
+                            {formik.values.type === "OFFICE" &&
+                                <OfficeAdditionalOptions formik={formik} multiple={false} required={true}/>}
+                            {formik.values.type === "COMMERCIAL" &&
+                                <CommercialAdditionalOptions formik={formik} multiple={false} required={true}/>}
+                            {formik.values.type === "WAREHOUSE" &&
+                                <WarehouseAdditionalOptions formik={formik} multiple={false} required={true}/>}
+                            {formik.values.type === "LAND" && <LandAdditionalOptions formik={formik}/>}
+                            {formik.values.type === "PARKING" && <ParkingAdditionalOptions formik={formik}/>}
 
 
-                            <Fee formik={formik} />
+                            <Fee formik={formik}/>
 
                             <div className="navbar">
                                 <div className="app-container">

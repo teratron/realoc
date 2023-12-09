@@ -1,6 +1,6 @@
 import {Form} from "react-bootstrap";
 import {FormikProps} from "formik";
-import {CreateType} from "../../../utils/CreateType.ts";
+import {CreateType} from "../../../utils";
 import {Required} from "./Required.tsx";
 
 type Params = {
@@ -19,7 +19,6 @@ export function Floor({formik, label, required}: Params) {
             <Form.Control
                 type="text"
                 name="level"
-                placeholder="Selectați"
                 value={formik.values.level}
                 onChange={formik.handleChange}
             />

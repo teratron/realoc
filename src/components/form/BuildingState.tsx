@@ -1,38 +1,55 @@
 import {Form} from "react-bootstrap";
-import {CreateType, CustomLabel, FormikAware, MultipleOptions} from "../../utils";
-import {Furniture} from "./create/Furniture.tsx";
+import {CreateType, CustomLabel, FormikAware, MultipleOptions, RequiredOptions} from "../../utils";
+import {Furniture, Required} from "./create";
 
-type Params = FormikAware<CreateType> & CustomLabel & MultipleOptions & {
+type Params = FormikAware<CreateType> & CustomLabel & MultipleOptions & RequiredOptions & {
     reparationOptions: Record<string, string>
 }
 
-export function BuildingState({label, reparationOptions, multiple, formik}: Params) {
+export function BuildingState({label, reparationOptions, multiple, formik, required}: Params) {
 
-    const intersect = (array1: string[], array2: string|string[]): boolean => {
-        const intersection = array1.filter(value => array2.includes(value))
-        return intersection.length > 0
+    const intersect = (options: string[], value: undefined|string|string[]): boolean => {
+        if (!value) {
+            return false
+        }
+        if (Array.isArray(value)) {
+            return options.filter(value => value.includes(value)).length > 0
+        }
+
+        return options.includes(value)
+    }
+
+    const isChecked = (value: string): boolean => {
+        if (multiple && Array.isArray(formik.values.reparation)) {
+            return formik.values.reparation.includes(value)
+        } else {
+            return formik.values.reparation === value
+        }
     }
 
     return(
         <div className="app-card pb-1">
             <Form.Group>
-                <Form.Label>{label}</Form.Label>
+                <Form.Label>
+                    {label}
+                    {required && <Required dataName="reparation"/>}
+                </Form.Label>
                 {Object.entries(reparationOptions).map(([value, label], index) => (
                     <Form.Check
-                        key={`apartment-status-${index}`}
-                        id={`apartment-status-${index + 1}`}
+                        key={`reparation-${index}`}
+                        id={`reparation-${index + 1}`}
                         type={multiple ? 'checkbox' : 'radio'}
                         label={label}
                         value={value}
                         name="reparation"
                         className="form-cracker"
-                        checked={formik.values.reparation.includes(value)}
+                        checked={isChecked(value)}
                         onChange={formik.handleChange}
                     />
                 ))}
             </Form.Group>
 
-            {!intersect(['WHITE', 'GRAY'], formik.values.reparation) && <Furniture multiple={multiple} formik={formik}/>}
+            {!intersect(['UNFINISHED', 'WHITE', 'GRAY'], formik.values.reparation) && <Furniture multiple={multiple} formik={formik}/>}
         </div>
     )
 }

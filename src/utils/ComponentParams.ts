@@ -11,3 +11,7 @@ export type CustomLabel = {
 export type MultipleOptions = {
     multiple: boolean
 }
+
+export type RequiredOptions = {
+    required: boolean
+}

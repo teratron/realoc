@@ -3,6 +3,14 @@ import {CreateType, FormikAware, MultipleOptions} from "../../../utils";
 
 type Params = FormikAware<CreateType> & MultipleOptions
 export function Furniture({multiple, formik}: Params) {
+    const isChecked = (value: string): boolean => {
+        if (multiple && Array.isArray(formik.values.reparation)) {
+            return formik.values.reparation.includes(value)
+        } else {
+            return formik.values.reparation === value
+        }
+    }
+
     return (
         <Form.Group>
             <Form.Label>Mobilier</Form.Label>
@@ -19,7 +27,7 @@ export function Furniture({multiple, formik}: Params) {
                     value={value}
                     name="furniture"
                     className="form-cracker"
-                    checked={formik.values.furniture.includes(value)}
+                    checked={isChecked(value)}
                     onChange={formik.handleChange}
                 />
             ))}
