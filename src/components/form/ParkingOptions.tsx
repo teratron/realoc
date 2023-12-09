@@ -1,5 +1,5 @@
 import {Form} from "react-bootstrap";
-import {PriceRange, TotalArea} from "./fields";
+import {PriceRange, TotalAreaRange} from "./fields";
 
 type Params = {
     offertType: string
@@ -28,7 +28,7 @@ export function ParkingOptions({offertType}: Params) {
             </Form.Group>
 
             <PriceRange offertType={offertType}/>
-            <TotalArea label="Suprafață de parcare"/>
+            <TotalAreaRange label="Suprafață de parcare"/>
         </div>
     )
 }

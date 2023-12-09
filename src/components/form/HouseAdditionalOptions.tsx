@@ -1,4 +1,4 @@
-import {BuildingState, ConstructionDate, OtherOptions, TotalArea} from "./fields";
+import {BuildingState, ConstructionDate, OtherOptions, TotalAreaRange} from "./fields";
 import {Form, InputGroup} from "react-bootstrap";
 
 type Params = {
@@ -30,7 +30,7 @@ export function HouseAdditionalOptions({offertType}: Params) {
             <BuildingState label="Stare casă" reparationOptions={reparationOptions}/>
 
             <div className="app-card pb-1">
-                <TotalArea/>
+                <TotalAreaRange/>
 
                 <Form.Group>
                     <Form.Label htmlFor="area-from">Suprafață teren</Form.Label>

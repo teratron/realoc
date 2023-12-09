@@ -1,4 +1,4 @@
-import {PriceRange, PriceUnit, TotalArea} from "./fields";
+import {PriceRange, PriceUnit, TotalAreaRange} from "./fields";
 
 type Params = {
     offertType: string
@@ -9,7 +9,7 @@ export function OfficeOptions({offertType}: Params) {
         <div className="app-card">
             <PriceRange offertType={offertType}/>
             <PriceUnit />
-            <TotalArea />
+            <TotalAreaRange />
         </div>
     )
 }

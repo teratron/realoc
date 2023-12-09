@@ -1,5 +1,5 @@
 import {Form} from 'react-bootstrap'
-import {PriceRange, PriceUnit, TotalArea} from "./fields";
+import {PriceRange, PriceUnit, TotalAreaRange} from "./fields";
 import {ChangeEvent} from "react";
 
 type Params = {
@@ -56,7 +56,7 @@ export function ApartmentOptions({offertType, onAptTypeChange}: Params) {
 
             <PriceRange offertType={offertType} />
             <PriceUnit />
-            <TotalArea />
+            <TotalAreaRange />
         </div>
     )
 }

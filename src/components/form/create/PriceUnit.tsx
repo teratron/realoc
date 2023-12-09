@@ -1,6 +1,12 @@
 import {Form} from "react-bootstrap";
+import {FormikProps} from "formik";
+import {CreateType} from "../../../utils/CreateType.ts";
 
-export function PriceUnit() {
+type Params = {
+    formik: FormikProps<CreateType>
+}
+
+export function PriceUnit({formik}: Params) {
     return (
         <Form.Group>
             {Object.entries({
@@ -14,6 +20,8 @@ export function PriceUnit() {
                     label={label}
                     value={value}
                     name="price_type"
+                    checked={formik.values.price_type === value}
+                    onChange={formik.handleChange}
                     inline
                 />
             ))}

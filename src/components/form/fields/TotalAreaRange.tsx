@@ -3,7 +3,7 @@ import {Form, InputGroup} from "react-bootstrap";
 type Params = {
     label?: string
 }
-export function TotalArea({label}: Params) {
+export function TotalAreaRange({label}: Params) {
     const title = label ? label : 'Suprafață totală'
     return (
         <Form.Group>
